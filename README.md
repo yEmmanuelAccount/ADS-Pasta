@@ -2,7 +2,7 @@
 Arquivos importantes de cada matéria do curso de A.D.S.
 
 ### Organização
-📁 Pastas: [disciplina] - [professor] - [período]
+📁 Pastas: [período] - [disciplina]
 
 ### 📝 Como fazer Commits
 1. feat: adiciona uma funcionalidade
