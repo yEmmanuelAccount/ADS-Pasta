@@ -1,0 +1,418 @@
+video do classroom {
+    Preparando_Cenários - 2:15 {
+        DOCKER {
+            login {
+                nome: djr
+                senha: 654123
+            }
+
+            transformar em superUsuário {
+                nome: sudo su
+                senha: 654123
+            }
+
+            saber qual o endereço IP {
+                ifconfig
+                inet end.: [número]
+                106 = Docker_IP
+                Docker_IP: 106
+            }
+
+            inicializando a interface gráfica {
+                startx
+            }
+        }
+
+        DUT {
+            login {
+                nome: djr
+                senha: 654123
+            }
+
+            transformar em superUsuário {
+                nome: sudo su
+                senha: 654123
+            }
+
+            saber qual o endereço IP {
+                ifconfig eth0
+                inet end.: [número]
+                107 = DUT_IP
+                DUT_IP: 107
+            }
+        }
+
+        Anotar {
+            106 = Docker_IP
+            Docker_IP: 106
+
+            107 = DUT_IP
+            DUT_IP: 107
+        }
+
+        Docker {
+            criar mais 3 novas abas
+            1 - VM_DOCKER (sem o underline)
+            2 - Docker (container)
+            3 - VM_DUT (sem o underline)
+            4 - Lxc (container)
+        }
+
+        5:05
+        DUT {
+            ssh djr@DUT_IP
+            yes (se perguntar alguma coisa; chave pública)
+
+            ifconfig
+                se quiser realmente ver que o IP agora é da DUT (DUT_IP)
+        }
+
+        Lxc {
+            ssh djr@DUT_IP
+            senha: 654123
+
+            sudo_su
+            senha: 654123
+        }
+
+        Docker {
+            Docker start be; Docker attach be
+
+            lxc-start -n router1 -d; lxc-attach -n router1
+        }
+    }
+
+    Cenário_1 - 6:50 {
+        VM_DOCKER {
+            mkdir medicoes
+            cd medicoes
+            mkdir cen1, cen2
+            cd cen1
+
+            iperf -s -i 0.5 -f k > cen1.txt
+        }
+
+        VM_DUT {
+            iperf -c 106 -t 10 (segundos)
+
+            anota_Transfer
+        }
+
+        VM_DOCKER {
+            Ctrl_C
+                parar o iperf
+
+            cat cen1.txt
+                verificar se o arquivo não está vazio
+
+            cd ../cen2
+            iperf -s -i 0.5 -f k > cen2_LXCcliente.txt
+        }
+
+        Lxc {
+            iperf -c 106 -t 10
+                se der errado, o IP está errado
+
+            anota_Transfer
+        }
+
+        VM_DOCKER {
+            Ctrl_C
+            ls
+            cat cen2_LXCcliente
+        }
+    }
+
+    Cenário_2 - 10:10 {
+        VM_DUT {
+            mkdir medicoes
+                caso já tenha: rm -Rf medicoes
+            cd medicoes
+            mkdir cen2
+            cd cen2
+
+            iperf -s -i 0.5 -f k > cen2_DockerCliente.txt
+        }
+
+        Docker {
+            iperf -c 107 -t 10
+
+            anota_Transfer
+        }
+
+        VM_DUT {
+            Ctrl_C
+
+            ls
+            cat cen2_DockerCliente.txt
+        }
+    }
+
+    Cenário_3 - 16:25 {
+        Preparando_Cenários {
+            IPs_Containers {
+                Lxc {
+                    ifconfig
+
+                    inet end.: 10.0.3.121
+                    ContainerLxc_IP = 10.0.3.121
+                }
+
+                Docker {
+                    ifconfig
+
+                    inet end.: 172.17.0.2
+                    ContainerDocker_IP = 172.17.0.2
+                }
+            }
+
+            VM_DOCKER {
+                route add -net 10.0.3.0 net 255.255.255.0 gw 107
+            }
+
+            VM_DUT {
+                route add -net 172.17.0. netmask 255.255.0.0 gw 106
+            }
+
+            Docker - 18:40 {
+                mkdir medicoes
+                cd medicoes
+                mkdir cen3, cen4, cen5
+                cd cen3
+
+                iperf -s -i 0.5 -f k > cen3_DockerServidor.txt
+            }
+        }    
+
+        VM_DUT {
+            iperf -c ContainerDocker_IP -t 10
+        }
+
+        Docker {
+            ls
+            cat cen3_DockerServidor.txt
+        }
+
+        --
+
+        Lxc {
+            mkdir medicoes
+            cd medicoes
+            mkdir cen3, cen4, cen5
+            cd cen3
+
+            iperf -s -i 0.5 -f k > cen3_LXCServidor.txt
+        }
+
+        VM_DOCKER {
+            iperf -c ContainerLxc_IP -t 10
+
+            anota_Transfer
+        }
+
+        Lxc {
+            Ctrl_C
+            ls
+            cat cen3_LXCServidor
+        }
+    }
+
+    Cenário_4 - 21:55 {
+        Docker {
+            cd ../cen4
+
+            iperf -s -i 0.5 -f k > cen4_DockerServidorLXCCliente.txt
+
+            se aparecer "bind failed: Address already in use"
+                ps aux | grep iperf
+                pega o 4º número
+                kill -9 [4º número]
+            se não conseguir
+                Ctrl_D Docker start be; Docker attach be
+                cd medicoes/cen4 
+                iperf -s -i 0.5 -f k > cen4_DockerServidorLXCCliente
+                o ContainerDocker_IP vai ser o último número mais 1
+        }
+
+        Lxc {
+            iperf -c ContainerDocker_IP -t 10
+
+            anota_Transfer
+        }
+
+        Docker {
+            Ctrl_C
+        }
+
+        Lxc {
+            cd ../cen4
+
+            iperf -s -i 0.5 -f k > cen4_LXCServidorDockerCliente.txt
+        }
+
+        Docker {
+            iperf -c ContainerLxc_IP -t 10
+
+            anota_Transfer
+        }
+    }
+
+    Cenário_5 {
+        Terminal {
+            route add -net 172.17.0.0 netmask 255.255.0.0 gw Docker_IP
+            testar
+                ping ContainerDocker_IP
+
+            route add -net 10.0.3.0 netmask 255.255.255.0 gw DUT_IP
+            testar
+                ping ContainerLxc_IP
+        }
+
+        DOCKER {
+            Docker {
+                cd ../cen5
+
+                iperf -s -i 0.5 -f k > cen5_DockerServidorHOSTcliente.txt
+            }
+        }
+
+        Terminal {
+            iperf -c ContainerDocker_IP -t 10
+
+            se aparecer "bash: iperf: comando não encontrado"
+                apt install -y iperf
+                repete o iperf -c ContainerDocker_IP -t 10
+
+            anota_Transfer
+        }
+
+        DOCKER {
+            Docker {
+                Ctrl_C
+                ls
+                cat cen5_DockerServidorHOSTcliente.txt
+            }
+
+            Lxc {
+                Ctrl_C
+
+                cd ../cen5
+                iperf -s -i 0.5 -f k > cen5_LXCServidorHostCliente.txt
+            }
+        }
+
+        Terminal {
+            iperf -c ContainerLxc_IP -t 10
+
+            anota_Transfer
+        }
+    }
+
+    Pegando_Arquivos {
+        GerenciadorDeArquivos {
+            CTRL_L = Aba1 {
+                ssh://Docker_IP/home/djr
+
+                login
+                    djr
+                    654123
+
+                medicoes (copiar)
+            }
+
+            Ctrl_T = Aba2 {
+                Documentos -> PastaPessoal
+                Ctrl_V
+            }
+
+            Aba1 {
+                ssh://DUT_IP/home/jr
+                login
+                    djr
+                    654123
+                medicoes (copiar)
+            }
+            Aba2 {
+                Documentos -> PastaPessoal
+                colar
+                    aplicar_para_todos_os_arquivos
+                    mesclar
+            }
+        }
+
+        DOCKER {
+            Docker {
+                service ssh start
+            }
+        }
+
+        GerenciadorDeArquivos {
+            Aba1 {
+                ssh://ContainerDocker_IP
+                login
+                    root
+                    654123
+                medicoes (copiar)
+            }
+
+            Aba2 {
+                colar
+                    aplicar_para_todos_os_arquivos
+                    mesclar
+            }
+
+            Aba1 {
+                ssh://ContainerLxc_IP (linha: 345)
+                login
+                    root
+                    654123
+                medicoes (copiar)
+            }
+
+            Aba2 {
+                colar
+                    aplicar_para_todos_os_arquivos
+                    mesclar
+                
+                Compactar
+                    nome: EmmanuelFlorencio_Medicoes
+                    formato: tar.gz
+                
+                Mandar o arquivo compactado via email 
+            }
+        }
+    }
+
+    DesligandoMáquinas_e_Containers {
+        Ctrl_D
+        poweroff
+    }
+}
+
+Anotações {
+    Anotar {
+            VM_DOCKER = máquina virtual aberta DOCKER
+            106 = Docker_IP
+            Docker_IP: 106
+
+            VM_DUT = máquina virtual aberta DUT
+            107 = DUT_IP
+            DUT_IP: 107
+    }
+
+    IPs_Containers {
+        Lxc {
+            ifconfig
+
+            inet end.: 10.0.3.121
+            ContainerLxc_IP = 10.0.3.121
+        }
+
+        Docker {
+            ifconfig
+
+            inet end.: 172.17.0.2
+            ContainerDocker_IP = 172.17.0.2
+        }
+    }
+}
