@@ -1,0 +1,281 @@
+13/12/2024 - sexta_feira {
+    IPs {
+        Docker: 192.168.56.106 // Isa
+        DUT: 192.168.56.103 // Isa
+        HW: back address (Hardware)
+        lxcbr0: 10.0.3.1
+    }
+    
+    Cenário_1 {
+        de VM para VM
+    }
+    Cenário_2 {
+        do Contêiner Docker/LXC para a VM
+    }
+    Cenário_3 {
+        da VM para o Contêiner Docker/LXC
+    }
+    Cenário_4 {
+        do Contêiner Docker para o Contêiner LXC
+        do Contêiner LXC para o Contêiner Docker
+    }
+    Cenário_5 {
+        do HOST (seu computador) para o Contêiner LXC
+        do HOST (seu computador) para o Contêiner Docker
+    }
+
+    PráticaCenário_1 {
+        Docker {
+            logar
+            transformar em SuperUsuário (sudo su)
+            startx (interface gráfica)
+            iniciar -> acessórios -> LXTerminal
+            ifconfig (conseguir o IP)
+        }
+
+        DUT {
+            mesma coisa do Docker
+        }
+
+        Docker {
+            Ctrl_Shift_T (3x, para abrir 3 abas)
+            aba1 = VM DOCKER
+            aba2 = DOCKER
+            aba3 = VM DUT
+            aba4 = LXC
+        }
+
+        VM_DUT {
+            ssh djr@DUT_IP
+            transformar em SuperUsuário
+        }
+        LXC {
+            ssh djr@DUT_IP
+            transformar em SuperUsuário
+        }
+
+        VM_DOCKER {
+            mkdir emmanuel
+            cd emmanuel
+            mkdir cen1 cen2
+            cd cen1
+            iperf -s -i 1 -f k > cen1.txt (acionando o fuxiqueiro)
+        }
+        VM_DUT {
+            iperf -c Docker_IP
+        }
+        VM_DOCKER {
+            Ctrl_C (parar o processo)
+            cat cen1.txt (mostrar o arquivo)
+        }
+    }
+    PráticaCenário_2 {
+        // para ver (curiosidade)
+        VM_DOCKER {
+            cd ../cen2
+            iperf -s -i 1 -f k > cen2_LXCcliente.txt
+        }
+        LXC {
+            ifconfig -a (para ver o lxcbr0)
+        }
+        DOCKER {
+            ifconfig docker0 (equivalente a lxcbr0)
+        }
+
+        // questão em si 
+        LXC {
+            Ctrl L 
+            lxc-start -n router1 -d 
+            lxc-attach -n router1
+            iperf -c 192.168.56.106 -t 20 (IP da Docker)
+        }
+        VM_DUT {
+            Ctrl L 
+            mkdir emmanuel
+            cd emmanuel
+            mkdir cen2; cd cen2
+            iperf -s -i 0.5 -f k > cen2_DockerCliente.txt
+        }
+        DOCKER {
+            docker start be; docker attach be
+            iperf -c 192.168.56.103 -t 20
+        }
+
+        // acho que daqui pra frente seria a PráticaCenário_3
+        DOCKER {
+            mkdir emmanuel
+            cd emmanuel
+            mkdir cen3 cen4 cen5
+            cd cen3
+            iperf -s -i 1 -f k > cen3_DockerServidor.txt
+        }
+        VM_DUT {
+            // teste antes do experimento (sem rota)
+            ping 172.17.0.2 (= Network is unreachable)
+
+            // fazendo o experimento (criando rota)
+            route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.56.106
+            ping 172.17.0.2
+            Ctrl_C (parar)
+            iperf -c 172.17.0.2 -t 20
+        }
+        DOCKER {
+            Ctrl_C
+            cat cen3_DockerServidor.txt (conferir se realmente deu certo o experimento)
+        }
+        LXC {
+            mkdir emmanuel
+            cd emmanuel
+            mkdir cen3 cen4 cen5
+            cd cen3
+            iperf -s -i 1 -f k > cen3_LXCServidor.txt
+        }
+        VM_DOCKER {
+            // com erro
+            ping 10.0.3.121
+
+            // solucionando o erro
+            route add -net 10.0.3.0 netmask 255.255.255.0 w 192.168.56.103 [IP do DUT]
+            ping // dando certo
+            Ctrl_C // parar
+
+            iperf -c 10.0.3.121 -t 20
+        }
+    }
+    PráticaCenário_4 {
+        DOCKER {
+            cd ../cen4
+            iperf -s -i 1 -f k > cen4_DockerServidorLXCCliente.txt
+        }
+        LXC {
+            Ctrl_C
+            iperf -c 172.17.0.2 -t 20
+        }
+        DOCKER {
+            Ctrl_C
+            iperf -c 172.17.0.2 -t 20
+        }
+        LXC {
+            cd ../cen4
+            iperf -s -i 1 -f k > cen4_LXCServidorDockerCliente.txt
+        }
+        DOCKER {
+            iperf -c 10.0.3.121 -t 20
+            3.10 GBytes
+        }
+        LXC {
+            Ctrl_C
+            iperf -s -u -i 1 -f k > cen4_UDP_LXCServidorDockerCliente.txt
+        }
+        DOCKER {
+            iperf -c 10.0.3.121 -b2G -t 20 ou iperf -c 10.0.3.121 -u -b2G -t 20
+        }
+        LXC {
+            Ctrl_C
+            tac cen4_UDP_LXCServidorDockerCliente.txt
+        }
+
+        // testando
+        DOCKER {
+            iperf -s -u -i 1 -f k > cen4_UDP_DockerServidorLXCcliente.txt
+        }
+        LXC {
+            iperf -u -c 172.17.0.2 -t 20
+        }
+    }
+
+    PráticaCenário_5 {
+        DOCKER {
+            Ctrl_C
+            cd ../cen5
+            iperf -s -i 1 -f k > cen5_DockerServidorHOSTcliente.txt
+        }
+        TERMINAL_do_PC {
+            sudo su
+            senha: laboratorio
+
+            // teste 
+            ping 172.17.0.2
+            Ctrl_C
+
+            ping 10.0.3.121
+            Ctrl_C
+
+            // criando a rota
+            ifconfig vboxnet0
+            IP da VBox: 192.168.56.1
+
+            route add -net 172.17.0.0 netmask 255.255.255.0 gw 192.168.56.106 (DOCKER); route add -net 10.0.3.0 netmask 255.255.255.0 gw 192.168.56.103 (DUT)
+            iperf
+            apt install iperf
+            iperf -c 172.17.0.2 -t 20
+        }
+        DOCKER {
+            Ctrl_C
+        }
+        LXC {
+            cd ../cen5
+            iperf -s -i 1 -f k > cen5_LXCServidorHOSTcliente.txt
+        }
+        TERMINAL_do_PC {
+            iperf -c 10.0.3.121 -t 20
+        }
+        LXC {
+            Ctrl_C
+        }
+        DOCKER {
+            service ssh start
+        }
+    }
+
+    Instalar_para_Enviar {
+        gerenciador de arquivos
+        outros locais ou CTRL_L
+        ssh://192.168.56.106 (primeiro da DOCKER)
+            usuário: djr
+            senha: 654123
+        caminhos de pastas
+             HOME
+             djr
+             emmanuel (copia)
+        na primeira aba (cola)
+            sobrescreve os arquivos
+
+        CTRL_L
+        ssh://192.168.56.103 (DUT)
+            usuário: djr
+            senha: 654123
+        caminhos de pastas
+             HOME
+             djr
+             emmanuel (copia)
+        na primeira aba (cola)
+            sobrescreve os arquivos
+
+        CTRL_L
+        ssh://172.17.0.2
+            usuário: root
+            senha: 654123
+        aminhos de pastas
+             HOME
+             djr
+             emmanuel (copia)
+        na primeira aba (cola)
+            sobrescreve os arquivos
+
+        CTRL_L
+        ssh://10.0.3.121
+            usuário: root
+            senha: 654123
+        aminhos de pastas
+             HOME
+             djr
+             emmanuel (copia)
+        na primeira aba (cola)
+            sobrescreve os arquivos
+
+        Comprimir
+        tar.gz
+    }
+
+}
