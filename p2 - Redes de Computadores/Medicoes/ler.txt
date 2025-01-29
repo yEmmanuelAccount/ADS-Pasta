@@ -1,0 +1,233 @@
+23/01/2025 - quinta_feira {
+    Cenário_1 {    
+        ao contrário = DUT --> Docker
+        das outras vezes fizemos do Docker para a DUT
+
+        Docker {
+            ifconfig
+                Docker_IP = 
+                192.168.56.105 = 
+        }
+
+        Criar novas abas {
+            Ctrl_Shift_T 4x {
+                1 - VM_DUT
+                2 - LXC
+                3 - VM_DOCKER
+                4 - DOCKER
+            }
+        }
+
+        VM_DOCKER e DOCKER{
+            ssh djr@[Docker_IP]
+            sudo_su
+        }
+
+        VM_DUT{
+            mkdir revisaoprova 
+            cd revisaoprova
+            mkdir cen1 cen2
+            cd cen1
+
+            iperf -s -i 0.5 -f k > cen1.txt
+        }
+
+        VM_DOCKER {
+            iperf -c [192.168.56.105] -t 10
+        }
+
+        VM_DUT e VM_DOCKER {
+            Ctrl_C
+        }
+    }
+
+    Cenário_2 {
+        VM_DUT{
+            cd ../cen2
+            iperf -s -i 0.5 -f k > cen2_LXCcliente.txt
+            (isso deveria ser na Docker --> vai ter que trocar o nome do arquivo depois)
+        }
+
+        Docker {
+            docker start be; docker attach be
+            iperf -c 192.168.56.105 -t 10
+            pega a transferência
+        }
+
+        VM_DUT {
+            Ctrl_C
+            ls
+            mv cen2_LXCcliente cen2_DockerCliente.txt
+            (corrigindo o erro do nome do arquivo)
+        }
+
+        VM_DOCKER {
+            mkdir revisaoprova
+            cd revisaoprova
+            mkdir cen2
+            cd cen2
+        }
+
+        LXC {
+            lxc-start -n router1 -d
+            lxc-attach -n router1
+        }
+
+        VM_DOCKER {
+            iperf -s -i 0.5 -f k > cen2_LXCcliente.txt
+        }
+
+        LXC {
+            iperf -c Docker_IP -t 10 
+        }
+    }
+
+    Cenário_3 {
+        LXC {
+            mkdir revisao prova
+            cd revisaoprova
+
+            mkdir cen3 cen4
+            cd cen3
+
+            iperf -s -i 0.5 -f k > cen3_LXCServidor.txt
+        }
+
+        VM_DOCKER {
+            route add -net 10.0.3.0 netmask 255.255.255.0 gw [192.168.56.105]
+            iperf -c 10.0.3.121 -t 10
+        }
+
+        LXC {
+            Ctrl_C
+        }
+
+        Docker {
+            mkdir revisaoprova
+            cd revisaoprova
+            mkdir cen3 cen4
+            cd cen3
+
+            iperf -s -i 0.5 -f k > cen3_DockerServidor.txt 
+        }
+
+        VM_DUT {
+            route add -net 172.17.0.0 netmask 255.255.0.0 gw [Docker_IP]
+
+            iperf -c 172.17.0.2 -t 10
+        }
+    }
+
+    Cenário_4 {
+        LXC {
+            cd ../cen4
+            iperf -s -i 0.5 -f k > cen4_LXCServidorDockerCliente.txt
+        }
+
+        Docker {
+            Ctrl_C
+
+            iperf -c 10.0.3.121 [LXC_IP] -t 10
+        }
+
+        LXC {
+            Ctrl_C
+
+            cat cen4_DockerServidorLXCCliente.txt
+        }
+
+        Docker {
+            cd ../cen4
+            iperf -s -i 0.5 -f k > cen4_DockerServidorLXCCliente.txt
+        }
+    }
+
+    Cenário_5 {
+        LXC {
+            cd ../
+            mkdir cen5
+            cd cen5
+
+            iperf -s -i 0.5 -f k > cen5_LXCServidorHostCliente.txt
+        }
+
+        PC {
+            sudo_su
+
+            apt install iperf -y (instalar)
+
+            route add -net 10.0.3.0 netmask 255.255.255.0 gw [192.168.56.105]
+            route add -net 172.17.0.0 netmask 255.255.0.0 gw [Docker_IP]
+
+            iperf -c 10.0.3.121 -t 10
+
+            (baixar bitvisercliente, para pegar os arquivos das máquinas)
+        }
+
+        LXC {
+            Ctrl_C
+        }
+
+        Docker {
+            Ctrl_C
+
+            cd ../
+            mkdir cen5
+            cd cen5
+
+            iperf -s -i 0.5 -f k > cen5_DockerServidorHOSTcliente.txt
+
+            Ctrl_C
+
+            service ssh start
+        }
+
+        Pc {
+            Gerenciador de Arquivos {
+                Ctrl_T
+                CTRL_L
+                    ssh://[Docker_IP]
+                    djr
+                    654123
+
+                    home -> djr -> revisaoprova
+                    copia e cola na outra aba do Gerenciador de Tarefas
+                
+                CTRL_L
+                    ssh://[192.168.56.105]
+                    djr
+                    654123
+
+                    home -> djr -> revisaoprova
+                    copia e cola na outra aba (mesclar)
+                
+                CTRL_L
+                    ssh://[VM_192.168.56.106]
+                    root
+                    654123
+
+                    revisaoprova 
+                    copiar e colar na primeira aba (todos os arquivos e mesclar)
+
+                CTRL_L
+                    ssh://[VM_192.168.56.105]
+                    root
+                    654123
+
+                    revisaoprova
+                    copiar e colar na primeira aba (todos os aquivos e mesclar)
+                
+                Compactar
+                    provaDaladier
+                    tagz
+                    criar
+                    mandar por email
+            }
+        }
+    }
+
+    Fechar {
+        Ctrl_D
+        poweroff
+    }
+}
