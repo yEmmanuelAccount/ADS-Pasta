@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardápio</title>
+    <link type="text/css" rel="stylesheet" href="./styles.css">
+</head>
+<body>
+    <h1>Adicionar Item ao Cardápio</h1>
+    <form id="formAdicionarItem">
+        <label for="nome">Nome do Item:</label>
+        <input type="text" id="nome" required><br><br>
+
+        <label for="preco">Preço:</label>
+        <input type="text" id="preco" required><br><br>
+
+        <label for="descricao">Descrição:</label>
+        <textarea id="descricao" required></textarea><br><br>
+
+        <label for="urlImagem">URL da Imagem:</label>
+        <input type="url" id="urlImagem" required><br><br>
+
+        <button type="submit">Adicionar Item</button>
+    </form>
+
+    <h2>Itens Adicionados</h2>
+    <div id="itensCardapio"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
