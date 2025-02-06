@@ -1,0 +1,156 @@
+OpenDayLight {
+    login
+        nome: mininet
+        senha: mininet
+    
+    sudo su
+
+    ifconfig
+        para conseguir o IP
+
+    dhclient enp0s8
+    cd ODL
+    cd karaf-0.7.3
+    cd bin/
+    ./karaf
+}
+
+OpenDayLightIP = 192.168.56.102
+
+MininetVM {
+    login
+        nome: djr
+        senha: 654123
+
+    sudo su
+        senha: 654123
+
+    startx
+    abrir o LXTerminal
+
+    LXTerminal {
+        mn --topo linear,10
+        nodes 
+        pingall
+
+        exit
+
+        mn --topo single,10 --controler remote,ip=OpenDayLightIP
+            caso erro {
+                dhclient eth0
+            }
+        nodes
+        pingall
+    }
+}
+
+Navegador {
+    digitar: OpenDayLightIP:8181/index.html
+
+    login:
+        nome: admin
+        senha: admin
+
+    clicar em: topology
+}
+
+MininetVM {
+    LXTerminal {
+        exit
+        mn --topo tree,depth=2,fanout=3 --controler remote,ip=OpenDayLightIP
+
+        pingall
+
+        CtrlL
+        xterm h1 h3
+            para abrir em terminais
+    }
+
+    h1 {
+        ifconfig
+
+        h1IP = 10.0.0.1
+    }
+    
+    h3 {
+        ifconfig
+
+        h1IP = 10.0.0.3
+
+        iperf -s -i 1 -f k > h3.txt
+    }
+
+    h1 {
+        iperf -c h1IP -t 10
+    }
+
+    olhar a topologia no site da OpenDayLight
+
+    CtrlC
+    fechar h1 e h3
+    exit
+}
+
+OpenDayLight {
+    logout
+    poweroff
+}
+
+SeedVM {
+    tirar a Rede2 nas Configurações
+
+    login
+        senha: dees
+
+    Terminal {
+        sudo su
+        ifconfig enp0s9
+        SeedIP = 192.168.56.103
+
+        docker ps -a
+        docker start 346
+
+        ContainerDockerIP = 172.17.0.2
+
+        ping 172.17.0.2
+
+        iptables -L 
+            docker islolation station (apenas vendo que ele está isolado)
+        
+        iptables --policy FORWARD ACCEPT
+    }
+}
+
+MininetVM {
+    route add -net 172.17.0.0 netmask 255.255.0.0 gw SeedIP 
+
+    se der erro {
+        dispositivos -> rede -> Configurações de rede -> conectado a (trocar NAT por HOST only)
+        dhclient eth0 -d
+        tenta o route de novo
+
+        nesse caso, o IP da MininetVM é +1
+    }
+
+    mn --topo single,10 --controler remote,ip=SeedIP
+}
+
+SeedIP {
+    docker stop 346
+    docker run -t -d -p 8181:8181 -p 8101:8101 -p 6653:6653 -p 6633:6633 -p 5005:5005 -p 830:830 --name onos1 --hostname onos1 -e ONOS_APPS="drivers,openflow,lldpprovider,proxyarp,fwd,gui2" onosproject/onos
+    
+    pega o código do start, ex: f49
+
+    docker start f49
+    ping 172.17.0.2 (para verificar se há conexão)
+}
+
+MininetVM {
+    mn --topo tree, depth=2,fanout=3 --controler remote,ip=ContainerDockerIP
+
+    pingall
+
+    https://172.17.0.2:8181/onos/ui
+}
+
+desligar as coisas
