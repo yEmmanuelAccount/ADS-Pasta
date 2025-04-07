@@ -1,0 +1,82 @@
+12/12/2024 - quinta_feira {
+    Lidar com todas as camadas do TCP/IP
+
+    Nomenclatura {
+        do = servidor
+        para = cliente
+    }
+    
+    Cenário_1 {
+        de VM para VM
+
+        vincula o Docker com a DUT
+        coloca a Docker no modo fuxiqueiro
+        armazena a medição de dados na pasta cen1
+    }
+    Cenário_2 {
+        do Contêiner Docker/LXC para a VM
+
+        Docker:
+            iperf -s -i 0.5 -f k > cen2_LXCcliente.txt
+        LXC:
+            sudo su
+            mesma_senha
+            lxc-start -n router1 -d
+            lxc-attach -n router1
+            iperf -c 192.168.56.106 -t 10
+        Docker:
+            cat cen2_LXCcliente.txt // mostra o resultado do fuxico
+        VM DUT
+            mkdir measurements
+            cd measurements
+            mkdir cen2
+            cd cen2
+            iperf -s -i 0.5 -f k > cen2_dockercliente.txt
+        start no Contêiner Docker {
+            docker start be; docker attach be
+            iperf -c 192.168.56.105 -t 10
+        }
+        VM DUT {
+            Ctrl + c
+            ls
+            cat cen2_dockercliente.txt
+        }
+    }
+    Cenário_3 {
+        da VM para o Contêiner Docker/LXC
+
+        // 1ª parte
+        Docker {
+            mkdir measurements
+            cd measurements
+            mkdir cen3 cen4 cen5 
+            cd cen3
+            iperf -s -i 0.5 -f k > cen3_dockerservidor.txt
+        }
+        VM DUT {
+            route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.56.106
+            iperf -c 172.17.0.2 -t 10
+        }
+
+        // 2ª parte
+        LXC {
+            mkdir measurements
+            cd measurements
+            mkdir cen3 cen4 cen5
+            cd cen3
+            iperf -s -i 0.5 -f k > cen3_lxcservidor.txt
+        }
+        VM Docker {
+            route add -net 10.0.3.0 netmask 255.255.255.0 gw 192.168.56.105
+            iperf -c 
+        }
+    }
+    Cenário_4 {
+        do Contêiner Docker para o Contêiner LXC
+        do Contêiner LXC para o Contêiner Docker
+    }
+    Cenário_5 {
+        do HOST (seu computador) para o Contêiner LXC
+        do HOST (seu computador) para o Contêiner Docker
+    }
+}
