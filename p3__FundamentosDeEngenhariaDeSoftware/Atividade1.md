@@ -84,18 +84,18 @@ Boa sorte =)
 # Elementos do Trabalho
 
 ## Cargos da Empresa
-| Cargo | Pessoa |
-| ----- | ------ |
-| Diretor | Emanuel |
-| Roteirista |  |
-| Artista de Storyboard |  |
-| Artista 3D |  |
-| Artista 2D | Maria Clara |
-| Game Designer |  |
-| Compositor Sonoro |  |
-| Artista da Foley |  |
-| Multimídia |  |
-| Marketing |  |
-| Jurídico |  |
-| Programador | Emanuel |
-| Recursos Humanos | José Wilson |
+| Cargo | Pessoa | Descrição |
+| ----- | ------ | --------- |
+| Diretor | Emanuel | Mente por trás da visão. Responsável por manter os outros membros das equipes pela qualidade da produção e fidelidade à visão do jogo. Tem que ser rígido e não ceder a atalhos de produção. |
+| Roteirista |  | Responsável por transformar a ideia do diretor em um documento formatado **preenchendo as lacunas** da história, ou seja, garantindo que a história faça sentido. Detalhe: visto que a nossa história se passa em um mundo não fantástico, é necessário ter em vista comportamentos humanos em relação a situações, para garantir o bom mantimento do clima do jogo. É importante também, visto os prazos, que o roteirista saiba trabalhar não linearmente, ou seja, ser capaz de desenvolver a tramá através de camadas, permitindo que o resto da equipe trabalhe em detalhes macro (escopo de cenário, mecânicas de diferentes partes da gameplay, etc) enquanto o roteirista trabalha em micro detalhes (diálogos, curtas sequências emocionais, etc). |
+| Artista de Storyboard |  | Responsável por montar, partindo da visão do diretor e escrita do roteirista, guias visuais para o resto do time, permitindo que o artista 2D e 3D, programador, etc, possam ter uma base de referência de uma progressão lógica da história, como um _norte_/uma _cola_ que garante que todos estão na mesma lógica sobre cenas e progressões do jogo. **Nota**: não é necessário ser bom no desenho para esse cargo. |
+| Artista 3D |  | Responsável por modelar com boa e de forma otimizada a topografia, props e ambientes do jogo. | 
+| Artista 2D | Maria Clara | Responsável por desenhos e modelagem 2D para serem usados diretamente diretamente no jogo ou indiretamente como textura de objetos 3D. Nota: não é recomendado o download de imagens da internet, mas garantindo os devidos direitos se necessário. |
+| Game Designer |  | Responsável por juntar os modelos 3D, sprites 2D e scripts en cenas jogáveis, ou seja, seu trabalho irá ser juntar o trabalho de todos em um ambiente divertido, mas que mantenha a narrativa e o clima do jogo (isso inclui trabalhar com roteirista e diretor para a elaboração dos puzzles). **Requisitos**: ter um computador (PC) que consiga suportar o projeto no editor da Unity. **Nota**: não é necessário ter um conhecimento em programação, porém é necessário ter experiência e conhecimento técnico em relação ao editor da Unity, saber o que é Prefab e como funcionam, assim como organização para lembrar de fazer atualizações constante sobre o projeto (_pull_ e _commit_). |
+| Compositor Sonoro |  | Responsável por compor as trilhas sonoras do jogo, sempre levando em conta o clima da cena e qual emoção deve ser passada. |
+| Artista da Foley |  | Responsável por gravar ou obter, **com as devidas licenças e direitos**, áudios de SFX para o jogo, como, por exemplo, sons de passos em diferentes tipos de pisos. **Notas**: **(1)** sempre ter certeza da licença e/ou direitos dos áudios; **(2)** Expressamente proibido baixar arquivos do YouTube; **(3)** Sempre lembrar das atribuições dos autores dos áudios. |
+| Multimídia |  | Responsável por produzir qualquer material de mídia para uso externo do jogo. **Nota**: se ater as licenças dos conteúdos externos utilizados. |
+| Marketing |  | Responsável gerenciar as redes sociais da empresa, assim como lidar com emails publicitários. Exemplo: envio de chaves antecipadas para criadores de conteúdo. **Requisitos**: alto grau de cuidado e zelo com as campanhas; conhecimento técnico em relação com influenciadores. |
+| Jurídico |  | Responsável pelas papeladas da empresa, comunicação com a sigfapesq sobre assuntos relacionados ao edital. |
+| Programador | Emanuel | Responsável por desenvolver scripts nas linguagens de C# para mecânicas do jogo. |
+| Recursos Humanos | José Wilson | Responsável por gerenciar a organização interna do time. Ajudar a manter um ambiente de trabalho saudável e produtivo. Realizar controle de presença, produtividade e entrega dos membros da equipe. Servir como ponto de escuta ativa para questões internas, conflitos, sugestões para melhorias, etc. |
