@@ -20,7 +20,7 @@ int main () {
     scanf("%d%d", &num3, &peso3);
 
     // calculando
-    media = (float)(num1 * peso1)+(num2 * peso2)+(num3 * peso3) / (peso1 + peso2 + peso3);
+    media = (float)((num1 * peso1)+(num2 * peso2)+(num3 * peso3)) / (peso1 + peso2 + peso3);
 
     // informando resultado
     printf("A media dos dados informados eh %.2f", media);

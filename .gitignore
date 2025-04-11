@@ -1,14 +1,2 @@
-* Ignore arquivos gerados pelo compilador
-* .exe
-
-* Ignore arquivos de configuração
-* .config
-
-* Ignore essas pastas
-* output/
-* .vscode/
-
-* Ignore arquivos específicos
-* .vscode\tasks.json
-.vscode/tasks.json
+*.exe
 *.exe
