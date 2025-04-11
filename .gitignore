@@ -11,3 +11,4 @@
 * Ignore arquivos específicos
 * .vscode\tasks.json
 .vscode/tasks.json
+*.exe
