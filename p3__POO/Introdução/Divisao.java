@@ -13,5 +13,8 @@ public class Divisao{
         double resultado = numero1 / numero2;
 
         System.out.printf("O resultado da divisão é: %.2f \n", resultado);
+
+        // fechando scanner
+        scanner.close();
     }
 }

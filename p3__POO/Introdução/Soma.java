@@ -11,5 +11,8 @@ public class Soma{
         int numero2 = scanner.nextInt();
 
         System.out.println("A soma é: "+(numero1 + numero2));
+
+        // fechando scanner
+        scanner.close();
     }
 }
