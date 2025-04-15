@@ -22,4 +22,4 @@
     * Esse é o arquivo da [questão 6](Questao06.java).
 
 7) Crie um algoritmo que receba um número de até três dígitos e informe a soma dos dígitos. Exemplo: 123 resultado: 6 (1+2+3)
-
+    * Esse é o arquivo da [questão 7](Questao07.java).
