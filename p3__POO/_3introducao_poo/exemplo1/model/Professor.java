@@ -1,4 +1,4 @@
-package model;
+package p3__poo._3introducao_poo.exemplo1.model;
 
 public class Professor {
     // atributos

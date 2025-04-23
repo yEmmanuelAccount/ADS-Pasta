@@ -1,7 +1,9 @@
-package view;// importando dependências
-import model.Aluno;
+// criando package
+package p3__poo._3introducao_poo.exemplo1.view;
 
-import java.time.LocalDate;
+// importando dependências
+import java.time.LocalDate; // biclioteca
+import p3__poo._3introducao_poo.exemplo1.model.*; // classes
 
 public class Main {
     public static void main(String[] args) {
@@ -25,5 +27,7 @@ public class Main {
         jose.setNome("José Antônio");
         System.out.println(jose.getNome());
 
+        // criando professor
+        Professor Walter = new Professor("Walter", "123-123-123-12", "Manhã", "83 9 1234-1234", 5000);
     }
 }

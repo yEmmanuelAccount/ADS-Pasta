@@ -1,0 +1,1 @@
+Criar uma classe "Endereço" e usá-la para compor a classe "Escola", comporta pelos atributos "CNPJ", "Nome" e "Endereço"
