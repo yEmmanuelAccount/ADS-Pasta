@@ -1,8 +1,7 @@
 // criando package
-package p3__poo._3introducao_poo.exemplo2.view;
+package p3__poo._3introducao_Objeto_e_Classe.exemplo2.view;
 
-// importando dependências
-import p3__poo._3introducao_poo.exemplo2.model.*;
+import p3__poo._3introducao_Objeto_e_Classe.exemplo2.model.*;
 
 public class Main {
     public static void main(String[] args) {

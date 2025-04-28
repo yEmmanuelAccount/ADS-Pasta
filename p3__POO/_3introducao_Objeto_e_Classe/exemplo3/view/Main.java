@@ -1,6 +1,6 @@
-package p3__poo._3introducao_poo.exemplo3.view;
+package p3__poo._3introducao_Objeto_e_Classe.exemplo3.view;
 
-import p3__poo._3introducao_poo.exemplo3.model.*;
+import p3__poo._3introducao_Objeto_e_Classe.exemplo3.model.*;
 
 public class Main {
     public static void main(String[] args) {

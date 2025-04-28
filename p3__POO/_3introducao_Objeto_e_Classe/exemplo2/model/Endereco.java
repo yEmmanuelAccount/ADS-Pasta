@@ -1,4 +1,4 @@
-package p3__poo._3introducao_poo.exemplo2.model;
+package p3__poo._3introducao_Objeto_e_Classe.exemplo2.model;
 
 public class Endereco {
     // definição de atributos

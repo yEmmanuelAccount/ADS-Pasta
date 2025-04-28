@@ -1,9 +1,10 @@
 // criando package
-package p3__poo._3introducao_poo.exemplo1.view;
+package p3__poo._3introducao_Objeto_e_Classe.exemplo1.view;
 
 // importando dependências
 import java.time.LocalDate; // biclioteca
-import p3__poo._3introducao_poo.exemplo1.model.*; // classes
+
+import p3__poo._3introducao_Objeto_e_Classe.exemplo1.model.*;
 
 public class Main {
     public static void main(String[] args) {

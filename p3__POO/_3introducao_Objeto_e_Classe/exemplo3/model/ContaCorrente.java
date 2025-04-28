@@ -1,4 +1,4 @@
-package p3__poo._3introducao_poo.exemplo3.model;
+package p3__poo._3introducao_Objeto_e_Classe.exemplo3.model;
 
 public class ContaCorrente {
     // criação de atributos
