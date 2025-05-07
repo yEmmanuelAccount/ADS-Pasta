@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/ADS-Pasta.iml" filepath="$PROJECT_DIR$/ADS-Pasta.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p3__POO/_5_heranca_e_classe_abstrata/_5_heranca_e_classe_abstrata.iml" filepath="$PROJECT_DIR$/p3__POO/_5_heranca_e_classe_abstrata/_5_heranca_e_classe_abstrata.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p3__POO/_4_array/exemplo3/exemplo3.iml" filepath="$PROJECT_DIR$/p3__POO/_4_array/exemplo3/exemplo3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p3__POO/_4_array/explicacao/explicacao.iml" filepath="$PROJECT_DIR$/p3__POO/_4_array/explicacao/explicacao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/p3__POO/p3__POO.iml" filepath="$PROJECT_DIR$/p3__POO/p3__POO.iml" />
+    </modules>
+  </component>
+</project>

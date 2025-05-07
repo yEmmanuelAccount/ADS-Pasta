@@ -1,20 +1,19 @@
-package p3__poo._5_heranca_e_classe_abstrata.model;
-import java.util.LocalDate;
+package model;
 
-public class Pessoa {
-    // atributos
+import java.time.LocalDate;
+
+public abstract class Pessoa {
+
     private String cpf;
     private String nome;
-    private LocalDate dataNascimento;
+    private LocalDate nascimento;
 
-    // constructor
-    public Pessoa(String cpf, String nome, LocalDate dataNascimento) {
+    public Pessoa(String cpf, String nome, LocalDate nascimento) {
         this.cpf = cpf;
         this.nome = nome;
-        this.dataNascimento = dataNascimento;
+        this.nascimento = nascimento;
     }
 
-    // getters e setters
     public String getCpf() {
         return cpf;
     }

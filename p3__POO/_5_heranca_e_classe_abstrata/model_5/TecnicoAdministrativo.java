@@ -22,8 +22,8 @@ public class TecnicoAdministrativo extends Funcionario {
     @Override
     public float getSalario(){
         if(setor.contains("Laboratório"))
-            return super.getSalario() + 1000;
-        return super.getSalario();
+            return salario + 1000;
+        return salario;
     }
 
 }
