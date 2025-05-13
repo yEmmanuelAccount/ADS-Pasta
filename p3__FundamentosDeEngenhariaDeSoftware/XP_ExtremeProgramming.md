@@ -35,9 +35,18 @@
 - Planejamento
   - peso a cada história
   - custo de implementação
+  - realização de um jogo quando há adição de novas US
 - Aceitação
   - definição de critérios
-  - descarte dependendo de mudanças nos requisitos
+  - descarte ou modificação dependendo de mudanças nos requisitos
 - Decisão
   - a equipe define quais US farão parte da próxima versão.
+- Questões difíceis
+  - quando as questões não são facilmente respondidas, é necessário realizar prototipagem.
+  - é chamado _skipe_ quando um incremento em que não há programação
 
+## Cartões CRC (Classe-Responsabilidade-Colaboração)
+
+- Identificam e organizam as classes
+- São os únicos artefatos produzidos
+- Caso seja referente a um problema difícil, recomenda-se fazer um protótipo
