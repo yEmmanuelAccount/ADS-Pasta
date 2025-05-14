@@ -1,4 +1,4 @@
-package p3__POO.atividade2_Heranca.src.model;
+package model;
 
 public class ContaPoupanca extends Conta {
     private double taxaJuros;

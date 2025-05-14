@@ -1,4 +1,4 @@
-package p3__POO.atividade2_Heranca.src.view;
+package view;
 
 import model.*;
 

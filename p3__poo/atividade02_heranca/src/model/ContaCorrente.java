@@ -1,4 +1,4 @@
-package p3__POO.atividade2_Heranca.src.model;
+package model;
 
 public class ContaCorrente extends Conta {
     private double chequeEspecial;
