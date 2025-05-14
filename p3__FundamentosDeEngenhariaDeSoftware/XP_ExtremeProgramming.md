@@ -43,7 +43,7 @@
   - a equipe define quais US farão parte da próxima versão.
 - Questões difíceis
   - quando as questões não são facilmente respondidas, é necessário realizar prototipagem.
-  - é chamado _skipe_ quando um incremento em que não há programação
+  - é chamado _spike_ quando um incremento em que não há programação
 
 ## Cartões CRC (Classe-Responsabilidade-Colaboração)
 

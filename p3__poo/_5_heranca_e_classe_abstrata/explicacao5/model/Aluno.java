@@ -1,6 +1,6 @@
-package model_5;
+package explicacao5.model;
 import java.time.LocalDate;
-import p3__poo._5_heranca_e_classe_abstrata.model_5;
+import p3__poo._5_heranca_e_classe_abstrata.explicacao5.model_5;
 
 public class Aluno extends Pessoa {
     // atributos
