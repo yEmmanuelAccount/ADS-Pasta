@@ -7,7 +7,7 @@ Período: 2025.1
 Professor: Janderson Ferreira Dutra
 
 Equipe:
-1. Emanuel Franklyn                                                                          
+1. Emanuel Franklyn
 2. Emmanuel Florêncio
 3. José Wilson
 4. Maria Clara
