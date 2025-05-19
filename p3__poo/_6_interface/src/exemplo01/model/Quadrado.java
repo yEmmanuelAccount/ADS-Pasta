@@ -1,4 +1,4 @@
-package model;
+package exemplo01.model;
 import java.io.Serializable; // apenas mostra se um objeto é serializado. basta apenas importar
 
 public class Quadrado implements AreaCalculavel, ComprimentoCalculavel, Serializable {

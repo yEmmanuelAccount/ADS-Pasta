@@ -1,6 +1,6 @@
-package view;
+package exemplo01.view;
 
-import model.*;
+import exemplo01.model.*;
 
 import java.time.LocalDate;
 

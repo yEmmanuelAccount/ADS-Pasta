@@ -1,2 +1,2 @@
-package view;public class Main {
+package exemplo01.view;public class Main {
 }

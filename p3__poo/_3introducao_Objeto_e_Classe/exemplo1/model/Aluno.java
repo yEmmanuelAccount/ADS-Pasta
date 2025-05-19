@@ -12,16 +12,16 @@ public class Aluno {
     private LocalDate nascimento;
 
     // CONSTRUTORES
-        // construtor model.Aluno - VAZIO
+        // construtor exemplo01.model.Aluno - VAZIO
         public Aluno(){}
 
-        // construtor model.Aluno - PARCIAL
+        // construtor exemplo01.model.Aluno - PARCIAL
         public Aluno(String nome, int matricula) {
             this.nome = nome;
             this.matricula = matricula;
         }
 
-        // construtor model.Aluno - COMPLETO
+        // construtor exemplo01.model.Aluno - COMPLETO
         public Aluno(String nome, int matricula, String cpf, String endereco, String telefone, LocalDate nascimento) {
             this.nome = nome;
             this.matricula = matricula;

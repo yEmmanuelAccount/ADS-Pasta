@@ -1,4 +1,4 @@
-package model;
+package exemplo01.model;
 
 public interface AreaCalculavel {
     double calcularArea();

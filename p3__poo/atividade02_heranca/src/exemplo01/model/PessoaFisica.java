@@ -2,17 +2,19 @@ package exemplo01.model;
 
 import java.time.LocalDate;
 
-public abstract class Pessoa {
-
+public class PessoaFisica extends Cliente {
     private String cpf;
     private String nome;
     private LocalDate nascimento;
 
-    public Pessoa(String cpf, String nome, LocalDate nascimento) {
+    public PessoaFisica(String cpf, String nome, LocalDate nascimento, LocalDate dataCadastro) {
+        super(dataCadastro);
         this.cpf = cpf;
         this.nome = nome;
         this.nascimento = nascimento;
     }
+
+    // getters e setters
 
     public String getCpf() {
         return cpf;

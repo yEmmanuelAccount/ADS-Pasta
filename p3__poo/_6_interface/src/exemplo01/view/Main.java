@@ -1,7 +1,8 @@
-package view;
+package exemplo01.view;
 
-import model.*;
-import java.io.Serializable;
+import exemplo01.model.AreaCalculavel;
+import exemplo01.model.Circulo;
+import exemplo01.model.Quadrado;
 
 public class Main {
     public static void main(String[] args) {

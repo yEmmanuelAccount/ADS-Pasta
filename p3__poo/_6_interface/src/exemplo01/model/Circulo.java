@@ -1,4 +1,4 @@
-package model;
+package exemplo01.model;
 
 public class Circulo implements AreaCalculavel, ComprimentoCalculavel {
     private double raio;

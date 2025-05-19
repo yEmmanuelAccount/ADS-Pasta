@@ -1,4 +1,4 @@
-package model;
+package exemplo01.model;
 
 public class ContaCorrente extends Conta {
     private double chequeEspecial;

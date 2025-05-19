@@ -48,7 +48,7 @@ for(int i: array) {
 }
 ```
 
-O _array_ pode guardar referência de outros _arrays_. Podemos ver isso no seguinte exemplo: [turma](exemplo2/view/Main.java).
+O _array_ pode guardar referência de outros _arrays_. Podemos ver isso no seguinte exemplo: [turma](exemplo2/exemplo01.view/Main.java).
 
 Uma das primeiras coisas que são pensadas, principalmente para aqueles que já paragam as cadeiras de Algoritmo e Estrutura, são Matrizes. Aqui em Java nós não temos Matrizes, mas temos _arrays_ de _arrays_.
 

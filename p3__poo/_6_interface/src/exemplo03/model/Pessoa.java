@@ -1,27 +1,14 @@
-package model;
-
+package exemplo03.model;
 import java.time.LocalDate;
 
-public class PessoaFisica extends Cliente {
-    private String cpf;
+public class Pessoa implements Comparable<Pessoa> {
+    // atributos
     private String nome;
     private LocalDate nascimento;
 
-    public PessoaFisica(String cpf, String nome, LocalDate nascimento, LocalDate dataCadastro) {
-        super(dataCadastro);
-        this.cpf = cpf;
+    public Pessoa(String nome, LocalDate nascimento) {
         this.nome = nome;
         this.nascimento = nascimento;
-    }
-
-    // getters e setters
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
     }
 
     public String getNome() {
@@ -38,5 +25,18 @@ public class PessoaFisica extends Cliente {
 
     public void setNascimento(LocalDate nascimento) {
         this.nascimento = nascimento;
+    }
+
+    @Override
+    public String toString() {
+        return "Pessoa{" +
+                "nome='" + nome + '\'' +
+                ", nascimento=" + nascimento +
+                '}';
+    }
+
+    @Override
+    public int compareTo(Pessoa o) {
+        return nome.compareTo(o.getNome());
     }
 }
