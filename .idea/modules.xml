@@ -5,7 +5,11 @@
       <module fileurl="file://$PROJECT_DIR$/ADS-Pasta.iml" filepath="$PROJECT_DIR$/ADS-Pasta.iml" />
       <module fileurl="file://$PROJECT_DIR$/p3__poo/_5_heranca_e_classe_abstrata/_5_heranca_e_classe_abstrata.iml" filepath="$PROJECT_DIR$/p3__poo/_5_heranca_e_classe_abstrata/_5_heranca_e_classe_abstrata.iml" />
       <module fileurl="file://$PROJECT_DIR$/p3__poo/_6_interface/_6_interface.iml" filepath="$PROJECT_DIR$/p3__poo/_6_interface/_6_interface.iml" />
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/p3__poo/_7_collection/_7_collection.iml" filepath="$PROJECT_DIR$/p3__poo/_7_collection/_7_collection.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/p3__POO/_7_generics/_7_generics.iml" filepath="$PROJECT_DIR$/p3__POO/_7_generics/_7_generics.iml" />
+>>>>>>> b17d11d26aed044de583950c51bb04250161ead1
       <module fileurl="file://$PROJECT_DIR$/p3__poo/atividade02_heranca/atividade02_heranca.iml" filepath="$PROJECT_DIR$/p3__poo/atividade02_heranca/atividade02_heranca.iml" />
       <module fileurl="file://$PROJECT_DIR$/p3__poo/_4_array/exemplo3/exemplo3.iml" filepath="$PROJECT_DIR$/p3__poo/_4_array/exemplo3/exemplo3.iml" />
       <module fileurl="file://$PROJECT_DIR$/p3__poo/_4_array/explicacao/explicacao.iml" filepath="$PROJECT_DIR$/p3__poo/_4_array/explicacao/explicacao.iml" />
