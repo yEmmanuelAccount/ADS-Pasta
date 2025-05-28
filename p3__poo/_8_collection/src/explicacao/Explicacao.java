@@ -4,7 +4,7 @@ import java.util.*;
 public class Explicacao {
     public static void main(String[] args) {
 
-        Collection<String> e = new ArrayList<>();
+        // Collection<String> e = new ArrayList<>();
 
         // ArrayList
             // CREAT e READ

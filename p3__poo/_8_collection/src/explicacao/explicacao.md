@@ -32,8 +32,13 @@ $\quad$ Temos também uma "subclasse", que herda de _Vector_. É uma pilha em se
 
 $\quad$ São usados os métodos _push_ (adicionar elemento -- no topo) e _pop_ (retirar um elemento -- do topo)
 
-## Fila
+## Queue <E\>
 
-### Queue <E\> 
+$\quad$ Está exemplificado na pasta do [Exemplo do Banco](../exemplo_banco_brasil/model/Ficha.java)
 
+$\quad$ Também utiliza as [LinkedLists](#linkedlist), já falada anteriormente.
+
+## SET
+
+### HashSet
 

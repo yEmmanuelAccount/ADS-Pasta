@@ -47,7 +47,7 @@ public class Turma {
                 '}';
     }
 
-    public boolean adicionarAluno(Aluno aluno) {
+    /* public boolean adicionarAluno(Aluno aluno) {
         return Aluno.add(aluno);
-    }
+    } */
 }
