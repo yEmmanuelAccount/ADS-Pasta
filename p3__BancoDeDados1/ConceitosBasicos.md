@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="style.css">
+
 # Conceitos
 
 [[TOC]]
@@ -135,3 +137,29 @@ $\quad$ Os problemas dos Bancos de Dados Navegacionais eram:
 ## Modelo Relacional
 
 $\quad$ Proposto por Edgar Codd em 1970, com os primeiros SGBDs relacionais surgindo alguns anos depois.
+
+$\quad$ Os relacionamentos entre os dados são descritos por meio de conceitos matemáticos de relações.
+
+$\quad$ Os dados são armazenados e estruturados em tabelas, por exemplo:
+
+<div id="tabela">
+
+| Matricula |   Nome   | Salario | Supervisor | CodDepartamento |
+|:---------:|:--------:|:-------:|:----------:|:---------------:|
+|  1111-1   |   João   |  2500   |   1111-4   |        1        |
+|  1111-2   |  Maria   |  2500   |   1111-3   |        2        |
+|  1111-3   |  Carlos  |  4500   |            |        2        |
+|  1111-4   | Joaquim  |  4500   |            |        1        |
+|  1111-5   |   Ana    |  3000   |   1111-4   |        1        |
+|  1111-6   | Patrícia |  2500   |   1111-3   |        2        |
+|  1111-7   |  Sérgio  |  1000   |   1111-3   |        2        |
+
+</div>
+
+## Modelo Orientado a Objetos
+
+$\quad$ Surgiram devido à popularidade do paradigma de Programação Orientada a Objetos (POO) nos anos 80.
+
+$\quad$ Os principais conceitos desse paradigma aplicados foram: _classes, objetos, métodos, encapsulamento, herança_, etc.
+
+$\quad$ Com sua implementação, também foi possível resolver o problema de [_impedância_](#armazenamento-persistente-de-objetos) entre a aplicação e o Banco de Dados.

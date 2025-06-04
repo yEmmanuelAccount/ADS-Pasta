@@ -5,13 +5,12 @@
   --cor-BordaTabela: rgb(85, 78, 78);
 }
 
-.topico {
-    border: 2px solid var(--cor-BordaTabela);
-    padding: 5px;
-    text-align: center;
-  }
-  
-  .subtopico {
-    border: 2px solid var(--cor-BordaTabela);
-    padding: 5px;
-  }
+#tabela tabela {
+  display: flex;
+  justify-content: center;
+}
+
+.tabela {
+  display: flex;
+  justify-content: center;
+}
