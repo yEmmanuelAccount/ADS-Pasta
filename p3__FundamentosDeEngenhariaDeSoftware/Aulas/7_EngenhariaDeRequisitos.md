@@ -2,9 +2,9 @@
 
 $\quad$ A parte mais difícil na construção de software é decidir por onde começar.
 
-$\quad$ Tem início na atividade de _comunicação_ e constinua na _modelagem_.
+$\quad$ Tem início na atividade de _comunicação_ e continua na _modelagem_.
 
-$\quad$ Envolve 7 tarefas:
+$\quad$ Envolve 7 tarefas: concepção, levantamento, elaboração, negociação, especificação, validação e gestão.
 
 ## 1 - Concepção
 
@@ -49,7 +49,7 @@ $\quad$ Resolver conflitos que possam surgir.
 
 $\quad$ Devemos priorizar alguns requisitos, avaliar custos e riscos, tratar conflitos internos.
 
-$\quad$ .
+$\quad$ Ocorre a modificação, eliminação ou combinados de forma a proporcionar certo nível de satisfação.
 
 ## 5 - Especificação
 
@@ -71,7 +71,7 @@ $\quad$ Todas essas falhas devem ser removidas.
 
 $\quad$ Se uma pessoa quer um botão em uma posição e outra pessoa em outra, isso é resolvido nessa fase.
 
-## 7 - Gestao
+## 7 - Gestão
 
 $\quad$ Os requisitos mudam, e o desejo de mudar os requisitos persiste ao longo da vida de um sistema.
 
@@ -83,8 +83,10 @@ $\quad$ Está alinhado com a Gestão de Configuração e Mudança (acho, olhar n
 
 $\quad$ Identificar possíveis problemas nas seguintes necessidades.
 
-* o software deve ser amigável --> vago de mais
-* a probabilidade de invasão não autorizada e bem sucedida ao banco de dados deve ser menor que 0.0001 --> grande custo de validação (em relação a tempo e processamento)
+* o software deve ser amigável
+  * vago de mais
+* a probabilidade de invasão não autorizada e bem sucedida ao banco de dados deve ser menor que 0.0001
+  * grande custo de validação (em relação a tempo e processamento)
 
 # <>
 
@@ -94,9 +96,9 @@ $\quad$ Elementos mais críticos devem ser descritos de forma _quantitativa_ e o
 
 $\quad$ Os requisitos são mutáveis e é importante ser gerenciados.
 
-$\quad$ É necessário registar as mudanças.
+$\quad$ É necessário registar as mudanças nos requisitos ao longo do desenvolvimento.
 
-$\quad$ .
+$\quad$ Ferramentas computacionais podem ser usadas para ajudar na Gerência de Configuração e Mudanças (GitHub, por exemplo).
 
 ## Identificando Stakeholders
 
@@ -175,3 +177,15 @@ $\quad$ Exemplos de Requisitos Não-Funcionais
 ### Requisitos Funcionais x Não-Funcionais
 
 $\quad$ O primeiro
+
+## Características de boas histórias (**INVEST**)
+
+* Independentes
+* Abertas a Negociação
+* Agregar Valor
+* Estimáveis (em relação a prazo)
+* Sucintas (curtas, direto ao ponto)
+* Testáveis
+
+## Requisitos não funcionais (RNF)
+
