@@ -1,24 +1,21 @@
-package aula01.model;
+package model;
 
 import java.io.Serializable;
 import java.util.Objects;
 
 public class Aluno implements Serializable {
 
-    // atributos
     private static final long serialVersionUID = 1L;
     private int matricula;
     private String nome;
     private String curso;
 
-    // construtor
     public Aluno(int matricula, String nome, String curso) {
         this.matricula = matricula;
         this.nome = nome;
         this.curso = curso;
     }
 
-    // getters e setters
     public int getMatricula() {
         return matricula;
     }
@@ -43,10 +40,9 @@ public class Aluno implements Serializable {
         this.curso = curso;
     }
 
-    // toString - to string
     @Override
     public String toString() {
-        return "Aluno{" +
+        return "model.Aluno{" +
                 "matricula=" + matricula +
                 ", nome='" + nome + '\'' +
                 ", curso='" + curso + '\'' +
@@ -56,12 +52,13 @@ public class Aluno implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Aluno aluno)) return false;
-        return getMatricula() == aluno.getMatricula();
+        if (o == null || getClass() != o.getClass()) return false;
+        Aluno aluno = (Aluno) o;
+        return matricula == aluno.matricula;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getMatricula());
+        return Objects.hashCode(matricula);
     }
 }
