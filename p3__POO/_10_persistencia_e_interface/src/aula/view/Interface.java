@@ -8,7 +8,7 @@ public class Interface {
     public static void main(String[] args) {
         ImageIcon iconJuice = new ImageIcon("imagens/icon-aluno.png");
 
-        String opcoes[] = {"Salvar", "Buscar", "Listar", "Atualizar", "Remover"};
+        String opcoes[] = {"Salvar", "Buscar", "Listar", "Atualizar", "Remover", "Sair"};
 
         // integrando com as classes Aluno e AlunoDao
         dao.AlunoDao alunoDao;
@@ -18,9 +18,7 @@ public class Interface {
             throw new RuntimeException(e);
         }
 
-        ImageIcon icon = new ImageIcon("imgs/aluno.png");
-        String opcoes[] = {"Salvar", "Buscar", "Listar",
-                "Atualizar", "Remover", "Sair"};
+        ImageIcon icon = new ImageIcon("imagens/icon-aluno.png");
         while(true){
             String escolha = (String) JOptionPane.showInputDialog(null,
                     "Escolha a opção",
@@ -32,6 +30,36 @@ public class Interface {
             );
             if(escolha == null) System.exit(0);
             switch (escolha){
+                case "Salvar" ->{
+                    int matricula = Integer.parseInt(
+                            JOptionPane.showInputDialog(null,
+                                    "Informe a matrícula")
+                    );
+                    String nome = JOptionPane.showInputDialog(null,
+                            "Informe o nome");
+                    String curso = JOptionPane.showInputDialog(null,
+                            "Informe o curso");
+
+                    Aluno aluno = new Aluno(matricula, nome, curso);
+
+                    try {
+                        if(alunoDao.salvar(aluno)) {
+                            JOptionPane.showMessageDialog(null,
+                                    "Salvo com sucesso.");
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null,
+                                    "Falha ao salvar. Já existe um aluno com essa matrícula.",
+                                    "Mensagem de erro",
+                                    JOptionPane.ERROR_MESSAGE);
+                        }
+                    } catch (IOException e) {
+                        throw new RuntimeException(e);
+                    } catch (ClassNotFoundException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+
                 case "Buscar" ->{
                     try{
                         int matricula = Integer.parseInt(
@@ -48,6 +76,7 @@ public class Interface {
                         throw new RuntimeException(e);
                     }
                 }
+
                 case "Listar" -> {
                     try {
                         JOptionPane.showMessageDialog(null,
@@ -61,6 +90,7 @@ public class Interface {
                         throw new RuntimeException(e);
                     }
                 }
+
                 case "Sair" -> System.exit(0);
             }
         }
