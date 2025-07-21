@@ -1,6 +1,6 @@
 package aula.dao;
 
-import model.Aluno;
+import aula.model.*;
 
 import java.io.*;
 import java.util.HashSet;

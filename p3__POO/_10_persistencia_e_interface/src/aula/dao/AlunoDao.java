@@ -1,4 +1,4 @@
-//package dao;
+//package aula.dao;
 //
 //import model.Aluno;
 //

@@ -1,8 +1,8 @@
-package aula.view;
+package aula.visualizacao;
 
 import aula.dao.GenericDao;
 import aula.model.Professor;
-import model.Aluno;
+import aula.model.*;
 
 import java.io.IOException;
 

@@ -1,4 +1,4 @@
-package model;
+package aula.model;
 
 import java.io.Serializable;
 import java.util.Objects;
