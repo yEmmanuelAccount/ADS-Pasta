@@ -64,7 +64,7 @@ Aqui está o [arquivo](Soma.java) referente ao passo a passo.
 
 ```(java)
 /** 
-* A classe Main representa a classe principal do projeto
+* A classe Main_InterfaceAtividade representa a classe principal do projeto
 */
 ```
 

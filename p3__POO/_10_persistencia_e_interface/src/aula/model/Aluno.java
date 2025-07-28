@@ -1,4 +1,4 @@
-package aula.model;
+package model;
 
 import java.io.Serializable;
 import java.util.Objects;
@@ -6,21 +6,21 @@ import java.util.Objects;
 public class Aluno implements Serializable {
 
     private static final long serialVersionUID = 1L;
-    private int matricula;
+    private long matricula;
     private String nome;
     private String curso;
 
-    public Aluno(int matricula, String nome, String curso) {
+    public Aluno(long matricula, String nome, String curso) {
         this.matricula = matricula;
         this.nome = nome;
         this.curso = curso;
     }
 
-    public int getMatricula() {
+    public long getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(int matricula) {
+    public void setMatricula(long matricula) {
         this.matricula = matricula;
     }
 

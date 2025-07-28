@@ -6,7 +6,7 @@ $\quad$ Os elementos guardados em uma fila apresentam posições definidas.
 
 $\quad$ _Collections_ e _List_ são interfaces, e por isso não são instanciadas.
 
-$\quad$ Podemos usar junto com _ArrayList_, _Vector_ e _LinkedList_, como exemplificado no arquivo [Main](../Main.java), inicializados com o **List**.
+$\quad$ Podemos usar junto com _ArrayList_, _Vector_ e _LinkedList_, como exemplificado no arquivo [Main_InterfaceAtividade](../Main_InterfaceAtividade.java), inicializados com o **List**.
 
 ### ArrayList
 

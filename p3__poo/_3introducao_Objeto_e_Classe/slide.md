@@ -30,7 +30,7 @@ public class ContaCorrente {
     }
 }
 
-// Main
+// Main_InterfaceAtividade
 public static void main(String[] args) {
     ContaCorrente conta1 = new ContaCorrente("João");
     ContaCorrente conta2 = new ContaCorrente("Maria");

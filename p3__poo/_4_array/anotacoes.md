@@ -7,7 +7,7 @@
 Assim como C, tem tamanho fixo de espaços e pode guardar diferentes valores.
 
 ```(java)
-public class Main {
+public class Main_InterfaceAtividade {
     public static void main(String[] args) {
         int array[] = {10, 8, 7, 3, 6, 4};
 
@@ -27,7 +27,7 @@ Se você tentar acessar uma posição fora do intervalo de **numPosicoes - 1**, 
 Para imprimir um array, podemos usar o bom e velho _for_.
 
 ```(java)
-public class Main {
+public class Main_InterfaceAtividade {
     public static void main(String[] args) {
         int array[] = {10, 8, 7, 3, 6, 4};
 
@@ -48,7 +48,7 @@ for(int i: array) {
 }
 ```
 
-O _array_ pode guardar referência de outros _arrays_. Podemos ver isso no seguinte exemplo: [turma](exemplo2/exemplo01.view/Main.java).
+O _array_ pode guardar referência de outros _arrays_. Podemos ver isso no seguinte exemplo: [turma](exemplo2/exemplo01.view/Main_InterfaceAtividade.java).
 
 Uma das primeiras coisas que são pensadas, principalmente para aqueles que já paragam as cadeiras de Algoritmo e Estrutura, são Matrizes. Aqui em Java nós não temos Matrizes, mas temos _arrays_ de _arrays_.
 
@@ -57,7 +57,7 @@ Na prática, temos um _array_ com _x_ posições e cada um deles guarda outro _a
 Como não é uma Matriz propriamente dita, não há formalidades para sua criação, assim como acontece em C. Podemos, por exemplo, tem uma "Matriz" com 3 linhas e cada linha com um número de colunas específico.
 
 ```(java)
-public class Main {
+public class Main_InterfaceAtividade {
     public static void main(String[] args) {
         // forma 1
         int arrayForma1[][] = new int[3][];
