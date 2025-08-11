@@ -1,12 +1,11 @@
 package view;
 
 import aula.dao.*;
+import dao.GenericDao;
 import model.Aluno;
 
 import javax.swing.*;
 import javax.swing.text.MaskFormatter;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.text.ParseException;
 

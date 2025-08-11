@@ -1,4 +1,4 @@
-package aula.dao;
+package dao;
 
 import aula.model.*;
 

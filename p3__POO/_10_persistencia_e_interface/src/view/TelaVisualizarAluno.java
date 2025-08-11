@@ -1,6 +1,7 @@
 package view;
 
 import aula.dao.*;
+import dao.GenericDao;
 import model.Aluno;
 
 import javax.swing.*;
