@@ -188,4 +188,3 @@ $\quad$ O primeiro
 * Testáveis
 
 ## Requisitos não funcionais (RNF)
-
