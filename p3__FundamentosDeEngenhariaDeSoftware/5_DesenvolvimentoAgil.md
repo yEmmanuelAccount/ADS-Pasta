@@ -22,7 +22,8 @@ $\quad$ Natural que a Engenharia de Software começasse usando Waterfall, usando
 
 $\quad$ No entanto, o Waterfall não funcionou com softwares.
 
-## Software é diferente
+## Software é diferenteg
 
 * Engenharia de Software != Engenharia Tradicional
 * Software != (carros, pontes, casas, aviões, celulares, etc)
+* .
