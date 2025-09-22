@@ -2,7 +2,7 @@
 Arquivos importantes de cada matéria do curso de A.D.S.
 
 ### Organização
-📁 Pastas: [período] - [disciplina]
+📁 Pastas: [período] _ [abreviação] _ [disciplina]
 
 ### 📝 Como fazer Commits
 1. feat: adiciona uma funcionalidade
@@ -12,8 +12,12 @@ Arquivos importantes de cada matéria do curso de A.D.S.
 5. test: cria ou corrigi teste
 6. docs: mudanças na documentação do código 
 
-### 🛠️ Tecnologias usadas (até agora)
+### 🛠️ Linguagens usadas
 + C
 + HTML
 + CSS
 + JS
+
+### Extensões usadas
++ Markdown All in One  v3.6.3 ([link](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one))
++ Markdown Math ([link](https://marketplace.visualstudio.com/items?itemName=koehlma.markdown-math))

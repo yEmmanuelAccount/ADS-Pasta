@@ -1,4 +1,9 @@
-# Laboratório de Redes [LdR]
+# Laboratório de Engenharia de Software [LES]
+
+## CARGA HORÁRIA
+TEÓRICA: 20h PRÁTICA: 63h EaD¹: 0 EXTENSÃO: 0
+CARGA HORÁRIA SEMANAL: 5 h/a
+CARGA HORÁRIA TOTAL: 83h - 100 h/a
 
 ## Ementa
 
@@ -8,10 +13,11 @@ $\quad$ Desenvolvimento de um software utilizando os conhecimentos da metodologi
 
 $\quad$ A elaboração deve abordar as disciplinas de requisitos, análise e projeto, implementação, implantação, testes e gerência de projetos.
 
-## Objetivos
+## OBJETIVOS
 
 ### GERAL
-Aplicar, de forma prática, os conceitos e técnicas da Engenharia de Software no desenvolvimento de um projeto de software, seguindo o ciclo de vida do desenvolvimento, com ênfase na metodologia PMBOK e nas disciplinas de requisitos, análise, projeto, implementação, testes e implantação.
+
+$\quad$ Aplicar, de forma prática, os conceitos e técnicas da Engenharia de Software no desenvolvimento de um projeto de software, seguindo o ciclo de vida do desenvolvimento, com ênfase na metodologia PMBOK e nas disciplinas de requisitos, análise, projeto, implementação, testes e implantação.
 
 ### ESPECÍFICOS
 
@@ -23,13 +29,13 @@ Aplicar, de forma prática, os conceitos e técnicas da Engenharia de Software n
 * Realizar testes de software para validar a funcionalidade e qualidade do sistema desenvolvido.
 * Executar o processo de implantação do software, garantindo sua adequação ao ambiente de produção.
 
-## Conteúdo Programático
-
+## CONTEÚDO PROGRAMÁTICO
 1. Introdução ao Desenvolvimento de Software na Prática
+
    * O ciclo de vida do software: fases e atividades essenciais
    * Abordagens metodológicas: PMBOK, RUP, Scrum e XP
    * Engenharia de Software na prática: desafios e boas práticas
-
+  
 2. Gerenciamento de Projetos de Software com PMBOK
    * Processos e áreas de conhecimento do PMBOK aplicados a software
    * Planejamento e monitoramento de projetos de software
@@ -60,33 +66,34 @@ Aplicar, de forma prática, os conceitos e técnicas da Engenharia de Software n
    * Aplicação prática dos conceitos estudados no desenvolvimento de um software completo
    * Documentação e apresentação do projeto final
 
-## Metodologia de Ensino
+## METODOLOGIA DE ENSINO
 
-$\quad$ A apresentação do conteúdo dar-se-á mediante aulas teóricas e práKcas, apoiadas em recursos audiovisuais e computacionais, estabelecendo um ensino-aprendizagem significaKvo. As aKvidades incluirão exposição dialogada, estudos de caso, resolução de problemas, desenvolvimento de projetos e aplicação de metodologias ativas para engajamento dos alunos.
+$\quad$ A apresentação do conteúdo dar-se-á mediante aulas teóricas e práticas, apoiadas em recursos audiovisuais e computacionais, estabelecendo um ensino-aprendizagem significaKvo. As atividades incluirão exposição dialogada, estudos de caso, resolução de problemas, desenvolvimento de projetos e aplicação de metodologias ativas para engajamento dos alunos.
 
-## Critérios de Avaliação
+## CRITÉRIOS DE AVALIAÇÃO
 
-### Avaliações
+### Quantidade de Avaliações
 
-$\quad$ Serão realizadas 2 avaliações (AV1 e AV2) e a disciplina não tem final.
+$\quad$ Serão contabilizadas 3 avaliações (AV1, AV2 e AV3).
 
-$\quad$ Durante o decorrer do semestre serão realizadas várias atividades, cada uma valendo no máximo 100 pontos. A média aritmética das notas dessas atividades irá compor a Primeira Avaliação (AV1).
+### Descrição de Avaliações
 
-$\quad$ A Segunda Avaliação (AV2) será correspondente a um projeto interdiciplinar.
+$\quad$ Durante o semestre o discente realizará várias atividades que valerá cada uma no máximo 100 pontos, será feita uma média aritmética com as notas dessas atividades, compondo assim a primeira avaliação (AV1).
 
-### Média Semestral (MS)
+$\quad$ A segunda e terceira avaliações (AV2 e AV3) corresponderão a um projeto prático desenvolvido em duas etapas.
 
-$\quad$ A Média Semestral (MS) será o resultado da média aritmética obtida através das notas correspondentes às avaliações AV1, AV2 e AV3.
+$\quad$ A Média Semestral (MS) será a média aritmética obtida através das notas correspondentes às avaliações AV1, AV2 e AV3. 
+
+### Aprovação
 
 $\quad$ Obterão a aprovação por média os alunos que atingirem a MS igual ou superior a 70 (setenta pontos). Será reprovado o discente que atingir a MS inferior a 40 (quarenta pontos).
 
-### Avaliação Final (AF)
+$\quad$ Os discentes que atingirem média inferior a 70 pontos e maior ou igual que 40 pontos poderão realizar uma Avaliação Final (AF).
 
-$\quad$ Os discentes que atingirem média inferior a 70 pontos e maior ou igual que 40 pontos poderão realizar uma Avaliação Final (AF). Esta avaliação valerá 100 pontos.
+$\quad$ Esta avaliação valerá 100 pontos. A Média Final do Semestre (MF) será a média ponderada obtida pela fórmula:
 
-$\quad$ A Média Final do Semestre (MF) será a média ponderada obtida pela fórmula:
 $$
 MF = \frac{(MS \cdot 6 + AF \cdot 4)}{10}
 $$
-
-$\quad$ Estará aprovado o discente que obtiver a Média Final maior ou igual a 50 pontos.
+Estará aprovado o discente que obtiver a Média Final maior ou igual a 50 pontos.
+ATIVIDADE DE EXTENSÃO⁴⁴
