@@ -5,7 +5,7 @@
     --cor-white-smoke: #F5F5F5;
     --cor-ghost-white: #F8F8FF;
     --cor-antique-white: #FAEBD7;
-    --cor-cinza-escuro: #333333;
+    --cor-cinza-escuro: #333;
     --cor-cafe-na-folha: #e6dbbd;
 
     /* Aplicação */
@@ -16,7 +16,7 @@
   /* Fundo geral e fonte */
   body {
     background-color: var(--plano-de-fundo); /* tom quase branco, suave */
-    color: #333; /* cinza escuro, menos agressivo que preto puro */
+    color: var(--cor-cinza-escuro); /* menos agressivo que preto puro */
     font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     padding: 40px;
@@ -54,14 +54,14 @@
     margin-bottom: 16px;
   }
 
-  /* Destaque de trechos importantes */
+  /* Negrito: Destaque de trechos importantes */
   strong {
     background-color: #fff3cd;
     padding: 2px 4px;
     border-radius: 4px;
   }
 
-  /* Citações ou observações */
+  /* Observações recuadas */
   blockquote {
     background-color: #f0f0f0;
     border-left: 4px solid #ccc;
@@ -70,9 +70,10 @@
     color: #555;
   }
 
-  /* Código ou termos técnicos */
+  /* Código ou termos técnicos (``) */
   code {
     background-color: #e8e8e8;
+    color: blueviolet;
     padding: 2px 6px;
     border-radius: 4px;
     font-family: 'Courier New', monospace;
