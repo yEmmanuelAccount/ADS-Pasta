@@ -39,6 +39,9 @@ As células eucariontes possuem:
 
 > **Observação**: Estão presentes em animais, plantas, fungos e protistas.
 
----
+<h2 class="laboratorio-de-redes">Laboratório de Redes</h2>
 
-Esse exemplo cobre títulos, listas, destaques, blocos de disciplina e dicas. Se quiser, posso te ajudar a expandir com tabelas, imagens ou até temas por semestre. Quer incluir mais disciplinas ou criar um template para todos os seus resumos?
+<div class="laboratorio-de-redes">Aula 01: Apresentação da Disciplina</div>
+
+<div class="laboratorio-de-redes">Aula 02: Introdução à Avaliação de Desempenho</div>
+

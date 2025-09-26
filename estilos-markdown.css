@@ -7,9 +7,14 @@
     --cor-antique-white: #FAEBD7;
     --cor-cinza-escuro: #333;
     --cor-cafe-na-folha: #e6dbbd;
+    --cor-azul-escuro-suave: #2c3e50;
+    --cor-cinza: gray;
+    --cor-preto: black;
 
     /* Aplicação */
     --plano-de-fundo: var(--cor-cafe-na-folha);
+    --cor-titulo: var(--cor-azul-escuro-suave);
+    --cor-bordas-titulos: var(--cor-preto);
   }
 
 /* Estilo Geral */
@@ -26,26 +31,38 @@
 
   /* Título principal */
   h1 {
-    color: #2c3e50;
+    color: var(--cor-titulo);
+    border-left: 5px solid var(--cor-bordas-titulos);
+    border-top: 5px solid var(--cor-bordas-titulos);
+    border-right: 5px solid var(--cor-bordas-titulos);
     font-size: 32px;
     border-bottom: 2px solid #ccc;
     padding-bottom: 8px;
     margin-top: 40px;
+    vertical-align: middle;
   }
 
   /* Título secundário */
   h2 {
-    color: #34495e;
+    color: var(--cor-titulo);
+    border-left: 5px solid var(--cor-bordas-titulos);
+    border-top: 5px solid var(--cor-bordas-titulos);
+    border-right: 5px solid var(--cor-bordas-titulos);
     font-size: 26px;
     margin-top: 30px;
+    vertical-align: middle;
   }
 
   /* Título terciário */
   h3 {
-    color: #4a6fa5;
+    color: var(--cor-titulo);
+    border-left: 5px solid var(--cor-bordas-titulos);
+    border-top: 5px solid var(--cor-bordas-titulos);
+    border-right: 5px solid var(--cor-bordas-titulos);
     font-size: 22px;
     font-style: italic;
     margin-top: 20px;
+    vertical-align: middle;
   }
 
   /* Texto comum */
@@ -101,35 +118,47 @@
   .matematica::before {
     content: "📐 ";
   }
-  .matematica {
-    color: #2c3e50;
-    background-color: #e0f7fa;
-    padding: 6px 10px;
-    border-left: 4px solid #00796b;
-    margin-bottom: 10px;
-    display: block;
-  }
+    .matematica {
+      color: #2c3e50;
+      background-color: #e0f7fa;
+      padding: 6px 10px;
+      border-left: 4px solid #00796b;
+      margin-bottom: 10px;
+      display: block;
+    }
 
   .historia::before {
     content: "📜 ";
   }
-  .historia {
-    color: #4e342e;
-    background-color: #fbe9e7;
-    padding: 6px 10px;
-    border-left: 4px solid #bf360c;
-    margin-bottom: 10px;
-    display: block;
-  }
+    .historia {
+      color: #4e342e;
+      background-color: #fbe9e7;
+      padding: 6px 10px;
+      border-left: 4px solid #bf360c;
+      margin-bottom: 10px;
+      display: block;
+    }
 
   .biologia::before {
     content: "🧬 ";
   }
-  .biologia {
-    color: #1b5e20;
-    background-color: #e8f5e9;
-    padding: 6px 10px;
-    border-left: 4px solid #388e3c;
-    margin-bottom: 10px;
-    display: block;
+    .biologia {
+      color: #1b5e20;
+      background-color: #e8f5e9;
+      padding: 6px 10px;
+      border-left: 4px solid #388e3c;
+      margin-bottom: 10px;
+      display: block;
+    }
+  
+  .laboratorio-de-redes::before {
+    content: "🔌 ";
   }
+    .laboratorio-de-redes {
+      color: #377cca;
+      background-color: #fbe9e7;
+      padding: 6px 10px;
+      border-left: 4px solid #377CCA;
+      margin-bottom: 10px;
+      display: block;
+    }
