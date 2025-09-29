@@ -26,6 +26,9 @@
   --cor-historia-destaque: #bf360c;
   --cor-historia-secundaria: #fbe9e7;
   --cor-historia-titulo: #4e342e;
+  --cor-les-titulo: var(--cor-cinza-escuro);
+  --cor-les-destaque: #6787ce;
+  --cor-les-secundaria: #e0f7fa;
 }
 
 /* Estilo Geral */
@@ -51,8 +54,9 @@ h1 {
 
 h2 {
     color: var(--cor-titulo);
-    font-size: 26px;
+    font-size: 24px;
     margin-top: 30px;
+    padding-top: 10px;
     vertical-align: middle;
     padding-left: 10px;
     text-align: left;
@@ -60,7 +64,7 @@ h2 {
 
 h3 {
     color: var(--cor-titulo);
-    font-size: 20px;
+    font-size: 18px;
     margin-top: 20px;
     vertical-align: middle;
     padding-left: 10px;
@@ -127,6 +131,7 @@ code {
     /* conteúdo da lista (li) */
     li {
         margin-bottom: 1px;
+        font-size: 15px;
     }
 
 /* CLASSES */
@@ -187,4 +192,34 @@ code {
         padding-right: 5px;
         align-items: center;
         display: flex;
+    }
+
+    /* Lab. de Eng. de Software */
+    h1.les::before, h1.les::after, h2.les::before, div.les::before {
+      content: "⚙️";
+      padding-left: 7px;
+      padding-right: 10px;
+    }
+
+    h1.les {
+      justify-content: space-between;
+      text-align: center;
+      display: flex;
+      padding-top: 5px;
+    }
+
+    blockquote.les {
+      border-left: 4px solid var(--cor-les-destaque) !important;
+    }
+
+    .les {
+      color: var(--cor-les-titulo);
+      background-color: var(--cor-les-secundaria);
+      border-left: 4px solid var(--cor-les-destaque) !important;
+      margin-bottom: 10px;
+      margin-top: 10px;
+      padding-left: 5px;
+      padding-right: 5px;
+      align-items: center;
+      display: flex;
     }
