@@ -15,174 +15,176 @@
   --plano-de-fundo: var(--cor-cafe-na-folha);
   --cor-titulo: var(--cor-azul-escuro-suave);
   --cor-bordas-titulos: var(--cor-preto);
+  --cor-destaque-negrito: #fff3cd;
+  --cor-fundo-recuado: #f0f0f0;
+  --cor-code-destaque: #5a3582;
+  --cor-code-secundaria: #eedaf3;
+
+  /* MATÉRIAS */
+  --cor-matematica-destaque: #00796b;
+  --cor-matematica-secundaria: #e0f7fa;
+  --cor-historia-destaque: #bf360c;
+  --cor-historia-secundaria: #fbe9e7;
+  --cor-historia-titulo: #4e342e;
 }
 
 /* Estilo Geral */
-/* Fundo geral e fonte */
 body {
-  background-color: var(--plano-de-fundo);
-  /* tom quase branco, suave */
-  color: var(--cor-cinza-escuro);
-  /* menos agressivo que preto puro */
-  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
-  line-height: 1.6;
-  padding: 40px;
-  max-width: 800px;
-  margin: auto;
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-cinza-escuro);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
 }
 
-/* Título principal */
 h1 {
-  color: var(--cor-titulo);
-  border-top: 2px solid var(--cor-bordas-titulos);
-  font-size: 32px;
-  border-bottom: 2px solid #ccc;
-  padding-bottom: 8px;
-  margin-top: 40px;
-  vertical-align: middle;
+    color: var(--cor-titulo);
+    font-size: 32px;
+    margin-top: 40px;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
 }
 
-/* Título secundário */
 h2 {
-  color: var(--cor-titulo);
-  border-left: 2px solid var(--cor-bordas-titulos) !important;
-  border-top: 2px solid var(--cor-bordas-titulos) !important;
-  border-right: 2px solid var(--cor-bordas-titulos) !important;
-  font-size: 26px;
-  margin-top: 30px;
-  vertical-align: middle;
-  padding-left: 10px;
+    color: var(--cor-titulo);
+    font-size: 26px;
+    margin-top: 30px;
+    vertical-align: middle;
+    padding-left: 10px;
+    text-align: left;
 }
 
-/* Título terciário */
 h3 {
-  color: var(--cor-titulo);
-  border-left: 5px solid var(--cor-bordas-titulos) !important;
-  border-top: 5px solid var(--cor-bordas-titulos) !important;
-  border-right: 5px solid var(--cor-bordas-titulos) !important;
-  font-size: 22px;
-  font-style: italic;
-  margin-top: 20px;
-  vertical-align: middle;
-  padding-left: 10px;
+    color: var(--cor-titulo);
+    font-size: 20px;
+    margin-top: 20px;
+    vertical-align: middle;
+    padding-left: 10px;
+    text-align: left;
 }
 
-/* Texto comum */
+div {
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Parágrafo */
 p {
-  font-size: 18px;
-  margin-bottom: 16px;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-indent: 1em;
+    justify-content: flex-start;
 }
 
-/* Negrito: Destaque de trechos importantes */
+/* Negrito */
 strong {
-  background-color: #fff3cd;
-  padding: 2px 4px;
-  border-radius: 4px;
+    background-color: var(--cor-destaque-negrito);
+    padding-left: 2px;
+    padding-right: 2px;
+    border-radius: 2px;
 }
 
-/* Observações recuadas */
+/* Observações Recuadas */
 blockquote {
-  background-color: #f0f0f0;
-  border-left: 4px solid #ccc;
-  padding: 10px 20px;
-  font-style: italic;
-  color: #555;
+    background-color: var(--cor-fundo-recuado);
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    color: black;
 }
 
-/* Código ou termos técnicos (``) */
+/* Códigos ou Termos de Destaque (``) */
 code {
-  background-color: #e8e8e8;
-  color: blueviolet;
-  padding: 2px 6px;
-  border-radius: 4px;
-  font-family: 'Courier New', monospace;
-  font-size: 16px;
+    background-color: var(--cor-code-secundaria);
+    color: var(--cor-code-destaque);
+    font-weight: bold;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+
 }
 
 /* Listas */
-ul {
-  list-style-type: disc;
-  margin-left: 20px;
-  font-size: 18px;
-}
+    /* não ordenada (ul) */
+    ul {
+        list-style-type: disc;
+        margin-left: 1em;
+        font-size: 15px;
+    }
 
-ol {
-  list-style-type: decimal;
-  margin-left: 20px;
-  font-size: 18px;
-}
+    /* ordenada (ol) */
+    ol {
+        list-style-type: decimal;
+        margin-left: 1em;
+        font-size: 15px;
+    }
 
-li {
-  margin-bottom: 8px;
-}
+    /* conteúdo da lista (li) */
+    li {
+        margin-bottom: 1px;
+    }
 
-/* Disciplinas com cores e ícones */
-.matematica::before {
-  content: "📐 | ";
-  color: var(--cor-titulo);
-}
+/* CLASSES */
+    /* PADRÃO */
+    h1.padrao {
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border: 2px solid black;
+    }
 
-.matematica {
-  color: #2c3e50;
-  background-color: #e0f7fa;
-  padding: 6px 10px;
-  border-left: 4px solid #00796b;
-  margin-bottom: 10px;
-  display: block;
-}
+    /* MATEMÁTICA */
+    .matematica::before, h1.matematica::after {
+        content: "🧮";
+    }
 
-.historia::before {
-  content: "📜 | ";
-  color: var(--cor-titulo);
-}
+    h1.matematica {
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
+        padding-top: 5px;
+    }
 
-  .historia {
-    color: #4e342e;
-    background-color: #fbe9e7;
-    padding: 6px 10px;
-    border-left: 4px solid #bf360c;
-    margin-bottom: 10px;
-    display: block;
-  }
+    .matematica {
+        color: var(--cor-titulo);
+        background-color: var(--cor-matematica-secundaria);
+        border-left: 4px solid var(--cor-matematica-destaque) !important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        align-items: center;
+        display: flex;
+    }
 
-.biologia::before {
-  content: "🧬 | ";
-  color: var(--cor-titulo);
-}
+    /* HISTÓRIA */
+    .historia::before, h1.historia::after {
+        content: "📜";
+    }
 
-  .biologia {
-    color: #1b5e20;
-    background-color: #e8f5e9;
-    padding: 6px 10px;
-    border-left: 4px solid #388e3c;
-    margin-bottom: 10px;
-    display: block;
-  }
+    h1.historia {
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
+        padding-top: 5px;
+    }
 
-.laboratorio-de-redes::before {
-  content: "🔌 | ";
-  color: var(--cor-titulo);
-}
-
-  .laboratorio-de-redes {
-    color: #377cca;
-    padding: 6px 10px;
-    border: 4px solid #377CCA !important;
-    margin-bottom: 10px;
-    display: block;
-    background-color: var(--plano-de-fundo, #fbe9e7);
-  }
-
-.programacao-web-1::before {
-  content: "💻 | ";
-  color: var(--cor-titulo);
-}
-
-  .programacao-web-1 {
-    color: #305edd;
-    padding: 6px 10px;
-    border: 4px solid #305edd !important;
-    margin-bottom: 10px;
-    display: block;
-    background-color: var(--plano-de-fundo, #fbe9e7);
-  }
+    .historia {
+        color: var(--cor-historia-titulo);
+        background-color: var(--cor-historia-secundaria);
+        border-left: 4px solid var(--cor-historia-destaque) !important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        align-items: center;
+        display: flex;
+    }

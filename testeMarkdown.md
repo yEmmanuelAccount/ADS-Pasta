@@ -1,13 +1,15 @@
-<!-- index.md -->
+<!-- title: Teste_Markdown -->
 <link rel="stylesheet" href="estilos-markdown.css">
 
-# Resumo de Matérias
+<h1 class="padrao"> Resumo de Matérias </h1>
 
-## 📐 Matemática
+<h1 class="matematica">Matemática </h1>
 
 <div class="matematica">Funções do 1º grau</div>
 
-As funções do primeiro grau têm a forma **f(x) = ax + b**, onde:
+<p> p Parágrafo qualquer </p>
+
+(texto normal) As funções do primeiro grau têm a forma **f(x) = ax + b**, onde:
 
 - `a` é o coeficiente angular
 - `b` é o coeficiente linear
@@ -15,9 +17,9 @@ As funções do primeiro grau têm a forma **f(x) = ax + b**, onde:
 
 > **Dica**: Quando `a > 0`, a reta é crescente.
 
-## 📜 História
+<h1 class="historia"> História </h1>
 
-<div class="historia">Revolução Francesa</div>
+<div class="historia"> div: Revolução Francesa </div>
 
 A Revolução Francesa foi marcada por:
 
@@ -27,7 +29,7 @@ A Revolução Francesa foi marcada por:
 
 > **Importante**: O lema era *Liberdade, Igualdade, Fraternidade*.
 
-## 🧬 Biologia
+<h2 class="biologia"> Biologia </h2>
 
 <div class="biologia">Células eucariontes</div>
 
