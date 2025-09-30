@@ -3,3 +3,4 @@
 *.idea
 node_modules
 estilos-markdown-original.css
+.env

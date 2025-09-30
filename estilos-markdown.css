@@ -23,12 +23,18 @@
   /* MATÉRIAS */
   --cor-matematica-destaque: #00796b;
   --cor-matematica-secundaria: #e0f7fa;
+  
   --cor-historia-destaque: #bf360c;
   --cor-historia-secundaria: #fbe9e7;
   --cor-historia-titulo: #4e342e;
+
   --cor-les-titulo: var(--cor-cinza-escuro);
   --cor-les-destaque: #6787ce;
   --cor-les-secundaria: #e0f7fa;
+
+  --cor-bdd2-titulo: #30493d;
+  --cor-bdd2-destaque: #22d389;
+  --cor-bdd2-secundaria: #88c9ae;
 }
 
 /* Estilo Geral */
@@ -228,4 +234,37 @@ code {
       padding-right: 5px;
       align-items: center;
       display: flex;
+    }
+
+    /* Banco de Dados 2 */
+    h1.bdd2::before,
+    h1.bdd2::after,
+    h2.bdd2::before,
+    div.bdd2::before {
+        content: "🗄️";
+        padding-left: 7px;
+        padding-right: 10px;
+    }
+
+    h1.bdd2 {
+        justify-content: space-between;
+        text-align: center;
+        display: flex;
+        padding-top: 5px;
+    }
+
+    blockquote.bdd2 {
+        border-left: 4px solid var(--cor-bdd2-destaque) !important;
+    }
+
+    .bdd2 {
+        color: var(--cor-bdd2-titulo);
+        background-color: var(--cor-bdd2-secundaria);
+        border-left: 4px solid var(--cor-bdd2-destaque) !important;
+        margin-bottom: 10px;
+        margin-top: 10px;
+        padding-left: 5px;
+        padding-right: 5px;
+        align-items: center;
+        display: flex;
     }
