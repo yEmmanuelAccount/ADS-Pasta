@@ -147,6 +147,11 @@ code {
         border: 2px solid black;
     }
 
+    div.padrao {
+        border: 2px solid black !important;
+        
+    }
+
     /* MATEMÁTICA */
     .matematica::before, h1.matematica::after {
         content: "🧮";
