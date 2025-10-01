@@ -1,5 +1,5 @@
 {
-  "name": "aulas_api",
+  "name": "aulas-api-20252",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -7,10 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node --watch index.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bancos-de-Dados-II/aulas-api-20252.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "type": "module",
+  "bugs": {
+    "url": "https://github.com/Bancos-de-Dados-II/aulas-api-20252/issues"
+  },
+  "homepage": "https://github.com/Bancos-de-Dados-II/aulas-api-20252#readme",
   "dependencies": {
     "dotenv": "^17.2.3",
     "express": "^5.1.0",

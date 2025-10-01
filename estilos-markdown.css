@@ -1,40 +1,42 @@
 /* Variáveis */
 :root {
-  /* Nome de Cores */
-  --cor-cafe-seco:
-    --cor-white-smoke: #F5F5F5;
-  --cor-ghost-white: #F8F8FF;
-  --cor-antique-white: #FAEBD7;
-  --cor-cinza-escuro: #333;
-  --cor-cafe-na-folha: #e6dbbd;
-  --cor-azul-escuro-suave: #2c3e50;
-  --cor-cinza: gray;
-  --cor-preto: black;
+    /* Nome de Cores */
+    --cor-cafe-seco:
+        --cor-white-smoke: #F5F5F5;
+    --cor-ghost-white: #F8F8FF;
+    --cor-antique-white: #FAEBD7;
+    --cor-cinza-escuro: #333;
+    --cor-cafe-na-folha: #e6dbbd;
+    --cor-azul-escuro-suave: #2c3e50;
+    --cor-cinza: gray;
+    --cor-preto: black;
 
-  /* Aplicação */
-  --plano-de-fundo: var(--cor-cafe-na-folha);
-  --cor-titulo: var(--cor-azul-escuro-suave);
-  --cor-bordas-titulos: var(--cor-preto);
-  --cor-destaque-negrito: #fff3cd;
-  --cor-fundo-recuado: #f0f0f0;
-  --cor-code-destaque: #5a3582;
-  --cor-code-secundaria: #eedaf3;
+    /* Aplicação */
+    --plano-de-fundo: var(--cor-cafe-na-folha);
+    --cor-titulo: var(--cor-azul-escuro-suave);
+    --cor-bordas-titulos: var(--cor-preto);
+    --cor-destaque-negrito: #fff3cd;
 
-  /* MATÉRIAS */
-  --cor-matematica-destaque: #00796b;
-  --cor-matematica-secundaria: #e0f7fa;
-  
-  --cor-historia-destaque: #bf360c;
-  --cor-historia-secundaria: #fbe9e7;
-  --cor-historia-titulo: #4e342e;
+    --cor-fundo-recuado: #f0f0f0;
 
-  --cor-les-titulo: var(--cor-cinza-escuro);
-  --cor-les-destaque: #6787ce;
-  --cor-les-secundaria: #e0f7fa;
+    --cor-code-destaque: #5a3582;
+    --cor-code-secundaria: #eedaf3;
 
-  --cor-bdd2-titulo: #30493d;
-  --cor-bdd2-destaque: #22d389;
-  --cor-bdd2-secundaria: #88c9ae;
+    /* MATÉRIAS */
+    --cor-matematica-destaque: #00796b;
+    --cor-matematica-secundaria: #e0f7fa;
+
+    --cor-historia-destaque: #bf360c;
+    --cor-historia-secundaria: #fbe9e7;
+    --cor-historia-titulo: #4e342e;
+
+    --cor-les-titulo: var(--cor-cinza-escuro);
+    --cor-les-destaque: #6787ce;
+    --cor-les-secundaria: #e0f7fa;
+
+    --cor-bdd2-titulo: #30493d;
+    --cor-bdd2-destaque: #22d389;
+    --cor-bdd2-secundaria: #88c9ae;
 }
 
 /* Estilo Geral */
@@ -120,151 +122,170 @@ code {
 
 }
 
+pre code {
+    background-color: #163c63;
+    color: #000000;
+    font-size: 14px;
+    padding: 10px;
+    border-radius: 8px;
+    display: block;
+    overflow-x: auto;
+    line-height: 1.5;
+    border: 1px solid #ddd;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
 /* Listas */
-    /* não ordenada (ul) */
-    ul {
-        list-style-type: disc;
-        margin-left: 1em;
-        font-size: 15px;
-    }
+/* não ordenada (ul) */
+ul {
+    list-style-type: disc;
+    margin-left: 1em;
+    font-size: 15px;
+}
 
-    /* ordenada (ol) */
-    ol {
-        list-style-type: decimal;
-        margin-left: 1em;
-        font-size: 15px;
-    }
+/* ordenada (ol) */
+ol {
+    list-style-type: decimal;
+    margin-left: 1em;
+    font-size: 15px;
+}
 
-    /* conteúdo da lista (li) */
-    li {
-        margin-bottom: 1px;
-        font-size: 15px;
-    }
+/* conteúdo da lista (li) */
+li {
+    margin-bottom: 1px;
+    font-size: 15px;
+}
 
 /* CLASSES */
-    /* PADRÃO */
-    h1.padrao {
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding-top: 5px;
-        padding-bottom: 5px;
-        border: 2px solid black;
-    }
+/* PADRÃO */
+h1.padrao {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border: 2px solid black;
+}
 
-    div.padrao {
-        border: 2px solid black !important;
-        
-    }
+div.padrao {
+    border: 2px solid black !important;
 
-    /* MATEMÁTICA */
-    .matematica::before, h1.matematica::after {
-        content: "🧮";
-    }
+}
 
-    h1.matematica {
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        padding-top: 5px;
-    }
+/* MATEMÁTICA */
+.matematica::before,
+h1.matematica::after {
+    content: "🧮";
+}
 
-    .matematica {
-        color: var(--cor-titulo);
-        background-color: var(--cor-matematica-secundaria);
-        border-left: 4px solid var(--cor-matematica-destaque) !important;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-        align-items: center;
-        display: flex;
-    }
+h1.matematica {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
 
-    /* HISTÓRIA */
-    .historia::before, h1.historia::after {
-        content: "📜";
-    }
+.matematica {
+    color: var(--cor-titulo);
+    background-color: var(--cor-matematica-secundaria);
+    border-left: 4px solid var(--cor-matematica-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
 
-    h1.historia {
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        padding-top: 5px;
-    }
+/* HISTÓRIA */
+.historia::before,
+h1.historia::after {
+    content: "📜";
+}
 
-    .historia {
-        color: var(--cor-historia-titulo);
-        background-color: var(--cor-historia-secundaria);
-        border-left: 4px solid var(--cor-historia-destaque) !important;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-        align-items: center;
-        display: flex;
-    }
+h1.historia {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
 
-    /* Lab. de Eng. de Software */
-    h1.les::before, h1.les::after, h2.les::before, div.les::before {
-      content: "⚙️";
-      padding-left: 7px;
-      padding-right: 10px;
-    }
+.historia {
+    color: var(--cor-historia-titulo);
+    background-color: var(--cor-historia-secundaria);
+    border-left: 4px solid var(--cor-historia-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
 
-    h1.les {
-      justify-content: space-between;
-      text-align: center;
-      display: flex;
-      padding-top: 5px;
-    }
+/* Lab. de Eng. de Software */
+h1.les::before,
+h1.les::after,
+h2.les::before,
+div.les::before {
+    content: "⚙️";
+    padding-left: 7px;
+    padding-right: 10px;
+}
 
-    blockquote.les {
-      border-left: 4px solid var(--cor-les-destaque) !important;
-    }
+h1.les {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
 
-    .les {
-      color: var(--cor-les-titulo);
-      background-color: var(--cor-les-secundaria);
-      border-left: 4px solid var(--cor-les-destaque) !important;
-      margin-bottom: 10px;
-      margin-top: 10px;
-      padding-left: 5px;
-      padding-right: 5px;
-      align-items: center;
-      display: flex;
-    }
+blockquote.les {
+    border-left: 4px solid var(--cor-les-destaque) !important;
+}
 
-    /* Banco de Dados 2 */
-    h1.bdd2::before,
-    h1.bdd2::after,
-    h2.bdd2::before,
-    div.bdd2::before {
-        content: "🗄️";
-        padding-left: 7px;
-        padding-right: 10px;
-    }
+.les {
+    color: var(--cor-les-titulo);
+    background-color: var(--cor-les-secundaria);
+    border-left: 4px solid var(--cor-les-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
 
-    h1.bdd2 {
-        justify-content: space-between;
-        text-align: center;
-        display: flex;
-        padding-top: 5px;
-    }
+/* Banco de Dados 2 */
+h1.bdd2::before,
+h1.bdd2::after,
+h2.bdd2::before,
+div.bdd2::before {
+    content: "🗄️";
+    padding-left: 7px;
+    padding-right: 10px;
+}
 
-    blockquote.bdd2 {
-        border-left: 4px solid var(--cor-bdd2-destaque) !important;
-    }
+h1.bdd2 {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
 
-    .bdd2 {
-        color: var(--cor-bdd2-titulo);
-        background-color: var(--cor-bdd2-secundaria);
-        border-left: 4px solid var(--cor-bdd2-destaque) !important;
-        margin-bottom: 10px;
-        margin-top: 10px;
-        padding-left: 5px;
-        padding-right: 5px;
-        align-items: center;
-        display: flex;
-    }
+blockquote.bdd2 {
+    border-left: 4px solid var(--cor-bdd2-destaque) !important;
+}
+
+.bdd2 {
+    color: var(--cor-bdd2-titulo);
+    background-color: var(--cor-bdd2-secundaria);
+    border-left: 4px solid var(--cor-bdd2-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}

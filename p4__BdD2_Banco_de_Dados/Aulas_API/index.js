@@ -2,26 +2,14 @@ import express from 'express';
 const app = express();
 const port = 3000;
 
-app.get('/tarefas', (req, res) => {
-  res.send('Retorna todas as tarefas');
-});
+import Tarefa from './models/tarefa.js';
 
-app.get('/tarefas/:id', (req, res) => {
-  res.send('Retorna todas as tarefas ' + req.params.id);
-});
+import tarefasRouter from './routes/tarefas-routes.js';
 
-app.post('/tarefas', (req, res) => {
-  res.send('Criando uma tarefa');
-});
+app.use(express.json());
 
-app.delete('/tarefas/:id', (req, res) => {
-  res.send('Deletando a tarefa ' + req.params.id);
-});
-
-app.patch('/tarefas/:id', (req, res) => {
-  res.send('Atualizando a tarefa' + req.params.id);
-});
+app.use('/tarefa', tarefasRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}. Tudo certo!`);
+  console.log(`Example app listening on port ${port}`);
 });
