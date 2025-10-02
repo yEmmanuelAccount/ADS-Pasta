@@ -123,7 +123,7 @@ code {
 }
 
 pre code {
-    background-color: #163c63;
+    background-color: #4a85c0;
     color: #000000;
     font-size: 14px;
     padding: 10px;
@@ -132,8 +132,8 @@ pre code {
     overflow-x: auto;
     line-height: 1.5;
     border: 1px solid #ddd;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    margin-top: 2px;
+    margin-bottom: 2px;
 }
 
 /* Listas */
