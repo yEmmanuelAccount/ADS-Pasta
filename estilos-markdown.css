@@ -41,6 +41,10 @@
     --cor-ldr-titulo: #3f3b41;
     --cor-ldr-destaque: #c777db;
     --cor-ldr-secundaria: #e7bceb;
+
+    --cor-pw1-titulo: #b84300;
+    --cor-pw1-destaque: #ee6c15;
+    --cor-pw1-secundaria: #f8a771;
 }
 
 /* Estilo Geral */
@@ -232,6 +236,7 @@ h1.historia {
 h1.les::before,
 h1.les::after,
 h2.les::before,
+h3.les::before,
 div.les::before {
     content: "⚙️";
     padding-left: 7px;
@@ -265,6 +270,7 @@ blockquote.les {
 h1.bdd2::before,
 h1.bdd2::after,
 h2.bdd2::before,
+h3.bdd2::before,
 div.bdd2::before {
     content: "🗄️";
     padding-left: 7px;
@@ -298,6 +304,7 @@ blockquote.bdd2 {
 h1.ldr::before,
 h1.ldr::after,
 h2.ldr::before,
+h3.ldr::before,
 div.ldr::before {
     content: "📊";
     padding-left: 7px;
@@ -319,6 +326,40 @@ blockquote.ldr {
     color: var(--cor-ldr-titulo);
     background-color: var(--cor-ldr-secundaria);
     border-left: 4px solid var(--cor-ldr-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
+
+/* PW1 */
+h1.pw1::before,
+h1.pw1::after,
+h2.pw1::before,
+h3.pw1::before,
+div.pw1::before {
+    content: "🌇";
+    padding-left: 7px;
+    padding-right: 10px;
+}
+
+h1.pw1 {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.pw1 {
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
+}
+
+.pw1 {
+    color: var(--cor-pw1-titulo);
+    background-color: var(--cor-pw1-secundaria);
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-left: 5px;
