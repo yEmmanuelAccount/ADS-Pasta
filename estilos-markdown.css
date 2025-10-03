@@ -37,6 +37,10 @@
     --cor-bdd2-titulo: #30493d;
     --cor-bdd2-destaque: #22d389;
     --cor-bdd2-secundaria: #88c9ae;
+
+    --cor-ldr-titulo: #3f3b41;
+    --cor-ldr-destaque: #c777db;
+    --cor-ldr-secundaria: #e7bceb;
 }
 
 /* Estilo Geral */
@@ -282,6 +286,39 @@ blockquote.bdd2 {
     color: var(--cor-bdd2-titulo);
     background-color: var(--cor-bdd2-secundaria);
     border-left: 4px solid var(--cor-bdd2-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
+
+/* Lab. de Redes */
+h1.ldr::before,
+h1.ldr::after,
+h2.ldr::before,
+div.ldr::before {
+    content: "📊";
+    padding-left: 7px;
+    padding-right: 10px;
+}
+
+h1.ldr {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.ldr {
+    border-left: 4px solid var(--cor-ldr-destaque) !important;
+}
+
+.ldr {
+    color: var(--cor-ldr-titulo);
+    background-color: var(--cor-ldr-secundaria);
+    border-left: 4px solid var(--cor-ldr-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-left: 5px;
