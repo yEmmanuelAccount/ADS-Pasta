@@ -16,6 +16,7 @@
     --cor-titulo: var(--cor-azul-escuro-suave);
     --cor-bordas-titulos: var(--cor-preto);
     --cor-destaque-negrito: #fff3cd;
+    --cor-fundo-bloco-codigo: #d3d6de;
 
     --cor-fundo-recuado: #f0f0f0;
 
@@ -130,6 +131,11 @@ code {
 
 }
 
+pre {
+    background-color: var(--cor-fundo-bloco-codigo);
+}
+
+/* Bloco de Código */
 pre code {
     background-color: #4a85c0;
     color: #000000;
