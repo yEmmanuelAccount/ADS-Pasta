@@ -62,35 +62,39 @@ body {
 
 h1 {
     color: var(--cor-titulo);
-    font-size: 32px;
-    margin-top: 40px;
+    font-size: 40px;
+    margin-top: 50px;
     vertical-align: middle;
     justify-content: center;
     text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 h2 {
     color: var(--cor-titulo);
-    font-size: 24px;
-    margin-top: 30px;
+    font-size: 32px;
+    margin-top: 40px;
     padding-top: 10px;
     vertical-align: middle;
     padding-left: 10px;
     text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
 }
 
 h3 {
     color: var(--cor-titulo);
-    font-size: 18px;
+    font-size: 30px;
     margin-top: 20px;
     vertical-align: middle;
     padding-left: 10px;
     text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 div {
     text-align: left;
     font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 /* Parágrafo */
@@ -169,6 +173,72 @@ ol {
 li {
     margin-bottom: 1px;
     font-size: 15px;
+}
+
+/* --- ESTILOS GERAIS DE TABELA --- */
+
+/* 1. Cores de Fundo, Borda e Texto */
+.tabela-resumo {
+  width: 100%; /* Ocupa toda a largura do contêiner */
+  border-collapse: collapse; /* Remove o espaço entre as células */
+  margin: 20px 0;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave para destaque */
+  color: black; /* Cor do texto de toda a tabela */
+  border: 1px solid #d4c8a8; /* Borda sutil combinando com o fundo */
+}
+
+/* 2. TÍTULO (thead) */
+.tabela-resumo thead {
+  /* Cor mais escura que o fundo do body (#e6dbbd), mas suave (usando um tom de verde musgo) */
+  background-color: #d4c8a8; 
+  color: black;
+}
+
+/* Estilo do cabeçalho (células th) */
+.tabela-resumo th {
+  padding: 12px 8px;
+  text-align: center;
+  /* Garante que o texto quebre e a célula se ajuste para baixo se necessário */
+  word-wrap: break-word; 
+}
+
+/* 3. CORPO (tbody) */
+.tabela-resumo tbody {
+  /* Cor um pouco mais clara que o fundo do body (#e6dbbd) */
+  background-color: #f0e6ce;
+}
+
+/* Estilo das Células do Corpo (td) */
+.tabela-resumo td {
+  padding: 10px 8px;
+  text-align: center; /* Centraliza o texto horizontalmente */
+  vertical-align: top; /* Alinha o texto ao topo da célula expandida */
+  border: 1px solid #d4c8a8; /* Borda interna suave */
+  /* Garante que o texto quebre para baixo se for muito longo */
+  white-space: normal; 
+  word-wrap: break-word; 
+}
+
+/* --- DISTRIBUIÇÃO DINÂMICA DE COLUNAS (O SEGREDO) --- */
+
+/* Regras de dimensionamento (usando colgroup ou th/td para maior compatibilidade no Markdown) */
+
+/* Se a tabela tiver 2 colunas: 50% para cada */
+.tabela-resumo th:nth-child(2n-1),
+.tabela-resumo td:nth-child(2n-1),
+.tabela-resumo th:nth-child(2n),
+.tabela-resumo td:nth-child(2n) {
+    width: 50%;
+}
+
+/* Se a tabela tiver 3 colunas: 33.33% para cada */
+.tabela-resumo th:nth-child(3n-2),
+.tabela-resumo td:nth-child(3n-2),
+.tabela-resumo th:nth-child(3n-1),
+.tabela-resumo td:nth-child(3n-1),
+.tabela-resumo th:nth-child(3n),
+.tabela-resumo td:nth-child(3n) {
+    width: 33%;
 }
 
 /* CLASSES */

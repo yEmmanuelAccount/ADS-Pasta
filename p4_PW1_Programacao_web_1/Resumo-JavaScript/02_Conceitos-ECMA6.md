@@ -20,7 +20,7 @@
 Conhecemos por `.js` das antigas que patentearam, mas seu nome oficial é **ECMAScript**.
 
 <div class="pw1"> Versões do JavaScript </div>
-<table>
+<table class="tabela-resumo">
     <title> Versões do JS </title>
     <thead>
         <tr>
@@ -275,4 +275,89 @@ const usuario = { nome: 'Diego' }; // declaração
 usuario.nome = 'Cleiton'; // mutação
 
 console.log(usuario); // saída: 'Cleiton'
+```
+
+<h3 class="pw1"> Escopo </h3>
+
+<div class="pw1"> VAR x LET </div>
+
+Usando **let** na declaração, dentro de um bloco, será visível e acessível somente dentro do bloco.
+
+```
+if (true) {
+    let y = 5;
+}
+
+console.log(y); // retorno: "ERRO"
+```
+
+Se a declaração for feita com **var**, dentro de um bloco, será visível globalmente.
+
+```
+if (true) {
+    var x = 5;
+}
+
+console.log(x); // retorno: "5"
+```
+
+<div class="pw1"> Operações com Arrays </div>
+
+Essa função foi adicionada no ECMA6+ com uma sintaxe mais simples
+
+<div class="pw1"> Sintaxe Básica </div>
+
+```
+(parametro1, parametro2, ..., parametroN) => { statement }
+
+(parametro1, parametro2, ..., parametroN) => expression
+```
+
+<div class="pw1"> Exemplos </div>
+
+```
+let hello = () => { return "Hello World!"; }
+
+let hello = (val) => "Hello " + val;
+
+let hello = val => "Hello " + val;
+```
+
+<div class="pw1"> Funções de Array </div>
+
+```
+// criação do Array
+let elements = [
+    'Hydrogen',
+    'Helium',
+    'Lithium',
+    'Beryllium'
+];
+
+// form1
+let lengthsWords1 = elements.map(function(element) {
+    return element.length;
+});
+
+// form2
+let lengthsWords2 = elements.map((element) => {
+    return element.length;
+});
+```
+
+<div class="pw1"> Valores Padrões </div>
+
+**Os parâmetros predefinidos de uma função** são todos `undefined`.
+
+```
+// definição da função
+function multiply (a, b = 1) {
+    return a * b;
+}
+
+multiply(5, 2);
+multiply(5, 1);
+multiply(5);
+
+console.log(multiply());
 ```
