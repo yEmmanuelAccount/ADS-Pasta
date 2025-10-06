@@ -361,3 +361,24 @@ multiply(5);
 
 console.log(multiply());
 ```
+
+<h3 class="pw1"> Desestruturação </h3>
+
+São expressões que **possibilitam extrair dados de arrays ou objetos** e atribuí-los diretamente em variáveis.
+
+* **Arrays**
+
+```
+let x = [1, 2, 3, 4, 5]; // criação do array
+let [y, z] = x;
+
+console.log(y); // saída: "1"
+console.log(z); // saída: "2"
+
+let [a, ...b] = [1, 2, 3];
+
+console.log(a);
+console.log(b);
+```
+
+Na segunda linha, `let [y, z] = x` significa: pegue os **dois primeiros elementos** de `x` e atribua para `y` (que receberá "1") e `z` (que receberá "2"). Os demais elementos são ignorados na operação.
