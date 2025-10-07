@@ -262,17 +262,25 @@ Claro! Aqui estão cinco questões de múltipla escolha para ajudar na fixação
 
 <h1 class="les"> Atividade: Fases do SDLC </h1>
 
-<h2 class="les"> Introdução </h2>
+Which phase of the SDLC best matches the given scenario? For each scenario, click one of the three phases below.
 
-In this activity you will iden
+1\. **The product manager works with the customer to prioritize the requirements.**
 
-<h2 class="les"> Resumo </h2>
+* `A)` Design
+* `B)` Planning.
+* `C)` Development
 
+2\. **The QA team assesses the code released to the staging platform against the use cases. They discover one requirement has not been addressed.**
 
+* `A)` Maintenance
+* `B)` Deployment
+* `C)` Testing.
 
-<h2 class="les"> Questões </h2>
+3\. **The software engineers release the code into a production environment.**
 
--
+* `A)` Deployment.
+* `B)` Development
+* `C)` Maintenance
 
 <h1 class="les"> Criação de software de qualidade </h1>
 
@@ -421,17 +429,48 @@ Claro! Aqui estão cinco questões de múltipla escolha para ajudar na fixação
 
 <h1 class="les"> ATIVIDADE: Visão geral da engenharia de software </h1>
 
-<h2 class="les"> Transcrição </h2>
+1\. **Qual das opções a seguir descreve melhor as principais responsabilidades de um engenheiro de software?**
 
-.
+* `A)` Projetar, criar e manter sistemas de software
+* `B)` Redação de documentação
+* `C)` Escrever casos de teste com base nos requisitos
+* `D)` Projetando a experiência do usuário
 
-<h2 class="les"> Resumo </h2>
+2\. **Qual das alternativas a seguir descreve melhor uma das principais vantagens para uma empresa seguir o SDLC?** 
 
-.
+* `A)` Ele informa à equipe de controle de qualidade quais casos de teste devem ser escritos. 
+* `B)` O SDLC oferece uma visão geral do processo, para que as partes interessadas saibam onde se encaixam nesse processo.
+* `C)` Ele permite a criatividade devido à sua abordagem adhoc para o desenvolvimento de software. 
+* `D)` Ele define as funções da equipe de desenvolvimento. 
 
-<h2 class="les"> Questões </h2>
+3\. **Qual das opções a seguir descreve melhor uma atividade que ocorre na fase de planejamento do ciclo de vida de desenvolvimento de software (SDLC)?** 
 
-.
+* `A)` Os erros são identificados. 
+* `B)` O processo de codificação é iniciado. 
+* `C)` A arquitetura do software é projetada.
+* `D)` Os requisitos do usuário são escritos. 
+
+4\. **Qual das opções a seguir descreve melhor uma versão alfa?** 
+
+* `A)` Ele é destinado a todos os usuários. 
+* `B)` É a primeira versão funcional de um sistema liberada para um grupo seleto de interessados. 
+* `C)` É a versão mais estável. 
+* `D)` Ele atende a todos os requisitos funcionais. 
+
+5\. **Qual afirmação descreve melhor a Especificação de Requisitos do Usuário (URS)?** 
+
+* `A)` Ele contém requisitos funcionais, de interface externa e não funcionais. 
+* `B)` Ela pode ser combinada com a especificação de requisitos de software para formar a especificação de requisitos do sistema (SysRS). 
+* `C)` Ele contém requisitos de políticas e regulamentos. 
+* `D)` Ele contém principalmente casos de uso. 
+
+<div class="les"> Gabrito </div>
+
+1. A
+2. B
+3. D
+4. B
+5. D
 
 <h1 class="les"> Metodologias de Desenvolvimento de Software </h1>
 
@@ -869,6 +908,43 @@ Aqui estão cinco questões de múltipla escolha para ajudar na fixação do con
    - `C)` Criar especificações e designs para o produto
    - `D)` Realizar testes de integração
 
+<h1 class="les"> O processo de criação de software e as funções associadas </h1>
+
+1\. **Qual das alternativas a seguir descreve melhor a abordagem em cascata para o ciclo de vida de desenvolvimento de software (SDLC)?** 
+
+* `A)` Os testes são escritos durante a fase de validação. 
+* .`B)` É uma abordagem sequencial para o SDLC. 
+* `C)` O último estágio é chamado de "estágio de feedback" em vez de "estágio de manutenção" 
+* `D)` É uma abordagem iterativa para o SDLC. 
+
+2\. **Na numeração semântica, o que representa o 9 no número da versão 9.1.33.6?**
+
+* `A)` A posição "9" indica que foram feitas pequenas alterações em um software. 
+* `B)` A posição "9" indica patches ou pequenas correções de bugs. 
+* .`C)` A posição "9" indica alterações importantes no software, como uma nova versão. 
+* `D)` A posição "9" indica alterações que são menos significativas do que um patch. 
+
+3\. **Qual das opções a seguir descreve melhor o teste não funcional?** 
+
+* `A)` Ele se preocupa apenas com as entradas e as saídas correspondentes do sistema em teste. 
+* `B)` O objetivo do teste não funcional é garantir que o aplicativo seja utilizável e acessível. 
+* `C)` Ele consiste em testes de caixa preta em vez de testes de caixa branca. 
+* .`D)` Ele testa os atributos do aplicativo, como desempenho e segurança. 
+
+4\. **Qual função é a principal responsável por facilitar a comunicação entre os membros da equipe e as partes interessadas?** 
+
+* `A)` Arquiteto de software 
+* `B)` Desenvolvedor de informações
+* .`C)` Scrum-master
+* `D)` Gerente de produto 
+
+5\. **Qual das opções a seguir descreve uma diferença entre a documentação do processo e a documentação do produto?** 
+
+* .`A)` A documentação do processo explica como executar os procedimentos, enquanto a documentação do produto explica como usar o software. 
+* `B)` A documentação do processo fornece documentação técnica para os desenvolvedores, enquanto a documentação do produto explica como executar os processos de negócios.   
+* `C)` A documentação do processo está em um formato escrito, enquanto a documentação do produto está em um formato de vídeo. 
+* `D)` A documentação do processo é destinada à equipe de garantia de qualidade, enquanto a documentação do produto é destinada aos administradores de sistema. 
+
 <h1 class="les"> Resumo e Destaques </h1>
 
 Parabéns! `Você concluiu este módulo`. Até este estágio, já sabe:
@@ -904,3 +980,110 @@ O teste funcional se preocupa com as entradas e as saídas correspondentes do si
 Os tipos de documentação incluem requisitos, projeto, técnica, garantia de qualidade e usuário.
 
 Há muitas funções diferentes envolvidas em um projeto de engenharia de software. Algumas delas incluem gerente de projeto ou scrum master, parte interessada, arquiteto de sistema ou de software, designer de UX, desenvolvedor de software, testador ou engenheiro de QA, confiabilidade do site ou engenheiro de operações, gerente ou proprietário de produto e redator técnico ou desenvolvedor de informações.
+
+<div class="les"> Questões </div>
+
+Claro! Aqui estão cinco questões de múltipla escolha baseadas no conteúdo do módulo que você completou:
+
+1\. **Qual das seguintes opções descreve melhor o que é engenharia de software?**
+   - A) A criação de hardware para computadores.
+   - B) A aplicação de princípios científicos ao design e criação de software.
+   - C) A manutenção de sistemas operacionais.
+   - D) A programação de jogos eletrônicos.
+
+2\. **Qual é uma das responsabilidades de um engenheiro de software?**
+   - A) Apenas codificar software.
+   - B) Apenas testar software.
+   - C) Projetar, construir e manter sistemas de software.
+   - D) Vender software para clientes.
+
+3\. **O que é um SRS?**
+   - A) Um documento que captura as funcionalidades que o software deve realizar.
+   - B) Um tipo de teste de software.
+   - C) Um modelo de desenvolvimento ágil.
+   - D) Um tipo de linguagem de programação.
+
+4\. **Qual metodologia de desenvolvimento de software é conhecida por sua flexibilidade e adaptação a mudanças?**
+   - A) Modelo em Cascata.
+   - B) Modelo V.
+   - C) Ágil.
+   - D) Modelo de Documentação.
+
+5\. **Qual tipo de teste se concentra em confirmar que uma alteração recente não afeta funcionalidades existentes?**
+   - A) Teste Funcional.
+   - B) Teste de Performance.
+   - C) Teste de Regressão.
+   - D) Teste de Aceitação.
+
+<h1 class="les"> Questionário com notas: O ciclo de vida do desenvolvimento de software </h1>
+
+1\. **O software desempenha um papel fundamental na tecnologia moderna, tornando a engenharia de software uma disciplina essencial. Qual das opções a seguir define melhor a engenharia de software?**
+
+* A) O uso sistemático de métodos científicos para desenvolver e projetar software.
+* B) A aplicação estruturada de princípios para organizar elementos em um software de sistema
+* C) Qualquer atividade relacionada à criação de software
+* D) A gama completa de processos envolvidos no desenvolvimento de software
+
+2\. **Tanya quer reduzir os riscos do projeto e garantir que o processo de desenvolvimento de seu projeto seja estruturado e eficiente. Qual dos seguintes benefícios do ciclo de vida de desenvolvimento de software (SDLC) Tanya tem nesse cenário?**
+
+* A) Concentra-se na criação de documentação relacionada a software
+* B) Esforce-se rigorosamente para definir as responsabilidades de todos os Membros da equipe
+* C) Incentiva abordagens ad-hoc para flexibilidade na execução do projeto
+* D) Ajuda as Equipes de Desenvolvimento a trabalhar sistematicamente, melhorando a eficiência e reduzindo os riscos.
+
+3\. **Ao usar um aplicativo bancário totalmente operacional, um cliente notou discrepâncias nos detalhes da transação que não aparecem nos dispositivos móveis. Qual das seguintes ações o desenvolvedor de software deve tomar nesse cenário para resolver esses problemas?**
+
+* A) Criar novos requisitos de sistema
+* B) Correção de pequenos problemas de interface do usuário (IU)
+* C) Teste os códigos completamente.
+* D) Desenvolver o processo de codificação a partir do zero 
+
+4\. **Durante o teste final de um novo sistema de comércio eletrônico, a equipe quer confirmar que o software funciona conforme definido nas especificações. Qual das seguintes atividades deve ser executada na fase de teste nesse cenário?**
+
+* A) Verificação do software em relação aos requisitos.
+* B) Lançar alfa interno para testes 
+* C) Definir componentes e comportamentos do sistema 
+* D) Criar guias de suporte para os usuários
+
+5\. **Qual documento será utilizado no planejamento inicial de um sistema de inventário para rastrear o que os usuários esperam que o sistema faça, incluindo metas de alto nível e requisitos de negócios?**
+
+* A) Documento de controle de interface (ICD)
+* B) Documento de especificações de requisitos do sistema (SysRS) 
+* C) Documento de especificação de requisitos de software (SRS) 
+* D) Documento de especificação de requisitos do usuário (URS).
+
+6\. **Uma empresa deseja adotar uma abordagem em que cada fase de desenvolvimento siga a fase de teste para verificação e validação claras. Qual é o modelo mais provável que a empresa deve usar?**
+
+* A) Cascata
+* B) Em forma de V.
+* C) Agile
+* D) Verificação
+
+7\. **Qual é o principal objetivo da validação de software que se concentra na experiência do usuário?**
+
+* A) Consequências da modificação do sistema de rastreamento
+* B) Monitoramento de métricas de desempenho da infraestrutura
+* C) Medição do consumo de recursos do sistema 
+* D) Garantir que o aplicativo seja utilizável e acessível.
+
+
+8\. **AS como desenvolvedor de software, você deseja escrever um código claro, eficiente e de fácil manutenção seguindo certas práticas recomendadas. Qual fase do ciclo de vida de desenvolvimento de software suporta essa fase?**
+
+* A) Qualidade do código
+* B) Teste de software
+* C) Design de software.
+* D) Documentação do software
+
+9\. **Um projeto está enfrentando problemas de desempenho estrutural devido ao seu sistema de design deficiente. Quem é o principal responsável por esses problemas?**
+
+* A) designer de UX
+* B) Arquiteto de software.
+* C) Partes interessadas 
+* D) Proprietário do produto 
+
+10\. **Se você quiser preparar um documento que explique como usar o software depois que ele for implantado, que tipo de documentação você deve preferir criar?**
+
+* A) Documentação de requisitos
+* B) Documentação técnica
+* C) Documentação do usuário.
+* D) Documentação do software
