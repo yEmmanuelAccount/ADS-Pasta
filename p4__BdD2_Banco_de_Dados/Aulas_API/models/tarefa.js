@@ -21,6 +21,6 @@ const Tarefa = sequelize.define('Tarefa', {
     }
 });
 
-Tarefa.sync({ force: true });
+Tarefa.sync();
 
 export default Tarefa;
