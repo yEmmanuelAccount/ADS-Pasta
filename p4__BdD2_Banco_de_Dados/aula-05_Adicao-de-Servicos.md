@@ -126,3 +126,30 @@ Substituição do método antigo no **tarefas-router.js** pela link com a nova f
 ```
 tarefasRouter.delete('/:id', deletarTarefa);
 ```
+
+<h2 class="bdd2"> Atualizar </h2>
+
+Para fazer a atualização, devemos chamar o `set` para buscar o objeto e `save` para salvar a mudança.
+
+* Criação da nova função no arquivo **tarefas-controller.js**:
+```
+export async function deletarTarefa(req, res) {
+    const tarefa = await Tarefa.findByPk(req.params.id);
+    if (tarefa) {
+        await tarefa.destroy();
+        res.json(tarefa);
+    } else {
+        res.status(404).json({ error: 'Tarefa não encontrada.' });
+    }
+}
+```
+
+* Importação da função no arquivo **tarefas-router.js**:
+```
+import { listarTarefas, criarTarefa, buscarTarefa, deletarTarefa, atualizarTarefa } from '../controller/tarefas-controller.js';
+```
+
+* Substituição do método de atualização antigo pelo link para a função nova:
+```
+tarefasRouter.patch('/:id', atualizarTarefa);
+```
