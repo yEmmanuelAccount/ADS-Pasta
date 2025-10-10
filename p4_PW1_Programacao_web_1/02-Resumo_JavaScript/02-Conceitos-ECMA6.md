@@ -377,8 +377,42 @@ console.log(z); // saída: "2"
 
 let [a, ...b] = [1, 2, 3];
 
+console.log(a); // saída: "1"
+console.log(b); // saída: "2" e "3"
+```
+
+Na segunda linha, `let [y, z] = x`, ocorre uma desestruturação pegando os **dois primeiros elementos** de `x` e atribua para `y` (que receberá "1") e `z` (que receberá "2"). Os demais elementos são ignorados na operação.
+
+Na quinta linha, `let [a, ...b] = [1, 2, 3]`, é criado um novo array e o desestrutura imediatamente. A variável `a` recebe o **primeiro** elemento e o `b` recebe o **restante** do elementos com o uso do operador **REST**.
+
+* **Objetos Literais**
+
+```
+let o = {p: 42, q: true};
+let {p2, q2} = o;
+
+console.log(p2); // saída: "42"
+console.log(q2); // saída: "true"
+
+let {a = 10, b = 5} = {a: 3};
+
 console.log(a);
 console.log(b);
 ```
 
-Na segunda linha, `let [y, z] = x` significa: pegue os **dois primeiros elementos** de `x` e atribua para `y` (que receberá "1") e `z` (que receberá "2"). Os demais elementos são ignorados na operação.
+Nesses código, na linha 1, é criado um Objeto Literal `o` com duas propriedades: p = 42 e q = true.
+
+Já na segunda linha, `let {p, q} = o`, ocorre a desestruturação. Ao usar as chaves **{}** do lado esquerdo da atribuição, o JavaScript busca a propriedade `p` do objeto `o` e atribui seu valor (42) a uma nova variável `p2`. A mesma coisa ocorre com a nova variável `q2`, que recebe o valor da propriedade `q` do objeto `o`.
+
+Na sétima linha, `let {a = 10, b = 5} = {a: 3}`, é mostrado como definir um **valor padrão** caso uma propriedade não exista no objeto original (undefined). O objeto, que só tem a propriedade `a`, também é desestruturado.
+
+Para `a`:
+* o objeto de origem tem `a: 3`.
+* o valor `3` é atribuído à variável `a`.
+* o valor padrão (10) é **ignorado** porque a propriedade `a` existia.
+
+Para `b`:
+* o objeto de origem **não tem** a propriedade `b`.
+* o valor `5` é usado e atribuído à variável `b`.
+
+<h3 class="pw1"> Operador REST </h3>
