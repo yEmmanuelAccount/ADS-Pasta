@@ -14,7 +14,7 @@ Entre 2009 e 2015, muitas **novas *features*** foram adicionadas à linguagem. �
 
 O JavaScript moderno trouxe mudanças significativas na forma como declaramos variáveis, criamos estruturas de dados e definimos funções.
 
-<h2 class="pw1">  2.1. Declaração de Variáveis: LET e CONST </h3>
+<h3 class="pw1">  2.1. Declaração de Variáveis: LET e CONST </h3>
 
 Esta é uma das mudanças mais importantes em relação ao `var` antigo:
 
@@ -33,6 +33,29 @@ Classes (`Classes`) provêm uma maneira mais simples e clara de **criar objetos 
 *   Você pode declarar classes e usar **Expressões de Classe**.
 *   O corpo da classe inclui a definição de métodos, construtores, e usa os operadores `new` e `this`.
 *   A herança é implementada usando a palavra-chave **`extends`**.
+
+Exemplo de **Herança de Classes**:
+```
+class Gato {
+    constructor(nome) {
+        this.nome = nome;
+    }
+
+    falar() {
+        console.log(this.nome + ' faça barulho.');
+    }
+}
+
+class Leao extends Gato {
+    falar() {
+        super.falar();
+        console.log(this.nome + ' rosna.');
+    }
+}
+
+let leao = new Leao("Alex");
+leao.falar();
+```
 
 <h3 class="pw1">  2.3. Estruturas e Operações em Arrays </h3>
 

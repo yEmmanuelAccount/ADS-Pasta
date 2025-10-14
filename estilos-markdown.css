@@ -68,16 +68,19 @@ h1 {
     justify-content: center;
     text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding-bottom: 2px;
+    padding-top: 3px;
 }
 
 h2 {
     color: var(--cor-titulo);
     font-size: 30px;
-    margin-top: 40px;
+    margin-top: 30px;
     vertical-align: middle;
-    padding-left: 10px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding-bottom: 2px;
+    padding-top: 3px;
 }
 
 h3 {
@@ -85,9 +88,10 @@ h3 {
     font-size: 20px;
     margin-top: 20px;
     vertical-align: middle;
-    padding-left: 20px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding-bottom: 2px;
+    padding-top: 3px;
 }
 
 div {
@@ -95,6 +99,24 @@ div {
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
+
+/* Contagem de Títulos */
+    /* H1 */
+    .t1 {
+        counter-increment: t1;
+        counter-reset: t2;
+    }
+    .t1::before {
+        content: counter(t1) ". ";
+    }
+
+    /* H2 */
+    .t2 {
+        counter-increment: t2;
+    }
+    .t2::before {
+        content: counter(t1) "." counter(t2) " ";
+    }
 
 /* Parágrafo */
 p {
@@ -442,3 +464,30 @@ blockquote.pw1 {
     align-items: center;
     display: flex;
 }
+
+/* Numeração Automática usando contagem de H2 e H3
+body {
+    counter-reset: h2counter;
+}
+
+Numera apenas os h2.pw1
+h2.pw1 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+    Reinicia subtópicos
+}
+
+h2.pw1::before {
+    content: counter(h2counter) ". ";
+}
+
+Numera os h3.pw1 como subtópicos
+h3.pw1 {
+    counter-increment: h3counter;
+}
+
+h3.pw1::before {
+    content: counter(h2counter) "." counter(h3counter) " ";
+}
+
+*/
