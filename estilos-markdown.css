@@ -16,7 +16,7 @@
     --cor-titulo: var(--cor-azul-escuro-suave);
     --cor-bordas-titulos: var(--cor-preto);
     --cor-destaque-negrito: #fff3cd;
-    --cor-fundo-bloco-codigo: #d3d6de;
+    --cor-fundo-bloco-codigo: #e0e0d0;
 
     --cor-fundo-recuado: #f0f0f0;
 
@@ -62,7 +62,7 @@ body {
 
 h1 {
     color: var(--cor-titulo);
-    font-size: 40px;
+    font-size: 35px;
     margin-top: 40px;
     vertical-align: middle;
     justify-content: center;
@@ -72,9 +72,8 @@ h1 {
 
 h2 {
     color: var(--cor-titulo);
-    font-size: 32px;
+    font-size: 30px;
     margin-top: 40px;
-    padding-top: 10px;
     vertical-align: middle;
     padding-left: 10px;
     text-align: left;
@@ -83,10 +82,10 @@ h2 {
 
 h3 {
     color: var(--cor-titulo);
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 20px;
     vertical-align: middle;
-    padding-left: 10px;
+    padding-left: 20px;
     text-align: left;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
@@ -141,7 +140,7 @@ pre {
 
 /* Bloco de Código */
 pre code {
-    background-color: #4a85c0;
+    background-color: #c4c4b3;
     color: #000000;
     font-size: 14px;
     padding: 10px;

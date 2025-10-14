@@ -1,418 +1,180 @@
-<!-- Link do CSS -->
 <link rel="stylesheet" href="../../estilos-markdown.css">
 
-<!-- Início do Documento -->
-<h1 class="pw1">ECMA6+ / TypeScript</h1>
+<h1 class="pw1"> Resumo Introdutório de JavaScript (ECMAScript 6+) e TypeScript </h1>
 
-<h2 class="pw1"> Backend </h2>
+<h2 class="pw1"> 1. Introdução e Terminologia (ECMAScript vs. JavaScript) </h2>
 
-* Regras de negócio
-* Conexão com **Banco de Dados**
-* Envio de email
-* COmunicação com web-services
-* Autenticação do usuário
-* Criptografia e segurança
+O termo **JavaScript** que conhecemos das antigas é, oficialmente, chamado de **ECMAScript**. Eles são considerados a mesma coisa.
 
-<h2 class="pw1"> Introdução </h2>
+Entre 2009 e 2015, muitas **novas *features*** foram adicionadas à linguagem. É importante notar que essas novas funcionalidades **não invalidam as anteriores**.
 
-**JavaScript** e ECMAScript são a mesma coisa.
+**Observação:** Quando novas *features* são implementadas, os *browsers* podem ainda não oferecer suporte. Ferramentas de compatibilidade como o Babel (discutido abaixo) ajudam a resolver isso.
 
-Conhecemos por `.js` das antigas que patentearam, mas seu nome oficial é **ECMAScript**.
+<h2 class="pw1"> 2. Conceitos Fundamentais do ECMA6+ </h2>
 
-<div class="pw1"> Versões do JavaScript </div>
-<table class="tabela-resumo">
-    <title> Versões do JS </title>
-    <thead>
-        <tr>
-            <th scope="col"> Nome </th>
-            <th scope="col"> Ano </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <th scope="row"> ECMA-262 v5 </th>
-            <td> 2009 </td>
-        </tr>
-        <tr>
-            <th scope="row"> ECMA-262 v6 ou ES6 / ES2015 </th>
-            <td> 2015 </td>
-        </tr>
-        <tr>
-            <th scope="row"> ES2016 </th>
-            <td> 2016 </td>
-        </tr>
-        <tr>
-            <th scope="row"> ES2017 </th>
-            <td> 2017 </td>
-        </tr>
-    </tbody>
-</table>
+O JavaScript moderno trouxe mudanças significativas na forma como declaramos variáveis, criamos estruturas de dados e definimos funções.
 
-* De 2009 a 2015 foram acrescentadas muitas `features`.
-* As novas features acrescentadas não invalidam as anteriores.
-* Quando essas features são implementadas, os browsers (navegadores) ainda não dão suporte.
+<h2 class="pw1">  2.1. Declaração de Variáveis: LET e CONST </h3>
 
-<h3 class="pw1"> ECMAScript </h3>
+Esta é uma das mudanças mais importantes em relação ao `var` antigo:
 
-Usando o **ECMAScript**, é possível:
-* criação de novos tipos de dados (exemplos: **Map**, **WeakMap**, **Set**, **WearSet**)
-* declaração de variáveis como `let` (recebe qualquer coisa) e `const` (constante).
+| Palavra-chave | Descrição Conceitual (Exemplo de Regra) | `var` | `let` | `const` |
+| :---- | :---- | :---: | :---: | :---: |
+| **Compatibilidade** | Funciona em todos os *browsers* | ✔ | | |
+| **Declaração com mesmo nome** | Permite recriar a variável no mesmo escopo | ✔ | ✗ | ✗ |
+| **Declaração sem valor inicial** | Permite declarar sem atribuir valor (inicializa como `undefined`) | ✔ | ✔ | ✗ |
+| **Reatribuição de valor** | Permite mudar o valor após a atribuição inicial | ✔ | ✔ | ✗ |
+| **Mutação de Propriedades** | **Exceção:** Em objetos e arrays, você **pode** alterar suas propriedades, mesmo que o container tenha sido declarado com `const`. | | | ✔ |
 
-<h1 class="pw1"> BabelJS </h1>
+<h3 class="pw1">  2.2. Classes e Herança </h3>
 
-Usado para converter ESNext para ES5.
+Classes (`Classes`) provêm uma maneira mais simples e clara de **criar objetos e lidar com herança**.
 
-Link: [https://babeljs.io/](https://babeljs.io/)
+*   Você pode declarar classes e usar **Expressões de Classe**.
+*   O corpo da classe inclui a definição de métodos, construtores, e usa os operadores `new` e `this`.
+*   A herança é implementada usando a palavra-chave **`extends`**.
 
-<h2 class="pw1"> Configurando o Babel </h2>
+<h3 class="pw1">  2.3. Estruturas e Operações em Arrays </h3>
 
-<div class="pw1"> Inicializando o Projeto </div>
+O ECMA6+ adicionou novos tipos de dados (`Map`, `WeakMap`, `Set`, `WeakSet`) e métodos utilitários para arrays:
 
-Cria arquivo `package.json`. Este será o "manifesto" do projeto, onde todas as dependências e scripts personalizados serão registrados.
+*   **Iteração:** `for..of`.
+*   **Manipulação:** `map()`, `forEach()`, `reduce()`, `filter()`, `find()`.
+*   **Busca:** `indexOf()`, `includes()`.
+*   **Transformação:** `Slice()`, `Splice()`, `Join()`.
 
-É o ponto de partida de qualquer projeto **Node** ou **JS**.
+<h3 class="pw1">  2.4. Funções e Sintaxe Simplificada </h3>
 
-**Node**
-```
-npm init
-```
+*   **Arrow Functions:** Oferecem uma sintaxe mais concisa para escrever funções.
+*   **Valores Padrões:** Os parâmetros predefinidos de uma função (se não forem passados) são, por padrão, `undefined`.
+*   **Desestruturação (`Destructuring`):** É uma expressão que permite **extrair dados de arrays ou objetos em variáveis distintas** de maneira fácil.
+*   **Operador Rest:** Permite **representar um número indefinido de argumentos como um array**.
+*   **Operador Spread:** Permite que um objeto, uma expressão de array ou uma *string* seja **propagado** (expandido em elementos individuais).
+*   **Template Literals:** São *strings* que permitem **expressões embutidas**. Conceitualmente, isso permite usar *strings* multi-linhas e **interpolação de *string*** com expressões (e.g., `${variavel}`).
+*   **Sintaxe Curta de Objeto (*Shorthand*):** Quando o nome da variável é igual ao nome da propriedade do objeto, você não precisa atribuir explicitamente a variável na propriedade.
 
-**Yarn**
-```
-yarn init
-```
+<h2 class="pw1">  3. Ferramentas de Compilação e Módulos </h2>
 
-<div class="pw1"> Instalar a dependência Babel - Interface </div>
+Para que os navegadores entendam as novas funcionalidades do ECMA6+, usamos ferramentas de transpilação e empacotamento.
 
-Esse passo da instalação usa comando de instalação de pacotes.
+<h3 class="pw1"> 3.1. Babel e Webpack </h3>
 
-A **Interface de Linha de Comando** é a ferramenta que permite a execução do Babel no terminal. Ele transforma comandos no terminal (como "compile este arquivo") em ações que o `core` do Babel pode entender.
+*   **Babel:** É usado para transformar o código `main.js` (com *features* ECMA6+) em um arquivo `bundle.js` que é compatível com *browsers* mais antigos. A configuração envolve a instalação de dependências como `@babel/cli`, `@babel/preset-env` e `@babel/core`.
+*   **Webpack Server:** É um serviço que permite trabalhar com vários arquivos, convertendo-os em um único arquivo `bundle.js`. Ele também permite que o recurso de módulos funcione no *front-end*.
 
-**Node**
-```
-npm install @babel/cli
-```
+<h3 class="pw1">  3.2. Módulos: import vs require() </h3>
 
-**Yarn**
-```
-yarn add @babel/cli
-```
+Módulos são usados para importar e exportar funcionalidades entre arquivos.
 
-<div class="pw1"> Conjunto de Regras </div
+| Característica | `import` (ECMA6+) | `require()` (Node.js/CommonJS) |
+| :--- | :--- | :--- |
+| **Padrão** | ECMA+ | CommonJS |
+| **Carregamento** | Assíncrono | Síncrono |
+| **Sintaxe de Exportação (Antiga)** | Pode usar `module.exports` | Usa `module.exports` |
+| **O que importa** | Importa partes específicas do que foi exportado. | |
 
-Com o Conjunto de **Plugins Inteligente (Preset)**, o Babel não transforma nada por conta própria, ele precisa de plugins. 
+Para usar `import`/`export` no Node.js sem o Babel, você pode adicionar `"type": "module"` ao `package.json` ou instalar a biblioteca `esm`.
 
-O `@babel/preset-env` é um **preset** que agrupa todos os plugins necessários para converter códigos JavaScript moderno (ES6, ES7, etc) em código JS compatível com os navegadores que você deseja suportar. Ele faz o trabalho "pesado" de determinar quais transformações são necessárias.
+<h2 class="pw1"> 4. Funções Assíncronas (Async/Await) e Requisições </h2>
 
-**Node**
-```
-npm install @babel/preset-env
-```
+Funções normais são executadas sequencialmente: a função B só inicia após a função A terminar.
 
-**Yarn**
-```
-yarn add @babel/preset-env
-```
+**Funções Assíncronas**, por outro lado, permitem que a função B execute mesmo que a função A ainda não tenha terminado.
 
-<div class="pw1"> Motor </div>
+*   `async function`: Define uma função assíncrona. Ela sempre retorna uma `Promise`.
+*   `await function`: É usado **para esperar por uma Promise**. Ele retorna o valor final da *promise*.
 
-Com o **Motor de Transformação** é o pacote principal que contém a **lógica central** do Babel.
+<h3 class="pw1">  4.1. Biblioteca Axios </h3>
 
-Ele é o responsável por receber o código, aplicar os `presets` e, plugins e finalmente, gerar o código transformado (transpilado). Ele é o "coração" da operação. 
+Axios é um **cliente HTTP** que funciona tanto no *browser* quanto no Node.js, e fornece uma API para trabalhar com requisições assíncronas.
 
-**Node**
-```
-npm install @babel/core
-```
+*   Todas as funções do Axios **retornam *promises***.
+*   Ele realiza requisições HTTP (como `get()`, `post()`, `put()`, `delete()` e `all()`).
+*   Automaticamente, transforma respostas em **JSON**.
 
-**Yarn**
-```
-yarn add @babel/core
-```
+<h2 class="pw1"> 5. TypeScript (TS) </h2>
 
-<div class="pw1"> Filtragem </div>
+TypeScript é um superset do JavaScript. Sua principal característica é ser uma linguagem **fortemente tipada**.
 
-Crie um arquivo `.gitignore` para colocar o arquivo **node_modules** dentro e assim evitar que ele seja salvo no repositório virtual.
+<h3 class="pw1">  5.1. Vantagens do TypeScript </h3>
 
-<div class="pw1"> Arquivo de Configuração </div>
+O TypeScript estende o JavaScript adicionando tipos. Isso é crucial porque:
 
-Crie um arquivo `.babelrc` ou `babel.config.js` para que seja possível configurar o Babel.
+*   **Economiza tempo** ao detectar erros.
+*   Fornece correções **antes** de você executar o código.
 
-Esse arquivo será um mapa de instruções que diz ao motor do Babel (o **@babel/core**) o que ele deve fazer e quais regras deve seguir ao processar seu código.
+<h3 class="pw1">  5.2. Conceitos de Tipagem </h3>
 
-Dentro dele, coloque:
-```
-{
-    "presets": ["babel/preset-env"]
-}
-```
+*   **Tipagem Explícita:** Você especifica qual será o tipo de cada variável (ex: `let nome: string = "Fabio";`).
+*   **Inferência de Tipos:** O TypeScript pode reconhecer automaticamente o tipo da variável quando você atribui um valor a ela.
+*   **Tipo `Any`:** É o tipo padrão se você não especificar um tipo, mas **não é recomendado**, pois perde-se a utilidade da tipagem, já que aceita qualquer dado.
+*   **Union (`|`):** Permite adicionar mais de um tipo a uma variável (ex: `let valor: string | number;`).
+*   **Propriedades Opcionais:** Usamos o sinal de **`?`** para informar que uma propriedade dentro de um objeto é opcional.
+*   **Generics (`<T>`):** Permitem **reutilizar uma determinada implementação de código de forma tipada**. A letra `<T>` representa um *Type* genérico, mas convenções como `<K>` (Key) ou `<E>` (Element) também existem.
 
-<div class="pw1"> Transpilação Automática </div>
+<h3 class="pw1"> 5.3. Type vs. Interface </h3>
 
-Colocando o código a seguir no arquivo `package.json`, é criado um script personalizado que automatiza o processo de transpilação (conversão) do seu código usando o Babel.
+Ambos são usados para definir tipagens no TypeScript.
+
+*   `Type`: É mais simples e flexível, e **mais recomendado** para lidar com tipos primitivos.
+*   `Interface`: É utilizada normalmente na criação de *libraries* ou por aqueles que preferem a **programação orientada a objetos**.
+
+<h3 class="pw1"> 5.4. Tipos Utilitários (Exemplos de Uso) </h3>
+
+O TypeScript oferece tipos utilitários para manipular tipos existentes:
+
+*   `Partial<T>`: Torna todas as propriedades de um tipo **opcionais** (útil, por exemplo, para edição parcial de um objeto).
 
 ```
-"scripts": {
-    "dev": "babel .main.js -o ./bundle.js -w"
-}
+type Usuario = {
+    id: number;
+    nome: string;
+    senha: string;
+};
+
+type UsuarioParcial = Parcial<Usuario>; // saída: { nome?: string; email?: string; idade?: number; }
+
+const dadosAtualizados: UsuarioParcial = {
+    email: "novo@email.com"
+};
 ```
 
-<div class="pw1"> Inicialização </div>
-
-Use um dos comandos abaixo para iniciar o desenvolvimento do seu projeto. No geral, eles fazem exatamente a mesma coisa: executam o script que você acabou de configurar no `package.json`.
-
-**Node**
-```
-npm run dev
-```
-
-**Yarn**
-```
-yarn dev
-```
-
-<h2 class="pw1"> Conceitos ECMA6+ </h2>
-
-<h3 class="pw1"> Classes </h3>
-
-A utilização de **classes** provêm uma maneira mais simples e claras de criar objetos e lidar com herança.
-
-Declaração (forma 01):
-```(TypeScript)
-class Retangulo {
-    constructor (altura, largura) {
-        this.altura = altura;
-        this.largura = largura;
-    }
-}
-```
-
-Declaração (forma 02 - sem nome):
-```(TypeScript)
-let Retangulo = class {
-    constructor (altura, largura) {
-        this.altura = altura;
-        this.largura = largura;
-    }
-}
-```
-
-Declaração (forma 03 - com nome):
-```(TypeScript)
-let Retangulo = class Retangulo {
-    constructor (altura, largura) {
-        this.altura = altura;
-        this.largura = largura;
-    }
-}
-```
-
-<h3 class="pw1"> Corpo de Classes: Definições de Métodos, Construtores e Operadores NEW e THIS </h3>
-
-```(TypeScript)
-class Retangulo {
-    constructor(altura, largura) {
-        this.altura = altura;
-        this.largura = largura;
-    }
-
-    calcularArea() {
-        return this.altura * this.largura;
-    }
-}
-
-const quadrado = new Retangulo(10, 10);
-
-console.log(quadrado.calcularArea());
-```
-
-<h3 class="pw1"> Herança de Classes (extends) </h3>
+*   `Omit<T, k>`: **Remove** uma ou mais propriedades específicas de um tipo (útil para ocultar dados sensíveis).
 
 ```
-class Gato {
-    constructor(nome) {
-        this.nome = nome;
-    }
+type Usuario = {
+    id: number;
+    nome: string;
+    senha: string;
+};
 
-    falar() {
-        console.log(this.nome + 'faça barulho.');
-    }
-}
+type UsuarioSemSenha = Omit<Usuario, "senha">; // saída: {id: number; nome: string }
 
-class Leao extends Gato {
-    falar() {
-        super.falar();
-        console.log(this.nome + 'rosne');
-    }
-}
-
-let leao = new Leao('Leonidas');
-leao.falar();
+const u: UsuarioSemSenha = { id: 1, nome: "Ana" };
 ```
-
-<h2 class="pw1"> Variáveis: VAR, LET e CONST </h2>
-
-<div class="pw1"> VAR </div>
-
-* funciona em todos browsers cross-browser.
-* **é possível** criar variáveis com o mesmo nome.
-* **é possível** declarar sem atribuir valor.
-
-<div class="pw1"> LET </div>
-
-* **NÃO é possível** criar variáveis com o mesmo nome.
-* **é possível** declarar sem atribuir valor.
-
-<div class="pw1"> CONST </div>
-
-* **NÃO é possível** declarar sem atribuir valor.
-* **NÃO é possível** atribuir outro valor caso já tenha sido atribuído anteriormente.
-  * em `objetos` e `arrays`, é possível atribuir em suas propriedades **(mutação)**.
-
-``` (JavaScript)
-const usuario = { nome: 'Diego' }; // declaração
-
-usuario.nome = 'Cleiton'; // mutação
-
-console.log(usuario); // saída: 'Cleiton'
-```
-
-<h3 class="pw1"> Escopo </h3>
-
-<div class="pw1"> VAR x LET </div>
-
-Usando **let** na declaração, dentro de um bloco, será visível e acessível somente dentro do bloco.
+*   `Pick<T, k>`: **Seleciona somente algumas propriedades** de um tipo.
 
 ```
-if (true) {
-    let y = 5;
-}
+type Produto = {
+    id: number;
+    nome: string;
+    preco: number;
+};
 
-console.log(y); // retorno: "ERRO"
+type ProdutoResumo = Pick<Produto, "id" | "nome">; // saída: { id: number; nome: string }
 ```
 
-Se a declaração for feita com **var**, dentro de um bloco, será visível globalmente.
+*   `Required<T>`: Torna todas as propriedades de um tipo **obrigatórias**.
 
 ```
-if (true) {
-    var x = 5;
-}
+type ConfigOpcional = {
+    tema?: string;
+    modoEscuro?: boolean;
+};
 
-console.log(x); // retorno: "5"
+type ConfigObrigatoria = Required<ConfigOpcional>; // saída: { tema: string; modoEscuro: boolean }
 ```
 
-<div class="pw1"> Operações com Arrays </div>
+<h2 class="pw1"> 6. Fluxo de Desenvolvimento (TS) </h2>
 
-Essa função foi adicionada no ECMA6+ com uma sintaxe mais simples
-
-<div class="pw1"> Sintaxe Básica </div>
-
-```
-(parametro1, parametro2, ..., parametroN) => { statement }
-
-(parametro1, parametro2, ..., parametroN) => expression
-```
-
-<div class="pw1"> Exemplos </div>
-
-```
-let hello = () => { return "Hello World!"; }
-
-let hello = (val) => "Hello " + val;
-
-let hello = val => "Hello " + val;
-```
-
-<div class="pw1"> Funções de Array </div>
-
-```
-// criação do Array
-let elements = [
-    'Hydrogen',
-    'Helium',
-    'Lithium',
-    'Beryllium'
-];
-
-// form1
-let lengthsWords1 = elements.map(function(element) {
-    return element.length;
-});
-
-// form2
-let lengthsWords2 = elements.map((element) => {
-    return element.length;
-});
-```
-
-<div class="pw1"> Valores Padrões </div>
-
-**Os parâmetros predefinidos de uma função** são todos `undefined`.
-
-```
-// definição da função
-function multiply (a, b = 1) {
-    return a * b;
-}
-
-multiply(5, 2);
-multiply(5, 1);
-multiply(5);
-
-console.log(multiply());
-```
-
-<h3 class="pw1"> Desestruturação </h3>
-
-São expressões que **possibilitam extrair dados de arrays ou objetos** e atribuí-los diretamente em variáveis.
-
-* **Arrays**
-
-```
-let x = [1, 2, 3, 4, 5]; // criação do array
-let [y, z] = x;
-
-console.log(y); // saída: "1"
-console.log(z); // saída: "2"
-
-let [a, ...b] = [1, 2, 3];
-
-console.log(a); // saída: "1"
-console.log(b); // saída: "2" e "3"
-```
-
-Na segunda linha, `let [y, z] = x`, ocorre uma desestruturação pegando os **dois primeiros elementos** de `x` e atribua para `y` (que receberá "1") e `z` (que receberá "2"). Os demais elementos são ignorados na operação.
-
-Na quinta linha, `let [a, ...b] = [1, 2, 3]`, é criado um novo array e o desestrutura imediatamente. A variável `a` recebe o **primeiro** elemento e o `b` recebe o **restante** do elementos com o uso do operador **REST**.
-
-* **Objetos Literais**
-
-```
-let o = {p: 42, q: true};
-let {p2, q2} = o;
-
-console.log(p2); // saída: "42"
-console.log(q2); // saída: "true"
-
-let {a = 10, b = 5} = {a: 3};
-
-console.log(a);
-console.log(b);
-```
-
-Nesses código, na linha 1, é criado um Objeto Literal `o` com duas propriedades: p = 42 e q = true.
-
-Já na segunda linha, `let {p, q} = o`, ocorre a desestruturação. Ao usar as chaves **{}** do lado esquerdo da atribuição, o JavaScript busca a propriedade `p` do objeto `o` e atribui seu valor (42) a uma nova variável `p2`. A mesma coisa ocorre com a nova variável `q2`, que recebe o valor da propriedade `q` do objeto `o`.
-
-Na sétima linha, `let {a = 10, b = 5} = {a: 3}`, é mostrado como definir um **valor padrão** caso uma propriedade não exista no objeto original (undefined). O objeto, que só tem a propriedade `a`, também é desestruturado.
-
-Para `a`:
-* o objeto de origem tem `a: 3`.
-* o valor `3` é atribuído à variável `a`.
-* o valor padrão (10) é **ignorado** porque a propriedade `a` existia.
-
-Para `b`:
-* o objeto de origem **não tem** a propriedade `b`.
-* o valor `5` é usado e atribuído à variável `b`.
-
-<h3 class="pw1"> Operador REST </h3>
+Para desenvolver em TypeScript, você tipa os arquivos com a extensão `.ts`. O compilador (`tsc`) então encontra esses arquivos `.ts` e os **converte em arquivos `.js`** (JavaScript). Você executa o código final com `node /arquivo.js`.
