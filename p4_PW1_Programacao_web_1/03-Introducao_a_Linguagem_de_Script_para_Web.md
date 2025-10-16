@@ -1,7 +1,7 @@
 <!-- Link do CSS -->
 <link rel="stylesheet" href="../estilos-markdown.css">
 
-<h1 class="pw1"> h3isão dos Grupos </h1>
+<h1 class="pw1"> Divisão dos Grupos </h1>
 
 <h2 class="pw1"> 1. Introdução </h2>
 
@@ -19,7 +19,7 @@ Existirá 2 dias de acompanhamento, um para os grupos pares e outro para os grup
 
 <h1 class="pw1"> Introdução à Linguagem de Script para Web </h1>
 
-Nesse tópico, o arquivo base é o Aula1, presente no tópico **materiais de aula**, do dia 10/10/2025 às 11:03am.
+Nesse tópico, o arquivo base é o [Aula1](), presente no tópico **materiais de aula**, do dia 10/10/2025 às 11:03am.
 
 <h2 class="pw1"> 1. Introdução </h2>
 

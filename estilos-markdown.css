@@ -1,8 +1,8 @@
 /* Variáveis */
 :root {
     /* Nome de Cores */
-    --cor-cafe-seco:
-        --cor-white-smoke: #F5F5F5;
+    --cor-cafe-seco: wheat;
+    --cor-white-smoke: #F5F5F5;
     --cor-ghost-white: #F8F8FF;
     --cor-antique-white: #FAEBD7;
     --cor-cinza-escuro: #333;
