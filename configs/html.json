@@ -1,0 +1,16 @@
+{
+    "Strong tag HTML": {
+        "prefix": "<st",
+        "body": [
+            "<strong>$1</strong>"
+        ],
+        "description": "Insere tag <strong>"
+    },
+    "Parágrafo HTML": {
+        "prefix": "<p",
+        "body": [
+            "<p>$1</p>"
+        ],
+        "description": "Insere tag <p> para parágrafo"
+    }
+}
