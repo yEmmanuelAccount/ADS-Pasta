@@ -282,55 +282,19 @@ div.padrao {
     border: 2px solid black !important;
 
 }
-
-/* MATEMÁTICA */
-.matematica::before,
-h1.matematica::after {
-    content: "🧮";
+/* CONTAGEM GERAL PARA TÍTULOS */
+h1.les, h1.bdd2, h1.ldr, h1.pw1 {
+    counter-increment: h1counter;
+    counter-reset: h2counter;
 }
 
-h1.matematica {
-    justify-content: space-between;
-    text-align: center;
-    display: flex;
-    padding-top: 5px;
+h2.les, h2.bdd2, h2.ldr, h2.pw1 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
 }
 
-.matematica {
-    color: var(--cor-titulo);
-    background-color: var(--cor-matematica-secundaria);
-    border-left: 4px solid var(--cor-matematica-destaque) !important;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    align-items: center;
-    display: flex;
-}
-
-/* HISTÓRIA */
-.historia::before,
-h1.historia::after {
-    content: "📜";
-}
-
-h1.historia {
-    justify-content: space-between;
-    text-align: center;
-    display: flex;
-    padding-top: 5px;
-}
-
-.historia {
-    color: var(--cor-historia-titulo);
-    background-color: var(--cor-historia-secundaria);
-    border-left: 4px solid var(--cor-historia-destaque) !important;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    align-items: center;
-    display: flex;
+h3.les, h3.bdd2, h3.ldr, h3.pw1 {
+    counter-increment: h3counter;
 }
 
 /* Lab. de Eng. de Software */
@@ -413,44 +377,23 @@ blockquote.bdd2 {
     }
 
     /* h1 */
-        /* Contagens */
-        h1.ldr {
-            counter-increment: h1counter;
-            counter-reset: h2counter;
-            counter-reset: h3counter;
-        }
+    h1.ldr::before {
+        content: "📊 " counter(h1counter) ". ";
+    }
 
-        /* Conteúdos */
-        h1.ldr::before {
-            content: "📊 " counter(h1counter) ". ";
-        }
-
-        h1.ldr::after {
-            content: "📊";
-        }
+    h1.ldr::after {
+        content: "📊";
+    }
 
     /* h2 */
-        /* Contagens */
-        h2.ldr {
-            counter-increment: h2counter;
-            counter-reset: h3counter;
-        }
-
-        /* Conteúdos */
-        h2.ldr::before {
-          content: "📊 " counter(h1counter) "." counter(h2counter) ". ";
-        }
+    h2.ldr::before {
+        content: "📊 " counter(h1counter) "." counter(h2counter) ". ";
+    }
     
     /* h3 */
-        /* Contagens */
-        h3.ldr {
-            counter-increment: h3count;
-        }
-
-        /* Conteúdos */
-        h3.ldr::before {
-            content: "📊 " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
-        }
+    h3.ldr::before {
+        content: "📊 " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
+    }
 
 h1.ldr {
     justify-content: space-between;
