@@ -58,6 +58,10 @@ body {
     padding: 40px;
     max-width: 800px;
     margin: auto;
+
+    counter-reset: h1counter;
+    counter-reset: h2counter;
+    counter-reset: h3counter;
 }
 
 h1 {
@@ -397,16 +401,56 @@ blockquote.bdd2 {
     display: flex;
 }
 
-/* Lab. de Redes */
-h1.ldr::before,
-h1.ldr::after,
-h2.ldr::before,
-h3.ldr::before,
-div.ldr::before {
-    content: "📊";
-    padding-left: 7px;
-    padding-right: 10px;
-}
+/* Lab. de Redes [ldr] */
+    /* Formatação Geral dos Elementos */
+    h1.ldr::before,
+    h1.ldr::after,
+    h2.ldr::before,
+    h3.ldr::before,
+    div.ldr::before {
+        padding-left: 7px;
+        padding-right: 10px;
+    }
+
+    /* h1 */
+        /* Contagens */
+        h1.ldr {
+            counter-increment: h1counter;
+            counter-reset: h2counter;
+            counter-reset: h3counter;
+        }
+
+        /* Conteúdos */
+        h1.ldr::before {
+            content: "📊 " counter(h1counter) ". ";
+        }
+
+        h1.ldr::after {
+            content: "📊";
+        }
+
+    /* h2 */
+        /* Contagens */
+        h2.ldr {
+            counter-increment: h2counter;
+            counter-reset: h3counter;
+        }
+
+        /* Conteúdos */
+        h2.ldr::before {
+          content: "📊 " counter(h1counter) "." counter(h2counter) ". ";
+        }
+    
+    /* h3 */
+        /* Contagens */
+        h3.ldr {
+            counter-increment: h3count;
+        }
+
+        /* Conteúdos */
+        h3.ldr::before {
+            content: "📊 " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
+        }
 
 h1.ldr {
     justify-content: space-between;
@@ -465,29 +509,33 @@ blockquote.pw1 {
     display: flex;
 }
 
-/* Numeração Automática usando contagem de H2 e H3
-body {
+/* Numeração Automática usando contagem de H2 e H3 */
+
+/* Numera apenas os h1 */
+h1.pw1 {
+    counter-increment: h1counter;
     counter-reset: h2counter;
 }
 
-Numera apenas os h2.pw1
+h1.pw1::before {
+    content: counter(h1counter) ". ";
+}
+
+/* Numera apenas os h2 */
 h2.pw1 {
     counter-increment: h2counter;
     counter-reset: h3counter;
-    Reinicia subtópicos
 }
 
 h2.pw1::before {
-    content: counter(h2counter) ". ";
+    content: counter(h1counter) "." counter(h2counter) ". ";
 }
 
-Numera os h3.pw1 como subtópicos
+/* Numera apenas os h3 */
 h3.pw1 {
     counter-increment: h3counter;
 }
 
 h3.pw1::before {
-    content: counter(h2counter) "." counter(h3counter) " ";
+    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " ";
 }
-
-*/
