@@ -282,49 +282,50 @@ div.padrao {
     border: 2px solid black !important;
 
 }
+
 /* CONTAGEM GERAL PARA TÍTULOS */
-h1.les, h1.bdd2, h1.ldr, h1.pw1 {
-    counter-increment: h1counter;
-    counter-reset: h2counter;
-}
+    h1.les, h1.bdd2, h1.ldr, h1.pw1 {
+        counter-increment: h1counter;
+        counter-reset: h2counter;
+    }
 
-h2.les, h2.bdd2, h2.ldr, h2.pw1 {
-    counter-increment: h2counter;
-    counter-reset: h3counter;
-}
+    h2.les, h2.bdd2, h2.ldr, h2.pw1 {
+        counter-increment: h2counter;
+        counter-reset: h3counter;
+    }
 
-h3.les, h3.bdd2, h3.ldr, h3.pw1 {
-    counter-increment: h3counter;
-}
+    h3.les, h3.bdd2, h3.ldr, h3.pw1 {
+        counter-increment: h3counter;
+    }
 
 /* Lab. de Eng. de Software */
-h1.les::before,
-h1.les::after,
-h2.les::before,
-h3.les::before,
-div.les::before {
-    padding-left: 7px;
-    padding-right: 10px;
+
+/* h1 */
+h1.les::before {
+    content: "⚙️ " counter(h1counter) ". ";
 }
 
-    /* h1 */
-    h1.les::before {
-        content: "⚙️ " counter(h1counter) ". ";
-    }
+h1.les::after {
+    content: "⚙️";
+}
 
-    h1.les::after {
-        content: "⚙️";
-    }
+/* h2 */
+h2.les::before {
+    content: "⚙️ " counter(h1counter) "." counter(h2counter) ". » ";
+    padding-right: 7px;
+}
 
-    /* h2 */
-    h2.les::before {
-        content: "⚙️ " counter(h1counter) "." counter(h2counter) ". ";
-    }
+/* h3 */
+h3.les::before {
+    content: "⚙️ " counter(h1counter) "." counter(h2counter) "." counter(h3counter) " . » ";
+    padding-right: 7px;
+}
 
-    /* h3 */
-    h3.les::before {
-        content: "⚙️ " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
-    }
+/* div */
+div.les::before {
+    content: "⚙️ » ";
+    padding-right: 7px;
+}
 
 h1.les {
     justify-content: space-between;
@@ -341,6 +342,58 @@ blockquote.les {
     color: var(--cor-les-titulo);
     background-color: var(--cor-les-secundaria);
     border-left: 4px solid var(--cor-les-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
+
+/* [PW1] - Programação para Web 1 */
+
+/* h1 */
+h1.pw1::before {
+    content: "🌇 " counter(h1counter) ". ";
+}
+
+h1.pw1::after {
+    content: "🌇";
+}
+
+/* h2 */
+h2.pw1::before {
+    content: "🌇 " counter(h1counter) "." counter(h2counter) ". » ";
+    padding-right: 7px;
+}
+
+/* h3 */
+h3.pw1::before {
+    content: "🌇 " counter(h1counter) "." counter(h2counter) "." counter(h3counter) ". » ";
+    padding-right: 7px;
+}
+
+/* div */
+div.pw1::before {
+    content: "🌇 » ";
+    padding-right: 7px;
+}
+
+h1.pw1 {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.pw1 {
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
+}
+
+.pw1 {
+    color: var(--cor-pw1-titulo);
+    background-color: var(--cor-pw1-secundaria);
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-left: 5px;
@@ -434,69 +487,4 @@ blockquote.ldr {
     padding-right: 5px;
     align-items: center;
     display: flex;
-}
-
-/* PW1 */
-h1.pw1::before,
-h1.pw1::after,
-h2.pw1::before,
-h3.pw1::before,
-div.pw1::before {
-    content: "🌇";
-    padding-left: 7px;
-    padding-right: 10px;
-}
-
-h1.pw1 {
-    justify-content: space-between;
-    text-align: center;
-    display: flex;
-    padding-top: 5px;
-}
-
-blockquote.pw1 {
-    border-left: 4px solid var(--cor-pw1-destaque) !important;
-}
-
-.pw1 {
-    color: var(--cor-pw1-titulo);
-    background-color: var(--cor-pw1-secundaria);
-    border-left: 4px solid var(--cor-pw1-destaque) !important;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
-    align-items: center;
-    display: flex;
-}
-
-/* Numeração Automática usando contagem de H2 e H3 */
-
-/* Numera apenas os h1 */
-h1.pw1 {
-    counter-increment: h1counter;
-    counter-reset: h2counter;
-}
-
-h1.pw1::before {
-    content: counter(h1counter) ". ";
-}
-
-/* Numera apenas os h2 */
-h2.pw1 {
-    counter-increment: h2counter;
-    counter-reset: h3counter;
-}
-
-h2.pw1::before {
-    content: counter(h1counter) "." counter(h2counter) ". ";
-}
-
-/* Numera apenas os h3 */
-h3.pw1 {
-    counter-increment: h3counter;
-}
-
-h3.pw1::before {
-    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " ";
 }
