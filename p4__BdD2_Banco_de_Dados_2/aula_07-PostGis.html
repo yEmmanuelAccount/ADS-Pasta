@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07: Instalação do PostGis</title>
+    <link rel="stylesheet" href="./../estilos-markdown.css">
+</head>
+
+<body>
+    
+<h1 class="bdd2">Novo Container Docker: PostGis</h1>
+    
+    <h2 class="bdd2">Instalação</h2>
+    
+        <p><a href="https://postgis.net">Link oficial do PostGis</a>.</p>
+    
+        <p>Rode o comando a seguir para baixar as dependências:</p>
+        <pre><code>
+            docker run --name postgis --network postgres-network
+            -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgis/postgis
+        </code></pre>
+    
+        <p>Depois, para ligar o PgAdmin4:</p>
+        <pre><code>
+            docker start pgadmin4
+        </code></pre>
+    
+        <p>Dentro do PgAdmin4, criamos um novo servidor:</p>
+        <ol>
+            <li>botão direito em "aula" e registrar novo servidor</li>
+            <li>no campo <strong>geral</strong>
+                <ol>
+                    <li>nome: postgis</li>
+                </ol>
+            </li>
+            <li>no campo <strong>conexão</strong>
+                <ol>
+                    <li>host name/adress: postgis</li>
+                    <li>username: postgres</li>
+                    <li>senha: postgres</li>
+                </ol>
+            </li>
+        </ol>
+    
+        <h2 class="bdd2">Elemento Geométrico PONTO</h2>
+    
+        <p>No editor de código SQL do servidor <strong>PostGis</strong>:</p>
+        <pre><code>
+            CREATE TABLE exemplo (
+                id serial primary key,
+                nome varchar(50),
+                geometria geometry
+            )
+        </code></pre>
+    
+        <div class="bdd2">Sintaxe</div>
+        
+        <ul>
+            <li>POINT(10 10)
+                <ul>
+                    <li>as coordenadas são separadas por <strong>espaço</strong>.</li>
+                    <li>latitude e longitude são invertidas na hora da inserção.</li>
+                </ul>
+            </li>
+        </ul>
+    
+        <div class="bdd2">Primeira função</div>
+    
+        <p>Exemplo: Salvando as coordenadas do IF de Cajazeiras:</p>
+        <pre><code>
+            INSERT INTO exemplo (nome, geometria) <br>
+            VALUES
+                ('IFPB - Cajazeiras', ST_GeomFromText('POINT(-38.5453 -6.8897)', 4326))
+        </code></pre>
+    
+        <p>Para testá-lo, use o comando abaixo. Na tabela resultante, ao clicar no ícone de mapa, é possível ter uma
+            visualização no mapa.</p>
+        <pre><code>
+            SELECT * FROM exemplo
+        </code></pre>
+
+</body>
+</html>

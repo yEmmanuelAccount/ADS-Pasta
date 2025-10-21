@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08: Banco de Dados Espacial</title>
+    <link rel="stylesheet" href="./../estilos-markdown.css">
+</head>
+<body>
+
+<h1 class="bdd2">Conceitos Básicos</h1>
+
+<p>Depois de ter instalado o PostGis, seguindo os passos do arquivo <a href="./aula_07-PostGis.html">aula-07</a>, vamos para um pouco de prática.</p>
+
+<p>Primeiramente, temos que iniciar os containers dockers do PgAdmin4 e do PostGis:</p>
+<pre><code>
+    docker start pgadmin4
+</code></pre>
+<pre><code>
+    docker start postgis
+</code></pre>
+
+<p>Posteriormente, vamos no navegador e verificamos na porta <a href="http://localhost:15432">http://localhost:15432</a> e logamos na conta com o mesmo usuário e senha do Postgres.</p>
+
+<h2 class="bdd2">Bancos de Dados Geográficos</h2>
+
+<h2 class="bdd2">informação Geográfica</h2>
+
+<div>
+<h2 class="bdd2">Representação</h2>
+
+<h3 class="bdd2">Ponto</h3>
+
+<h3 class="bdd2">Linha</h3>
+
+<h3 class="bdd2">Polígono</h3>
+</div>
+
+<div class="bdd2">Exemplificando</div>
+<p>Vamos criar uma tabela para cadastrar cidades:</p>
+<pre><code>
+create table cidade (
+    codigo int primary key,
+    nome varchar(50),
+    geometria geometry
+)
+</code></pre>
+
+<p>E vamos adicionar algumas cidades fictícias:</p>
+<pre><code>
+insert into cidade values (
+    2503704, 'Cajazeiras',
+    ST_GeomFromText('POLYGON((0 0, 1 4, 4 4, 2 1, 0 0))')
+);
+
+insert into cidade values (
+    2509156, 'Marizópoles',
+    ST_GeomFromText('POLYGON((2 1, 4 4, 6 4, 6 2, 2 1))')
+);
+
+insert into cidade values (
+    2513307, 'Santa Helena',
+    ST_GeomFromText('POLYGON((0 0, 2 1, 6 2, 5 0, 0 0))')
+)
+</code></pre>
+
+<p>E, para testar e visualizar:</p>
+<pre><code>
+select * from cidade
+</code></pre>
+
+<p>Com essas cidades devidamente criadas, podemos usar funções já prontas para calcular dados dependentes (que dependem de outros para serem calculados):</p>
+<pre><code>
+SELECT ST_Area(geometria)
+FROM cidade
+</code></pre>
+<pre><code>
+SELECT nome, ST_Perimeter(geometria) AS perimetro
+FROM cidade
+</code></pre>
+<pre><code>
+select ST_Distance(ST_Centroid(c1.geometria), ST_Centroid(c2.geometria))
+from cidade c1, cidade c2
+    where c1.nome ilike 'cajazeiras' and c2.nome ilike 'marizópoles'
+</code></pre>
+
+        <h2 class="bdd2">Relacionamentos Espaciais</h2>
+</body>
+</html>

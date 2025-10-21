@@ -402,15 +402,33 @@ blockquote.pw1 {
     display: flex;
 }
 
-/* Banco de Dados 2 */
-h1.bdd2::before,
-h1.bdd2::after,
-h2.bdd2::before,
-h3.bdd2::before,
-div.bdd2::before {
+/* [bdd2] - Banco de Dados 2 */
+
+/* h1 */
+h1.bdd2::before {
+    content: "🗄️ " counter(h1counter) ". ";
+}
+
+h1.bdd2::after {
     content: "🗄️";
-    padding-left: 7px;
-    padding-right: 10px;
+}
+
+/* h2 */
+h2.bdd2::before {
+    content: "🗄️ " counter(h1counter) "." counter(h2counter) ". » ";
+    padding-right: 7px;
+}
+
+/* h3 */
+h3.bdd2::before {
+    content: "🗄️ " counter(h1counter) "." counter(h2counter) "." counter(h3counter) ". » ";
+    padding-right: 7px;
+}
+
+/* div */
+div.bdd2::before {
+    content: "🗄️ » ";
+    padding-right: 7px;
 }
 
 h1.bdd2 {
