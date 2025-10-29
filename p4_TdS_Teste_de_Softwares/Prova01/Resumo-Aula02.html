@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Resumo: Aula 02 - Qualidade de Software</title>
+    <link rel="stylesheet" href="../../estilos-markdown.css">
+</head>
+<body>
+
+    <h1 class="tds">Aula 02: Qualidade de Software</h1>
+
+    <h2 class="tds">Definições e Perspectivas sobre Qualidade de Software</h2>
+
+    <p>A qualidade possui diferentes significados para diferentes situações e de acordo com o enfoque de quem a utiliza.</p>
+
+    <h3 class="tds">Visão Popular vs. Profissional</h3>
+    <ul>
+        <li><strong>Visão Popular</strong>: A qualidade é vista como algo abstrato, perfeição, luxo ou uma questão de opinião pessoal.</li>
+        <li><strong>Visão Profissional</strong>: A qualidade é entendida como a <code>conformidade aos requisitos funcionais e não funcionais</code> e a <code>adequação ao uso</code> (visando o usuário feliz).</li>
+    </ul>
+
+    <h3 class="tds">Definições Formalizadas de Qualidade</h3>
+    <ul>
+        <li>Segundo Sanders (1994), um produto de software apresenta qualidade dependendo do **grau de satisfação das necessidades dos clientes sob todos os aspectos do produto**.</li>
+        <li>Segundo Pressman (1994), qualidade de software é a **conformidade a requisitos funcionais e de desempenho** que foram explicitamente declarados, a padrões de desenvolvimento claramente documentados, e a características implícitas que são esperadas de todo software desenvolvido por profissionais.</li>
+    </ul>
+    <p>A **falta de conformidade aos requisitos significa falta de qualidade**. A qualidade pode ser comprometida se o software se adequar aos requisitos explícitos, mas não cumprir os requisitos implícitos (como o desejo de uma boa manutenibilidade), que frequentemente não são mencionados na especificação.</p>
+
+    <h2 class="tds">Impacto da Qualidade (ou da sua Ausência)</h2>
+
+    <h3 class="tds">Software de Má Qualidade</h3>
+    <p>Software de má qualidade está presente em praticamente todas as organizações que usam computadores. Isso provoca:</p>
+    <ul>
+        <li>Horas de trabalho perdidas durante o tempo em que a máquina fica parada.</li>
+        <li>Dados perdidos ou corrompidos.</li>
+        <li>Oportunidades de vendas perdidas.</li>
+        <li>Custos de suporte e manutenção de TI elevados.</li>
+        <li>Baixa satisfação do cliente.</li>
+        <li>Projetos difíceis de planejar e controlar; custos e prazos não são mantidos.</li>
+        <li>A funcionalidade dos programas nem sempre resulta conforme o planejado e há muitos defeitos nos sistemas.</li>
+        <li>A imagem da empresa é afetada no mercado.</li>
+    </ul>
+
+    <h3 class="tds">Benefícios da Qualidade</h3>
+    <p>Com qualidade, é possível:</p>
+    <ul>
+        <li>Manter projetos, prazos e custos sob controle.</li>
+        <li>Alcançar a satisfação de usuários, com suas necessidades atendidas na execução de suas tarefas.</li>
+        <li>Diminuir erros nos projetos de software.</li>
+        <li>Melhorar a posição competitiva da empresa, como instituição capaz de acompanhar a evolução.</li>
+    </ul>
+
+    <h2 class="tds">Papéis e Perspectivas dos Stakeholders</h2>
+
+    <p>Papéis descrevem como as pessoas se comportam no processo, suas responsabilidades, e requerem competências e habilidades específicas. O registro formal dos papéis é necessário para que os indivíduos fiquem cientes de suas tarefas e do resultado de seus trabalhos.</p>
+
+    <h3 class="tds">Principais Papéis no Desenvolvimento</h3>
+    <ul>
+        <li><strong>Gerente de Projeto</strong>: Mantém uma visão geral dos objetivos, gerencia recursos, custo, escopo e prazo.</li>
+        <li><strong>Analista de Sistemas</strong>: Coleta informações junto ao usuário e converte as necessidades em um documento de requisitos.</li>
+        <li><strong>Arquiteto</strong>: Define a estrutura do software. Realiza os designs de dados, arquitetura, interfaces, componentes, reuso, padrões e implantação.</li>
+        <li><strong>Programador</strong>: Codifica as definições de projeto (designs).</li>
+        <li><strong>Testador</strong>: Define, integra e testa o software.</li>
+    </ul>
+
+    <h3 class="tds">Visão de Qualidade por Stakeholder</h3>
+    <p>Os <em>Stakeholders</em> (internos ou externos) devem ser identificados, junto ao seu tipo de influência (positiva ou negativa) e o tipo de comunicação utilizada, para formular estratégias de gerenciamento de conflitos.</p>
+    <ul>
+        <li><strong>Usuário</strong>: Sua qualidade fica concentrada principalmente no **uso do software**. Avalia o software sem conhecer aspectos internos, interessado na facilidade de uso, no desempenho e na confiabilidade dos resultados.</li>
+        <li><strong>Desenvolvedor</strong>: Sua qualidade é mais voltada às **características internas do software**. Avalia aspectos de conformidade em relação aos requisitos dos clientes e também aspectos internos do software.</li>
+        <li><strong>Gerente</strong>: A qualidade não pode ser desvinculada dos **interesses da organização** (lucro, adequação às regras). Avalia aspectos de conformidade em relação aos requisitos dos clientes e desenvolvedores, e aspectos de custo e cronograma.</li>
+        <li><strong>Stakeholders (Geral)</strong>: Avalia aspectos do usuário, lucro de patrocinadores, e adequação com as regras e leis.</li>
+    </ul>
+
+    <h2 class="tds">Tipos de Sistemas e Expectativas</h2>
+    <p>Diferentes tipos de sistemas impõem diferentes naturezas de requisitos e expectativas:</p>
+    <ul>
+        <li><strong>Sistema Crítico</strong>: É aquele em que suas características causam riscos inerentes a danos físicos, pessoal e financeiro (Ex: fábrica de fogos de artifício, navegação de aeronave, bancário).</li>
+        <li><strong>Sistema de Folha de Pagamento</strong>: Gerencia a lista de remunerações pagas aos colaboradores.</li>
+        <li><strong>Sistema de Tempo Real</strong>: Responsável pelo processamento de informações com componentes de hardware e software que executam funções de aplicativo em tempo real (Ex: Monitor de paciente em UTI, tráfego aéreo).</li>
+    </ul>
+    <p>Requisitos comuns para sistemas como Folha de Pagamento, Tempo Real e Software de interação com usuário incluem: Fazer aquilo que eu quero, Se comportar com precisão, Ser fácil de usar, Rodar bem no hardware, e Ser fácil de alterar.</p>
+
+    <h2 class="tds">Qualidade de Processo vs. Produto e Normas Internacionais</h2>
+    <p>O foco da qualidade pode estar no Processo de Software ou no Produto de Software. Existem normas e modelos que guiam a melhoria:</p>
+    <ul>
+        <li><strong>ISO/IEC 15504</strong>: Focada na Melhoria do Processo de Desenvolvimento de software.</li>
+        <li><strong>ISO/IEC 12207</strong>: Focada na Melhoria de atividades/tarefas.</li>
+        <li><strong>CMMI</strong>: Guia para a melhoria de processos na organização.</li>
+        <li><strong>MPS-BR</strong>: Tem como objetivo melhorar a capacidade de desenvolvimento de software, serviços e as práticas de gestão de RH na indústria de TIC.</li>
+    </ul>
+
+    <h2 class="tds">Fatores de Qualidade de Produto</h2>
+    <p>Os fatores de qualidade de produto são características avaliadas no software:</p>
+    <ul>
+        <li><strong>Confiabilidade</strong>: O quanto se pode esperar que um programa realize a função pretendida com a precisão exigida.</li>
+        <li><strong>Eficiência</strong>: A quantidade de recursos computacionais e código exigidos por um programa para desempenhar sua função.</li>
+        <li><strong>Integridade</strong>: O quanto o acesso ao software ou dados por pessoas não autorizadas pode ser controlado.</li>
+        <li><strong>Usabilidade</strong>: Esforço necessário para aprender, operar, preparar a entrada de dados e interpretar a saída de um programa.</li>
+        <li><strong>Facilidade de Manutenção</strong>: Esforço necessário para localizar e corrigir um erro em um programa.</li>
+        <li><strong>Testabilidade</strong>: Esforço necessário para testar um programa de modo a garantir que ele desempenhe a função destinada.</li>
+        <li><strong>Portabilidade</strong>: Esforço necessário para transferir o programa de um ambiente de hardware e/ou software para outro.</li>
+        <li><strong>Interoperabilidade</strong>: Esforço necessário para integrar um sistema a outro.</li>
+    </ul>
+
+    <h2 class="tds">Custo da Qualidade e o Papel do Teste</h2>
+    <p>A qualidade, embora importante, custa tempo e dinheiro. Os custos associados à qualidade são divididos em:</p>
+    <ul>
+        <li><strong>Prevenção</strong>: Custo de atividades de gerenciamento necessárias para planejar e coordenar todas as atividades de controle e garantia da qualidade.</li>
+        <li><strong>Avaliação</strong>: Custo para realização de revisões técnicas, coleta de dados e avaliação de métricas, para testes e depuração.</li>
+        <li><strong>Falhas</strong>: Custo de falhas internas (erro detectado antes do software ser entregue) e para realizar retrabalhos.</li>
+    </ul>
+    <p>É crucial notar que **quanto mais cedo as falhas são descobertas, menor é o custo para corrigi-las**. A profissão busca encontrar um "meio-termo mágico" onde o produto é suficientemente bom para não ser rejeitado, mas sem o perfeccionismo que levaria tempo demais ou custaria demasiadamente para ser finalizado, evitando a falência ou a perda de oportunidade de mercado. O **Teste de software contribui para a melhoria da qualidade de software**.</p>
+
+</body>
+</html>

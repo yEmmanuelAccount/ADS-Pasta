@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Aula 01 - Conceitos Iniciais</title>
+    <link rel="stylesheet" href="../../estilos-markdown.css">
+</head>
+<body>
+
+    <h1 class="tds">Aula 01: Conceitos Iniciais</h1>
+
+    <p>A disciplina é ministrada por <strong>João Igor Barros Rocha</strong>, cujo e-mail é <strong>joao.rocha@ifpb.edu.br</strong>.</p>
+
+    <h2 class="tds">O Processo de Software e suas Fases</h2>
+    <p>O processo de software é definido como um conjunto de atividades que leva à produção de um produto (software).</p>
+
+    <h3 class="tds">As quatro fases principais do Processo de Software são:</h3>
+    <ul>
+        <li>Especificação de software.</li>
+        <li>Projeto e Implementação.</li>
+        <li>Validação de software.</li>
+        <li>Evolução de software.</li>
+    </ul>
+
+    <h2 class="tds">Especificação de Software (Engenharia de Requisitos)</h2>
+    <p>A especificação de software ou engenharia de requisitos é o processo necessário para compreender e definir quais serviços são necessários e identificar as restrições de cada operação.</p>
+    <p>Este estágio é considerado <strong>crítico</strong>, pois erros cometidos nessa fase conduzem a problemas posteriores no desenvolvimento.</p>
+    <p>O resultado da especificação é, em geral, um <strong>documento de requisitos</strong> que representa a especificação do sistema.</p>
+
+    <h3 class="tds">Fases da Especificação de Requisitos</h3>
+    <ul>
+        <li><strong>Estudo de viabilidade:</strong> Ajuda a determinar se é possível produzir o que o cliente deseja com as opções de hardware, software, tempo e orçamento disponíveis.</li>
+        <li><strong>Elicitação e análise de requisitos:</strong> Envolve a observação de sistemas existentes, análise de tarefas e discussão com clientes, ajudando o analista a compreender o sistema.</li>
+        <li><strong>Especificação de requisitos:</strong> Consiste na elaboração de um documento com os requisitos coletados na fase anterior.</li>
+        <li><strong>Validação de requisitos:</strong> Verifica se o documento está consistente. Os clientes leem os requisitos para verificar se atendem às suas necessidades.</li>
+    </ul>
+
+    <h3 class="tds">Usuários do Documento de Requisitos</h3>
+    <p>Como cada pessoa usa o <strong>Documento de Requisitos</strong>:</p>
+    <ul>
+        <li><strong>Clientes</strong>: Verificar se os requisitos atendem às suas necessidades e podem especificar mudanças.</li>
+        <li><strong>Gerentes</strong>: Planejar um pedido de proposta para o sistema e planejar o processo de desenvolvimento.</li>
+        <li><strong>Desenvolvedores</strong>: Compreender como o sistema será desenvolvido.</li>
+        <li><strong>Testadores</strong>: Desenvolver testes de validação.</li>
+    </ul>
+
+    <h2 class="tds">Tipos de Requisitos</h2>
+    <ul>
+        <li><strong>Requisitos de Usuário</strong>:</li>
+            <ul>
+                <li>São declarações, em linguagem natural com diagramas;</li>
+                <li>Sobre os serviços esperados e as restrições sob as quais o sistema deve operar;</li>
+                <li>São facilmente interpretados pelo usuário;</li>
+            </ul>
+        <li><strong>Requisitos de Sistema</strong>:</li>
+            <ul>
+                <li>Detalham as funções, serviços e as restrições operacionais do sistema;</li>
+                <li>É uma descrição detalhada da funcionalidade e pode fazer parte do contrato entre o comprador e os desenvolvedores;</li>
+            </ul>
+        <li><strong>Requisitos Funcionais</strong>:</li> 
+            <ul>
+                <li>Descrevem o que o sistema deve fazer;</li>
+                <li>Detalham as funções do sistema, suas entradas e saídas, exceções, etc.;</li>
+                <li>Exemplo: Um usuário deve ser capaz de pesquisar listas de agendamentos;</li>
+            </ul>
+        <li><strong>Requisitos Não Funcionais</strong>:</li>
+            <ul>
+                <li>Não estão diretamente relacionados com os serviços específicos oferecidos aos usuários, mas sim com as propriedades do sistema (confiabilidade, tempo de resposta, ocupação de área);</li>
+                <li>Eles especificam ou restringem as características do sistema como um todo;</li>
+            </ul>
+    </ul>
+
+    <h3 class="tds">Categorias e Exemplos de Requisitos Não Funcionais:</h3>
+    <ul>
+        <li><strong>Desempenho</strong>: Especificam ou restringem o comportamento do software, como a rapidez com que o sistema deve executar uma função.</li>
+        <li><strong>Organização</strong>: Derivados das políticas e procedimentos da organização, como requisitos do processo de desenvolvimento ou normas de processo a serem usadas.</li>
+        <li><strong>Externos</strong>: Derivam de fatores externos ao sistema, como requisitos legais (para operar dentro da lei) e requisitos éticos (para ser aceitável para o público).</li>
+    </ul>
+
+    <h2 class="tds">Atributos de Qualidade</h2>
+    <ul>
+        <li><strong>USABILIDADE</strong>: Relacionada à facilidade de aprender (tempo e esforço mínimo exigido para o desempenho) e facilidade de uso (velocidade de execução de tarefas e redução de erros).</li>
+        <li><strong>MANUTENIBILIDADE</strong>:</li>
+            <ul>
+                <li>É a facilidade de fazer alteração;</li>
+                <li>Define a probabilidade de o software não causar uma falha em um sistema durante um determinado período de tempo sob certas condições;</li>
+                <li>É uma atividade de reparo de defeito, alteração/evolução de características existentes, ou adição de novas funcionalidades;</li>
+                <li>Relaciona-se com a arquitetura.</li>
+            </ul>
+        <li><strong>CONFIABILIDADE</strong>: Inclui conceitos como <code>Disponibilidade</code> (quão disponível o sistema estaria para uso), <code>Taxa de ocorrência de falha</code> (frequência de comportamento inesperado) e <code>MTTF</code> (Tempo médio até a ocorrência de falha).</li>
+        <li><strong>DESEMPENHO</strong>: Refere-se à restrição sobre o comportamento do software, como a <code>rapidez</code> com que o sistema deve executar uma determinada função.</li>
+        <li><strong>PORTABILIDADE</strong>: Facilidade na qual o software pode ser transferido de um sistema computacional ou ambiente para outro.</li>
+        <li><strong>SEGURANÇA</strong>: Garante que acessos não autorizados ao sistema e dados associados não serão permitidos.</li>
+    </ul>
+
+    <h2 class="tds">Validação e Verificação (V&V)</h2>
+    <p>V&V busca responder duas perguntas principais:</p>
+    <ul>
+        <li>“Estamos construindo o produto correto?” (Assegurar que o sistema atenda às expectativas do cliente).</li>
+        <li>“Estamos construindo o produto corretamente?” (Verificar se o software está de acordo com as especificações, atendendo aos requisitos funcionais e não funcionais).</li>
+    </ul>
+
+    <h3 class="tds">Técnicas de V&V:</h3>
+    <ul>
+        <li><strong>Inspeções ou revisões por pares</strong>: Representam uma análise estática e são baseadas no exame visual de documentos para detectar defeitos.</li>
+        <li><strong>Testes de software</strong>:</li>
+            <ul>
+                <li>Representam uma análise dinâmica, envolvendo a execução do programa com dados de testes;</li>
+                <li>É a principal técnica de V&V;</li>
+                <li>Tem como objetivo descobrir defeitos ou inadequações do programa por meio da análise das saídas, exercitando o programa simulando dados reais;</li>
+            </ul>
+    </ul>
+
+    <h2 class="tds">Terminologia Central de Teste</h2>
+    <ul>
+        <li><strong>Ambiente de teste</strong>: Contém hardware, instrumentação, simuladores, ferramentas de software e outros elementos de suporte necessários à realização de um teste.</li>
+        <li><strong>Automação da execução de teste</strong>: Utilização de software para controlar a execução dos testes, a comparação de resultados reais e esperados, o estabelecimento de pré-condições e outras funções de controle.</li>
+        <li><strong>Caso de teste</strong>: Conjunto de valores de entrada, pré-condições de execução, resultados esperados e pós-condições desenvolvidos para um objetivo.</li>
+        <li><strong>Cobertura</strong>: Grau (em porcentagem) que indica o quanto um item de cobertura foi exercitado por uma suíte de testes.</li>
+        <li><strong>Código morto:</strong> Código inacessível.</li>
+        <li><strong>Critério de aceite:</strong> Critérios de saída que um componente ou sistema deve satisfazer para ser aceito por um usuário, cliente ou outra entidade autorizada.</li>
+        <li><strong>Dados de teste:</strong> Dados existentes (em um banco de dados, por exemplo) antes do início da execução de um teste e que afetam ou são afetados pelo sistema.</li>
+        <li><strong>Domínio:</strong> Conjunto a partir do qual valores válidos de entrada e/ou saída podem ser selecionados.</li>
+        <li><strong>Especificação de caso de teste:</strong> Documento que especifica um conjunto de casos de teste (objetivos, entradas, ações, resultados esperados) para um item de teste.</li>
+        <li><strong>Integração:</strong> Processo de combinação de componentes ou sistemas em conjuntos maiores.</li>
+        <li><strong>Não conformidade:</strong> Trata-se do não atendimento a um requisito especificado.</li>
+        <li><strong>Plano de teste:</strong> Documento que descreve o escopo, a abordagem, os recursos e o cronograma das atividades de teste. Identifica itens de teste, tarefas, executor, ambiente, técnicas de projeto de teste e critérios de entrada/saída, além de riscos.</li>
+        <li><strong>Qualidade de software:</strong> Totalidade das funcionalidades e características que se baseia na sua habilidade de satisfazer as necessidades declaradas ou implícitas.</li>
+        <li><strong>Rastreabilidade:</strong> Habilidade de identificar itens relacionados em documentos e softwares, como requisitos e testes associados.</li>
+    </ul>
+
+</body>
+</html>
