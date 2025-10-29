@@ -46,6 +46,10 @@
     --cor-pw1-titulo: #b84300;
     --cor-pw1-destaque: #ee6c15;
     --cor-pw1-secundaria: #f8a771;
+
+    --cor-tds-titulo: black;
+    --cor-tds-destaque: gray;
+    --cor-tds-secundaria: rgb(96, 96, 234);
 }
 
 /* Estilo Geral */
@@ -284,17 +288,17 @@ div.padrao {
 }
 
 /* CONTAGEM GERAL PARA TÍTULOS */
-    h1.les, h1.bdd2, h1.ldr, h1.pw1 {
+    h1.les, h1.bdd2, h1.ldr, h1.pw1, h1.tds {
         counter-increment: h1counter;
         counter-reset: h2counter;
     }
 
-    h2.les, h2.bdd2, h2.ldr, h2.pw1 {
+    h2.les, h2.bdd2, h2.ldr, h2.pw1, h2.tds {
         counter-increment: h2counter;
         counter-reset: h3counter;
     }
 
-    h3.les, h3.bdd2, h3.ldr, h3.pw1 {
+    h3.les, h3.bdd2, h3.ldr, h3.pw1, h3.tds {
         counter-increment: h3counter;
     }
 
@@ -499,6 +503,59 @@ blockquote.ldr {
     color: var(--cor-ldr-titulo);
     background-color: var(--cor-ldr-secundaria);
     border-left: 4px solid var(--cor-ldr-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}
+
+/* Teste de Software [tds] */
+    /* Formatação Geral dos Elementos */
+    h1.tds::before,
+    h1.tds::after,
+    h2.tds::before,
+    h3.tds::before,
+    div.tds::before {
+        padding-left: 7px;
+        padding-right: 10px;
+    }
+
+    /* h1 */
+    h1.tds::before {
+        content: "🧪 " counter(h1counter) ". ";
+    }
+
+    h1.tds::after {
+        content: "🧪";
+    }
+
+    /* h2 */
+    h2.tds::before {
+        content: "🧪 " counter(h1counter) "." counter(h2counter) ". ";
+    }
+    
+    /* h3 */
+    h3.tds::before {
+        content: "🧪 " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
+    }
+
+h1.tds {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.tds {
+    border-left: 4px solid var(--cor-tds-destaque) !important;
+}
+
+.tds {
+    color: var(--cor-tds-titulo);
+    background-color: var(--cor-tds-secundaria);
+    border-left: 4px solid var(--cor-tds-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding-left: 5px;
