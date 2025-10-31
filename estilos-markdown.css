@@ -12,7 +12,7 @@
     --cor-preto: black;
 
     /* Aplicação */
-    --plano-de-fundo: var(--cor-cafe-na-folha);
+    --plano-de-fundo: var(--cor-cafe-seco);
     --cor-titulo: var(--cor-azul-escuro-suave);
     --cor-bordas-titulos: var(--cor-preto);
     --cor-destaque-negrito: #fff3cd;

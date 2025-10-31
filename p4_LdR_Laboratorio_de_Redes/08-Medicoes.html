@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08: Comparando servidores web variando algoritmos de controle de congestionamento do TCP</title>
+    <link rel="stylesheet" href="../estilos-markdown.css">
+</head>
+<body>
+    <h1 class="ldr">Passo a passo</h1>
+
+    <h2 class="ldr">Abra o navegador e digite os seguintes IPs</h2>
+
+    <ul>
+        <li>
+            <Strong>Cliente</Strong>:
+            https://200.129.71.165
+        </li>
+        <li>
+            <strong>Server</strong>:
+            https://200.129.71.165:8006
+        </li>
+    </ul>
+
+    <p>Aceite o risco da conexão para que seja possível prosseguir.</p>
+
+    <h2 class="ldr">Login do CLIENTE </h2>
+    <ul>
+        <li>
+            <strong>Usuário</strong>: grupo1
+        </li>
+        <li>
+            <strong>Senha</strong>: @ds654123
+        </li>
+    </ul>
+
+    <p>Clicando em FILTER, mostrará as VMs que você terá acesso. </p>
+    
+    <p>Caso ela esteja com uma bolinha vermelha, significa que está desligada, e para iniciá-la clique em cima da VM e aperte em <code>start</code>.</p>
+
+    <p>Depois de iniciada, entrando em <code>console</code>, é possível logar dentro da VM:</p>
+
+    <ul>
+        <li>
+            <strong>Usuário</strong>:
+            djr
+        </li>
+        <li>
+            <strong>Senha</strong>:
+            654123
+        </li>
+        <li>sudo su</li>
+    </ul>
+
+    <h2 class="ldr">Login do SERVIDOR</h2>
+    <ul>
+        <li>
+            <strong>Usuário</strong>: grupo1
+        </li>
+        <li>
+            <strong>Senha</strong>: @ds654123
+        </li>
+    </ul>
+
+    <p>Se você não for do <code>grupo1</code>, selecione apenas <code>uma V-CPU</code>.</p>
+
+    <h2>Obtendo IP do CLIENTE</h2>
+    <ul>
+        <li>Abra o menu <code>Iniciar</code>, depois clique em <code>Acessórios</code> e depois em <code>Terminal</code>.</li>
+        <li>
+            Digite <code>ifconfig</code> e procure o <code>IP</code> no campo <code>th0</code>.
+        </li>
+        <li>
+            <strong>IP-Cliente</strong>: 127.0.0.1
+        </li>
+        <li>dhclient th0</li>
+        
+    </ul>
+
+    <h2 class="ldr">Obtendo IP do SERVIDOR</h2>
+    <ul>
+        <li>192.168.0.112</li>
+    </ul>
+
+    <h2 class="ldr">Informações</h2>
+    <ul>
+        <li>
+            <strong>IP-Cliente</strong>: 127.0.0.1
+        </li>
+        <li>
+            <strong>IP-Server</strong>: 192.168.0.112
+        </li>
+        <li>
+            <strong>IP-</strong>: 172.17.0.2
+        </li>
+        <li>
+            <p>C<strong>Primeira medição CLIENTE</strong>:</p>
+            <p>mkdir bic</p>
+            <p>cd bic</p>
+            <p>mkdir apache2 nginx quic</p>
+            <p>cd apache2</p>
+            <p>ab -n 1000 -c 100 é apache2 bic.csv https://www.netlab.com/ > apache2_bic.txt</p>
+        </li>
+    </ul>
+</body>
+</html>
