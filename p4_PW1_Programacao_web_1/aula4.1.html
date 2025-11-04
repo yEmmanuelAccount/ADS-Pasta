@@ -142,5 +142,112 @@
         <li>Recebem 4 parâmetros</li>
         <li>Error, Request, Response e Next()</li>
     </ul>
+
+    <p>Podem executar as seguintes tarefas</p>
+    <ul>
+        <li>Executar qualquer código. Ex: autenticação.</li>
+        <li>Fazer mudanças nos objetivos de solicitação e resposta.</li>
+        <li>Encerrar o ciclo de solicitação-resposta. Ex: exceções.</li>
+        <li>Chamar o próximo middleware na pilha.</li>
+    </ul>
+
+    <p>
+        Usamos middleware para usar o arquivo
+        <code>router</code> e <code>json()</code>.
+    </p>
+    <ul>
+        <li>
+            <strong>app.use(router)</strong> → adiciona as rotas.
+        </li>
+        <li>
+            <strong>app.use(express.json())</strong> → para o server aceitar dados vindos da requisição no formato <code>json</code>.
+        </li>
+    </ul>
+
+    <h2 class="pw1">Middleware de Erros</h2>
+    <p>Existe um segundo tipo de middleware, que é menos usado, consistindo em funções de manipulação de erros.</p>
+
+    <p>
+        Para entrar em modo de erro algum middleware da pilha deve chamar <code>next</code> com o argumento de erro: 
+        <strong>Next(new Error('Algo deu errado'))</strong>.
+    </p>
+
+    <p>
+        Em vez de três parâmetros, esse tipo de middleware tem <code>quatro parâmetros</code>, sendo o primeiro o objeto de erro.
+    </p>
+
+    <p>
+        Em um fluxo de código <code>sem erros</code>, o <strong>middleware de erro</strong> é ignorado e o código segue normalmente.
+    </p>
+
+    <p>
+        Em um fluxo de código <code>com erro</code>, o <strong>middleware de erro</strong> é ativado e o código é interrompido.
+    </p>
+
+    <h2 class="pw1">Tratando Exceções</h2>
+    <p>
+        Existem duas formas de <strong>tratar exceções</strong>:
+    </p>
+
+    <h3 class="pw1">Usando try-catch no arquivo Controller</h3>
+    <p><strong>throw new Error("erro!")</strong></p>
+
+    <ul>
+        <li>lança uma exceção para o Controller</li>
+        <li>Controller → Service (throw new Error())</li>
+    </ul>
+    <pre><code>
+        class CreateUserController {
+            async handle(request: Request, response: Response) {
+                try {
+                    const { name, email, admin } = request.body;
+
+                    const createUserService = new CreateUserService();
+
+                    const user = await createUserService.execute({ name, email, admin });
+
+                    return response.json(user);
+                } catch (err) {
+                    return response.status(400).json({ error: err.message });
+                }
+            }
+        }
+    </code></pre>
+
+    <h3 class="pw1">Usando um middleware no server para tratar os erros</h3>
+    <p>server → routes → controller → use case (throw new Erro)</p>
+
+    <p>
+        Instalar a biblioteca <code>express-async-errors</code>
+    </p>
+    <ul>
+        <li>-yarn add express-async-errors</li>
+    </ul>
+
+    <p>Depois importar o <code>server</code></p>
+    <ul>
+        <li>logo depois da importação do express</li>
+    </ul>
+
+    <p>Fonte: <a href="https://www.npmjs.com/package/express-async-errors">https://www.npmjs.com/package/express-async-errors</a></p>
+
+    <pre><code>
+        import { Request, Response, NextFunction } from 'express';
+
+        export function exceptionsHandle (
+            err: Error,
+            req: Request,
+            res: Response,
+            next: NextFunction) {
+                if (err instanceof Error) {
+                    return res.status(400).json({message: err.message});
+                }
+
+                return res.status(500).json({
+                    status: "Error",
+                    message: "Error server internal"
+                });
+            }
+    </code></pre>
 </body>
 </html>

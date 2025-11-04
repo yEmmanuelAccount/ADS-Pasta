@@ -173,14 +173,14 @@ pre code {
     background-color: #c4c4b3;
     color: #000000;
     font-size: 14px;
-    padding: 10px;
+    padding: 1px;
     border-radius: 8px;
     display: block;
     overflow-x: auto;
     line-height: 1.5;
     border: 1px solid #ddd;
-    margin-top: 2px;
-    margin-bottom: 2px;
+    margin-top: 1px;
+    margin-bottom: 1px;
 }
 
 /* Listas */
