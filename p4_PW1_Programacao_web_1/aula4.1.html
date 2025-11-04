@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 4.1: Programação Backend com NodeJS (Middleware)</title>
+    <link rel="stylesheet" href="../estilos-markdown.css">
+</head>
+<body>
+    <h1 class="pw1">Programação Backend com NodeJS (Middleware)</h1>
+
+    <h2 class="pw1">Características do Express</h2>
+    <ol>
+        <li>
+            <strong>Middleware</strong>:
+            <ul>
+                <li>o fluxo de requisição passa por uma única função;</li>
+                <li>no Express, temos uma pilha de middleware, que na prática é um vetor de funções;</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Roteamento</strong>:
+            <ul>
+                <li>são como middleware, mas ativadas somente a partir de um método HTTP específico;</li>
+                <li>Exemplos de métodos HTTP: GET, POST;</li>
+            </ul>
+        </li>
+        <li>
+            <strong>Extensões</strong> para os objetos de requisição de resposta:
+            <ul>
+                <li>adiciona uma porção de novos métodos e propriedades a esses objetos;</li>
+            </ul>
+        </li>
+    </ol>
+
+    <h2 class="pw1">Introdução a funções Middleware</h2>
+    <p>
+        Usando<strong>Middleware</strong>, é possível criar várias funções para lidar com as requisições, invés de utilizar uma única para lidar com tudo.
+    </p>
+
+    <p>
+        Geralmente atendem a um aspecto por vez:
+    </p>
+    <ul>
+        <li>uma função para login;</li>
+        <li>uma função para interpretar valores especiais de requisições;</li>
+        <li>uma função para autenticar usuários;</li>
+        <li>uma função para verificar o token;</li>
+        <li>etc;</li>
+    </ul>
+
+    <h2 class="pw1">Middleware</h2>
+    <p>
+        Função de manipulação de requisição (request handler) no Node, mas em vez de uma, temos várias em sequência.
+    </p>
+
+    <p>Usados para várias coisas:</p>
+    <ul>
+        <li>um middleware faz o registro de logging;</li>
+        <li>outro adiciona cabeçalhos especiais à requisição;</li>
+        <li>etc;</li>
+    </ul>
+
+    <h3 class="pw1">Funcionamento de Middleware</h3>
+    <p>
+        TEM QUE EXPLICAR A IMAGEM DO SLIDE 5, UMA SEQUÊNCIA DE ACONTECIMENTOS.
+    </p>
+    <p>
+        TEM QUE EXPLICAR A IMAGEM DO SLIDE 6, UMA SEQUÊNCIA MAIOR DE ACONTECIMENTOS REPRESENTANDO AS REQUISIÇÕES PARA O LOGIN.
+    </p>
+
+    <h3 class="pw1">Node sem Express => Uma Única Função</h3>
+    <p>
+        O <code>Node</code> irá receber requisições, interpretá-las e transformá-las em objetos <code>JavaScript</code>:
+        um para a requisição e outro para a resposta HTTP.  
+    </p>
+
+    <p>
+        Esses dois objetos são passados para a função <code>JavaScript</code> que o programador escreverá
+    </p>
+
+    <p>EXPLICAR A IMAGEM DO SLIDE 7;</p>
+
+    <h3 class="pw1">Express e a Pilha de Middleware</h3>
+    <p>
+        No <code>Express</code>, os objetos são decorados com alguns utilitários e são passados por uma pilha de funções.
+    </p>
+
+    <p>EXPLICAR A IMAGEM DO SLIDE 8;</p>
+
+    <h3 class="pw1">Assinatura de uma Função de Middleware</h3>
+    <p><strong>function(request, response, next)</strong></p>
+
+    <ul>
+        <li>
+            O terceiro parâmetro (<code>next</code>) é uma função que chama o próximo middleware da pilha.
+        </li>
+        <li>
+            Em qualquer middleware da pilha, deve haver uma única chamada a 
+            <code>response.end</code> (ou funções do Express)
+            para finalizar a requisição.
+        </li>
+    </ul>
+
+    <h2 class="pw1">Roteamento</h2>
+    <p>
+        No Express, o <strong>Roteamento</strong> consiste em mapear URLs para manipuladores de requisição específicos no servidor.
+    </p>
+
+    <p>Por exemplo:</p>
+    <ul>
+        <li>Homepage;</li>
+        <li>About;</li>
+        <li>404;</li>
+        <li>etc;</li>
+    </ul>
+
+    <h3 class="pw1">Estendendo Requisição e Resposta</h3>
+    <p>O Express aumenta as propriedades e as funções dos objetos da requisição e da resposta.</p>
+
+    <p>É útil para:</p>
+    <ul>
+        <li>enviar arquios ao cliente;</li>
+        <li>gerar respostas com cabeçalhos mais rapidamente;</li>
+        <li>etc;</li>
+    </ul>
+
+    <h2 class="pw1">Projeto Backend</h2>
+    <p>
+        Modificação nas <strong>Rotas</strong> e no <strong>Server</strong> utilizando <code>Middleware no Server</code>.
+    </p>
+
+    <p>O que são?</p>
+    <ul>
+        <li>
+            Todo o tipo de função que está entre um pedido HTTP e a resposta final, que o servidor envia de volta para o cliente.
+        </li>
+    </ul>
+
+    <p>Portanto são funções</p>
+    <ul>
+        <li>Recebem 4 parâmetros</li>
+        <li>Error, Request, Response e Next()</li>
+    </ul>
+</body>
+</html>
