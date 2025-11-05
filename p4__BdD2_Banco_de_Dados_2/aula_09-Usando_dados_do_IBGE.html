@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09: Usando Dados Geográficos do IBGE</title>
+    <link rel="stylesheet" href="./../estilos-markdown.css">
+</head>
+<body>
+    <h1 class="bdd2">Usando Dados Geográficos do IBGE</h1>
+
+    <h2 class="bdd2">Inicializando Containers</h2>
+
+    <p>Primeiramente, temos que iniciar os containers dockers do PgAdmin4 e do PostGis:</p>
+    <pre><code>
+        docker start pgadmin4
+    </code></pre>
+    <pre><code>
+        docker start postgis
+    </code></pre>
+
+    <p>
+        Posteriormente, vamos no navegador e verificamos na porta <a href="http://localhost:15432">http://localhost:15432</a>
+        e logamos na conta com o mesmo usuário e senha do Postgres.
+    </p>
+    
+    <h2 class="bdd2">Configurando </h2>
+    <p>
+        Em seguida, abra o <code>QGIS</code> no seu computador e siga os passos a seguir para fazer a conexão com o Postgres.
+    </p>
+    <ol>
+        <li>Clique em <strong>Exibir</strong>, na barra de tarefas superior.</li>
+        <li>Clique em <strong>Painéis</strong>.</li>
+        <li>Clique em <strong>Navegador</strong>, especificamente o que não tiver número na frente.</li>
+        <li>Localize o <strong>Postgres</strong>, clique com o botão direito e depois em <strong>Nova Conexão</strong> preencha as informações para efetivamente exercer a conexão.</li>
+        <ul>
+            <p>Dados de conexão:</p>
+            <li>Nome: ibge</li>
+            <li>Host: localhost</li>
+            <li>Banco de Dados: postgres</li>
+
+            <p>Na parte de Autenticação Básica:</p>
+            <li>Usuário: postgres</li>
+            <li>postgres</li>
+        </ul>
+    </ol>
+
+    <h2 class="bdd2">Importando Dados do IBGE</h2>
+
+    <ol>
+        <li>Procure <strong>Banco de Dados</strong> na barra de tarefas superior e clique nele</li>
+        <li>Clique em <strong>Gerenciador de BD...</strong> que aparecerá nas opções</li>
+        <li>Localize <strong>PostGIS</strong> na nova janela que será aberta e expanda-o</li>
+        <li>Na barra de tarefas dessa segunda janela terá a opção de <strong>Importar camada/arquivo</strong></li>
+        <li>No campo de entrada, clique nos 3 pontinhos do lado direito e navegue até achar o arquivo que deseja importar</li>
+        <li>Por último, coloque o <strong>nome da tabela</strong> referente ao arquivo importado, clique em <strong>OK</strong> e espere a importação</li>
+    </ol>
+
+    <h2 class="bdd2">Usando o Postgres</h2>
+
+    <p>Com os dados importados, podemos pesquisar nas tabelas criadas, manipulá-los e calcular dados dependentes.</p>
+
+    <p>Por exemplo: busque os dados de Cajazeiras</p>
+    <pre><code>
+        select * from municipios
+        where nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <p>Exemplo: distância entre Cajazeiras e Sousa <code>(em graus)</code>:</p>
+    <pre><code>
+        SELECT ST_Distance(ST_Centroid(m1.geom), ST_Centroid(m2.geom))
+        FROM municipios m1, municipios m2
+        WHERE m1.nm_mun ilike 'cajazeiras'
+        AND m2.nm_mun ilike 'sousa'
+    </code></pre>
+
+    <p>Exemplo: distância entre Cajazeiras e Sousa <code>(em KMs)</code>:</p>
+    <pre><code>
+        SELECT ST_Distance(ST_Centroid(m1.geom), ST_Centroid(m2.geom))*40075/360
+        FROM municipios m1, municipios m2
+        WHERE m1.nm_mun ilike 'cajazeiras'
+        AND m2.nm_mun ilike 'sousa'
+    </code></pre>
+
+    <p>Exemplo: não lembro o que é</p>
+    <pre><code>
+        SELECT ST_Distance(geom, ST_GeomFromText('POINT(-38.54530 -6.88953)',4674))*40075/360
+        FROM municipio
+        WHERE nm_mun ilike 'sousa'
+    </code></pre>
+
+    <p>Exemplo: uma consulta que retorne as 5 maiores cidades da Paraíba</p>
+    <pre><code>
+        SELECT nm_mun, area_km2
+        FROM municipios
+        WHERE sigla_uf = 'PB'
+        ORDER BY area_km2 DESC
+        LIMIT 5
+    </code></pre>
+
+    <p>Exemplo: os nomes das cidades vizinhas de Cajazeiras</p>
+    <pre><code>
+        SELECT m2.nm_mun
+        FROM municipios m1, municipios m2
+        WHERE m1.nm_mun ilike 'cajazeiras'
+        AND ST_Touches(m1.geom, m2.geom)
+    </code></pre>
+
+    <p>O próprio JS tem uma função para pegar a geolocalização do dispositivo, ou do provedor:</p>
+    <pre><code>
+        <&script>
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    console.log(position);
+                }
+            )
+        <&/script>
+    </code></pre>
+
+    <p>Usando a função de cima, determine quem que cidade o usuário do serviço está. Usando o GeiJson, é possível visualizar.</p>
+    <pre><code>
+        SELECT nm_mun
+        FROM municipios
+        WHERE ST_Contains(geom, ST_GeomFromText('POINT(-38.5437 -6.8895)',4674))
+    </code></pre>
+
+    <h2 class="bdd2">SVG</h2>
+
+    <p>Podemos usar o formato SVG para representar figuras em sites, já que são vetorizados. Exemplo:</p>
+    <pre><code>
+        <&svg>
+            <&rect x="10" y="10" width="200" height="50" fill="blue" stroke="red" stroke-width="2" fill-opacity="0.8"
+                stroke-opacity="0.3" />
+            <&circle cx="50" cy="50" r="10" fill="yellow" />
+        <&/svg>
+    </code></pre>
+</body>
+</html>

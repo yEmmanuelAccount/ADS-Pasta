@@ -181,6 +181,7 @@ pre code {
     border: 1px solid #ddd;
     margin-top: 1px;
     margin-bottom: 1px;
+    white-space: pre-line; /* faz com que a identação do HTML não vá para o bloco de código */
 }
 
 /* Listas */
