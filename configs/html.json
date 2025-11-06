@@ -12,5 +12,12 @@
             "<p>$1</p>"
         ],
         "description": "Insere tag <p> para parágrafo"
+    },
+    "Bloco de Código": {
+        "prefix": "<.precode",
+        "body": [
+            "<pre><code>$1</code></pre>"
+        ],
+        "description": "Insere um bloco de código usando as tags <pre> e <code>"
     }
 }

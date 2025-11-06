@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10: Usando SBG</title>
+    <link rel="stylesheet" href="../estilos-markdown.css">
+</head>
+<body>
+    <h1 class="bdd2">SVG</h1>
+
+    <h2 class="bdd2">Obtendo dados no formato SVG</h2>
+
+    <p>Insira o código a seguir no PgAdmin4</p>
+    <pre><code>
+        SELECT ST_AsgeoJson(geom)
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <p>
+        Copie o resultado e coloque no site <a link="https://geojson.io/#map=3/-12.61/-54.35">GeoJson.io</a>, dando <code>Ctrl + A</code> e <code>Ctrl + V</code>.
+    </p>
+
+    <h2 class="bdd2">Colocando no HTML</h2>
+
+    <p>Coloque o código a seguir no HTML. Ainda não será possível visualizar o mapa.</p>
+    <pre><code>
+        <&svg>
+            <&path d="código" />
+        <&/svg>
+    </code></pre>
+
+    <h2 class="bdd2">Envelope de Imagens</h2>
+
+    <p>Precisamos colocar um retângulo de menor tamanho possível e que abarque toda a área da cidade em que queremos. Essa será a área total da imagem.</p>
+
+    <p>Coloque a consulta a seguir no PgAdmin4 para verificar o envelope.</p>
+    <pre><code>
+        SELECT ST_Envelope(geom)
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+        UNION SELECT geom
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <p>Usando o código a seguir, você irá obter o segundo valor para colocar no elemento <code>d</code>.</p>
+    <pre><code>
+        SELECT ST_YMax(ST_Envelope(geom))*-1
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <p>Usando o código a seguir, vocÊ irá obter o X_Min do mapa.</p>
+    <pre><code>
+        SELECT ST_XMax(ST_Envelope(geom))-ST_XMin(ST_Envelope(geom))
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <p>Usando o código a seguir, vocÊ irá obter o Y_Min do mapa.</p>
+    <pre><code>
+        SELECT ST_YMax(ST_Envelope(geom))-ST_YMin(ST_Envelope(geom))
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <pre><code>
+        <&svg viewBox="-38.6757776 6.7979166 0.28884980000000127 0.2625447000000003" height="400" width="400">
+            <&path
+                d="código" />
+        <&/svg>
+    </code></pre>
+
+    <p>Função para gerar o valor da <code>viewBox</code>:</p>
+    <pre><code>
+        CREATE OR REPLACE FUNCTION gerar_viewbox_municipio(nome_municipio text)
+        RETURNS text AS
+        $$
+        DECLARE
+        xmin double precision;
+        ymin double precision;
+        xmax double precision;
+        ymax double precision;
+        largura double precision;
+        altura double precision;
+        viewbox text;
+        BEGIN
+        -- Obtém os valores de envelope
+        SELECT
+        ST_XMin(ST_Envelope(geom)),
+        ST_YMin(ST_Envelope(geom)),
+        ST_XMax(ST_Envelope(geom)),
+        ST_YMax(ST_Envelope(geom))
+        INTO xmin, ymin, xmax, ymax
+        FROM municipios
+        WHERE nm_mun ILIKE nome_municipio
+        LIMIT 1;
+        
+        -- Caso o município não exista
+        IF xmin IS NULL THEN
+        RAISE EXCEPTION 'Município "%" não encontrado.', nome_municipio;
+        END IF;
+        
+        -- Calcula largura e altura
+        largura := xmax - xmin;
+        altura := ymax - ymin;
+        
+        -- Monta a string viewBox (y invertido)
+        viewbox := xmin::text || ' ' || (ymax * -1)::text || ' ' || largura::text || ' ' || altura::text;
+        
+        RETURN viewbox;
+        END;
+        $$ LANGUAGE plpgsql;
+    </code></pre>
+
+    <p>O código a seguir gera o valor para <code>d</code>:</p>
+    <pre><code>
+        SELECT ST_Assvg(geom)
+        FROM municipios
+        WHERE nm_mun ilike 'cajazeiras'
+    </code></pre>
+
+    <h2 class="bdd2">Proposta de Atividade</h2>
+
+    <p>Fazer um site para que o usuário informe o estado e a cidade, e o site mostre o desenho do estado com a cidade destacada dentro.</p>
+</body>
+</html>
