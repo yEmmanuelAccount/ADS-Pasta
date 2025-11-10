@@ -52,6 +52,10 @@
     --cor-tds-secundaria: rgb(96, 96, 234);
 }
 
+* {
+    box-sizing: border-box;
+}
+
 /* Estilo Geral */
 body {
     background-color: var(--plano-de-fundo);

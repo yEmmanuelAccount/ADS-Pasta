@@ -1,0 +1,146 @@
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+slide {
+    margin-block: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid #fff5;
+}
+
+loginPageXen {
+    --bg: #170020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 1rem;
+    max-width: 300px;
+    width: 100%;
+    margin-inline: auto;
+    position: relative;
+    isolation: isolate;
+    background: var(--bg);
+}
+
+loginPageXen::before, loginPageXen::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background: var(--bg);
+    transform: translateX(-100%);
+}
+
+loginPageXen::after {
+    transform: translateX(100%);
+}
+
+pre {
+    margin: 0;
+}
+
+h4 {
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+h5 {
+    font-size: 1.25rem;
+    margin-bottom: -2rem;
+}
+
+loginPageXen pre {
+    background: transparent;
+    border: 1px solid white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.leftAlign {
+    width: 100%;
+}
+
+loginPageXen button {
+    --buttom-color: #d058ff;
+    background: var(--buttom-color);
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+loginPageXen button:hover {
+    background: hsl(from var(--buttom-color) h s calc(l - 25));
+}
+
+loginPageXen button:active {
+    background: hsl(from var(--buttom-color) h s calc(l - 50));
+}
+
+vmHomeXen {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/LXDE_desktop_full.png/799px-LXDE_desktop_full.png);
+    width: 100%;
+    min-height: 500px;
+    background-size: cover;
+    /* display: none; */
+    display: flex;
+    justify-content: left;
+    align-items: end;
+}
+
+vmHomeXen button { 
+    margin-left: 2rem;
+    background: linear-gradient(#ccc, #000);
+    border: 0;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 12px;
+    cursor: pointer;
+    transition: filter 0.25s ease;
+}
+
+vmHomeXen button:hover {
+    filter: brightness(0.75);
+}
+
+.enterButton {
+    border: 1px solid lime;
+    background: transparent;
+    color: lime;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.enterButton:hover {
+    background: lime;
+    color: black;
+}
+
+.browsertabs {
+    background: #ccc;
+    border-radius: 0;
+}
+
+.browsertabs tab.selected {
+    --bg-color: var(--cor-ldr-secundaria);
+    color: black;
+}
+
+.terminaltabs {
+    background: var(--cor-ldr-secundaria);
+    border-radius: 0;
+}

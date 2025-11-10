@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 08: Comparando servidores web variando algoritmos de controle de congestionamento do TCP</title>
     <link rel="stylesheet" href="../estilos-markdown.css">
+    <link rel="stylesheet" href="./08medicoes.css">
     <script src="./08medicoes.js" defer></script>
 </head>
 <body class="ldrpage">
@@ -15,11 +16,11 @@
     <ul>
         <li>
             <Strong>Cliente</Strong>:
-            https://200.129.71.165
+            <a href="https://200.129.71.165">https://200.129.71.165</a>
         </li>
         <li>
             <strong>Server</strong>:
-            https://200.129.71.165:8006
+            <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a>
         </li>
     </ul>
 
@@ -136,16 +137,21 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code></code></pre>
-                <loginPageXen>
+                <loginPageXen class="xen">
                     <h5>Welcome to</h5>
                     <h4>XEN ORCHESTRA</h4>
                     <pre>grupo1</pre>
                     <pre>@ds654123</pre>
-                    <input type="checkbox" id="xenremember">
-                    <label for="xenremember">Remember me</label>
-                    <button>Sign in with password</button>
+                    <div class="leftAlign">
+                        <input type="checkbox" id="xenremember">
+                        <label for="xenremember">Remember me</label>
+                    </div>
+                    <button onclick="progressStage(1)">Sign in with password</button>
                 </loginPageXen>
-                <loginPageProxmox>
+                <vmHomeXen class="xen">
+                    <button onclick="progressStage(3)">Terminal</button>
+                </vmHomeXen>
+                <loginPageProxmox class="proxmox">
                     <div class="box">
                         <p>User name: <pre>grupo1</pre></p>
                         <p>Password: <pre>@ds654123</pre></p>
@@ -154,7 +160,7 @@
                         <div class="toRight">
                             <label for="proxremember">Save User name:</label>
                             <input id="proxremember" type="checkbox">
-                            <button>Login</button>
+                            <button onclick="progressStage(null, 2)">Login</button>
                         </div>
                     </div>
                 </loginPageProxmox>
