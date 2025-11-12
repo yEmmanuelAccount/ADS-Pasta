@@ -1,0 +1,199 @@
+:root {
+        --bg: #f6f9fc;
+        --surface: #ffffff;
+        --text: #263238;
+        --muted: #6b7a86;
+        --primary: #2a9d8f;
+        --primary-600: #21867a;
+        --primary-700: #1a6d63;
+        --accent: #e9c46a;
+        --danger: #e76f51;
+        --border: #e5e9ef;
+        --shadow: 0 8px 20px rgba(2, 12, 27, 0.08);
+    }
+
+    * {
+        box-sizing: border-box;
+    }
+
+    html,
+    body {
+        height: 100%;
+    }
+
+    body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        color: var(--text);
+        background: linear-gradient(180deg, #f8fbff, var(--bg));
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 16px;
+    }
+
+    /* Barra de busca (topo) */
+    #busca {
+        background: var(--primary);
+        color: #fff;
+        padding: 12px;
+        border-radius: 12px;
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        box-shadow: var(--shadow);
+        margin: 16px auto;
+    }
+
+    #busca input {
+        flex: 1;
+        background: rgba(255, 255, 255, 0.95);
+        border: 1px solid rgba(0, 0, 0, 0.06);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    #busca input:focus {
+        box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.25);
+        border-color: var(--primary-600);
+    }
+
+    #busca button {
+        background: #fff;
+        color: var(--primary-700);
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .06s ease, background .2s ease;
+        box-shadow: var(--shadow);
+        white-space: nowrap;
+    }
+
+    #busca button:hover {
+        background: #f1f5f9;
+        transform: translateY(-1px);
+    }
+
+    /* Área principal: mapa + formulário lado a lado */
+    .content {
+        display: flex;
+        gap: 16px;
+        align-items: stretch;
+    }
+
+    .map-column {
+        flex: 2;
+        min-width: 0;
+    }
+
+    #map {
+        height: 70vh;
+        width: 100%;
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+        overflow: hidden;
+    }
+
+    .form-card {
+        flex: 1;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        box-shadow: var(--shadow);
+        padding: 16px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        max-height: 70vh;
+        position: sticky;
+        top: 16px;
+    }
+
+    .form-card h2 {
+        margin: 0 0 4px;
+        font-size: 18px;
+    }
+
+    .form-card .hint {
+        color: var(--muted);
+        font-size: 12px;
+    }
+
+    .form-card input,
+    .form-card select {
+        width: 100%;
+        background: #fff;
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 15px;
+        outline: none;
+    }
+
+    .form-card input:focus,
+    .form-card select:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 3px rgba(42, 157, 143, 0.15);
+    }
+
+    .actions {
+        display: flex;
+        gap: 10px;
+    }
+
+    .btn-primary {
+        background: var(--primary);
+        color: #fff;
+        border: 0;
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: transform .06s ease, background .2s ease;
+        box-shadow: var(--shadow);
+        flex: 1;
+    }
+
+    .btn-primary:hover {
+        background: var(--primary-600);
+        transform: translateY(-1px);
+    }
+
+    .btn-outline {
+        background: transparent;
+        color: var(--primary-700);
+        border: 1px solid var(--primary-700);
+        border-radius: 10px;
+        padding: 10px 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: transform .06s ease, background .2s ease, color .2s ease;
+    }
+
+    .btn-outline:hover {
+        background: var(--primary-700);
+        color: #fff;
+        transform: translateY(-1px);
+    }
+
+    @media (max-width: 900px) {
+        .content {
+            flex-direction: column;
+        }
+
+        #map {
+            height: 50vh;
+        }
+
+        .form-card {
+            position: static;
+            max-height: none;
+        }
+    }

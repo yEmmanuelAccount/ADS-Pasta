@@ -1,0 +1,210 @@
+:root {
+    --bg: #f4f6f8; /* fundo suave, cinza claro */
+    --surface: #ffffff; /* cartões e áreas principais */
+    --text: #2f3b45; /* texto em cinza escuro, não preto */
+    --muted: #7a8a99; /* texto secundário mais suave */
+    --primary: #6ca0dc; /* azul pastel agradável */
+    --primary-600: #5b8fc9; /* azul médio */
+    --primary-700: #4a7bb3; /* azul mais profundo */
+    --accent: #ffd580; /* amarelo suave para destaque */
+    --danger: #f28b82; /* vermelho claro e menos agressivo */
+    --border: #488bca;
+    --shadow: 0 6px 16px rgba(0, 0, 0, 0.06); /* sombra mais leve */
+
+    --cor-Colortrend_Café: #a18262;
+    --cor-Velho_Oeste: #bb9486;
+    --cor-Coffe: #6f4e37;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+    color: var(--text);
+    background: linear-gradient(180deg, #87baeb);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+/* Barra de busca (topo) */
+#busca {
+    background: var(--primary);
+    color: #fff;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: var(--shadow);
+    margin: 16px auto;
+}
+
+#busca textarea {
+    flex: 1;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(0, 0, 0, 0.06);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 16px;
+    outline: none;
+}
+
+#busca textarea:focus {
+    box-shadow: 0 0 0 3px rgba(108, 160, 220, 0.25);
+    border-color: var(--primary-600);
+}
+
+#busca button {
+    background: #fff;
+    color: var(--primary-700);
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .06s ease, background .2s ease;
+    box-shadow: var(--shadow);
+    white-space: nowrap;
+}
+
+#busca button:hover {
+    background: #f1f5f9;
+    transform: translateY(-1px);
+}
+
+/* Área principal: mapa + formulário lado a lado */
+.content {
+    display: flex;
+    gap: 16px;
+    align-items: stretch;
+}
+
+.map-column {
+    flex: 2;
+    min-width: 0;
+}
+
+#map {
+    height: 70vh;
+    width: 100%;
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    border: 2px solid var(--border);
+    /* borda mais espessa e azul suave */
+    overflow: hidden;
+}
+
+.form-card {
+    flex: 1;
+    background: var(--surface);
+    border: 2px solid var(--border);
+    /* mesma cor para consistência */
+    border-radius: 14px;
+    box-shadow: #87baeb;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-height: 70vh;
+    position: sticky;
+    top: 16px;
+}
+
+.form-card h2 {
+    margin: 0 0 4px;
+    font-size: 18px;
+}
+
+.form-card .hint {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.form-card textarea,
+.form-card select {
+    width: 100%;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 10px 12px;
+    font-size: 15px;
+    outline: none;
+    resize: vertical; /* permite expandir verticalmente */
+    overflow-wrap: break-word; /* quebra palavras longas */
+    word-wrap: break-word; /* compatibilidade */
+    white-space: pre-wrap; /* mantém espaços e quebra linhas */
+    min-height: 40px; /* altura mínima */
+}
+
+.form-card textarea:focus,
+.form-card select:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(108, 160, 220, 0.15);
+}
+
+.actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #fff;
+    border: 0;
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .06s ease, background .2s ease;
+    box-shadow: var(--shadow);
+    flex: 1;
+}
+
+.btn-primary:hover {
+    background: var(--primary-600);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--primary-700);
+    border: 1px solid var(--primary-700);
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform .06s ease, background .2s ease, color .2s ease;
+}
+
+.btn-outline:hover {
+    background: var(--primary-700);
+    color: #fff;
+    transform: translateY(-1px);
+}
+
+@media (max-width: 900px) {
+    .content {
+        flex-direction: column;
+    }
+
+    #map {
+        height: 50vh;
+    }
+
+    .form-card {
+        position: static;
+        max-height: none;
+    }
+}
