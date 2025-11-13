@@ -1,0 +1,43 @@
+@import url("01-root.css");
+
+h1.pw1::before, h1.pw1::after {
+    content: "🌇";
+}
+
+h2.pw1::before {
+    content: "🌇 " counter(h1counter) "." counter(h2counter) ". » ";
+    padding-right: 7px;
+}
+
+h3.pw1::before {
+    content: "🌇 " counter(h1counter) "." counter(h2counter) "." counter(h3counter) ". » ";
+    padding-right: 7px;
+}
+
+div.pw1::before {
+    content: "🌇 » ";
+    padding-right: 7px;
+}
+
+h1.pw1 {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.pw1 {
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
+}
+
+.pw1 {
+    color: var(--cor-pw1-titulo);
+    background-color: var(--cor-pw1-secundaria);
+    border-left: 4px solid var(--cor-pw1-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}

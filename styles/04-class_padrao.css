@@ -1,0 +1,39 @@
+@import url("01-root.css");
+
+div.padrao {
+    border: 2px solid black !important;
+
+}
+
+h1.padrao::before, h1.padrao::after {
+    content: "🌍";
+}
+
+h2.padrao::before {
+    content: "🌍 " counter(h1counter) "." counter(h2counter) ". » ";
+    padding-right: 7px;
+}
+
+h3.padrao::before {
+    content: "🌍 " counter(h1counter) "." counter(h2counter) "." counter(h3counter) " . » ";
+    padding-right: 7px;
+}
+
+.padrao {
+    color: var(--cor-les-titulo);
+    background-color: var(--cor-les-secundaria);
+    border-left: 4px solid var(--cor-les-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+    border: 2px solid black;
+}
+
+h1.padrao {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+}

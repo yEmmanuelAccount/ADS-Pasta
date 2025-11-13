@@ -1,0 +1,155 @@
+@import url("01-root.css");
+
+body {
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-cinza-escuro);
+    font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    padding: 40px;
+    max-width: 800px;
+    margin: auto;
+
+    counter-reset: h1counter;
+    counter-reset: h2counter;
+    counter-reset: h3counter;
+}
+
+h1 {
+    color: var(--cor-titulo);
+    font-size: 35px;
+    margin-top: 40px;
+    vertical-align: middle;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    padding-bottom: 2px;
+    padding-top: 3px;
+}
+
+h2 {
+    color: var(--cor-titulo);
+    font-size: 25px;
+    margin-top: 30px;
+    vertical-align: middle;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+    padding-bottom: 2px;
+    padding-top: 3px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+h3 {
+    color: var(--cor-titulo);
+    font-size: 20px;
+    margin-top: 20px;
+    vertical-align: middle;
+    text-align: left;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    padding-bottom: 2px;
+    padding-top: 3px;
+    display: flex;
+    gap: 0.5rem;
+}
+
+div {
+    text-align: left;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Parágrafo */
+p {
+    margin-block: 0.5rem;
+    text-indent: 2rem;
+}
+
+/* Negrito */
+strong {
+    background-color: var(--cor-destaque-negrito);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid #0001;
+}
+
+/* Observações Recuadas */
+blockquote {
+    background-color: var(--cor-fundo-recuado);
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 1px;
+    padding-top: 1px;
+    color: black;
+    font-size: 12px;
+}
+
+/* Códigos ou Termos de Destaque (``) */
+code {
+    background-color: var(--cor-code-secundaria);
+    color: var(--cor-code-destaque);
+    font-weight: bold;
+    border-radius: 2px;
+    font-family: 'Courier New', monospace;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid #0001;
+    border-radius: 0.25rem;
+}
+
+pre:not(:has(code)) {
+    background-color: var(--cor-fundo-bloco-codigo);
+}
+
+pre:has(code) {
+    margin: 0;
+}
+
+/* Bloco de Código */
+pre code {
+    background-color: #151515;
+    color: #27ff35;
+    font-size: 1rem;
+    font-family: monospace;
+    padding: 0.5rem;
+    display: block;
+    overflow-x: auto;
+    line-height: 1.5;
+    white-space: pre-line;
+    /* faz com que a indentação do HTML não vá para o bloco de código */
+}
+
+/* Listas */
+/* não ordenada (ul) */
+ul {
+    list-style-type: disc;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-left: 2rem;
+    padding-left: 0;
+}
+
+/* ordenada (ol) */
+ol {
+    list-style-type: decimal;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-left: 2rem;
+    padding-left: 0;
+}
+
+/* listas dentro de listas */
+ul ul, ol ol {
+    margin-left: 3rem;
+}
+
+/* conteúdo da lista (li) */
+li {
+    margin-bottom: 1px;
+    font-size: 15px;
+}
+
+li::marker {
+    font-weight: bolder;
+}

@@ -1,0 +1,280 @@
+@import url("01-root.css");
+
+h1.ldr::before, h1.ldr::after {
+    content: "📊 ";
+}
+
+h2.ldr::before {
+    /* content: "📊 " counter(h1counter) "." counter(h2counter) ". "; */
+    content: counter(h1counter) "." counter(h2counter) ". » ";
+}
+
+h3.ldr::before {
+    /* content: "📊 " counter(h1counter) "." counter(h2counter) "." counter(h3counter); */
+    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
+}
+
+.ldrpage {
+    --cor-cafe-seco: #246348;
+    --cor-white-smoke: #F5F5F5;
+    --cor-ghost-white: #F8F8FF;
+    --cor-antique-white: #FAEBD7;
+    --cor-cinza-escuro: #ffffff;
+    --cor-cafe-na-folha: #e6dbbd;
+    --cor-azul-escuro-suave: #2c3e50;
+    --cor-cinza: gray;
+    --cor-preto: black;
+
+    /* Aplicação */
+    --plano-de-fundo: var(--cor-cafe-seco);
+    --cor-titulo: var(--cor-azul-escuro-suave);
+    --cor-bordas-titulos: var(--cor-preto);
+    --cor-destaque-negrito: #003b6c;
+    --cor-fundo-bloco-codigo: #e0e0d0;
+
+    --cor-fundo-recuado: #f0f0f0;
+
+    --cor-code-destaque: #140425;
+    --cor-code-secundaria: #9bff9e;
+}
+
+h1.ldr {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+    border-radius: 0.5rem;
+    background: transparent;
+    box-shadow: none !important;
+    border: 0;
+    border-left: none !important;
+    margin-bottom: 1.5rem;
+    color: white;
+}
+
+blockquote.ldr {
+    border-left: 4px solid var(--cor-ldr-destaque) !important;
+}
+
+.ldr {
+    color: var(--cor-ldr-titulo);
+    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-ldr-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0.25rem;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5rem;
+    box-shadow: none;
+}
+
+tabs {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    background: hsla(from var(--cor-ldr-secundaria) h s l / 0.25);
+    padding: 0.5rem 0.75rem;
+    padding-bottom: 0;
+    border-radius: 0.25rem;
+    overflow: hidden;
+}
+
+tab {
+    --bg-color: hsla(from var(--cor-ldr-secundaria) h calc(s - 50) calc(l - 50) / 0.85);
+    background: var(--bg-color);
+    height: 100%;
+    padding-bottom: 0.5rem;
+    padding-inline: 0.75rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    position: relative;
+    cursor: pointer;
+}
+
+tab::before,
+tab:after {
+    content: '';
+    position: absolute;
+    aspect-ratio: 1;
+    width: 0.5rem;
+    background: var(--bg-color);
+    height: auto;
+    bottom: 0;
+    left: 0;
+    transform: translateX(-100%);
+    mask-image: radial-gradient(circle at 0 0, transparent 64%, black 66%);
+}
+
+tab:after {
+    left: unset;
+    right: 0;
+    transform: translateX(100%);
+    mask-image: radial-gradient(circle at 100% 0, transparent 64%, black 66%);
+}
+
+tab.selected {
+    --bg-color: #151515;
+    font-weight: bolder;
+}
+
+comment {
+    opacity: 0.75;
+    filter: saturate(0);
+    user-select: none;
+}
+
+.box {
+    border: 1px solid #ccc;
+    border-radius: 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+slide {
+    margin-block: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    border: 1px solid #fff5;
+}
+
+loginPageXen {
+    --bg: #170020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 4rem 1rem;
+    max-width: 300px;
+    width: 100%;
+    margin-inline: auto;
+    position: relative;
+    isolation: isolate;
+    background: var(--bg);
+}
+
+loginPageXen::before,
+loginPageXen::after {
+    content: '';
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+    background: var(--bg);
+    transform: translateX(-100%);
+}
+
+loginPageXen::after {
+    transform: translateX(100%);
+}
+
+pre {
+    margin: 0;
+}
+
+h4 {
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+h5 {
+    font-size: 1.25rem;
+    margin-bottom: -2rem;
+}
+
+loginPageXen pre {
+    background: transparent;
+    border: 1px solid white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    width: 100%;
+}
+
+.leftAlign {
+    width: 100%;
+}
+
+loginPageXen button {
+    --buttom-color: #d058ff;
+    background: var(--buttom-color);
+    border: 0;
+    border-radius: 0.25rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-weight: bolder;
+    color: white;
+    margin-top: 0.5rem;
+    cursor: pointer;
+    transition: background 0.5s ease;
+}
+
+loginPageXen button:hover {
+    background: hsl(from var(--buttom-color) h s calc(l - 25));
+}
+
+loginPageXen button:active {
+    background: hsl(from var(--buttom-color) h s calc(l - 50));
+}
+
+vmHomeXen {
+    background: url(https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/LXDE_desktop_full.png/799px-LXDE_desktop_full.png);
+    width: 100%;
+    min-height: 500px;
+    background-size: cover;
+    /* display: none; */
+    display: flex;
+    justify-content: left;
+    align-items: end;
+}
+
+vmHomeXen button {
+    margin-left: 2rem;
+    background: linear-gradient(#ccc, #000);
+    border: 0;
+    color: white;
+    border-radius: 0.25rem;
+    font-size: 12px;
+    cursor: pointer;
+    transition: filter 0.25s ease;
+}
+
+vmHomeXen button:hover {
+    filter: brightness(0.75);
+}
+
+.enterButton {
+    border: 1px solid lime;
+    background: transparent;
+    color: lime;
+    margin-left: 1rem;
+    cursor: pointer;
+    font-weight: bolder;
+}
+
+.enterButton:hover {
+    background: lime;
+    color: black;
+}
+
+.browsertabs {
+    background: #ccc;
+    border-radius: 0;
+}
+
+.browsertabs tab.selected {
+    --bg-color: var(--cor-ldr-secundaria);
+    color: black;
+}
+
+.terminaltabs {
+    background: var(--cor-ldr-secundaria);
+    border-radius: 0;
+}

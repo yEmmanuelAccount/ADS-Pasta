@@ -1,0 +1,36 @@
+@import url("01-root.css");
+
+h1.tds::before, h1.tds::after {
+    content: "🧪";
+}
+
+h2.tds::before {
+    content: "🧪 " counter(h1counter) "." counter(h2counter) ". ";
+}
+
+h3.tds::before {
+    content: "🧪 " counter(h1counter) "." counter(h2counter) "." counter(h3counter);
+}
+
+h1.tds {
+    justify-content: space-between;
+    text-align: center;
+    display: flex;
+    padding-top: 5px;
+}
+
+blockquote.tds {
+    border-left: 4px solid var(--cor-tds-destaque) !important;
+}
+
+.tds {
+    color: var(--cor-tds-titulo);
+    background-color: var(--cor-tds-secundaria);
+    border-left: 4px solid var(--cor-tds-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+    align-items: center;
+    display: flex;
+}

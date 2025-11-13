@@ -1,0 +1,52 @@
+:root {
+    /* Nome de Cores */
+    --cor-cafe-seco: wheat;
+    --cor-white-smoke: #F5F5F5;
+    --cor-ghost-white: #F8F8FF;
+    --cor-antique-white: #FAEBD7;
+    --cor-cinza-escuro: #333;
+    --cor-cafe-na-folha: #e6dbbd;
+    --cor-azul-escuro-suave: #2c3e50;
+    --cor-cinza: gray;
+    --cor-preto: black;
+
+    /* Aplicação */
+    --plano-de-fundo: var(--cor-cafe-seco);
+    --cor-titulo: var(--cor-azul-escuro-suave);
+    --cor-bordas-titulos: var(--cor-preto);
+    --cor-destaque-negrito: #fff3cd;
+    --cor-fundo-bloco-codigo: #e0e0d0;
+
+    --cor-fundo-recuado: #f0f0f0;
+
+    --cor-code-destaque: #260d40;
+    --cor-code-secundaria: #e3c1eb;
+
+    /* MATÉRIAS */
+    --cor-matematica-destaque: #00796b;
+    --cor-matematica-secundaria: #e0f7fa;
+
+    --cor-historia-destaque: #bf360c;
+    --cor-historia-secundaria: #fbe9e7;
+    --cor-historia-titulo: #4e342e;
+
+    --cor-les-titulo: var(--cor-cinza-escuro);
+    --cor-les-destaque: #6787ce;
+    --cor-les-secundaria: #e0f7fa;
+
+    --cor-bdd2-titulo: #30493d;
+    --cor-bdd2-destaque: #22d389;
+    --cor-bdd2-secundaria: #88c9ae;
+
+    --cor-ldr-titulo: #1f1d20;
+    --cor-ldr-destaque: #00ff44;
+    --cor-ldr-secundaria: #83ffbf;
+
+    --cor-pw1-titulo: #b84300;
+    --cor-pw1-destaque: #ee6c15;
+    --cor-pw1-secundaria: #f8a771;
+
+    --cor-tds-titulo: black;
+    --cor-tds-destaque: gray;
+    --cor-tds-secundaria: rgb(96, 96, 234);
+}
