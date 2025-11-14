@@ -1,8 +1,8 @@
-// 2. Escreva um programa que leia três números e seus respectivos pesos e calcule a sua média ponderada.
+// 002. Escreva um programa que leia três números e seus respectivos pesos e calcule a sua média ponderada.
 
 #include <stdio.h>
 
-int main () {
+void main () {
     // declarando variáveis
     int num1, num2, num3;
     int peso1, peso2, peso3;
@@ -22,7 +22,5 @@ int main () {
     media = (float)((num1 * peso1)+(num2 * peso2)+(num3 * peso3)) / (peso1 + peso2 + peso3);
 
     // informando resultado
-    printf("A media dos dados informados eh %.2f", media);
-
-    return 0;
+    printf("A media dos dados informados eh %.2f; \n", media);
 }

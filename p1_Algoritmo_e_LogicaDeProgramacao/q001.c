@@ -1,7 +1,6 @@
-// 1. Escreva um programa que leia três números inteiros e calcule a sua média aritmética.
+// 001. Escreva um programa que leia três números inteiros e calcule a sua média aritmética.
 
 #include <stdio.h>
-#include <conio.h>
 
 void main() {
     // declarando variáveis
@@ -16,6 +15,5 @@ void main() {
     resultado = (float)(num1 + num2 + num3) / 3;
 
     // informando resultado
-    printf("A media aritmetica de %d, %d e %d eh %.2f", num1, num2, num3, resultado);
-    getch();
+    printf("A media aritmetica de \"%d\", \"%d\" e \"%d\" eh %.2f \n", num1, num2, num3, resultado);
 }
