@@ -125,7 +125,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-left: 2rem;
+    margin-left: 3rem;
     padding-left: 0;
 }
 
@@ -141,7 +141,7 @@ ol {
 
 /* listas dentro de listas */
 ul ul, ol ol {
-    margin-left: 3rem;
+    margin-left: 4rem;
 }
 
 /* conteúdo da lista (li) */
