@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados NÃO RELACIONAL</title>
+    <link rel="stylesheet" href="../styles/00-home.css">
+</head>
+<body>
+    <h1 class="bdd2" id="titulo">Banco de Dados NÃO RELACIONAL</h1>
+
+    <h2 class="bdd2" id="ferramenta">Ferramenta que utilizaremos</h2>
+    
+    <p>Para colocar em prática os conceitos que vamos aprender, iremos utilizar a ferramenta <a href="https://redis.io" target="_blank">Redis.io</a>.</p>
+    <p>Rodaremos o Redis no Docker, assim como estávamos fazendo com o PgAdmin4 e o PostGIS.</p>
+    <p>O <strong>Redis</strong> é um banco de dados em memória, chave-valor, que pode ser usado como um cache, banco de dados NoSQL ou até mesmo como uma fila de mensagens. Sua principal vantagem é a extrema velocidade, já que ele armazena dados diretamente na memória RAM, o que o torna muito mais rápido do que bancos de dados tradicionais que armazenam dados em disco.</p>
+    
+    <p>O Redis é altamente utilizado em sistemas que exigem alta performance, como <strong>caching de dados</strong> <strong>gerenciamento de sessões</strong> e <strong>fila de tarefas assíncronas</strong>.</p>
+    
+    <p>Com o <a href="https://redis.io" target="_blank">redis.io</a>, você tem acesso à documentação oficial, onde pode aprender sobre todos os comandos, tipos de dados, e funcionalidades que o Redis oferece, como:</p>
+    <ul>
+        <li>
+            <strong>Strings</strong>: 
+            A estrutura de dados mais simples, utilizada para armazenar valores de texto ou binários.
+        </li>
+        <li>
+            <strong>Lists</strong>: 
+            Listas ordenadas que podem ser usadas para gerenciar filas de mensagens ou elementos em ordem.
+        </li>
+        <li>
+            <strong>Sets</strong>: 
+            Coleções não ordenadas de itens únicos, úteis para armazenar dados sem repetições.
+        </li>
+        <li>
+            <strong>Hashes</strong>: 
+            Estruturas de dados que armazenam pares chave-valor, como se fosse um dicionário ou objeto.
+        </li>
+        <li>
+            <strong>Sorted Sets</strong>: 
+            Similar aos Sets, mas com um valor de pontuação que determina a ordem dos elementos.
+        </li>
+    </ul>
+    
+    <p>Por ser extremamente rápido e simples de usar, o Redis se tornou uma das ferramentas mais populares em sistemas
+        distribuídos e aplicações de alta performance. Agora, vamos aprender a utilizá-lo para melhorar o desempenho da
+        nossa aplicação!</p>
+
+    <h2 class="bdd2" id="baixar">Baixar</h2>
+
+    <p>Rode o comando a seguir no terminal, na pasta onde deseja baixar:</p>
+    <pre><code>
+        docker run -d --name redis-stack -p 6379:6379 -p 8001:8001 -e REDIS_ARGS="--requirepass mypassword" redis/redis-stack:latest
+    </code></pre>
+    <ul>
+        <li>nomeia de "redis-stack"</li>
+        <li>configura as portas "6379" e "8001"</li>
+        <li>define a senha como "mypassword"</li>
+    </ul>
+
+    <p>Depois de baixado, para conferir que está dando certo, acesse a <a href="localhost:8001">LocalHost</a> e logue usando a senha definida. Não há necessidade de "Username".</p>
+    <p>Pode ser que depois de logar, a janela seja fechada. Caso isso aconteça, acesse novamente a <a href="localhost:8001">LocalHost</a>.</p>
+
+    <h2 class="bdd2">Como usar</h2>
+
+    <p>Temos a opção gráfica para usar, mas vamos usar a opção do terminal mesmo.</p>
+
+    <p>Para fazer isso, digite o comando a seguir no terminal para acessar e conectar com o terminal do container Docker:</p>
+    <pre><code>
+        docker exec -it redis-stack bash
+    </code></pre>
+
+    <p>Ele retornará algo como:</p>
+    <pre><code>
+        root@584eee45fbe0:/#
+    </code></pre>
+
+    <p>Depois, digite:</p>
+    <pre><code>
+        redis-cli
+    </code></pre>
+
+    <p>Em seguida, se autentique:</p>
+    <pre><code>
+        auth mypassword
+    </code></pre>
+
+    <p>Veja se a conexão foi bem sucedida:</p>
+    <pre><code>
+        ping
+    </code></pre>
+
+    <p>Um exemplo de <code>set</code>:</p>
+    <pre><code>
+        set 123 Paulo
+    </code></pre>
+    <ul>
+        <li>123 é a chave</li>
+        <li>"Paulo" é o valor associado a chave</li>
+        <li>O Banco não vê o conteúdo associado a chave</li>
+    </ul>
+
+    <p>Para manipular:</p>
+    <pre><code>
+        get 123 <comment># para obter o conteúdo associado a chave</comment>
+        del 123 <comment># para deletar a chave e consequentemente seu conteúdo associado</comment>
+    </code></pre>
+
+    <p>Podemos usar parâmetros adicionais aos comandos padrões:</p>
+    <pre><code>
+        set 123 Paulo ex 60 <comment># para expirar em 60 segundos</comment>
+        ttl 123 <comment># para ver o tempo restante de uma chave</comment>
+    </code></pre>
+
+    <h2 class="bdd2">Testando a existência de uma chave</h2>
+    <ul>
+        <li>exists</li>
+        <li>xx</li>
+        <li>nx</li>
+    </ul>
+
+    <h2 class="bdd2">HASH</h2>
+    <pre><code>
+        hset 123 publicacoes 10 seguindo 500 seguidores 300 <comment># para criar</comment>
+        hgetall 123 <comment># para retornar tudo de 123</comment>
+        hget 123 <comment># não existe</comment>
+        hget 123 publicacoes <comment># para retornar algo específico de 123</comment>
+        hincrby 123 publicacoes <comment># para incrementar mais 1 na quantidade de publicações</comment>
+        hexpite <comment># PESQUISAR OS CAMPOS E O QUE FAZ</comment>
+    </code></pre>
+
+    <h2 class="bdd2">Pub e Sub</h2>
+
+    <pre><code>
+        publish mensagem "A aula tá terminando" <comment># para publicar uma mensagem em um canal</comment>
+    </code></pre>
+</body>
+</html>

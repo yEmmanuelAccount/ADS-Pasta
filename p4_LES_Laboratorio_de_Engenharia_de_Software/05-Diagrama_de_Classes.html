@@ -13,7 +13,7 @@
     <ul>
         <li><a href="#definicao">Definição</a></li>
         <li><a href="#classes">Classes</a></li>
-        <li>Propriedades/Atributos</li>
+        <li><a href="#atributos">Propriedades/Atributos</a></li>
         <li>Operações/Métodos</li>
         <li>Esteriótipos e Restrições</li>
         <li>Relacionamentos</li>
@@ -51,14 +51,55 @@
         <li>Atributos (opcionais)</li>
         <li>Operações (opcionais)</li>
     </ul>
+    <p>Exemplo de Código em Java:</p>
+    <pre>
+        public class Cliente {
+            private String nome;
+            private String endereco;
+            private Pedido pedido;
+
+            // Constructor
+
+            // GETs e SETs
+        }
+    </pre>
+
+    <h2 class="les" id="atributos">Atributos</h2>
+
+    <p>Cada classe possui atributos e existem alguns elementos visuais que trazem informações sobre esses atributos:</p>
+
+    <p>Esses elementos são:</p>
+    <ul>
+        <li>
+            <strong>Visibilidade</strong>: 
+            "-", "~", "#", "+"
+        </li>
+        <li>
+            <strong>Nome</strong>:
+            "nome", "endereco"
+        </li>
+        <li>
+            <strong>Tipo</strong>:
+            "String", "Pedido"
+        </li>
+        <li>
+            <strong>Multiplicidade</strong>:
+            "[0..*]"
+        </li>
+        <li>
+            <strong>Valor Padrão</strong>: 
+            "Fulano"</li>
+    </ul>
 
     <h2 class="les">Relacionamento entre Classes</h2>
 
     <h2 class="les">Generalização</h2>
 
-    <p>É equivalente ao <code>extends</code> do Java.</p>
-    <p>Semântica: "<strong>é um</strong>" ou "<strong>é um tipo de</strong>".</p>
-    <p>O seu inverso é chamado de <strong>especialização</strong>.</p>
-    <p>Exemplo:</p>
+    <ul>
+        <li>E equivalente ao <strong>extends</strong> do Java.</li>
+        <li>Semântica <strong>"é um"</strong> ou <strong>"é um tipo de"</strong>.</li>
+        <li>O seu inverso é chamado de <strong>especialização</strong>.</li>
+        <li>Exemplo:</li>
+    </ul>
 </body>
 </html>
