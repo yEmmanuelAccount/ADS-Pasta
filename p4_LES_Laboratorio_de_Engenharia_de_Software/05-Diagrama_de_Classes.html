@@ -14,9 +14,9 @@
         <li><a href="#definicao">Definição</a></li>
         <li><a href="#classes">Classes</a></li>
         <li><a href="#atributos">Propriedades/Atributos</a></li>
-        <li>Operações/Métodos</li>
-        <li>Esteriótipos e Restrições</li>
-        <li>Relacionamentos</li>
+        <li><a href="#metodos">Operações/Métodos</a></li>
+        <li><a href="#esteriotipos">Esteriótipos</a> e <a href="#restricoes">Restrições</a></li>
+        <li><a href="#relacionamentos">Relacionamentos</a></li>
         <li>Pacotes</li>
     </ul>
 
@@ -89,6 +89,58 @@
         <li>
             <strong>Valor Padrão</strong>: 
             "Fulano"</li>
+    </ul>
+
+    <h3 class="les" id="visibilidade">Visibilidade</h3>
+
+    <p>Essa parte fica indicada graficamente antes do nome de cada atributo.</p>
+
+    <ul>
+        <li>
+            <strong>Privado (-)</strong>:
+            Somente a própria classe pode manipular o atributo.
+        </li>
+        <li>
+            <strong>Pacote (~)</strong>:
+            Qualquer classe dentro do mesmo pacote pode manipular o atributo.
+        </li>
+        <li>
+            <strong>Protegido (#)</strong>:
+            Qualquer subclasse pode manipular o atributo.
+        </li>
+        <li>
+            <strong>Público (+)</strong>:
+            Qualquer classe do sistema pode manipular o atributo.
+        </li>
+    </ul>
+
+    <h3 class="les">Nome, Tipo e Valor Padrão</h3>
+
+    <ul>
+        <li>
+            <strong>Nome</strong>:
+            conforme o padrão da linguagem.
+        </li>
+        <li>
+            <strong>Tipo</strong>:
+            primitivos ou classes.
+        </li>
+        <li>
+            <strong>Valor Padrão</strong>:
+            valor de inicialização.
+        </li>
+    </ul>
+
+    <p>Exemplo: <code>- nome : String "Fulano"</code></p>
+
+    <h2 class="les">Multiplicidade</h2>
+
+    <p>Representa o número de elementos que podem se relacionar entre 2 entidades.</p>
+    <p>O valor da esquerda é o <strong>mínimo</strong>, o valor da esquerda é o <strong>maior</strong> e eles são separados sempre por 2 pontos <strong>(..)</strong>.</p>
+    
+    <p>Valores mais comuns:</p>
+    <ul>
+        <li></li>
     </ul>
 
     <h2 class="les">Relacionamento entre Classes</h2>
