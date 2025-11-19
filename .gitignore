@@ -6,3 +6,5 @@ estilos-markdown-original.css
 .env
 .cspell
 .vscode
+package-lock.json
+package.json
