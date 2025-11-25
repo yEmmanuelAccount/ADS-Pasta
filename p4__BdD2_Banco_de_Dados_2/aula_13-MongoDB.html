@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 13: MongoDB</title>
+</head>
+<body>
+    <h1 class="bdd2">MongoDB</h1>
+
+    <h2 class="bdd2">Como baixar</h2>
+    <p>Na pasta que deseja baixar, rode o comando abaixo para baixar a versão mais recente do MongoDB:</p>
+    <pre><code>
+        docker run --name mongo -p 27017:27017 -d mongo:latest
+    </code></pre>
+
+    <p>Em computadores com o sistema operacional de 32 bits, use o comando abaixo:</p>
+    <pre><code>
+        docker run --name mongo -p 27017:27017 -d mongo:latest
+    </code></pre>
+
+    <h2 class="bdd2">Conectando</h2>
+    <p>Execute o comando abaixo:</p>
+    <pre><code>
+        docker exec -it mongo bash
+    </code></pre>
+
+    <p>Confirme a execução com o nome do container:</p>
+    <pre><code>mongo</code></pre>
+
+    <h2 class="bdd2">Comandos de Navegação</h2>
+    <pre><code>
+        show dbs <comment># para mostrar os bancos</comment>
+        use aula <comment># vai para o banco 'aula' e se ele não existir é criado</comment>
+    </code></pre>
+
+    <h2 class="bdd2">Operações de CRUD</h2>
+
+    <h3 class="bdd2">Insert</h3>
+    <p>Existem duas formas de se inserir documentos: <strong>insertOne</strong> e <strong>insertMany</strong>.</p>
+    <p>Exemplo 01:</p>
+    <pre><code>
+        db.tarefas.insertOne ({
+            titulo: "Estudar Banco II",
+            descricao: "Fazer o projeto da disciplina",
+            tipo: "Profissional",
+            data: Date("2025-11-25") <comment># padrão americano</comment>
+        })
+    </code></pre>
+
+    <p>Exemplo 02:</p>
+    <pre><code>
+        db.textos.insertMany ([
+            {texto: "Exemplo 01 de texto1"},
+            {texto: "Exemplo 02 de texto2"}
+        ])
+    </code></pre>
+
+    <p>Inserindo uma turma com um professor e uma lista de alunos:</p>
+    <ul>
+        <li>Documento dentro de Documento</li>
+        <li>Lista de Documentos dentro de um Documento</li>
+        <li>Chamado de <strong>agregado de Documentos</strong></li>
+    </ul>
+    <pre><code>
+        db.turma.insertOne ({
+            disciplina: "Banco II",
+            professor: {nome: "Paulo", titulacao: "Mestre"},
+            alunos: [ {nome: "João", matricula: 123}, {nome: "Maria", matricula: 456} ]
+        })
+    </code></pre>
+
+    <h3 class="bdd2">Exemplos de Buscando um Documento</h3>
+    <pre><code>
+        db.turma.find().pretty() <comment># equivalente ao 'SELECT * FROM turma'</comment>
+        db.turma.find({disciplina: "Banco II"}) <comment># equivalente ao uso do 'WHERE' no 'SELECT * FROM turma'</comment>
+    </code></pre>
+
+    <p><strong>Exemplo 01</strong>: retorne o professor da turma onde o nome da disciplina seja "Banco II".</p>
+    <pre><code>
+        db.turma.find({disciplina: "Banco II"}, {professor: 1}) <comment></comment>
+        db.turma.find({disciplina: "Banco II"}, {professor: 1, _id: 0}) <comment># o '_id: 0' é adicionado a uma consulta para retirar a exibição do ID automático do Documento (objeto)</comment>
+    </code></pre>
+
+    <p><strong>Exemplo 02</strong>: retorne a disciplina em que o professor é "Paulo".</p>
+    <pre><code>
+        db.turma.find({"professor.nome": "Paulo"})
+    </code></pre>
+
+    <p><strong>Exemplo 03</strong>: retorne as turmas que tenha um aluno com a matrícula maior que 200.</p>
+    <pre><code>
+        db.turma.find({"alunos.matricula": {$gt: 200}})
+    </code></pre>
+
+    <p><strong>Exemplo 04</strong>: retorne as turmas que possuam 2 alunos.</p>
+    <pre><code>
+        db.turma.find({alunos: {$size: 2}})
+    </code></pre>
+
+    <h3 class="bdd2">Update</h3>
+    <p>Assim como o Insert, também temos duas formas de Update: <strong>UpdateOne</strong> e <strong>UpdateMany</strong>.</p>
+
+    <p>O <strong>UpdateOne</strong> atualiza apenas o primeiro Documento que for encontrado e que atenda a(s) condição(ões) passada(s).</p>
+
+    <p>Já o <strong>UpdateMany</strong> atualizará todos os Documentos que atenderem ao requisito passado.</p>
+
+    <p>Criando um documento para a exemplificação:</p>
+    <pre><code>
+        db.produtos.insertMany ([
+            {descricao: "Arroz", preco: 4.50},
+            {descricao: "Feijão", preco: 8.75},
+            {descricao: "Macarrão", preco: 3.80}
+        ])
+    </code></pre>
+
+    <p><strong>Exemplo 01</strong>: Modifique a descrição do Arroz para "Arroz Parbolizado".</p>
+    <pre><code>
+        db.produtos.updateOne({descricao: "Arroz"}, {$set: {descricao: "Arroz Parbolizado"}})
+    </code></pre>
+
+    <p><strong>Exemplo 02</strong>: Adicione uma tag de promoção aos produtos com valor maior ou igual a 4.</p>
+    <pre><code>
+        db.produtos.updateMany({preco: {$gte: 4}}, {$set: {tag: "Promocao"}})
+    </code></pre>
+
+    <h3 class="bdd2">Exclusão</h3>
+    <p>Há duas formas de deletar Documentos: <strong>deleteOne</strong> e <strong>deleteMany</strong>. Em ambos, é passado apenas a condição e dependendo daquele que for usado serão deletados todos os que atenderem o requisito ou o primeiro que atenda ao requisito.</p>
+
+    <p><strong>Exemplo 01</strong>: Exclua os produtos que estão em promoção.</p>
+    <pre><code>
+        db.produtos.deleteMany({tag: "Promocao"})
+    </code></pre>
+</body>
+</html>
