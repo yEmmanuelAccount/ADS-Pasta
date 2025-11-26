@@ -7,7 +7,7 @@
     <title>Aula 13: MongoDB</title>
 </head>
 <body>
-    <h1 class="bdd2">MongoDB</h1>
+    <h1 class="bdd2">MongoDB - 25/11/2025</h1>
 
     <h2 class="bdd2">Como baixar</h2>
     <p>Na pasta que deseja baixar, rode o comando abaixo para baixar a versão mais recente do MongoDB:</p>
@@ -130,6 +130,145 @@
     <p><strong>Exemplo 01</strong>: Exclua os produtos que estão em promoção.</p>
     <pre><code>
         db.produtos.deleteMany({tag: "Promocao"})
+    </code></pre>
+
+    <h1 class="bdd2">MongoDB - 26/11/2025</h1>
+
+    <h2 class="bdd2">Startando Container</h2>
+    <pre><code>
+        docker start mongo <comment># passo 1</comment>
+        docker exec -it mongo bash <comment># passo 2</comment>
+        mongo <comment># passo 3</comment>
+    </code></pre>
+
+    <h2 class="bdd2">Criando Novo Documento para a Aula</h2>
+    <pre><code>
+        db.usuarios.insertMany ([
+            {nome: "João", email: "joao@gmail.com"},
+            {nome: "Maria", email: "maria@gmail.com"}
+        ])
+    </code></pre>
+
+    <h2 class="bdd2">Criação de Index</h2>
+    <pre><code>
+        db.usuarios.createIndex({email: 1}, {unique: true})
+        db.usuarios.getIndexes() <comment># para verificar</comment>
+    </code></pre>
+
+    <p>Caso tente a criação de um novo usuário usando um email já cadastrado, o cadastro será negado.</p>
+    <pre><code>
+        db.usuarios.insertOne({email: "joao@gmail.com"})
+    </code></pre>
+
+    <h2 class="bdd2">Relacionando Documento Externo a Usuário</h2>
+    <pre><code>
+        db.anotacoes.insertOne({
+            texto: "Estudar para Banco de Dados II",
+            titulo: "Estudar",
+            usuarioId: ObjectId('692746d2d415a24fd1c458f6')
+        })
+    </code></pre>
+
+    <p>Esse tipo de relação não é verificada automaticamente pelo Banco. Por exemplo: uma anotação pode ser relacionada a um <strong>ID de Usuário</strong> que não existe.</p>
+
+    <h2 class="bdd2">Index de Texto</h2>
+
+    <div class="bdd2">Criando Anotações</div>
+    <pre><code>
+        <comment># anotação 01</comment>
+        db.anotacoes.insertOne({
+            texto: "João e Maria são alunos de Banco II",
+            titulo: "Lista",
+            usuarioId: Object('692746d2d415a24fd1c458f6')
+        })
+
+        <comment># anotação 02</comment>
+        db.anotacoes.insertOne({
+            texto: "Maria é uma boa aluna",
+            titulo: "Lista",
+            usuarioId: Object('692746d2d415a24fd1c458f6')
+        })
+    </code></pre>
+
+    <p>O <strong>Index de Texto</strong> quebra o texto em <code>Tockens</code>, descarta palavras "inúteis" como "de" e guarda somente os radicais das palavras (descartando gênero das palavras, singular ou plural, etc).</p>
+
+    <div class="bdd2">Criando o Index de Texto</div>
+    <pre><code>
+        db.anotacoes.createIndex({titulo: "text", conteudo: "text"}, {default_language: "pt", weights: {titulo: 2, conteudo: 1}})
+    </code></pre>
+
+    <div class="bdd2">Buscando o Texto</div>
+    <pre><code>
+        db.anotacoes.find({$text: {$search: "estudo"}})
+    </code></pre>
+
+    <h2 class="bdd2">Index GeoEspacial</h2>
+
+    <p>Usaremos dados no formato <strong><a href="http://geojson.io">GeoJSON</a></strong> para salvar informações geoespaciais.</p>
+    <div class="bdd2">Criando uma Coleção Espacial:</div>
+    <pre><code>
+        db.pontos.insertOne({
+            localizacao: {
+                "coordinates": [
+                    -38.54435297888617,
+                    -6.889619883144022
+                ],
+                "type": "Point"
+            },
+            nome: "IF"
+        })
+    </code></pre>
+
+    <pre><code>
+        db.pontos.insertOne({
+            localizacao: {
+                "coordinates": [
+                    -38.558293113677365,
+                    -6.8719807361850656
+                ],
+                "type": "Point"
+            },
+            nome: "UFCG"
+        })
+    </code></pre>
+
+    <pre><code>
+        db.pontos.insertOne({
+            localizacao: {
+                "coordinates": [
+                    -38.558173036280095,
+                    -6.889879539338395
+                ],
+                "type": "Point"
+            },
+            nome: "Teatro ICA"
+        })
+    </code></pre>
+
+    <div class="bdd2">Criando Index</div>
+    <pre><code>
+        db.pontos.createIndex({localizacao: "2dsphere"})
+    </code></pre>
+
+    <div class="bdd2">Buscando</div>
+    <p>Locais cadastrados que estão a 300 metros de distância:</p>
+    <pre><code>
+        db.pontos.find({
+            localizacao: { 
+                $near: { $geometry: { "coordinates": [ -38.545193624861895, -6.891366615309096], 
+                "type": "Point" }, 
+                $maxDistance: 300 } }
+        })
+    </code></pre>
+
+    <p>Locais cadastrados que estão a 3000 metros (3KM) de distância:</p>
+    <pre><code>
+        db.pontos.find({
+            localizacao: { 
+                $near: { $geometry: { "coordinates": [ -38.545193624861895, -6.891366615309096], 
+                "type": "Point" }, 
+                $maxDistance: 3000 } }
+        })
     </code></pre>
 </body>
 </html>
