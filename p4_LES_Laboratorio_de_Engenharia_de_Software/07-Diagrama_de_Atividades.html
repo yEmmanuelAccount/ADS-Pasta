@@ -47,7 +47,7 @@
         <li>Carro Lavados (fim da atividade)</li>
     </ol>
 
-    <h2 class="les" id="elementos">Elementos</h2>
+    <h2 class="les" id="elementos">Elementos Principais</h2>
     <ol>
         <li>Estados: Inicial e Final</li>
         <li>Atividades</li>
@@ -56,5 +56,23 @@
         <li>Barras de Sincronização</li>
         <li>Raias (lanes)</li>
     </ol>
+
+    <div class="les">Formas de Representação</div>
+    <ul>
+        <li><strong>Inicialização do Diagrama</strong>: Circulo completamente preenchido.</li>
+        <li><strong>Finalização do Diagrama</strong>: Circulo com uma borda grossa de cor branca.</li>
+        <li><strong>Atividades (ações)</strong>: Retângulo com bordas arredondas.</li>
+        <li><strong>Transições</strong>: Uma seta saindo da Atividade atual para a Atividade futura.</li>
+        <li><strong>Condição (bifurcação)</strong>: Um losângulo recebendo uma Transição de uma de suas arestas e dando origem a, pelo menos, 2 caminhos distintos.</li>
+        <li><strong>Barras de Sincronização</strong>: Uma barra preta, usada tanto para bifurcação sem necessidade de condição e para juntar novamente divisões em um único caminho linear.</li>
+        <li><strong>Raias (Lanes)</strong>: Divisões do diagrama, representando os responsáveis pelas Atividades.</li>
+    </ul>
+
+    <h2 class="les">Nós de Objeto</h2>
+    <p>São <strong>opcionais</strong> e representam produtos/artefatos requeridos ou gerados durante uma atividade, podendo possuir também de forma opcional Nome e Estado.</p>
+    <p>São representados por um retângulo sem bordas arredondadas.</p>
+
+    <h2 class="les">Nós de Envio e Recebimento de Sinais</h2>
+    <p>São representados por um retângulo com a sua aresta superior direita dobrada para dentro e é ligado a uma Atividade por meio de uma linha pontilhada.</p>
 </body>
 </html>
