@@ -7,7 +7,6 @@ body {
     font-size: 16px;
     line-height: 1.6;
     padding: 40px;
-    max-width: 800px;
     margin: auto;
 
     counter-reset: h1counter;
@@ -152,4 +151,47 @@ li {
 
 li::marker {
     font-weight: bolder;
+}
+
+.btn-voltar {
+    padding: 10px 20px;
+    background-color: #dab360;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    background-color: #a3880f;
+}
+
+header {
+    width: 100%;
+    /* O cabeçalho vai ocupar toda a largura da tela */
+    background-color: transparent;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    /* Coloca o botão de volta à esquerda e o conteúdo à direita */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.conteudo {
+    width: 100%;
+    /* O container vai ocupar 100% da largura */
+    max-width: 800px;
+    /* Limita o conteúdo a 800px de largura */
+    margin: 0 auto;
+    /* Centraliza o conteúdo */
+}
+
+.conteudo {
+    height: 1500px;
+    /* Apenas para criar rolagem */
 }
