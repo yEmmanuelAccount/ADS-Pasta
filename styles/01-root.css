@@ -11,16 +11,16 @@
     --cor-preto: black;
 
     /* Aplicação */
-    --plano-de-fundo: var(--cor-cafe-seco);
-    --cor-titulo: var(--cor-azul-escuro-suave);
+    --plano-de-fundo: var(--cor-white-smoke);
+    --cor-titulo: var(--cor-cinza-escuro);
     --cor-bordas-titulos: var(--cor-preto);
-    --cor-destaque-negrito: #fff3cd;
+    --cor-negrito: #e3bfeb;
     --cor-fundo-bloco-codigo: #e0e0d0;
 
     --cor-fundo-recuado: #f0f0f0;
 
-    --cor-code-destaque: #260d40;
-    --cor-code-secundaria: #e3c1eb;
+    --cor-code-destaque: #2e2a47;
+    --cor-code-secundaria: #c8a6e2;
 
     /* Matérias */
     --cor-matematica-destaque: #00796b;

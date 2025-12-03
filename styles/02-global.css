@@ -66,8 +66,8 @@ p {
 
 /* Negrito */
 strong {
-    background-color: var(--cor-destaque-negrito);
-    padding: 0.25rem 0.5rem;
+    background-color: var(--cor-negrito);
+    padding: 0.25rem 0.25rem;
     border-radius: 0.25rem;
     border: 1px solid #0001;
 }
@@ -90,7 +90,7 @@ code {
     font-weight: bold;
     border-radius: 2px;
     font-family: 'Courier New', monospace;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.25rem;
     border: 1px solid #0001;
     border-radius: 0.25rem;
 }

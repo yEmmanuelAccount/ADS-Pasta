@@ -59,6 +59,35 @@
         </ul>
 
         <h2 class="les" id="diagrama-de-estados">Diagrama de Estados</h2>
+        <p>Em UML:</p>
+        <ul>
+            <li>
+                <strong>Estado inicial</strong>:
+                Ponto de <code>início</code> do diagrama. Não aceita transições de entrada (nada pode ser ligado a ele).
+            </li>
+            <li>
+                <strong>Estado final</strong>:
+                Ponto de <code>término</code> do diagrama. Não aceita transições de saída (nada pode sair dele).
+            </li>
+            <li>Os <code>estados</code> são representados por caixas contendo:</li>
+            <ul>
+                <li>Nome</li>
+                <li>Efeitos de entrada (entry)</li>
+                <li>Efeitos de execução (do)</li>
+                <li>Efeitos de saída (exit)</li>
+            </ul>
+            <li>As <code>transições</code> determinam a troca de estados em função de um <strong>evento</strong>.</li>
+        </ul>
+
+        <p>Exemplo:</p>
+        <ul>
+            <li>A partir do estado desligado, caso o botão seja <strong>apertado</strong>, o ventilador vai para o estado <code>ventilador forte</code>.</li>
+            <li>A partir do estado <code>ventilador forte</code>, caso o botão seja apertado, o ventilador vai para o estado de <code>ventilador médio</code>.</li>
+            <li>A partir do estado de <code>ventilador médio</code>, caso o botçao seja apertado, o ventilador  vai para o estado <code>ventilador fraco</code>.</li>
+            <li>A partir do estado de <code>ventilador fraco</code>, caso o botão seja apertado, vai para o estado <code>desligado</code>.</li>
+        </ul>
+
+        
     </div>
     
 </body>
