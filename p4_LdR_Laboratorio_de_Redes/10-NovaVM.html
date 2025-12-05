@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>10 - Nova VM</title>
+</head>
+<body class="ldrpage">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+    
+    <div class="conteudo">
+        <h1 class="ldr">Nova VM</h1>
+
+        <h2 class="ldr">Inciando VM</h2>
+
+        <h2 class="ldr">Abas</h2>
+        <p>Crie 3 abas (Ctrl + Shift + T) com os nomes de:</p>
+        <ol>
+            <li>Cliente</li>
+            <li>Servidor</li>
+            <li>Docker</li>
+        </ol>
+
+        <h2 class="ldr">IPs</h2>
+        <p>Máquina: 192.168.0.104</p>
+
+        <h2 class="ldr">Docker</h2>
+        <pre><code>
+            docker 
+        </code></pre>
+
+        <h2 class="ldr">Cliente</h2>
+        <pre><code>
+
+        </code></pre>
+
+        <h2 class="ldr">Server</h2>
+        <pre><code>
+            iptables --policy FORWARD ACCEPT 
+            iptables -t nat -A POSTROUTING -j MASQUERADE
+            iptables -F
+        </code></pre>
+
+        <h2 class="ld">Cliente</h2>
+        <pre><code>
+            ping 117.17.0.2<comment># para testar se a conexão foi bem sucedida</comment>
+        </code></pre>
+    </div>
+</body>
+</html>

@@ -5,227 +5,236 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aula 08: Comparando servidores web variando algoritmos de controle de congestionamento do TCP</title>
     <link rel="stylesheet" href="../styles/00-home.css">
-    <script src="./08medicoes.js" defer></script>
+    <script src="./ldr.js" defer></script>
 </head>
 <body class="ldrpage">
-    <h1 class="ldr">Passo a passo</h1>
-
-    <h2 class="ldr">Abra o navegador e digite os seguintes IPs</h2>
-
-    <ul>
-        <li>
-            <Strong>Cliente</Strong>:
-            <a href="https://200.129.71.165">https://200.129.71.165</a>
-        </li>
-        <li>
-            <strong>Server</strong>:
-            <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a>
-        </li>
-    </ul>
-
-    <p>Aceite o risco da conexão para que seja possível prosseguir.</p>
-
-    <h2 class="ldr">Login do CLIENTE </h2>
-    <ul>
-        <li>
-            <strong>Usuário</strong>: grupo1
-        </li>
-        <li>
-            <strong>Senha</strong>: @ds654123
-        </li>
-    </ul>
-
-    <p>Clicando em FILTER, mostrará as VMs que você terá acesso. </p>
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
     
-    <p>Caso ela esteja com uma bolinha vermelha, significa que está desligada, e para iniciá-la clique em cima da VM e aperte em <strong>start</strong>.</p>
+    <div class="conteudo">
+        <h1 class="ldr">Passo a passo</h1>
 
-    <p>Depois de iniciada, entrando em <strong>console</strong>, é possível logar dentro da VM:</p>
+        <h2 class="ldr">Abra o navegador e digite os seguintes IPs</h2>
 
-    <ul>
-        <li>
-            <strong>Usuário</strong>:
-            djr
-        </li>
-        <li>
-            <strong>Senha</strong>:
-            654123
-        </li>
-        <li>sudo su</li>
-    </ul>
+        <ul>
+            <li>
+                <Strong>Cliente</Strong>:
+                <a href="https://200.129.71.165">https://200.129.71.165</a>
+            </li>
+            <li>
+                <strong>Server</strong>:
+                <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a>
+            </li>
+        </ul>
 
-    <h2 class="ldr">Login do SERVIDOR</h2>
-    <ul>
-        <li>
-            <strong>Usuário</strong>: grupo1
-        </li>
-        <li>
-            <strong>Senha</strong>: djr654123
-        </li>
-    </ul>
+        <p>Aceite o risco da conexão para que seja possível prosseguir.</p>
 
-    <p>Se você não for do <strong>grupo1</strong>, selecione apenas <strong>uma V-CPU</strong>. (CPU Virtual)</p>
+        <h2 class="ldr">Login do CLIENTE (09:00)</h2>
+        <ul>
+            <li>
+                <strong>Usuário</strong>: grupo1
+            </li>
+            <li>
+                <strong>Senha</strong>: @ds654123
+            </li>
+        </ul>
 
-    <h2 class="ldr">Obtendo IP do CLIENTE</h2>
-    <ul>
-        <li>Abra o menu <strong>Iniciar</strong>, depois clique em <strong>Acessórios</strong> e depois em <strong>Terminal</strong>.</li>
-        <li>
-            Digite <code>ifconfig</code> e procure o <strong>IP</strong> no campo <strong>eth0</strong>.
-        </li>
-        <li>
-            <strong>IP-Cliente</strong>: 127.0.0.1 <strong>(localhost)</strong>
-        </li>
-        <li><code>dhclient eth0</code> para configurar o ip na interface de rede eth0 automaticamente</li>
+        <p>Clicando em <strong>Filters</strong> e depois em <strong>None</strong>, mostrará as VMs que você terá acesso. </p>
         
-    </ul>
+        <p>Caso ela esteja com uma bolinha vermelha, significa que está desligada, e para iniciá-la clique em seu nome para ir para sua página específica e aperte no botão de <strong>start</strong> (representado por um play).</p>
 
-    <h2 class="ldr">Obtendo IP do SERVIDOR</h2>
-    <p>Precisamos primeiramente estar como <code>Super Usuário</code>. </p>
-    <p>No terminal, digite:</p>
-    <ol>
-        <li><code>sudo su</code> para mudar o terminal para o super usuário</li>
-        <li><strong>senha:</strong> 654123</li>
-        <li><code>ifconfig</code> para listar os ips da maquina</li>
-        <li>Pegue o IP que vem após o <code>eth0</code> no resultado do <code>ifconfig</code></li>
-    </ol>
-    <ul>
-        <li>Exemplo: 192.168.0.112</li>
-    </ul>
+        <p>Depois de iniciada, entrando em <strong>console</strong>, é possível logar dentro da VM:</p>
 
-    <h2 class="ldr">Cliente</h2>
-    <p>Abra mais 3 abas, e coloque os seguintes nomes:</p>
-    <ul>
-        <li>Cliente Local</li>
-        <li>Servidor</li>
-        <li>Docker</li>
-    </ul>
+        <ul>
+            <li>
+                <strong>Usuário</strong>: djr
+            </li>
+            <li>
+                <strong>Senha</strong>: 654123
+            </li>
+            <li>sudo su</li>
+        </ul>
 
-    <h2 class="ldr">Informações</h2>
-    <ul>
-        <li>
-            <strong>IP-Cliente</strong>: 127.0.0.1
-        </li>
-        <li>
-            <strong>IP-Server</strong>: 192.168.0.112
-        </li>
-        <li>
-            <strong>IP-alguma_coisa</strong>: 172.17.0.2
-        </li>
-        <li>
-            <p><strong>Primeira medição CLIENTE</strong></p>
-            <div class="box">
-                <tabs>
-                    <tab class="selected">Cliente Local</tab>
-                    <tab>Servidor</tab>
-                    <tab>Docker</tab>
-                </tabs>
-                <pre><code> mkdir bic <comment># Make Directory (Criar Diretório) "bic"</comment>
-                    cd bic <comment># entra na pasta</comment>
-                    mkdir apache2 nginx quic <comment># cria as pastas "apache2", "nginx" e "quic"</comment>
-                    cd apache2 <comment># entra na pasta "apache2"</comment>
-                    ab -n 1000 -c 100 é apache2 bic.csv https://www.netlab.com/ > apache2_bic.txt
-                </code></pre>
-            </div>
-            <slide>
-                <tabs class='browsertabs'>
-                    <tab class="selected">Docker_GUI-grupo1</tab>
-                    <tab>Netlab - Proxmox Virtual</tab>
-                </tabs>
-                <tabs class="terminaltabs">
-                    <tab class="selected">Cliente Local</tab>
-                    <tab>Servidor</tab>
-                    <tab>Docker</tab>
-                </tabs>
-                <pre><code></code></pre>
-                <loginPageXen class="xen">
-                    <h5>Welcome to</h5>
-                    <h4>XEN ORCHESTRA</h4>
-                    <pre>grupo1</pre>
-                    <pre>@ds654123</pre>
-                    <div class="leftAlign">
-                        <input type="checkbox" id="xenremember">
-                        <label for="xenremember">Remember me</label>
-                    </div>
-                    <button onclick="progressStage(1)">Sign in with password</button>
-                </loginPageXen>
-                <vmHomeXen class="xen">
-                    <button onclick="progressStage(3)">Terminal</button>
-                </vmHomeXen>
-                <loginPageProxmox class="proxmox">
-                    <div class="box">
-                        <p>User name: <pre>grupo1</pre></p>
-                        <p>Password: <pre>@ds654123</pre></p>
-                        <p>Realm: <pre>Linux PAM standard authentication</pre></p>
-                        <p>Language: <pre>English - English</pre></p>
-                        <div class="toRight">
-                            <label for="proxremember">Save User name:</label>
-                            <input id="proxremember" type="checkbox">
-                            <button onclick="progressStage(null, 2)">Login</button>
+        <h2 class="ldr">Login do SERVIDOR</h2>
+        <ul>
+            <li>
+                <strong>Usuário</strong>: grupo1
+            </li>
+            <li>
+                <strong>Senha</strong>: djr654123
+            </li>
+        </ul>
+
+        <p>Se você não for do <strong>grupo1</strong>, selecione apenas <strong>uma V-CPU</strong>. (CPU Virtual)</p>
+
+        <h2 class="ldr">Obtendo IP do CLIENTE</h2>
+        <ul>
+            <li>Abra o menu <strong>Iniciar</strong>, depois clique em <strong>Acessórios</strong> e depois em <strong>Terminal</strong>.</li>
+            <li>
+                Digite <code>ifconfig</code> e procure o <strong>IP</strong> no campo <strong>eth0</strong>.
+            </li>
+            <li>
+                <strong>IP-Cliente</strong>: 127.0.0.1 <strong>(localhost)</strong>
+            </li>
+            <li><code>dhclient eth0</code> para configurar o ip na interface de rede eth0 automaticamente</li>
+            
+        </ul>
+
+        <h2 class="ldr">Obtendo IP do SERVIDOR</h2>
+        <p>Precisamos primeiramente estar como <code>Super Usuário</code>. </p>
+        <p>No terminal, digite:</p>
+        <ol>
+            <li><code>sudo su</code> para mudar o terminal para o super usuário</li>
+            <li><strong>senha:</strong> 654123</li>
+            <li><code>ifconfig</code> para listar os ips da maquina</li>
+            <li>Pegue o IP que vem após o <code>eth0</code> no resultado do <code>ifconfig</code></li>
+        </ol>
+        <ul>
+            <li>Exemplo: 192.168.0.112</li>
+        </ul>
+
+        <h2 class="ldr">Cliente</h2>
+        <p>Abra mais 3 abas, e coloque os seguintes nomes:</p>
+        <ul>
+            <li>Cliente Local</li>
+            <li>Servidor</li>
+            <li>Docker</li>
+        </ul>
+
+        <h2 class="ldr">Informações</h2>
+        <ul>
+            <li>
+                <strong>IP-Cliente</strong>: 127.0.0.1
+            </li>
+            <li>
+                <strong>IP-Server</strong>: 192.168.0.112
+            </li>
+            <li>
+                <strong>IP-alguma_coisa</strong>: 172.17.0.2
+            </li>
+            <li>
+                <p><strong>Primeira medição CLIENTE</strong></p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">Cliente Local</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
+                    </tabs>
+                    <pre><code> mkdir bic <comment># Make Directory (Criar Diretório) "bic"</comment>
+                        cd bic <comment># entra na pasta</comment>
+                        mkdir apache2 nginx quic <comment># cria as pastas "apache2", "nginx" e "quic"</comment>
+                        cd apache2 <comment># entra na pasta "apache2"</comment>
+                        ab -n 1000 -c 100 é apache2 bic.csv https://www.netlab.com/ > apache2_bic.txt
+                    </code></pre>
+                </div>
+                <slide>
+                    <tabs class='browsertabs'>
+                        <tab class="selected">Docker_GUI-grupo1</tab>
+                        <tab>Netlab - Proxmox Virtual</tab>
+                    </tabs>
+                    <tabs class="terminaltabs">
+                        <tab class="selected">Cliente Local</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
+                    </tabs>
+                    <pre><code></code></pre>
+                    <loginPageXen class="xen">
+                        <h5>Welcome to</h5>
+                        <h4>XEN ORCHESTRA</h4>
+                        <pre>grupo1</pre>
+                        <pre>@ds654123</pre>
+                        <div class="leftAlign">
+                            <input type="checkbox" id="xenremember">
+                            <label for="xenremember">Remember me</label>
                         </div>
-                    </div>
-                </loginPageProxmox>
-            </slide>
-        </li>
-    </ul>
+                        <button onclick="progressStage(1)">Sign in with password</button>
+                    </loginPageXen>
+                    <vmHomeXen class="xen">
+                        <button onclick="progressStage(3)">Terminal</button>
+                    </vmHomeXen>
+                    <loginPageProxmox class="proxmox">
+                        <div class="box">
+                            <p>User name: <pre>grupo1</pre></p>
+                            <p>Password: <pre>@ds654123</pre></p>
+                            <p>Realm: <pre>Linux PAM standard authentication</pre></p>
+                            <p>Language: <pre>English - English</pre></p>
+                            <div class="toRight">
+                                <label for="proxremember">Save User name:</label>
+                                <input id="proxremember" type="checkbox">
+                                <button onclick="progressStage(null, 2)">Login</button>
+                            </div>
+                        </div>
+                    </loginPageProxmox>
+                </slide>
+            </li>
+        </ul>
+
+        <h1 class="ldr">Anotações</h1>
+        <p>
+            -- Setup
+            No browser:
+            aba1:
+            200.129.71.165 (vm)
+            
+            login: grupo1
+            senha: @ds654123
+            
+            aba2:
+            200.129.71.165:8006 (proxmox)
+            
+            login: grupo1
+            senha: @ds654123
+            
+            -> BP1 : VNC
+            Ubuntu 24.04 LTS djr tty1
+            
+            djr login: djr
+            Password: 654123
+            
+            -> BP1 : Login
+            
+            Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-11generic x86_64)
+            
+            * Documentation: https://help.ubuntu.com
+            * Management: https://landscape.canonical.com
+            * Support: https://ubuntu.com/pro
+            
+            Manutenção de Segurança Expandida para Applications não está ativa.
+            
+            djr@djr:~$ sudo su
+            [sudo] password for djr: 654123
+            root@djr:.../djr# ifconfig
+            docker0: flags=4099<UP,BROADCAST,MULTICAST> mtu 1500
+                inet 172.17.0.1 netmask 255.255.0.0 broadcast 172.17.255.255
+                ether c6:40:7d:e2:18:6d txqueuelen 0 (Ethernet)
+                RX packets 0 bytes 0 (0.0 B)
+                RX errors 0 dropped 0 overruns 0 frame 0
+                TX packets 0 bytes 0 (0.0 B)
+                TX erros 0 dropped 0 overruns 0 carrier 0 collisions 0
+                ens18: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1280
+                    inet 192.168.0.104 netmask 255.255.255.0 broadcast 192.168.0.255
+                    inet6 c64d::408d::7da4::e2da::18ae::6d4f prefixlen 64 scopeid 0x20
+                    <link>
+                    ether c6:40:7d:e2:18:6d txqueuelen 1000 (Ethernet)
+                    RX packets 49 bytes 27606 (27.6 KB)
+                    RX errors 0 dropped 0 overruns 0 frame 0
+                    TX packets 62 bytes 7300 (7.3 B)
+                    TX erros 0 dropped 0 overruns 0 carrier 0 collisions 0
+            
+                    root@djr:.../djr#
+            
+                    aba1:
+            
+                    startx
+            
+                    -- Cliente Local
+            
+            
+                    -- Servidor
+                    -- Docker
+            </p>
+    </div>
 </body>
 </html>
 
--- Setup
-No browser:
-aba1: 
-200.129.71.165 (vm)
-
-login: grupo1
-senha: @ds654123
-
-aba2:
-200.129.71.165:8006 (proxmox)
-
-login: grupo1
-senha: @ds654123
-
--> BP1 : VNC
-Ubuntu 24.04 LTS djr tty1
-
-djr login: djr
-Password: 654123
-
--> BP1 : Login
-
-Welcome to Ubuntu 24.04 LTS (GNU/Linux 6.8.0-11generic x86_64)
-
-* Documentation: https://help.ubuntu.com
-* Management: https://landscape.canonical.com
-* Support: https://ubuntu.com/pro
-
-Manutenção de Segurança Expandida para Applications não está ativa.
-
-djr@djr:~$ sudo su
-[sudo] password for djr: 654123
-root@djr:.../djr# ifconfig
-docker0: flags=4099<UP,BROADCAST,MULTICAST> mtu 1500
-    inet 172.17.0.1 netmask 255.255.0.0 broadcast 172.17.255.255
-    ether c6:40:7d:e2:18:6d txqueuelen 0 (Ethernet)
-    RX packets 0 bytes 0 (0.0 B)
-    RX errors 0 dropped 0 overruns 0 frame 0
-    TX packets 0 bytes 0 (0.0 B)
-    TX erros 0 dropped 0 overruns 0 carrier 0 collisions 0
-ens18: flags=4163<UP,BROADCAST,RUNNING,MULTICAST> mtu 1280
-    inet 192.168.0.104 netmask 255.255.255.0 broadcast 192.168.0.255
-    inet6 c64d::408d::7da4::e2da::18ae::6d4f prefixlen 64 scopeid 0x20<link>
-    ether c6:40:7d:e2:18:6d txqueuelen 1000 (Ethernet)
-    RX packets 49 bytes 27606 (27.6 KB)
-    RX errors 0 dropped 0 overruns 0 frame 0
-    TX packets 62 bytes 7300 (7.3 B)
-    TX erros 0 dropped 0 overruns 0 carrier 0 collisions 0
-
-root@djr:.../djr#
-
-aba1:
-
-startx
-
--- Cliente Local
-
-
--- Servidor
--- Docker

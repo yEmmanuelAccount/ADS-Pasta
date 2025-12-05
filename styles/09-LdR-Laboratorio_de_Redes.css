@@ -5,12 +5,10 @@ h1.ldr::before, h1.ldr::after {
 }
 
 h2.ldr::before {
-    /* content: "📊 " counter(h1counter) "." counter(h2counter) ". "; */
     content: counter(h1counter) "." counter(h2counter) ". » ";
 }
 
 h3.ldr::before {
-    /* content: "📊 " counter(h1counter) "." counter(h2counter) "." counter(h3counter); */
     content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
 }
 
@@ -29,13 +27,20 @@ h3.ldr::before {
     --plano-de-fundo: var(--cor-cafe-seco);
     --cor-titulo: var(--cor-azul-escuro-suave);
     --cor-bordas-titulos: var(--cor-preto);
-    --cor-destaque-negrito: #003b6c;
+    --cor-destaque-negrito: #075c34;
     --cor-fundo-bloco-codigo: #e0e0d0;
 
     --cor-fundo-recuado: #f0f0f0;
 
     --cor-code-destaque: #140425;
     --cor-code-secundaria: #9bff9e;
+}
+
+strong {
+    background-color: var(--cor-destaque-negrito);
+    padding: 0.25rem 0.25rem;
+    border-radius: 0.25rem;
+    border: 1px solid rgb(10, 10, 10);
 }
 
 h1.ldr {
@@ -277,4 +282,18 @@ vmHomeXen button:hover {
 .terminaltabs {
     background: var(--cor-ldr-secundaria);
     border-radius: 0;
+}
+
+.btn-voltar {
+    padding: 10px 20px;
+    background-color: var(--cor-code-secundaria);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn-voltar:hover {
+    background-color: #b8f1ba;
 }
