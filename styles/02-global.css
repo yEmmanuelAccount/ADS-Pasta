@@ -67,20 +67,16 @@ p {
 /* Negrito */
 strong {
     background-color: var(--cor-negrito);
-    padding: 0.25rem 0.25rem;
-    border-radius: 0.25rem;
-    border: 1px solid #0001;
+    padding: 0.1rem 0.1rem;
+    border-radius: 0.1rem;
+    border: 0.1px solid #0001;
 }
 
 /* Observações Recuadas */
 blockquote {
-    background-color: var(--cor-fundo-recuado);
-    padding-left: 2px;
-    padding-right: 2px;
-    padding-bottom: 1px;
-    padding-top: 1px;
-    color: black;
-    font-size: 12px;
+    font-size: 14px;
+    padding-left: 10rem;
+    background-color: antiquewhite;
 }
 
 /* Códigos ou Termos de Destaque (``) */

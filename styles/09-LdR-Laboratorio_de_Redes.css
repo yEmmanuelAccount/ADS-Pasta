@@ -1,67 +1,128 @@
 @import url("01-root.css");
 
-h1.ldr::before, h1.ldr::after {
-    content: "📊 ";
-}
-
-h2.ldr::before {
-    content: counter(h1counter) "." counter(h2counter) ". » ";
-}
-
-h3.ldr::before {
-    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
-}
-
-.ldrpage {
-    --cor-cafe-seco: #246348;
+/* ========================================================================= */
+/* 1. VARIÁVEIS CSS E ESCOPO GLOBAL (.ldr-page) */
+/* Este seletor deve ser aplicado no BODY: <body class="ldr-page"> */
+.ldr-page {
+    --cor-verde-escuro-1: #246348;
     --cor-white-smoke: #F5F5F5;
     --cor-ghost-white: #F8F8FF;
     --cor-antique-white: #FAEBD7;
     --cor-cinza-escuro: #ffffff;
     --cor-cafe-na-folha: #e6dbbd;
     --cor-azul-escuro-suave: #2c3e50;
-    --cor-cinza: gray;
     --cor-preto: black;
+    --cor-verde-escuro-2: #075c34;
 
     /* Aplicação */
-    --plano-de-fundo: var(--cor-cafe-seco);
+    --plano-de-fundo: var(--cor-verde-escuro-1);
     --cor-titulo: var(--cor-azul-escuro-suave);
     --cor-bordas-titulos: var(--cor-preto);
-    --cor-destaque-negrito: #075c34;
+    --cor-destaque-negrito: var(--cor-verde-escuro-2);
     --cor-fundo-bloco-codigo: #e0e0d0;
 
     --cor-fundo-recuado: #f0f0f0;
 
     --cor-code-destaque: #140425;
     --cor-code-secundaria: #9bff9e;
+
+    /* Contagem de Títulos */
+    counter-reset: h1counter;
 }
 
-strong {
-    background-color: var(--cor-destaque-negrito);
-    padding: 0.25rem 0.25rem;
-    border-radius: 0.25rem;
-    border: 1px solid rgb(10, 10, 10);
+---
+/* 2. ESTILOS BASE DE LAYOUT (Descendentes de .ldr-page) */
+
+/* Estilos comuns para DIV e P */
+.ldr-page div {
+    text-align: left;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-h1.ldr {
+/* Estilos específicos para P */
+.ldr-page p {
+    margin-block: 0.5rem;
+    text-indent: 2rem;
+}
+
+/* 3. ELEMENTOS DE CONTEÚDO E DESTAQUE */
+
+/* Títulos (A numeração depende de h1/h2/h3 estarem dentro de .ldr-page) */
+.ldr-page h1::before,
+.ldr-page h1::after {
+    content: "📊 ";
+}
+
+.ldr-page h2::before {
+    content: counter(h1counter) "." counter(h2counter) ". » ";
+}
+
+.ldr-page h3::before {
+    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
+}
+
+/* Increment e Reset de Títulos */
+.ldr-page h1 {
+    counter-increment: h1counter;
+    counter-reset: h2counter;
+}
+
+.ldr-page h2 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+}
+
+.ldr-page h3 {
+    counter-increment: h3counter;
+}
+
+/* Estilo para Títulos */
+
+.ldr-page h1 {
     justify-content: space-between;
     text-align: center;
     display: flex;
-    padding-top: 5px;
     border-radius: 0.5rem;
-    background: transparent;
     box-shadow: none !important;
     border: 0;
     border-left: none !important;
     margin-bottom: 1.5rem;
-    color: solid black;
+
+    color: var(--cor-ldr-titulo); /* Define a cor do texto do título */
+    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%); /* GRADIENTE */
+    border-left: 4px solid var(--cor-ldr-destaque) !important; /* BORDA LATERAL */
+    margin-top: 10px;
+    padding: 0.25rem; /* Padding do bloco */
+    align-items: center;
 }
 
-blockquote.ldr {
+.ldr-page h2,
+.ldr-page h3 {
+    /* Resgatando o estilo de bloco de destaque */
+    color: var(--cor-ldr-titulo);
+    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-ldr-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 0.25rem;
+    align-items: center;
+    display: flex; /* ESSENCIAL para o alinhamento do texto e pseudo-elementos */
+    border-radius: 0.5rem;
+    box-shadow: none;
+}
+
+/* Blockquote (Descendente de .ldr-page) */
+.ldr-page blockquote {
     border-left: 4px solid var(--cor-ldr-destaque) !important;
 }
 
-.ldr {
+/* Bloco de Destaque (SUBSTITUIÇÃO para o antigo .ldr) 
+   Use esta classe (ldr-bloco-destaque) em P, DIV ou SECTION para aplicar o estilo de gradiente/borda. 
+   O !important garante que a borda esquerda se destaque. */
+.ldr-page p.ldr-bloco-destaque,
+.ldr-page div.ldr-bloco-destaque,
+.ldr-page section.ldr-bloco-destaque {
     color: var(--cor-ldr-titulo);
     background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%);
     border-left: 4px solid var(--cor-ldr-destaque) !important;
@@ -71,8 +132,21 @@ blockquote.ldr {
     align-items: center;
     display: flex;
     border-radius: 0.5rem;
-    box-shadow: none;
+    box-shadow: none !important;
+    /* Sobrescreve a sombra padrão de DIV/P */
 }
+
+/* Negrito */
+strong {
+    background-color: var(--cor-destaque-negrito);
+    padding: 0.1rem 0.1rem;
+    border-radius: 0.1rem;
+    border: 1px solid rgb(10, 10, 10);
+    padding: 3px;
+}
+
+/* ========================================================================= */
+/* 4. RESTANTE DOS ESTILOS (Mantidos e/ou ajustados) */
 
 tabs {
     display: flex;
