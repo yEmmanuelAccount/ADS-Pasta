@@ -2,8 +2,8 @@ h1.les,
 h1.bdd2,
 h1.ldr,
 h1.pw1,
-h1.tds,
-h1.padrao {
+h1.padrao, 
+.tds-page h1 {
     counter-increment: h1counter;
     counter-reset: h2counter;
 }
@@ -12,8 +12,8 @@ h2.les,
 h2.bdd2,
 h2.ldr,
 h2.pw1,
-h2.tds,
-h2.padrao {
+h2.padrao,
+.tds-page h2 {
     counter-increment: h2counter;
     counter-reset: h3counter;
 }
@@ -22,7 +22,7 @@ h3.les,
 h3.bdd2,
 h3.ldr,
 h3.pw1,
-h3.tds,
-h3.padrao {
+h3.padrao,
+.tds-page h3 {
     counter-increment: h3counter;
 }
