@@ -56,6 +56,7 @@ div {
     text-align: left;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding-bottom: 5px;
 }
 
 /* Parágrafo */
@@ -75,12 +76,10 @@ strong {
 /* Observações Recuadas */
 blockquote {
     position: relative; /* Define este como o ponto de referência (0,0) para as aspas absolutas */
-    padding-left: 10rem; /* Garante o recuo de 10rem do texto */
-    padding-right: 1rem;
-
     font-size: 14px;
     margin-left: 10rem;
     margin-right: 5px;
+    padding: 2.5rem 1rem 3rem 1rem;
     background-color: antiquewhite;
 }
 
@@ -89,14 +88,13 @@ blockquote::before {
     position: absolute; /* Permite posicionar livremente */
     
     /* POSICIONAMENTO SUPERIOR ESQUERDO */
-    top: 0.25rem; /* Perto do topo */
-    left: 0.25rem; /* Perto da borda esquerda (e início do recuo de 10rem) */
+    top: 0; /* Perto do topo */
+    left: -3rem; /* Perto da borda esquerda (e início do recuo de 10rem) */
 
     /* ESTILO VISUAL */
     font-size: 5em; /* Aumentei o tamanho para destacar (ajuste se necessário) */
     color: var(--cor-destaque);
-    line-height: 0.1; 
-    z-index: 10; /* Garante que fique acima de outros elementos */
+    line-height: 1; 
 }
 
 blockquote::after {
@@ -104,17 +102,16 @@ blockquote::after {
     position: absolute; /* Permite posicionar livremente */
     
     /* POSICIONAMENTO INFERIOR DIREITO */
-    bottom: 0.25rem; /* Perto do rodapé */
-    right: 0.25rem; /* Perto da borda direita (e fim do recuo de 1rem) */
+    bottom: -2rem; /* Perto do rodapé */
+    right: 1rem; /* Perto da borda direita (e fim do recuo de 1rem) */
     
     /* ESTILO VISUAL (Semelhante ao ::before) */
     font-size: 5em;
     color: var(--cor-destaque);
-    line-height: 0.1;
-    z-index: 10;
+    line-height: 1;
 }
 
-/* Códigos ou Termos de Destaque (``) */
+/* Códigos ou Termos de Destaque */
 code {
     background-color: var(--cor-code-secundaria);
     color: var(--cor-code-destaque);
@@ -223,6 +220,6 @@ header {
 }
 
 .conteudo {
-    height: 1500px;
+    height: 100%;
     /* Apenas para criar rolagem */
 }

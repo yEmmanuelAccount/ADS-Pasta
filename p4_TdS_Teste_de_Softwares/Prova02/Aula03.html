@@ -15,9 +15,115 @@
         <h1 class="tds">Conceitos Básicos</h1>
         
         <h2>Definição</h2>
-        <blockquote>É o <strong>processo</strong> de executar um programa ou sistema com a intensão de <code>encontrar erros</code>.</blockquote>
+        <blockquote>
+            É o <strong>processo</strong> de executar um programa ou sistema com a intensão de <code>encontrar erros</code>.
+        </blockquote>
 
-        <h3>Só para testar</h3>
+        <blockquote>
+            É a <strong>simulação</strong> de um artefato executável com <strong>entradas</strong> e <strong>pre-condições</strong> conhecidas. A comparação entre a <code>saída atual</code> e a <code>saída esperada</code> determina se o artefato está em conformidade com os requisitos.
+        </blockquote>
+
+        <blockquote>
+            É o <strong>processo</strong> de executar um sistema ou componente dob condições específicas, <strong>observando</strong> e registrando os <code>resultados</code>, avaliando alguns aspectos do sistema ou componente.
+        </blockquote>
+
+        <h2>Objetivo</h2>
+
+        <p>O objetivos dos teste é <code>encontrar defeitos</code> e <strong>nunca afirmar que um sistema não possui erros</strong>.</p>
+
+        <ol>
+            <li>Um bom teste não é redundante. Cada teste deve ter uma finalidade.</li>
+            <li>Um bom teste não deve ser muito simples e também nem muito completo.</li>
+            <li>Encontrar o maior número de erros com o mínimo de esforço (custo/tempo).</li>
+            <li>Testar todas as possibilidades?</li>
+        </ol>
+
+        <h2>Caso de Teste</h2>
+
+        <p>Conjunto de <strong>dados de entrada</strong>, <strong>condições de execução</strong> do sistema e o <strong>resultado esperado/desenvolvido</strong> para atingir um objetivo específico.</p>
+
+        <p>O objetivo pode ser:</p>
+        <ul>
+            <li>exercitar um caminho específico em um programa;</li>
+            <li>verificar a concorrência do programa com o requisito;</li>
+        </ul>
+
+        <h3>Nomenclaturas</h3>
+            <ol>
+                <li>
+                    <strong>Identificador do caso de teste</strong>:
+                    Número único de identificação do caso de teste em questão.
+                </li>
+                <li>
+                    <strong>Objetivo do Caso de Teste</strong>:
+                    Mostra de forma breve qual é a intenção de teste do caso de teste.
+                </li>
+                <li>
+                    <strong>Entradas</strong>:
+                    Todas as entradas que serão consideradas no caso de teste.
+                </li>
+                <li>
+                    <strong>Saídas</strong>:
+                    Resultados esperados ao final do teste de acordo com as entradas indicadas na execução.
+                </li>
+                <li>
+                    <strong>Ambientes necessários / Condições de ambiente</strong>:
+                    O contexto de <i>hardware</i>, <i>software</i> e versão usados para a realização do teste. Importante para a replicação e cálculos de escalonamento ou para a identificação de problemas.
+                </li>
+                <li>
+                    <strong>Procedimentos especiais requisitados para a execução do caso de teste</strong>:
+                    Quais procedimentos devem ser adotados para o Analista de Testes executar o teste. Deve especificar com detalhes o que deve ser testado e a forma que o teste deve ser executado.
+                </li>
+                <li>
+                    <strong>Dependência com outros Casos de Teste</strong>:
+                    Caso esse Caso de Teste estar relacionado com outro, então o relacionamento entre eles deve ser explicitado.
+                </li>
+            </ol>
+
+        <h2>Exemplo 01: Números Negativos</h2>
+        <p>O sistema deve receber um valor inteiro, subtrair um desse valor e, após essa operação, dividir o resultado por 30000.</p>
+
+        <pre>
+            int exemplo_simples(int num) {
+                num = num - 1;
+                num = num / 30000
+                return num;
+            }
+        </pre>
+
+        <h3>Elementos do Teste</h3>
+            <ol>
+                <li>
+                    <strong>Identificador</strong>:
+                    Caso de Teste 01: entrada negativa.
+                </li>
+                <li>
+                    <strong>Objetivo</strong>:
+                    Verificar se entradas negativas são possíveis.
+                </li>
+                <li>
+                    <strong>Entrada</strong>:
+                    (E) Digite "-30000"
+                </li>
+                <li>
+                    <strong>Saída</strong>:
+                    (S) 0,99
+                </li>
+                <li>
+                    <strong>Ambiente</strong>:
+                    Nenhum
+                </li>
+                <li>
+                    <strong>Procedimento</strong>:
+                    Nenhum
+                </li>
+                <li>
+                    <strong>Dependência</strong>:
+                    Nenhuma
+                </li>
+            </ol>
+        
+        <h2>Exemplo 02: Login de Usuário</h2>
     </div>
 </body>
 </html>

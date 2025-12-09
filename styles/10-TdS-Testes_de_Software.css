@@ -47,6 +47,8 @@
     text-align: left;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+
+    background-color: var(--plano-de-fundo);
 }
 
 /* Estilos específicos para P */
@@ -184,4 +186,8 @@
 
 .tds-page .btn-voltar:hover {
     background-color: var(--cor-azul-destaque);
+}
+
+pre:not(:has(code)) {
+    padding-top: 30px;
 }
