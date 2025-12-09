@@ -124,6 +124,114 @@
             </ol>
         
         <h2>Exemplo 02: Login de Usuário</h2>
+
+            <ol>
+                <li>Caso de Teste 01: <i>Login</i></li>
+                <li>Verificar <i>login</i> inválido</li>
+                <li>Entradas [E]</li>
+                <li>Saídas [S]</li>
+                    <ol>
+                        <li>[E] No celular, clique no ícone do aplicativo;</li>
+                        <li>[S] O aplicativo deve abrir e exibir a tela de <i>login</i>;</li>
+                        <li>[E] Insira um <i>email</i> inválido, sem o sinal de "@" (professor.gmail.com) e clique em <i>next</i>;</li>
+                        <li>[S] O aplicativo deve deixar a borda do campo <i>login</i> vermelho e a mensagem "Por favor, digite um <i>login</i> válido" deve ser exibida;</li>
+                        <li>[E] Clicar em OK na mensagem;</li>
+                        <li>[S] O cursor de digitação deve estar no campo de <i>login</i> e o usuário deve poder corrigir o <i>login</i> anterior;</li>
+                    </ol>
+                <li>Smartphone com o aplicativo instalado;</li>
+                <li>Nenhum.</li>
+                <li>Não (afinal, não preciso ter feito nenhuma ação antes de testar o <i>login</i>, já que é a primeira coisa que deve ser feita);</li>
+            </ol>
+        
+        <h2>Reportando Defeito</h2>
+
+        <p>O defeito depende de padrões definidos em cada empresa ou time de desenvolvimento.</p>
+        <p>Ferramentas utilizadas para gerenciar o projeto e a atividade de testes: Jira, Bugzilla ou testLink.</p>
+
+        <ul>
+            <li>
+                <strong>Identificador do Defeito</strong>:
+                facilita a comunicação e localização;
+            </li>
+            <li>
+                <strong>Descrição</strong>:
+                uma descrição sucinta do defeito encontrado;
+            </li>
+            <li>
+                <strong>Versão do Produto</strong>:
+                para saber em qual versão do sistema o defeito foi encontrado;
+            </li>
+            <li>
+                <strong>Passos Detalhados</strong>:
+                incluindo dados utilizados, Screenshots e vídeos para encontrar o defeito;
+            </li>
+            <li>
+                <strong>Data de Reporte do Defeito</strong>:
+                para facilitar o gerenciamento;
+            </li>
+            <li>
+                <strong>Reportador por</strong>:
+                para saber qual o testador identificou o defeito;
+            </li>
+            <li>
+                <strong>Status</strong>:
+                novo/aberto, designado, em verificação, resolvido, fechado, falhado, não será corrigido, etc;
+            </li>
+            <li>
+                <strong>Corrigido por</strong>:
+                nome do desenvolvedor que corrigiu o defeito;
+            </li>
+            <li>
+                <strong>Data de Encerramento</strong>:
+                a data que o defeito foi dado como inexistente;
+            </li>
+            <li>
+                <strong>Severidade</strong>:
+                bloqueia a versão. Crítico, pequeno;
+            </li>
+            <li>
+                <strong>Prioridade</strong>:
+                alta, média ou baixa;
+            </li>
+        </ul>
+
+        <h2>Bug</h2>
+
+        <p><strong>Anomalias/Problemas</strong> no software podem estar relacionados à perspectiva do <strong>desenvolvedor</strong> ou do <strong>usuário</strong>.</p>
+        <p>Independentemente de onde ocorra, é comumente chamado de <code>BUG</code>.</p>
+
+        <p>Um <code>engano</code> na introdução de dados leva a um <code>defeito</code>. Isso produz um <code>erro</code> na execução, faz o resultado do teste ser um <code>erro</code> e a consequência é o tester achar que ocorreu uma <code>falha</code>.</p>
+
+        <h3>Exemplo 03: Soma</h3>
+            <pre>
+                def soma(a, b):
+                    return a * b 
+                
+                print( soma(1, 2) )
+            </pre>
+
+        <ol>
+            <li>
+                <strong>Engano</strong>:
+                o programador trocou o símbolo de "+" por "*";
+            </li>
+            <li>
+                <strong>Erro</strong>:
+                o programa vai executar <code>a * b</code> em vez de <code>a + b</code>;
+            </li>
+            <li>
+                <strong>Defeito</strong>:
+                o programa multiplica as entradas em vez de somá-las;
+            </li>
+            <li>
+                <strong>Falha</strong>:
+                a saída obtida <code>2</code> é diferente da saída esperada <code>3</code>;
+            </li>
+            <li>
+                <strong>Pensamento</strong>:
+                Tem um defeito, um bug;
+            </li>
+        </ol>
     </div>
 </body>
 </html>
