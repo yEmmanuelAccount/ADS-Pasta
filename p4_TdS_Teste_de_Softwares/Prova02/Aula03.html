@@ -232,6 +232,96 @@
                 Tem um defeito, um bug;
             </li>
         </ol>
+
+        <h3>Resumindo</h3>
+        <ul>
+            <li>
+                <strong>Engano</strong>:
+                cometido por seres <code>humanos</code>.
+            </li>
+            <li>
+                <strong>Defeito</strong>:
+                resultado de um erro encontrado num <code>código</code> ou num <code>documento</code>.
+            </li>
+            <li>
+                <strong>Erro</strong>:
+                resultado incoerente produzido por meio de uma ação do <code>sistema</code>.
+            </li>
+            <li>
+                <strong>Falha</strong>:
+                <code>conjunto</code> de Defeitos.
+            </li>
+        </ul>
+
+        <p>Exemplo: a aplicação entra em looping infinito, devido a um erro de lógica, ocasionando o travamento da mesma.</p>
+
+        <ul>
+            <li>looping infinito == defeito</li>
+            <li>erro de lógica == erro</li>
+            <li>travamento da mesma == falha</li>
+        </ul>
+
+        <h2>Vimos que...</h2>
+
+        <p><strong>Análise e Inspeções</strong> são consideradas análises estáticas.</p>
+        <p><strong>Demonstrações e Testes de Softwares</strong> são considerados análises dinâmicas (executados com dados de testes, usando um artefato).</p>
+
+        <p>Um <strong>requisito de software</strong> pode ser especificado em qualquer <code>documento</code> que descreve as funcionalidades do software, podendo ser:</p>
+        <ul>
+            <li>um documento textual</li>
+            <li>um diagrama de caso de uso</li>
+            <li>diagrama de atividades</li>
+            <li>fluxogramas</li>
+            <li>enfim, qualquer artefato que registre e especifique com qualidade o que deve ser desenvolvido</li>
+        </ul>
+
+        <p>Quanto mais cedo uma falha for detectada, menor será o custo de corrigi-la.</p>
+
+        <h2>Requisitos Testáveis</h2>
+
+        <p>Como o teste é uma forma de encontrar defeitos, podemos pensar que algum problema nos requisitos vai impactar nos testes que serão criados no início, mas executados apenas no final de um ciclo. O ideal seria <strong>testar os requisitos</strong> para identificar possível problemas existentes.</p>
+
+        <ul>
+            <li><strong>Requisitos podem ser executáveis</strong>: máquina de estado.</li>
+            <li><strong>Requisitos não executáveis</strong>: garantia de qualidade por meio de revisão técnica.</li>
+        </ul>
+
+        <h2>Revisão Técnica Formal (RTF)</h2>
+        <ul>
+            <li>Identificar defeitos na implementação, na lóica ou em qualquer outra forma de representação do sistema;</li>
+            <li>Verificar se o software satisfaz seus requisitos;</li>
+            <li>Garantir que pedrões definidos para o time e convenções da comunidade estão sendo seguidos nas formas de representação de software;</li>
+            <li>Permitir que o software seja desenvolvido de forma uniforme, sem mudanças drásticas no meio do caminho;</li>
+            <li>Facilitar a administração/gerenciamento dos projetos;</li>
+            <li>Disseminar conhecimentos para novos engenheiros de software;</li>
+        </ul>
+
+        <h2>Papéis e Atividades</h2>
+        <ol>
+            <li><strong>Moderador</strong>: É o principal ator do processo de inspeção. Lidera a equipe e deve garantir o sucesso da atividade.</li>
+            <li><strong>Inspetor</strong>: Responsáveis por identificar os defeitos nos artefatos.</li>
+            <li><strong>Autor</strong>: Pessoa ou time que criou o artefato que será inspecionado.</li>
+            <li><strong>Apresentação</strong>: Todos os envolvidos ficam a par do contexto do projeto e devem saber mais detalhes do que será inspecionado.</li>
+            <li><strong>Detecção</strong>: Inspetores, com base em um <i>checklist</i> ou em uma técnica de leitura (que informa como o artefato deve ser analizado), inspeciona o artefato a procura de enganos e defeitos.</li>
+            <li><strong>Coleção</strong>: É feita a consolidação de todos os defeitos, de todos os revisores.</li>
+            <li><strong>Discriminação</strong>: Como uma reunião, todos os envolvidos discutem os defeitos encontrados para identificar quais devem ou não ser corrigidos, encaminhando os que devem ser corrigidos para a eapa de retrabalho.</li>
+            <li><strong>Retrabalho</strong>: Correção do artefato por parte do <code>autor</code>.</li>
+            <li><strong>Acompanhamento</strong>: O moderador verifica cada correção feita pelo autor e identifica se é necessária uma nova inspeção.</li>
+        </ol>
+
+        <h2>Níveis de Testabilidade</h2>
+
+        <p><code>Alta testabilidade</code>: tende a expor suas falhas durante os testes com entradas que geram defeitos.</p>
+        <p><code>Baixa testabilidade</code>: tende a ocultar as falhas detectadas durante os testes, produzindo saídas corretas para entradas que geram defeitos.</p>
+        <p>Requisitos incompletos, desatualizados, ambiguos ou contraditórios trazem baixa testabilidade. É muito difícil para um testador identificar problemas se não houver acesso a informações detalhadas sobre os critérios de teste. <strong>Revisão técnica?</strong></p>
+
+        <h2>Técnicas de Testes</h2>
+
+        <ul>
+            <li><strong>Ténica baseada em especificação</strong>: caixa preta (técnica funcional).</li>
+            <li><strong>Técnica baseada em estrutura</strong>: caixa branca (técnica estrutural).</li>
+            <li><code>Técnica baseada em experiência</code>: técnica baseada em erros.</li>
+        </ul>
     </div>
 </body>
 </html>
