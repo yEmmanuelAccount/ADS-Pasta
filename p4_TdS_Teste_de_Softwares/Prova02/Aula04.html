@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/00-home.css">
+    <title>Aula 04: Tipos de Testes</title>
+</head>
+<body class="tds-page">
+    <header>
+        <a href="../" class="btn-voltar">Voltar</a>
+    </header>
+    
+    <div class="conteudo">
+        <h1>
+            Tipos de Teste <br>
+            Caixa Branca, Caixa Preta, Caixa Cinza
+        </h1>
+
+        <p>Qualquer produto de engenharia pode ser testado:</p>
+        <ol>
+            <li>Conhecendo a <strong>função específicada</strong> para qual um produto foi projetado para fazer, podem ser feitos testes <code>para cada uma de suas funções</code> embusca de erros.</li>
+            <li>Conhecendo o <strong>funcionamento interno</strong> de um produto, testes podem ser feitos para garantir que <code>tudo está se encaixando</code>, ou seja, de acordo com especificações e componentes internos.</li>
+        </ol>
+
+        <h2>Teste Caixa-Preta</h2>
+
+        <p>É realizado na <strong>interface</strong> do software, examinando alguns aspectos fundamentais do sistema, <code>sem preocupação com a estrutura lógica interna</code>.</p>
+
+        <p>O <strong>objetivo</strong> é encontrar erros nas seguintes categorias:</p>
+        <ol>
+            <li>funções incorretas ou faltando</li>
+            <li>erros na interface</li>
+            <li>erros na estrutura de dados ou acesso a base de dados externas</li>
+            <li>erros de comportamento ou de desempenho</li>
+            <li>erros de inicialização ou de término</li>
+        </ol>
+
+        <p>Sequência:</p>
+        <ol>
+            <li>Dados de entrada baseados em especificações</li>
+            <li>Caixa preta (software)</li>
+            <li>Dados de saída baseado nas especificações</li>
+        </ol>
+
+        <p>Também é chamado de <strong>teste comportamental</strong>, se concentrando nos requisitos funcionais, do ponto de vista de suas funcionalidades.</p>
+
+        <p>Suas técnicas permitem derivar séries de condições de entrada que utilizarão completamente todos os requisitos funcionais.</p>
+
+        <p><strong>Não é uma alternativa para às técnicas Caixa-Branca</strong>.</p>
+
+        <p>Os casos de teste são derivados da <code>especificação</code> do objeto de teste.</p>
+
+        <p>O comportamento do <code>objeto de teste</code> é observado "por fora".</p>
+
+        <p>A sequência de <code>operações do objeto de teste</code> é influenciada somente pela escolha dos <strong>dados de entrada</strong> ou pelas <strong>pré-condições</strong>.</p>
+
+        <p>Não permite detectar especificações erradas, pois uma vez que o teste é feito de acordo com as especificações, problemas nelas não são percebidas. Também <code>não é capaz de revelar funcionalidades extras</code> que excedam a especificação.</p>
+
+        <blockquote>
+            Como RH, quero informar o número de horas trabalhadas e saber o percentual de horas extras que o funcionário fez, considerando que o número de horas padrão é 40 horas mensais, para que eu saiba se existe um funcionário que faz mais que 25% de horas extras por mês.
+        </blockquote>
+
+        <ul>
+            <li>Entrada: 50h no mês</li>
+            <li>Saída esperada: Funcionário fez 25% de hora extra esse mês.</li>
+        </ul>
+
+        <h2>Abordagens Caixa-Preta</h2>
+
+        <h3>Particionamento de Equivalência</h3>
+
+        <p>Divide o domínio de entrada de um programa em classe de dados a partir das quais podem ser criados casos de teste.</p>
+
+        <ul>
+            <li>Classes são divididas em <code>válidas</code> e <code>inválidas</code>, e dependendo do requisito e dos dados de entrada, as participações de equivalência são definidas.</li>
+            <li>Quando qualquer valor, dentro de um intervalo, tem a mesma importância.</li>
+        </ul>
+
+        <p><strong>Exemplos</strong>:</p>
+        <ul>
+            <li>01) <strong>Casos de Teste</strong>: cálculo de média de notas</li>
+                <ol>
+                    <li>Definir uma classe válida e duas inválidas</li>
+                    <li>Qualquer valor informado entre 0 e 100 para nota deveria se comportar da mesma maneira</li>
+                    <li>Qualquer valor informado menor que 0 ou maior que 100 deveria se comportar da mesma forma (entrada inválida)</li>
+                </ol>
+            <li>02) <strong>Casos de Teste</strong>: Horas extras no RH</li>
+                <ol>
+                    <li><code>Classe inválida</code>: qualquer valor de horas trabalhadas menor que 40 --> o programa deve se comportar de uma forma</li>
+                    <li><code>Classe válida</code>: qualquer valor de horas trabalhadas meior que 40 --> o programa se comporta de outra meneira</li>
+                    <li><code>Classe inválida</code>: horas trabalhadas igual a 40 --> não deve ser calculada hora extra</li>
+                </ol>
+        </ul>
+
+        <h3>Análise de Valor Limite</h3>
+
+        <p>Leva a uma seleção de casos de teste que utilizam valores limites. <code>Complementar ao Particionamento por Equivalência</code>.</p>
+
+        <ul>
+            <li>Identificar fontes favoráveis a terem defeitos e criar casos de teste para exercitar esses dados.</li>
+            <li>Definir casos de testes para valores de entrada que estão no limite das classes de equivalência.</li>
+        </ul>
+
+        <p>01) <strong>Casos de Uso</strong>: Horas extras no RH</p>
+
+        <ol>
+            <li><code>Valor = 40</code>: está entre as classes de equivalência</li>
+            <li><code>Valores 0 e -1</code>: apesar de não estar especificado, 0 e negativos se comportam da mesma forma (valores negativos e 0 sempre são usados como limites quando não há especificação clara sobre eles)</li>
+            <li><code>Valor = 744 (31 x 24)</code>: nenhum funcionário consegue trabalhar 24h turante todos os dias do mês</li>
+        </ol>
+
+        <h3>Teste de Matriz Ortogonal</h3>
+
+        <p>Pode ser aplicado a problemas nos quais o domínio é grande para acomodar o teste exaustivo.</p>
+
+        <h3>Teste Baseado em Modelos</h3>
+
+        <p>Usa informações contidas no modelo de requisitos como base para a geração de casos de teste (UML entra aqui).</p>
+
+        <h2>Teste Caixa-Branca</h2>
+
+        <p>É um exame rigoroso sobre o <strong>procedimento</strong>, testando caminhos lógicos e a colaboração entre componentes, exercitando conjuntos específicos de condições e/ou ciclos.</p>
+
+        <p>Sequência:</p>
+        <ol>
+            <li>Dados de entrada baseado no código fonte</li>
+            <li>Caixa-Branca (código fonte)</li>
+            <li>Dados de saída baseado no código fonte</li>
+        </ol>
+
+        <p>Também chamado de Teste de <strong>caixa-de-vidro</strong>.</p>
+
+        <p>Usando métodos de teste caixa-branca, o engenheiro de software pode criar casos de teste que:</p>
+        <ol>
+            <li>garantam que todos os caminhos foram conferidos ao menos 1 vez</li>
+            <li>conferir todas as decisões lógicas no seus estados de TRUE ou FALSE</li>
+            <li>executam todos os ciclos em seus limites e dentro de suas fronteiras operacionais</li>
+            <li>executar estruturas de dados internas para assegurar a sua validade</li>
+        </ol>
+
+        <p>Resulta em casos de testes com <code>alta cobertura</code> do código. Costuma ser aplicado em testes de componentes e testes de integração.</p>
+
+        <p>Os <strong>resultados esperados</strong> devem ser determinados usando os requisitos ou especificações, <code>não o código</code>. Isto é necessário para decidir se a execução resultou em uma falha.</p>
+
+        <h3>Exemplo</h3>
+        <pre>
+            int calculo_hextraPercentual (float horasTrabalhadas) {
+                int horasMes, horasExtras;
+                horasMes = 40;
+                if (horasExtras > 40) {
+                    horasExtras = horasTrabalhadas - 40;
+                    return (horasExtras * 100) / horasMes;
+                }
+                else {
+                    return 0;
+                }
+            }
+        </pre>
+
+        <p>Como testar o código?</p>
+
+        <p>Tendo acesso ao código fonte, é possível pensar em casos de testes que cofiram <code>as linhas</code> e que também considerem os <strong>tipos</strong> dos dados (int, float, etc) ajudando a definir dados de entrada para cada caso de teste.</p>
+
+    </div>
+</body>
+</html>

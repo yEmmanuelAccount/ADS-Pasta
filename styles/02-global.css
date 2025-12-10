@@ -63,6 +63,8 @@ div {
 p {
     margin-block: 0.5rem;
     text-indent: 2rem;
+    margin-left: 7px;
+    margin-right: 7px;
 }
 
 /* Negrito */
@@ -152,7 +154,7 @@ ul {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-left: 3rem;
+    margin-left: 4.5rem;
     padding-left: 0;
 }
 
@@ -162,13 +164,13 @@ ol {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
-    margin-left: 3.1rem;
+    margin-left: 4.5rem;
     padding-left: 0;
 }
 
 /* listas dentro de listas */
 ul ul, ol ol {
-    margin-left: 4rem;
+    margin-left: 7px;
 }
 
 /* conteúdo da lista (li) */
