@@ -13,6 +13,173 @@
     
     <div class="conteudo">
         <h1>Casos de Teste</h1>
+
+        <h2>Cenário de Teste</h2>
+
+        <p>Cenário de teste é o caminho ou a situação a ser testada.</p>
+
+        <h3>Exemplo 01: Transferência entre Contas</h3>
+
+        <p>Passo a passo:</p>
+        <ol>
+            <li>Consultar o saldo da conta de origem</li>
+            <li>Digitar os dados da conta de destino</li>
+            <li>Confirmar se os dados estão corretos</li>
+            <li>Transferir um valor da conta de origem para a conta de destino</li>
+            <li>Digitar a senha</li>
+            <li>Consultar novamente o saldo da conta de origem, verificando se o saldo inicial menos o valor a ser transferido é igual ao saldo atual</li>
+        </ol>
+
+        <p>Casos de Teste:</p>
+        <ul>
+            <li>CT_01: Preenchimento dos campos obrigatórios na tela de transferência</li>
+            <li>CT_02: Validação de CPF</li>
+            <li>CT_03: Conta Destino inválida</li>
+            <li>CT_04: transferência de valores negativos</li>
+        </ul>
+
+        <h2>Definição</h2>
+
+        <blockquote>
+            <strong>Casos de Teste</strong> é um conjunto de dados de entradas, condições de execução do sistema e o resultado esperado/projetado para atingir um objetivo específico. Como, por exemplo, exercitar um caminho específico em um programa ou verificar a concordância do programa com o requisito.
+        </blockquote>
+
+        <blockquote>
+            <strong>Casos de teste</strong> é uma sequência de passos que devem ser executados no sistema, com os dados de entrada e saída esperada para cada passo especificados.
+        </blockquote>
+
+        <h2>Casos de Teste</h2>
+
+        <p>Servem como a base para projetar e implementar os testes reais.</p>
+
+        <p>É necessário desenvolver casos de teste para cada cenário de caso de uso.</p>
+
+        <p>Nem todo teste é complexo o bastante para justificar a sobrecarga de criação de um artefato de Caso de Teste que precise ser revisado e mantido.</p>
+
+        <p>Alguns dos Casos de Teste que você identificar inicialmente serão abandonados.</p>
+
+        <h3>Características</h3>
+        <ul>
+            <li>
+                <strong>Efetivo</strong>:
+                testar o que planejou testar
+            </li>
+            <li>
+                <strong>Econômico</strong>:
+                sem passos desnecessários
+            </li>
+            <li>
+                <strong>Reutilizável</strong>:
+                pode ser repetido
+            </li>
+            <li>
+                <strong>Rastreável</strong>:
+                é possível identificar o <i>requisito</i> a ser testado
+            </li>
+            <li>
+                <strong>Auto-explicativo</strong>:
+                pode ser testado por qualquer testador
+            </li>
+        </ul>
+
+        <h2>Exemplo 02: Casos de Teste</h2>
+
+        <blockquote>
+            O programa deve retornar um valor.
+        </blockquote>
+
+        <ul>
+            <li>Que tipo de valor deve retornar?</li>
+            <li>Está muito vago</li>
+            <li>nesse caso, <strong>valor</strong> pode ser qualquer coisa, inclusive algo não numérico</li>
+        </ul>
+
+        <h2>Atributos</h2>
+
+        <p>Um caso de teste completo possui:</p>
+        <ul>
+            <li><strong>identificador</strong> do caso de teste</li>
+            <li>uma breve <strong>declaração de propósito</strong></li>
+            <li>uma descrição de <strong>precondições</strong></li>
+            <li>as <strong>entradas</strong> do caso de teste</li>
+            <li>os <strong>resultados esperados</strong></li>
+            <li>uma descrição das <strong>pós-condições</strong> esperadas</li>
+            <li>um <strong>histórico</strong> de execuções</li>
+        </ul>
+
+        <h2>Como testar?</h2>
+        <ul>
+            <li>estabelecer <strong>precondições</strong> necessárias</li>
+            <li>observar resultados</li>
+            <li>comparar com os resultados esperados (oráculo)</li>
+            <li>garantir que as pós-condições esperadas existem para determinar se o teste passou</li>
+        </ul>
+
+        <h2>Especificações dos Casos de Teste</h2>
+
+        <p>O <strong>título</strong> deve ser sucinto, simples e autoexplicativo, com informações para que o analista saiba a validação a que o teste se propõe.</p>
+        <p>Exemplos:</p>
+        <ul>
+            <li>validar uploads de arquivos</li>
+            <li>validar cadastro de usuário com perfil de administrador</li>
+            <li>validar envio de ordem de compra</li>
+        </ul>
+
+        <h2>Objetivo</h2>
+
+        <p>O objetivo do Caso de Teste é descrever o que será executado, fornecendo uma visão geral do teste que será realizado.</p>
+
+        <p>Exemplos:</p>
+        <ul>
+            <li>verificar se realiza o upload de arquivo com as extensões permitidas</li>
+            <li>verificar se o cadastro é realizado após o preenchimento das informações</li>
+            <li>verificar se a ordem de compra é enviada informando o ativo, a quantidade e o preço</li>
+        </ul>
+
+        <h2>Pré-Condição</h2>
+
+        <p>São condições necessárias para que o Caso de Teste consiga ser executado.</p>
+
+        <p>Exemplo:</p>
+        <ul>
+            <li>Usuário cadastrado e autenticado no sistema</li>
+            <li>Ordem de compra enviada e executada</li>
+            <li>Usuário com perfil de administrador</li>
+        </ul>
+
+        <h2>Passos</h2>
+
+        <p>Os <strong>passos</strong> são necessários para descrever todas as ações que o analista deve seguir durante a execução para chegar ao resultado esperado.</p>
+        <p>Deve iniciar com um verbo no infinitivo ou imperativo. Exemplos:</p>
+        <ul>
+            <li>Acessar tela Negociação > Boleta</li>
+            <li>Clique no botão "Entrar"</li>
+            <li>Verificar se a edição foi salva no banco de dados</li>
+            <li>Preencha os campos do cadastro</li>
+        </ul>
+
+        <h2>Resultados Esperados</h2>
+
+        <p>Descrever o <strong>comportamento esperado</strong> do sistema após executar os <strong>passos</strong> da fase anterior.</p>
+        <p>Deve ter os verbos no presente, evitando frases futuras usando "deve". As frases devem ser escritas como se a ação tivesse dado certo, descrevendo o comportamento esperado e sem deixar dúvidas.</p>
+
+        <p>Exemplos:</p>
+        <ul>
+            <li>Sistema apresenta a tela de edição com os campos preenchidos</li>
+            <li>A ordem é enviada e executada com o preço informado</li>
+            <li>O cadastro é salvo no banco de dados</li>
+        </ul>
+
+        <h2>Importante!</h2>
+
+        <p>Se um conjunto de testes não revelar nenhum erro, é possível que a consistência dele seja baixa ou que sua qualidade seja baixa.</p>
+        <p>Um bom Caso de Teste tem alta probabilidade de revelar um erro ainda desconhecido.</p>
+
+        <p>Quando elaboramos um conjunto de Casos de Teste, precisamos levar em consideração alguns critérios:</p>
+        <ul>
+            <li><strong>Consistência</strong>: é importante que o Caso de Teste seja elaborado em conformidade com as especificações do sistema testado.</li>
+            <li><strong>Tamanho</strong>: tão grande quanto o seu orçamento permitir.</li>
+        </ul>
     </div>
 </body>
 </html>
