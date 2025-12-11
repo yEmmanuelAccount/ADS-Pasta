@@ -1,12 +1,10 @@
-O arquivo mais recente foca nas abordagens e técnicas de **Teste de Software**, especificamente os conceitos de teste de caixa-preta, caixa-branca e caixa-cinza.
-
-**1. Teste de Software (Geral)**
+# 1. Teste de Software (Geral)
 
 O teste de qualquer produto de engenharia, incluindo software, pode ser realizado de duas formas principais:
 *   **Conhecendo a função especificada** do produto, para realizar testes que demonstrem que cada função é operacional e, ao mesmo tempo, busquem erros.
 *   **Conhecendo o funcionamento interno** do produto, para garantir que as operações internas estão de acordo com as especificações e que todos os componentes internos foram exercitados adequadamente.
 
-**2. Teste de Caixa-Preta (Baseado em Especificação/Funcional)**
+# 2. Teste de Caixa-Preta (Baseado em Especificação/Funcional)
 
 O teste de caixa-preta (ou teste comportamental) foca nos **requisitos funcionais do software** e é realizado na **interface do sistema**.
 
@@ -19,7 +17,7 @@ O teste de caixa-preta (ou teste comportamental) foca nos **requisitos funcionai
     *   **Análise de Valor Limite:** É complementar ao particionamento por equivalência. Consiste em selecionar casos de teste que utilizam **valores limites** das classes de equivalência. O objetivo é identificar fontes favoráveis a defeitos. Valores como 0, -1, ou limites máximos contextuais (ex: 744 horas, que é o máximo possível em um mês) podem ser usados como limites, especialmente quando a especificação não é clara.
     *   Outras técnicas mencionadas incluem Teste de matriz ortogonal e Teste baseado em modelos (como UML).
 
-**3. Teste de Caixa-Branca (Baseado em Estrutura/Estrutural)**
+# 3. Teste de Caixa-Branca (Baseado em Estrutura/Estrutural)
 
 O teste de caixa-branca (ou teste da caixa-de-vidro) fundamenta-se em um exame rigoroso do **detalhe procedimental**.
 
@@ -29,7 +27,7 @@ O teste de caixa-branca (ou teste da caixa-de-vidro) fundamenta-se em um exame r
 *   **Importante:** Embora o teste se baseie no código, os resultados esperados devem ser determinados usando os **requisitos ou especificações**, e não o próprio código, para decidir se houve falha na execução.
 *   **Categorias:** As categorias principais são Teste de fluxo de controle e Teste de fluxo de dados, que se baseiam no conceito de grafo de programa. Técnicas incluem Teste do caminho básico (exercita todas as instruções ao menos uma vez), Teste de condição (exercita as condições lógicas) e Teste de ciclo.
 
-**4. Teste de Caixa-Cinza**
+# 4. Teste de Caixa-Cinza
 
 O teste de caixa-cinza combina características dos testes caixa-branca e caixa-preta.
 

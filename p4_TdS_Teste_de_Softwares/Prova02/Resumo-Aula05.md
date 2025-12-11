@@ -1,12 +1,10 @@
-O arquivo está centrado na definição, estrutura e atributos de qualidade dos **Casos de Teste** e **Cenários de Teste** no contexto do Teste de Software.
-
-**1. Conceitos Fundamentais**
+# 1. Conceitos Fundamentais
 
 *   **Cenário de Teste:** É o caminho ou a situação específica que deve ser testada dentro do sistema. Um cenário (como uma transferência bancária) pode englobar diversos casos de teste.
 *   **Caso de Teste:** É um conjunto de dados de entrada, condições de execução do sistema e o resultado projetado para alcançar um objetivo específico, como exercitar um caminho em um programa ou verificar a conformidade com um requisito (conforme a norma IEEE 829-2008). Um caso de teste é uma sequência de passos com dados de entrada e saída esperada especificados.
 *   **Oráculo:** É algo ou alguém capaz de determinar se o resultado da execução de um teste é o esperado ou não. O teste envolve estabelecer precondições, observar resultados, compará-los com o oráculo e garantir as pós-condições esperadas.
 
-**2. Elementos de um Caso de Teste Completo**
+# 2. Elementos de um Caso de Teste Completo
 
 Um caso de teste bem elaborado é a base para projetar e implementar os testes reais e deve ser desenvolvido para cada cenário de caso de uso. Um caso de teste completo possui os seguintes elementos principais:
 
@@ -18,7 +16,7 @@ Um caso de teste bem elaborado é a base para projetar e implementar os testes r
 *   **Pós-condições esperadas**.
 *   **Histórico de Execução:** Inclui a data, a pessoa que executou, a versão do sistema e o resultado do teste.
 
-**3. Critérios de Qualidade e Desenvolvimento**
+# 3. Critérios de Qualidade e Desenvolvimento
 
 Para serem eficazes, os casos de teste devem ter as seguintes características:
 

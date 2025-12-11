@@ -1,8 +1,6 @@
 O conjunto de arquivos aborda de forma abrangente o **Teste de Software**, cobrindo desde seus conceitos fundamentais e a cadeia de defeitos, até técnicas específicas (caixa-preta, caixa-branca, caixa-cinza) e a prática de Teste de Unidade usando JUnit.
 
-Aqui está um resumo objetivo das principais áreas temáticas:
-
-### I. Conceitos Fundamentais e Objetivos do Teste
+## I. Conceitos Fundamentais e Objetivos do Teste
 
 O **Teste de Software** é o processo de execução de um programa ou sistema com o objetivo principal de **encontrar erros** ou defeitos. Ele envolve simular um artefato executável com entradas e pré-condições conhecidas e comparar a saída atual com a esperada para verificar a conformidade com os requisitos. O objetivo dos testes é **encontrar o maior número de erros com o mínimo de esforço**, nunca garantir que o sistema esteja livre de defeitos.
 
@@ -10,7 +8,7 @@ A **Cadeia Causal de Defeitos** explica que um **engano** (cometido por humanos)
 
 **Requisitos e Revisão:** Requisitos de software podem ser especificados em diversos artefatos (textos, diagramas, etc.). É crucial descobrir falhas cedo, como na fase de Requisitos ou Projeto, pois **o custo de correção aumenta drasticamente** em fases posteriores, como Testes e Manutenção. Requisitos não executáveis podem ser avaliados por meio de **Revisão Técnica** (inspeção), que envolve papéis como Moderador, Inspetor e Autor, e atividades como Detecção de defeitos usando *checklists* e Discriminação para decidir quais corrigir. Requisitos incompletos ou ambíguos resultam em **baixa testabilidade**.
 
-### II. Tipos e Técnicas de Teste
+## II. Tipos e Técnicas de Teste
 
 Os testes podem ser categorizados com base no conhecimento da estrutura interna do software, seguindo as técnicas da norma ISO/IEC/IEEE 29119-4:
 
@@ -20,7 +18,7 @@ Os testes podem ser categorizados com base no conhecimento da estrutura interna 
 | **Caixa-Branca** (Estrutural) | Exame rigoroso do detalhe procedimental e código-fonte. | Estrutura interna e código-fonte. | Teste de fluxo de controle (ex: **Teste do Caminho Básico**) e Teste de fluxo de dados. Garante que todos os caminhos e decisões lógicas sejam exercitados. |
 | **Caixa-Cinza** | Conhecimento limitado da estrutura interna (acesso a documentos de design e banco de dados). | Combinações de especificações e estrutura interna. | Utilizado principalmente para **Teste de Integração** e para identificar problemas de **fluxo de dados fim a fim**, sendo indicado para aplicações Web. |
 
-### III. Casos de Teste e Automação
+## III. Casos de Teste e Automação
 
 **Casos de Teste e Cenários:** Um **Cenário de Teste** é o caminho ou a situação a ser testada (ex: uma transferência bancária). Um **Caso de Teste** (CT) é um conjunto de entradas, condições de execução e resultado projetado para atingir um objetivo específico ou verificar um requisito.
 
