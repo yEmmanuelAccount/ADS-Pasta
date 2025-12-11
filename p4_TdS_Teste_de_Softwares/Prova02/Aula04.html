@@ -19,7 +19,7 @@
 
         <p>Qualquer produto de engenharia pode ser testado:</p>
         <ol>
-            <li>Conhecendo a <strong>função específicada</strong> para qual um produto foi projetado para fazer, podem ser feitos testes <code>para cada uma de suas funções</code> embusca de erros.</li>
+            <li>Conhecendo a <strong>função especificada</strong> para qual um produto foi projetado para fazer, podem ser feitos testes <code>para cada uma de suas funções</code> em busca de erros.</li>
             <li>Conhecendo o <strong>funcionamento interno</strong> de um produto, testes podem ser feitos para garantir que <code>tudo está se encaixando</code>, ou seja, de acordo com especificações e componentes internos.</li>
         </ol>
 
@@ -88,7 +88,7 @@
             <li>02) <strong>Casos de Teste</strong>: Horas extras no RH</li>
                 <ol>
                     <li><code>Classe inválida</code>: qualquer valor de horas trabalhadas menor que 40 --> o programa deve se comportar de uma forma</li>
-                    <li><code>Classe válida</code>: qualquer valor de horas trabalhadas meior que 40 --> o programa se comporta de outra meneira</li>
+                    <li><code>Classe válida</code>: qualquer valor de horas trabalhadas maior que 40 --> o programa se comporta de outra maneira</li>
                     <li><code>Classe inválida</code>: horas trabalhadas igual a 40 --> não deve ser calculada hora extra</li>
                 </ol>
         </ul>
@@ -145,7 +145,7 @@
 
         <h3>Exemplo</h3>
         <pre>
-            int calculo_hextraPercentual (float horasTrabalhadas) {
+            int calculo_extraPercentual (float horasTrabalhadas) {
                 int horasMes, horasExtras;
                 horasMes = 40;
                 if (horasExtras > 40) {
@@ -160,7 +160,7 @@
 
         <p>Como testar o código?</p>
 
-        <p>Tendo acesso ao código fonte, é possível pensar em casos de testes que cofiram <code>as linhas</code> e que também considerem os <strong>tipos</strong> dos dados (int, float, etc) ajudando a definir dados de entrada para cada caso de teste.</p>
+        <p>Tendo acesso ao código fonte, é possível pensar em casos de testes que confiram <code>as linhas</code> e que também considerem os <strong>tipos</strong> dos dados (int, float, etc) ajudando a definir dados de entrada para cada caso de teste.</p>
 
         <p>Existem 2 categorias principais, ambas baseadas no conceito de grafo de programa:</p>
         <ol>
@@ -184,7 +184,7 @@
 
         <p>Ambas as abordagens (caixas preta e branca) não conseguem identificar problemas relacionados a fluxo de dados fim-a-fim.</p>
 
-        <p>É usado principalmente para <strong>teste de intefração</strong>.</p>
+        <p>É usado principalmente para <strong>teste de integração</strong>.</p>
     </div>
 </body>
 </html>
