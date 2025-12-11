@@ -6,248 +6,254 @@
     <title>Aula 4.1: Programação Backend com NodeJS (Middleware)</title>
     <link rel="stylesheet" href="../styles/00-home.css">
 </head>
-<body>
-    <h1 class="pw1">Programação Backend com NodeJS (Middleware)</h1>
+<body class="pw1-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+    
+    <div class="conteudo">
+        <h1 class="pw1">Programação Backend com NodeJS (Middleware)</h1>
 
-    <h2 class="pw1">Características do Express</h2>
-    <ol>
-        <li>
-            <strong>Middleware</strong>:
-            <ul>
-                <li>o fluxo de requisição passa por uma única função;</li>
-                <li>no Express, temos uma pilha de middleware, que na prática é um vetor de funções;</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Roteamento</strong>:
-            <ul>
-                <li>são como middleware, mas ativadas somente a partir de um método HTTP específico;</li>
-                <li>Exemplos de métodos HTTP: GET, POST;</li>
-            </ul>
-        </li>
-        <li>
-            <strong>Extensões</strong> para os objetos de requisição de resposta:
-            <ul>
-                <li>adiciona uma porção de novos métodos e propriedades a esses objetos;</li>
-            </ul>
-        </li>
-    </ol>
+        <h2 class="pw1">Características do Express</h2>
+        <ol>
+            <li>
+                <strong>Middleware</strong>:
+                <ul>
+                    <li>o fluxo de requisição passa por uma única função;</li>
+                    <li>no Express, temos uma pilha de middleware, que na prática é um vetor de funções;</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Roteamento</strong>:
+                <ul>
+                    <li>são como middleware, mas ativadas somente a partir de um método HTTP específico;</li>
+                    <li>Exemplos de métodos HTTP: GET, POST;</li>
+                </ul>
+            </li>
+            <li>
+                <strong>Extensões</strong> para os objetos de requisição de resposta:
+                <ul>
+                    <li>adiciona uma porção de novos métodos e propriedades a esses objetos;</li>
+                </ul>
+            </li>
+        </ol>
 
-    <h2 class="pw1">Introdução a funções Middleware</h2>
-    <p>
-        Usando<strong>Middleware</strong>, é possível criar várias funções para lidar com as requisições, invés de utilizar uma única para lidar com tudo.
-    </p>
+        <h2 class="pw1">Introdução a funções Middleware</h2>
+        <p>
+            Usando<strong>Middleware</strong>, é possível criar várias funções para lidar com as requisições, invés de utilizar uma única para lidar com tudo.
+        </p>
 
-    <p>
-        Geralmente atendem a um aspecto por vez:
-    </p>
-    <ul>
-        <li>uma função para login;</li>
-        <li>uma função para interpretar valores especiais de requisições;</li>
-        <li>uma função para autenticar usuários;</li>
-        <li>uma função para verificar o token;</li>
-        <li>etc;</li>
-    </ul>
+        <p>
+            Geralmente atendem a um aspecto por vez:
+        </p>
+        <ul>
+            <li>uma função para login;</li>
+            <li>uma função para interpretar valores especiais de requisições;</li>
+            <li>uma função para autenticar usuários;</li>
+            <li>uma função para verificar o token;</li>
+            <li>etc;</li>
+        </ul>
 
-    <h2 class="pw1">Middleware</h2>
-    <p>
-        Função de manipulação de requisição (request handler) no Node, mas em vez de uma, temos várias em sequência.
-    </p>
+        <h2 class="pw1">Middleware</h2>
+        <p>
+            Função de manipulação de requisição (request handler) no Node, mas em vez de uma, temos várias em sequência.
+        </p>
 
-    <p>Usados para várias coisas:</p>
-    <ul>
-        <li>um middleware faz o registro de logging;</li>
-        <li>outro adiciona cabeçalhos especiais à requisição;</li>
-        <li>etc;</li>
-    </ul>
+        <p>Usados para várias coisas:</p>
+        <ul>
+            <li>um middleware faz o registro de logging;</li>
+            <li>outro adiciona cabeçalhos especiais à requisição;</li>
+            <li>etc;</li>
+        </ul>
 
-    <h3 class="pw1">Funcionamento de Middleware</h3>
-    <p>
-        TEM QUE EXPLICAR A IMAGEM DO SLIDE 5, UMA SEQUÊNCIA DE ACONTECIMENTOS.
-    </p>
-    <p>
-        TEM QUE EXPLICAR A IMAGEM DO SLIDE 6, UMA SEQUÊNCIA MAIOR DE ACONTECIMENTOS REPRESENTANDO AS REQUISIÇÕES PARA O LOGIN.
-    </p>
+        <h3 class="pw1">Funcionamento de Middleware</h3>
+        <p>
+            TEM QUE EXPLICAR A IMAGEM DO SLIDE 5, UMA SEQUÊNCIA DE ACONTECIMENTOS.
+        </p>
+        <p>
+            TEM QUE EXPLICAR A IMAGEM DO SLIDE 6, UMA SEQUÊNCIA MAIOR DE ACONTECIMENTOS REPRESENTANDO AS REQUISIÇÕES PARA O LOGIN.
+        </p>
 
-    <h3 class="pw1">Node sem Express => Uma Única Função</h3>
-    <p>
-        O <code>Node</code> irá receber requisições, interpretá-las e transformá-las em objetos <code>JavaScript</code>:
-        um para a requisição e outro para a resposta HTTP.  
-    </p>
+        <h3 class="pw1">Node sem Express => Uma Única Função</h3>
+        <p>
+            O <code>Node</code> irá receber requisições, interpretá-las e transformá-las em objetos <code>JavaScript</code>:
+            um para a requisição e outro para a resposta HTTP.  
+        </p>
 
-    <p>
-        Esses dois objetos são passados para a função <code>JavaScript</code> que o programador escreverá
-    </p>
+        <p>
+            Esses dois objetos são passados para a função <code>JavaScript</code> que o programador escreverá
+        </p>
 
-    <p>EXPLICAR A IMAGEM DO SLIDE 7;</p>
+        <p>EXPLICAR A IMAGEM DO SLIDE 7;</p>
 
-    <h3 class="pw1">Express e a Pilha de Middleware</h3>
-    <p>
-        No <code>Express</code>, os objetos são decorados com alguns utilitários e são passados por uma pilha de funções.
-    </p>
+        <h3 class="pw1">Express e a Pilha de Middleware</h3>
+        <p>
+            No <code>Express</code>, os objetos são decorados com alguns utilitários e são passados por uma pilha de funções.
+        </p>
 
-    <p>EXPLICAR A IMAGEM DO SLIDE 8;</p>
+        <p>EXPLICAR A IMAGEM DO SLIDE 8;</p>
 
-    <h3 class="pw1">Assinatura de uma Função de Middleware</h3>
-    <p><strong>function(request, response, next)</strong></p>
+        <h3 class="pw1">Assinatura de uma Função de Middleware</h3>
+        <p><strong>function(request, response, next)</strong></p>
 
-    <ul>
-        <li>
-            O terceiro parâmetro (<code>next</code>) é uma função que chama o próximo middleware da pilha.
-        </li>
-        <li>
-            Em qualquer middleware da pilha, deve haver uma única chamada a 
-            <code>response.end</code> (ou funções do Express)
-            para finalizar a requisição.
-        </li>
-    </ul>
+        <ul>
+            <li>
+                O terceiro parâmetro (<code>next</code>) é uma função que chama o próximo middleware da pilha.
+            </li>
+            <li>
+                Em qualquer middleware da pilha, deve haver uma única chamada a 
+                <code>response.end</code> (ou funções do Express)
+                para finalizar a requisição.
+            </li>
+        </ul>
 
-    <h2 class="pw1">Roteamento</h2>
-    <p>
-        No Express, o <strong>Roteamento</strong> consiste em mapear URLs para manipuladores de requisição específicos no servidor.
-    </p>
+        <h2 class="pw1">Roteamento</h2>
+        <p>
+            No Express, o <strong>Roteamento</strong> consiste em mapear URLs para manipuladores de requisição específicos no servidor.
+        </p>
 
-    <p>Por exemplo:</p>
-    <ul>
-        <li>Homepage;</li>
-        <li>About;</li>
-        <li>404;</li>
-        <li>etc;</li>
-    </ul>
+        <p>Por exemplo:</p>
+        <ul>
+            <li>Homepage;</li>
+            <li>About;</li>
+            <li>404;</li>
+            <li>etc;</li>
+        </ul>
 
-    <h3 class="pw1">Estendendo Requisição e Resposta</h3>
-    <p>O Express aumenta as propriedades e as funções dos objetos da requisição e da resposta.</p>
+        <h3 class="pw1">Estendendo Requisição e Resposta</h3>
+        <p>O Express aumenta as propriedades e as funções dos objetos da requisição e da resposta.</p>
 
-    <p>É útil para:</p>
-    <ul>
-        <li>enviar arquios ao cliente;</li>
-        <li>gerar respostas com cabeçalhos mais rapidamente;</li>
-        <li>etc;</li>
-    </ul>
+        <p>É útil para:</p>
+        <ul>
+            <li>enviar arquios ao cliente;</li>
+            <li>gerar respostas com cabeçalhos mais rapidamente;</li>
+            <li>etc;</li>
+        </ul>
 
-    <h2 class="pw1">Projeto Backend</h2>
-    <p>
-        Modificação nas <strong>Rotas</strong> e no <strong>Server</strong> utilizando <code>Middleware no Server</code>.
-    </p>
+        <h2 class="pw1">Projeto Backend</h2>
+        <p>
+            Modificação nas <strong>Rotas</strong> e no <strong>Server</strong> utilizando <code>Middleware no Server</code>.
+        </p>
 
-    <p>O que são?</p>
-    <ul>
-        <li>
-            Todo o tipo de função que está entre um pedido HTTP e a resposta final, que o servidor envia de volta para o cliente.
-        </li>
-    </ul>
+        <p>O que são?</p>
+        <ul>
+            <li>
+                Todo o tipo de função que está entre um pedido HTTP e a resposta final, que o servidor envia de volta para o cliente.
+            </li>
+        </ul>
 
-    <p>Portanto são funções</p>
-    <ul>
-        <li>Recebem 4 parâmetros</li>
-        <li>Error, Request, Response e Next()</li>
-    </ul>
+        <p>Portanto são funções</p>
+        <ul>
+            <li>Recebem 4 parâmetros</li>
+            <li>Error, Request, Response e Next()</li>
+        </ul>
 
-    <p>Podem executar as seguintes tarefas</p>
-    <ul>
-        <li>Executar qualquer código. Ex: autenticação.</li>
-        <li>Fazer mudanças nos objetivos de solicitação e resposta.</li>
-        <li>Encerrar o ciclo de solicitação-resposta. Ex: exceções.</li>
-        <li>Chamar o próximo middleware na pilha.</li>
-    </ul>
+        <p>Podem executar as seguintes tarefas</p>
+        <ul>
+            <li>Executar qualquer código. Ex: autenticação.</li>
+            <li>Fazer mudanças nos objetivos de solicitação e resposta.</li>
+            <li>Encerrar o ciclo de solicitação-resposta. Ex: exceções.</li>
+            <li>Chamar o próximo middleware na pilha.</li>
+        </ul>
 
-    <p>
-        Usamos middleware para usar o arquivo
-        <code>router</code> e <code>json()</code>.
-    </p>
-    <ul>
-        <li>
-            <strong>app.use(router)</strong> → adiciona as rotas.
-        </li>
-        <li>
-            <strong>app.use(express.json())</strong> → para o server aceitar dados vindos da requisição no formato <code>json</code>.
-        </li>
-    </ul>
+        <p>
+            Usamos middleware para usar o arquivo
+            <code>router</code> e <code>json()</code>.
+        </p>
+        <ul>
+            <li>
+                <strong>app.use(router)</strong> → adiciona as rotas.
+            </li>
+            <li>
+                <strong>app.use(express.json())</strong> → para o server aceitar dados vindos da requisição no formato <code>json</code>.
+            </li>
+        </ul>
 
-    <h2 class="pw1">Middleware de Erros</h2>
-    <p>Existe um segundo tipo de middleware, que é menos usado, consistindo em funções de manipulação de erros.</p>
+        <h2 class="pw1">Middleware de Erros</h2>
+        <p>Existe um segundo tipo de middleware, que é menos usado, consistindo em funções de manipulação de erros.</p>
 
-    <p>
-        Para entrar em modo de erro algum middleware da pilha deve chamar <code>next</code> com o argumento de erro: 
-        <strong>Next(new Error('Algo deu errado'))</strong>.
-    </p>
+        <p>
+            Para entrar em modo de erro algum middleware da pilha deve chamar <code>next</code> com o argumento de erro: 
+            <strong>Next(new Error('Algo deu errado'))</strong>.
+        </p>
 
-    <p>
-        Em vez de três parâmetros, esse tipo de middleware tem <code>quatro parâmetros</code>, sendo o primeiro o objeto de erro.
-    </p>
+        <p>
+            Em vez de três parâmetros, esse tipo de middleware tem <code>quatro parâmetros</code>, sendo o primeiro o objeto de erro.
+        </p>
 
-    <p>
-        Em um fluxo de código <code>sem erros</code>, o <strong>middleware de erro</strong> é ignorado e o código segue normalmente.
-    </p>
+        <p>
+            Em um fluxo de código <code>sem erros</code>, o <strong>middleware de erro</strong> é ignorado e o código segue normalmente.
+        </p>
 
-    <p>
-        Em um fluxo de código <code>com erro</code>, o <strong>middleware de erro</strong> é ativado e o código é interrompido.
-    </p>
+        <p>
+            Em um fluxo de código <code>com erro</code>, o <strong>middleware de erro</strong> é ativado e o código é interrompido.
+        </p>
 
-    <h2 class="pw1">Tratando Exceções</h2>
-    <p>
-        Existem duas formas de <strong>tratar exceções</strong>:
-    </p>
+        <h2 class="pw1">Tratando Exceções</h2>
+        <p>
+            Existem duas formas de <strong>tratar exceções</strong>:
+        </p>
 
-    <h3 class="pw1">Usando try-catch no arquivo Controller</h3>
-    <p><strong>throw new Error("erro!")</strong></p>
+        <h3 class="pw1">Usando try-catch no arquivo Controller</h3>
+        <p><strong>throw new Error("erro!")</strong></p>
 
-    <ul>
-        <li>lança uma exceção para o Controller</li>
-        <li>Controller → Service (throw new Error())</li>
-    </ul>
-    <pre><code>
-        class CreateUserController {
-            async handle(request: Request, response: Response) {
-                try {
-                    const { name, email, admin } = request.body;
+        <ul>
+            <li>lança uma exceção para o Controller</li>
+            <li>Controller → Service (throw new Error())</li>
+        </ul>
+        <pre><code>
+            class CreateUserController {
+                async handle(request: Request, response: Response) {
+                    try {
+                        const { name, email, admin } = request.body;
 
-                    const createUserService = new CreateUserService();
+                        const createUserService = new CreateUserService();
 
-                    const user = await createUserService.execute({ name, email, admin });
+                        const user = await createUserService.execute({ name, email, admin });
 
-                    return response.json(user);
-                } catch (err) {
-                    return response.status(400).json({ error: err.message });
+                        return response.json(user);
+                    } catch (err) {
+                        return response.status(400).json({ error: err.message });
+                    }
                 }
             }
-        }
-    </code></pre>
+        </code></pre>
 
-    <h3 class="pw1">Usando um middleware no server para tratar os erros</h3>
-    <p>server → routes → controller → use case (throw new Erro)</p>
+        <h3 class="pw1">Usando um middleware no server para tratar os erros</h3>
+        <p>server → routes → controller → use case (throw new Erro)</p>
 
-    <p>
-        Instalar a biblioteca <code>express-async-errors</code>
-    </p>
-    <ul>
-        <li>-yarn add express-async-errors</li>
-    </ul>
+        <p>
+            Instalar a biblioteca <code>express-async-errors</code>
+        </p>
+        <ul>
+            <li>-yarn add express-async-errors</li>
+        </ul>
 
-    <p>Depois importar o <code>server</code></p>
-    <ul>
-        <li>logo depois da importação do express</li>
-    </ul>
+        <p>Depois importar o <code>server</code></p>
+        <ul>
+            <li>logo depois da importação do express</li>
+        </ul>
 
-    <p>Fonte: <a href="https://www.npmjs.com/package/express-async-errors">https://www.npmjs.com/package/express-async-errors</a></p>
+        <p>Fonte: <a href="https://www.npmjs.com/package/express-async-errors">https://www.npmjs.com/package/express-async-errors</a></p>
 
-    <pre><code>
-        import { Request, Response, NextFunction } from 'express';
+        <pre><code>
+            import { Request, Response, NextFunction } from 'express';
 
-        export function exceptionsHandle (
-            err: Error,
-            req: Request,
-            res: Response,
-            next: NextFunction) {
-                if (err instanceof Error) {
-                    return res.status(400).json({message: err.message});
+            export function exceptionsHandle (
+                err: Error,
+                req: Request,
+                res: Response,
+                next: NextFunction) {
+                    if (err instanceof Error) {
+                        return res.status(400).json({message: err.message});
+                    }
+
+                    return res.status(500).json({
+                        status: "Error",
+                        message: "Error server internal"
+                    });
                 }
-
-                return res.status(500).json({
-                    status: "Error",
-                    message: "Error server internal"
-                });
-            }
-    </code></pre>
+        </code></pre>
+    </div>
 </body>
 </html>

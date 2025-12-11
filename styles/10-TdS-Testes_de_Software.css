@@ -6,29 +6,21 @@
 .tds-page {
     --cor-fundo-principal: #36454F;
     --cor-cinza-claro: #F5F5F5;
-    --cor-azul-titulo: #D0E0E3;
-    --cor-azul-destaque: #007bff;
-    --cor-azul-secundario: #003366;
+    --cor-titulo: #000000;
+    --cor-destaque: #007bff;
+    --cor-secundaria: #003366;
 
     /* Aplicação (Antigos nomes de variáveis TDS) */
     --plano-de-fundo: var(--cor-fundo-principal);
-    --cor-titulo: var(--cor-azul-titulo);
+    --cor-titulo: var(--cor-titulo);
     --cor-bordas-titulos: var(--cor-branca);
-    --cor-destaque-negrito: var(--cor-azul-destaque);
+    --cor-destaque-negrito: var(--cor-destaque);
     --cor-fundo-bloco-codigo: #252830;
 
     --cor-fundo-recuado: #404F5C; /* Um pouco mais claro que o fundo */
 
-    /* Mapeamento das variáveis usadas nos blocos de destaque (CORRIGIDO) */
-    --cor-tds-destaque: var(--cor-azul-destaque);
-    /* Borda lateral e destaque principal */
-    --cor-tds-secundaria: var(--cor-azul-secundario);
-    /* Cor base para o gradiente de blocos */
-    --cor-tds-titulo: var(--cor-azul-titulo);
-    /* Cor do texto dentro dos blocos de destaque */
-
-    --cor-code-destaque: var(--cor-azul-destaque);
-    --cor-code-secundaria: var(--cor-azul-secundario);
+    --cor-code-destaque: var(--cor-destaque);
+    --cor-code-secundaria: var(--cor-secundaria);
     /* Mantido se for para highlight de sintaxe */
 
     /* CORREÇÃO: Contagem de Títulos */
@@ -36,13 +28,12 @@
 
     /* Aplica o fundo escuro ao corpo da página */
     background-color: var(--plano-de-fundo);
-    color: var(--cor-azul-titulo);
+    color: var(--cor-titulo);
     /* Cor do texto padrão da página */
 }
 
 /* 2. ESTILOS BASE DE LAYOUT (Descendentes de .tds-page) */
 
-/* Estilos comuns para DIV (A sombra pode ser sutil em fundo escuro) */
 .tds-page div {
     text-align: left;
     font-size: 18px;
@@ -51,7 +42,6 @@
     background-color: var(--plano-de-fundo);
 }
 
-/* Estilos específicos para P */
 .tds-page p {
     margin-block: 0.5rem;
     text-indent: 2rem;
@@ -63,17 +53,17 @@
 .tds-page h1::before,
 .tds-page h1::after {
     content: "🧪 ";
-    color: var(--cor-tds-destaque);
+    color: var(--cor-destaque);
 }
 
 .tds-page h2::before {
     content: counter(h1counter) "." counter(h2counter) ". » ";
-    color: var(--cor-tds-destaque);
+    color: var(--cor-destaque);
 }
 
 .tds-page h3::before {
     content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
-    color: var(--cor-tds-destaque);
+    color: var(--cor-destaque);
 }
 
 /* Increment e Reset de Títulos */
@@ -91,7 +81,6 @@
     counter-increment: h3counter;
 }
 
-/* Estilo para Títulos H1 (Com Gradiente CORRIGIDO) */
 .tds-page h1 {
     justify-content: space-between;
     text-align: center;
@@ -102,20 +91,18 @@
     border-left: none !important;
     margin-bottom: 1.5rem;
     color: var(--cor-titulo);
-    background: linear-gradient(90deg, var(--cor-tds-secundaria) 30%, transparent 90%);
-    border-left: 4px solid var(--cor-tds-destaque) !important;
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
     margin-top: 10px;
     padding: 0.5rem;
     align-items: center;
 }
 
-/* Estilo para Títulos H2 e H3 (Com Gradiente CORRIGIDO) */
 .tds-page h2,
 .tds-page h3 {
     color: var(--cor-titulo);
-    /* CORREÇÃO: Gradiente e Borda */
-    background: linear-gradient(90deg, var(--cor-tds-secundaria) 30%, transparent 90%);
-    border-left: 4px solid var(--cor-tds-destaque) !important;
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0.25rem;
@@ -125,28 +112,26 @@
     box-shadow: none;
 }
 
-/* Blockquote (Descendente de .tds-page) */
 .tds-page blockquote {
-    border-left: 4px solid var(--cor-tds-destaque) !important;
-    color: var(--cor-azul-titulo);
+    border-left: 4px solid var(--cor-destaque) !important;
+    color: var(--cor-titulo);
     background-color: var(--plano-de-fundo);
 }
 
 .tds-page blockquote::before {
-    color: var(--cor-tds-destaque); /* Usa sua cor de destaque azul */
+    color: var(--cor-destaque);
 }
 
 .tds-page blockquote::after {
-    color: var(--cor-tds-destaque);
+    color: var(--cor-destaque);
 }
 
-/* Bloco de Destaque (SUBSTITUIÇÃO para o antigo .ldr) */
 .tds-page p.tds-bloco-destaque,
 .tds-page div.tds-bloco-destaque,
 .tds-page section.tds-bloco-destaque {
-    color: var(--cor-tds-titulo);
-    background: linear-gradient(90deg, var(--cor-tds-secundaria) 30%, transparent 90%);
-    border-left: 4px solid var(--cor-tds-destaque) !important;
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0.25rem;
@@ -156,7 +141,6 @@
     box-shadow: none !important;
 }
 
-/* Negrito */
 .tds-page strong {
     background-color: var(--cor-destaque-negrito);
     color: black;
@@ -176,7 +160,7 @@
 
 .tds-page .btn-voltar {
     padding: 10px 20px;
-    background-color: var(--cor-azul-secundario);
+    background-color: var(--cor-secundaria);
     color: black;
     border: none;
     border-radius: 5px;
@@ -185,7 +169,7 @@
 }
 
 .tds-page .btn-voltar:hover {
-    background-color: var(--cor-azul-destaque);
+    background-color: var(--cor-destaque);
 }
 
 pre:not(:has(code)) {

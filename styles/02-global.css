@@ -225,3 +225,7 @@ header {
     height: 100%;
     /* Apenas para criar rolagem */
 }
+
+h1 a, h2 a, h3 a {
+    color: var(--cor-titulo);
+}
