@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário IPs</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+        <button id="open-form" class="btn-open-form">Configurar IPs</button>
+    </header>
+
+    <!-- Formulário para configurar os IPs -->
+    <div id="ip-form-container" class="form-container">
+        <form id="ip-form" class="ip-form">
+            <label for="cliente-ip">IP do Cliente:</label>
+            <input type="text" id="cliente-ip" name="cliente-ip" placeholder="Digite o IP do Cliente">
+
+            <label for="server-ip">IP do Server:</label>
+            <input type="text" id="server-ip" name="server-ip" placeholder="Digite o IP do Server">
+
+            <label for="docker-ip">IP do Docker:</label>
+            <input type="text" id="docker-ip" name="docker-ip" placeholder="Digite o IP do Docker">
+
+            <button type="submit" id="save-btn" class="btn-save">Salvar</button>
+        </form>
+    </div>
+
+    <script src="ldr.js"></script>
+</body>
+
+</html>

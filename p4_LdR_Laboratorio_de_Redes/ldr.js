@@ -102,3 +102,49 @@ function showXenbp4() {
 
 showXen();
 progressStage(0);
+
+// forms
+document.addEventListener('DOMContentLoaded', () => {
+    const formContainer = document.getElementById('ip-form-container');
+    const openFormBtn = document.getElementById('open-form');
+    const ipForm = document.getElementById('ip-form');
+    const saveBtn = document.getElementById('save-btn');
+
+    // Função para abrir o formulário
+    openFormBtn.addEventListener('click', () => {
+        formContainer.style.display = 'flex';
+
+        // Preencher campos com valores armazenados (se houver)
+        const cliente_ip = localStorage.getItem('cliente-ip') || '';
+        const server_ip = localStorage.getItem('server-ip') || '';
+        const docker_ip = localStorage.getItem('docker-ip') || '';
+
+        document.getElementById('cliente-ip').value = cliente_ip;
+        document.getElementById('server-ip').value = server_ip;
+        document.getElementById('docker-ip').value = docker_ip;
+    });
+
+    // Fechar o formulário quando o botão "Salvar" for clicado
+    saveBtn.addEventListener('click', (event) => {
+        event.preventDefault(); // Impede o comportamento padrão do formulário
+
+        // Salvar os valores no localStorage
+        const cliente_ip = document.getElementById('cliente-ip').value;
+        const server_ip = document.getElementById('server-ip').value;
+        const docker_ip = document.getElementById('docker-ip').value;
+
+        localStorage.setItem('cliente-ip', cliente_ip);
+        localStorage.setItem('server-ip', server_ip);
+        localStorage.setItem('docker-ip', docker_ip);
+
+        // Fechar o formulário
+        formContainer.style.display = 'none';
+    });
+
+    // Fechar o formulário quando clicar fora dele
+    formContainer.addEventListener('click', (event) => {
+        if (event.target === formContainer) {
+            formContainer.style.display = 'none';
+        }
+    });
+});
