@@ -308,7 +308,6 @@ vmHomeXen {
     width: 100%;
     min-height: 500px;
     background-size: cover;
-    /* display: none; */
     display: flex;
     justify-content: left;
     align-items: end;

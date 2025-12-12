@@ -1,3 +1,15 @@
+// constantes do HTML
+document.addEventListener('DOMContentLoaded', function() {
+    let cliente_ip = "";
+    let server_ip = "";
+    let docker_ip = "";
+
+    document.getElementById('cliente-ip').textContent = cliente_ip;
+    document.getElementById('server-ip').textContent = server_ip;
+    document.getElementById('docker-ip').textContent = docker_ip;
+});
+
+// formatação
 const slide = document.getElementsByTagName('slide')[0];
 const slideCode = document.querySelector('slide pre code');
 const browserTabs = document.getElementsByClassName('browsertabs')[0]; 

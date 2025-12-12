@@ -4,11 +4,11 @@
 /* 1. VARIÁVEIS CSS E ESCOPO GLOBAL (.pw1-page) */
 /* Este seletor deve ser aplicado no BODY: <body class="tds-page"> */
 .pw1-page {
-    --cor-fundo-principal: #36454F;
+    --cor-fundo-principal: #2c3e50;
     --cor-cinza-claro: #F5F5F5;
-    --cor-titulo: #b84300;
-    --cor-destaque: #ee6c15;
-    --cor-secundaria: #f8a771;
+    --cor-titulo: #2a3a4c;
+    --cor-destaque: #ffc300;
+    --cor-secundaria: #6c7c94;
 
     /* Aplicação (Antigos nomes de variáveis TDS) */
     --plano-de-fundo: var(--cor-fundo-principal);
@@ -53,7 +53,7 @@
 /* Títulos (Conteúdo Gerado e Contagem CORRIGIDOS) */
 .pw1-page h1::before,
 .pw1-page h1::after {
-    content: "🌇 ";
+    content: "🧪 ";
     color: var(--cor-destaque);
 }
 

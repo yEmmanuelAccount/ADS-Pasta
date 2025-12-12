@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>09 - Quic</title>
     <link rel="stylesheet" href="../styles/00-home.css">
+    <script src="ldr.js" defer></script>
 </head>
-<body>
+<body class="ldr-page">
     <header>
         <a href="./" class="btn-voltar">Voltar</a>
     </header>
@@ -30,6 +31,147 @@
             <li>route add -net 172.17.0.0.algumaCoisa</li>
             <li>ele foi colocando só seta para cima</li>
         </ol>
+
+        <h1>Instalação Windows <br> 12/12/2025</h1>
+
+        <p>Entre no tópico "VIII - QUICompare", postado no dia 12/12/2025.</p>
+
+        <h2>OpenVPN</h2>
+
+        <p>No arquivo "Aula X", baixe o OpenVPN do seu respectivo grupo.</p>
+
+        <p>Ele será usado para que seja possível a conexão quando estivermos em casa. Vamos simular como se estivéssemos no IF e assim conseguirmos nos conectar com o servidor.</p>
+
+        <h1>Medição</h1>
+
+        <p>Depois de a instalação está concluída, podemos seguir e fazer as medições.</p>
+
+        <h2>Iniciar VM</h2>
+
+        <p>Caso ela esteja com uma bolinha vermelha, significa que está desligada, e para iniciá-la clique em seu nome para ir para sua página específica e aperte no botão de <strong>start</strong> (representado por um play).</p>
+
+        <p>Depois de iniciada, entrando em <strong>console</strong>, é possível logar dentro da VM:</p>
+        
+        <ul>
+            <li>
+                <strong>Usuário</strong>: djr
+            </li>
+            <li>
+                <strong>Senha</strong>: 654123
+            </li>
+            <li>sudo su</li>
+        </ul>
+
+        <h2>Login do SERVIDOR</h2>
+        <ul>
+            <li>
+                <strong>Usuário</strong>: grupo1
+            </li>
+            <li>
+                <strong>Senha</strong>: djr654123
+            </li>
+        </ul>
+
+        <h2>Obtendo IP do CLIENTE</h2>
+        <ul>
+            <li>Abra o menu <strong>Iniciar</strong>, depois clique em <strong>Acessórios</strong> e depois em
+                <strong>Terminal</strong>.</li>
+            <li>
+                Digite <code>ifconfig</code> e procure o <strong>IP</strong> no campo <strong>eth0</strong>.
+            </li>
+            <li>
+                <strong>IP-Cliente</strong>: 127.0.0.1 <strong>(localhost)</strong>
+            </li>
+            <li><code>dhclient eth0</code> para configurar o ip na interface de rede eth0 automaticamente</li>
+        </ul>
+        <p>Para facilitar, depois de conseguir o IP do CLiente, vá no arquivo <strong>LDR</strong> e coloque o IP na variável <i>cliente_ip</i>. Com essa mudança, todas as vezes que esse IP aparecer nessa página, ele será o IP do seu Cliente.</p>
+
+        <p>Confira a seguir: <span id="cliente-ip"></span>
+
+        <h2>Obtendo IP do SERVIDOR</h2>
+        <p>Precisamos primeiramente estar como <code>Super Usuário</code>.</p>
+        <p>No terminal, digite:</p>
+        <ol>
+            <li><code>sudo su</code> para mudar o terminal para o super usuário</li>
+            <li><strong>senha:</strong> 654123</li>
+            <li><code>ifconfig</code> para listar os ips da maquina</li>
+            <li>Pegue o IP que vem após o <code>eth0</code> no resultado do <code>ifconfig</code></li>
+        </ol>
+        <ul>
+            <li>Exemplo: 192.168.0.112</li>
+        </ul>
+        <p>Para facilitar, depois de conseguir o IP do CLiente, vá no arquivo <strong>LDR</strong> e coloque o IP na variável
+            <i>server_ip</i>. Com essa mudança, todas as vezes que esse IP aparecer nessa página, ele será o IP do seu Servidor.
+        </p>
+        <p>Confira a seguir: <span id="server-ip"></span>
+        </p>
+        
+        <h2>Cliente</h2>
+        <p>Abra mais 2 abas, e coloque os seguintes nomes:</p>
+        <ul>
+            <li>Cliente_Local</li>
+            <li>Servidor</li>
+            <li>Docker</li>
+        </ul>
+
+        <h2>Cliente_Local</h2>
+        <pre><code>
+            ssh djr 
+            sudo su
+            djr
+            654123
+        </code></pre>
+
+        <h2>Servidor</h2>
+        <pre><code>
+            ssh djr 
+        </code></pre>
+
+        <h2>Docker</h2>
+
+        <h2>Cliente_Local</h2>
+        <pre><code>
+            quiccompare <comment># configurando ambiente</comment>
+            route add -net 177.17.0.0 netmask 255.255.0.0 gw 192.168.0.117
+            ping netlab <comment># para testar se a rota foi criada</comment>
+        </pre></code>
+
+        <h2>Docker</h2>
+        <pre><code>
+            sudo su <comment># super usuário</comment>
+            djr <comment># nome</comment>
+            654123 <comment># senha</comment>
+
+            passwd <comment># trocando a senha</comment>
+            654123 <comment># informando a senha</comment>
+            654123 <comment># confirmando a senha</comment>
+
+            pico /etc/ssh/ashd_config 
+            <comment># descomentar a linha "Permition Root Login: no" e trocar "no" por "yes"</comment>
+        </code></pre>
+
+        <h2>Cliente</h2>
+        <pre><code>
+            quiccompare --mono-light --trafic-mode ffmpeg --dut-host 192.168.0.117 --dut-user root --dut-iface ens18 --port 8443 --url https://netlab:8443/video.mkv --duration 20 --clients 10 --unit mbps --sample-rate 100
+
+            <comment>Senha do SSH da Root</comment>
+            654123
+        </code></pre>
+
+        <p>O QUICCompare vai pegar o arquivo, passar pelo seu computador e analisar os indices fractais.</p>
+
+        <pre><code>
+            mv quiccompare -mpeg-light -mono-20251212_142536 nginx-quic-cubic 
+            ls <comment># ver os arquivos do diretório</comment>
+            cd ../../ <comment># para sair do diretório</comment>
+        </code></pre>
+
+        <pre><code>
+            quiccompare --mono-light --trafic-mode ffmpeg --dut host 192.168.0.117 --dut-user root --dut-iface ens18 --port 443 --url https://netlab:8443/video.mkv --duration 20 --clients 10 --unit mbps --sample-rate 1000
+        </code></pre>
+
     </div>
+
+    <script src="ldr.js"></script>
 </body>
 </html>
