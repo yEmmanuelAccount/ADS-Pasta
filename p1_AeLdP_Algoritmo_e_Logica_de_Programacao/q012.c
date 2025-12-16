@@ -16,5 +16,5 @@ void main() {
     centimetros = polegadas * EQUIVALENCIA;
 
     // informando resultados
-    printf("\n > [%.2f em polegadas] equivalem a %.2f centímetros.\n", polegadas, centimetros);
+    printf("\n > [%.2f em polegadas] equivalem a %.2f centímetros.\n\n", polegadas, centimetros);
 }
