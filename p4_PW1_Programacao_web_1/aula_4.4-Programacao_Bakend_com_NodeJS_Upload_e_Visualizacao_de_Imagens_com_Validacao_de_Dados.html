@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 4.4: Programação Bakend com NodeJS (Upload e Visualização de Imagens com Validação de Dados)</title>
+</head>
+<body class="pw1-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_4.3-Programacao_Bakend_com_NodeJS_Autenticacao_e_Middlewares.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_0-JavaScript.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
+    </header>
+    
+    <div class="conteudo">
+        <h1>Programação Bakend com NodeJS <br> (Upload e Visualização de Imagens <br> com Validação de Dados)</h1>
+
+        <h2>Configuração Inicial do Projeto Backend</h2>
+        <p>Para projetos robustos em Node.js com TypeScript, a configuração inicial foca na automação da transpilação e execução do código em tempo de desenvolvimento.</p>
+
+        <div>Fluxo de Setup</div>
+        <ul>
+            <li>Criação do <code>package.json</code> via <code>npm init -y</code>.</li>
+            <li>Instalação do TypeScript e tipos do Node (<code>@types/node</code>).</li>
+            <li>Uso do <code>tsx</code> para monitorar e executar arquivos <code>.ts</code> de forma nativa no ambiente de desenvolvimento.</li>
+        </ul>
+
+        <h2>Upload de Arquivos</h2>
+        <p>O gerenciamento de arquivos em aplicações Express é realizado através do middleware <strong>Multer</strong>, que processa dados do tipo <code>multipart/form-data</code>.</p>
+
+        <h3>Armazenamento Local e Cloud</h3>
+        
+        <div>Configuração Multer (DiskStorage)</div>
+        <p>Define o destino (<em>destination</em>) e a estratégia de nomenclatura (<em>filename</em>) para evitar conflitos de nomes de arquivos no servidor local.</p>
+
+        <div>Escalabilidade com AWS S3</div>
+        <p>Para produção, utiliza-se o <strong>S3 (Simple Storage Service)</strong>. O upload é redirecionado para a nuvem através do <code>multer-s3</code>, exigindo credenciais de acesso da AWS.</p>
+
+        <div>Implementação no Controller</div>
+        <p>Os arquivos chegam via <code>request.files</code>. O controlador mapeia esses nomes para o banco de dados, enquanto o Caso de Uso valida a existência da entidade antes da persistência.</p>
+
+        <h2>Visualização de Arquivos</h2>
+        <p>Salvar a imagem não é o suficiente; o servidor precisa estar configurado para servir esses arquivos ao frontend.</p>
+
+        <h3>Arquivos Estáticos e Views</h3>
+        
+        <div>Configuração de Estáticos</div>
+        <p>Uso do comando <code>express.static</code> para expor a pasta de uploads como uma rota acessível via URL pública.</p>
+
+        <div>Formatação via Views</div>
+        <p>O backend utiliza camadas de <strong>Views</strong> para construir a URL completa da imagem (Concatenando a <code>URL_IMG_CLIENT</code> com o nome salvo no BD), facilitando o consumo pelo frontend.</p>
+
+        <h2>Validações de Dados e Formulários</h2>
+        <p>Validar dados é essencial para a segurança e integridade do banco de dados, garantindo que o <code>req.body</code> contenha as informações corretas.</p>
+
+        <h3>Estratégias de Validação</h3>
+        
+        <div>Uso da Biblioteca Zod</div>
+        <p>O <strong>Zod</strong> cria esquemas de tipagem e validação em tempo de execução. Ele define restrições como <code>.email()</code>, <code>.min()</code> e <code>.string()</code>, integrando-se perfeitamente ao TypeScript.</p>
+
+        <div>Validação de Arquivos no Multer</div>
+        <p>Dentro da configuração do Multer, é possível aplicar filtros de tipo (<code>fileFilter</code>) e limites de tamanho (<code>fileSize</code>) para barrar arquivos maliciosos ou excessivamente pesados.</p>
+
+        <h2>Permissões de Acesso (CORS)</h2>
+        
+        <div>Habilitando CORS</div>
+        <p>Para que o frontend possa consumir a API em domínios ou portas diferentes, é obrigatório o uso do middleware <strong>CORS</strong> (<code>app.use(cors())</code>).</p>
+    </div>
+</body>
+</html>

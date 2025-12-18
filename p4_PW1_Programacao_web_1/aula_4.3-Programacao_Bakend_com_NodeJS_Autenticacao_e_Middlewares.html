@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 4.3: Programação Bakend com NodeJS (Autenticação e Middlewares)</title>
+</head>
+<body class="pw1-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_4.2-Programacao_Bakend_com_NodeJS _Integracao_com_Banco_de_Dados.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_4.4-Programacao_Bakend_com_NodeJS_Upload_e_Visualizacao_de_Imagens_com_Validacao_de_Dados.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
+    </header>
+    
+    <div class="conteudo">
+        <h1>Programação Bakend com NodeJS <br> (Autenticação e Middlewares)</h1>
+
+        <h2>Conceitos de Segurança</h2>
+        <p>A segurança em aplicações backend baseia-se em dois pilares fundamentais que definem quem é o usuário e o que ele pode fazer.</p>
+
+        <h3>Autenticação vs. Autorização</h3>
+        
+        <div>Autenticação</div>
+        <p>Processo de confirmação da identidade (Login/Senha, Biometria ou 2FA). Valida se o usuário é quem diz ser.</p>
+
+        <div>Autorização</div>
+        <p>Verificação do nível de acesso no banco de dados. Define quais recursos e funcionalidades o usuário autenticado pode acessar.</p>
+
+        <h3>Modelos de Autenticação</h3>
+        <p>Existem dois métodos principais para gerenciar o estado da autenticação:</p>
+        <ul>
+            <li><strong>Por Sessão (Stateful):</strong> O servidor armazena os dados da sessão.</li>
+            <li><strong>Por Token (Stateless):</strong> As informações residem no cliente, facilitando a escalabilidade.</li>
+        </ul>
+
+        <h2>JSON Web Token (JWT)</h2>
+        <p>O <strong>JWT</strong> é um padrão de mercado para troca segura de informações entre partes, assinado digitalmente para garantir integridade.</p>
+        
+        <h3>Componentes do Token</h3>
+        
+        <div>Header e Payload</div>
+        <p>O <strong>Header</strong> indica o tipo de token e algoritmo. O <strong>Payload</strong> contém as <em>claims</em> (dados do usuário, emissor e expiração).</p>
+
+        <div>Signature</div>
+        <p>A assinatura garante que o token não foi alterado. Somente o servidor, portador da chave secreta, pode validar essa assinatura.</p>
+
+        <h2>Estratégias de Tokens para Escalabilidade</h2>
+        <p>A gestão de tokens exige diferentes tempos de vida e mecanismos de renovação para equilibrar segurança e experiência do usuário.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Tipo de Token</th>
+                    <th>Tempo de Vida</th>
+                    <th>Uso Principal</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Access Token</td>
+                    <td>Curto (Minutos)</td>
+                    <td>Acesso a rotas protegidas.</td>
+                </tr>
+                <tr>
+                    <td>Refresh Token</td>
+                    <td>Longo (Dias/Semanas)</td>
+                    <td>Gerar novos Access Tokens.</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div>Segurança Avançada</div>
+        <p>Uso de <strong>Cookies httpOnly</strong> para armazenar Refresh Tokens (proteção contra XSS) e implementação de <strong>Token Rotation</strong> com Blacklist para invalidar tokens suspeitos.</p>
+
+        <h2>Middlewares na Programação Backend</h2>
+        <p>Middlewares funcionam como interceptadores que dividem a lógica de atendimento em funções menores e modulares.</p>
+
+        <h3>Assinatura e Fluxo</h3>
+        <p>A assinatura padrão é <code>function(request, response, next)</code>. O comando <code>next()</code> é essencial para passar o controle para o próximo manipulador da pilha.</p>
+
+        <div>Criação de Middleware de Autenticação</div>
+        <p>O fluxo envolve extrair o token do cabeçalho <code>Authorization</code>, remover o prefixo <em>Bearer</em>, validar via <code>verify()</code> e injetar o <code>user_id</code> no objeto <code>request</code>.</p>
+
+        <div>Criptografia de Senhas</div>
+        <p>Para o armazenamento seguro, utiliza-se a biblioteca <strong>bcryptjs</strong>. As senhas nunca são salvas em texto puro, mas sim em <strong>hash</strong>, sendo comparadas durante o login através da função <code>compare()</code>.</p>
+    </div>
+</body>
+</html>

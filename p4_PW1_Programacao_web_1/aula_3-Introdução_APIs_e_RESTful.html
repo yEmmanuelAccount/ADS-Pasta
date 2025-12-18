@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 03: Introdução a APIs e RESTful</title>
+</head>
+<body class="pw1-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_2-Padrões_Arquiteturais_para _aplicações_Web.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_4-Programacao_Bakend_com_NodeJS.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
+    </header>
+    
+    <div class="conteudo">
+        <h1>Introdução a APIs e RESTful</h1>
+
+        <h2>HTTP Básico e Características</h2>
+        <p>O <strong>HTTP (Hypertext Transfer Protocol)</strong> é a base da comunicação na Web, operando através do modelo <em>Request-Response</em>. Uma característica fundamental é ser <strong>Stateless</strong> (sem estado), onde cada requisição é independente.</p>
+
+        <h3>Estrutura da Comunicação</h3>
+        
+        <div>Requisições (Requests)</div>
+        <p>Identificam recursos através de <strong>URIs</strong> e utilizam verbos para definir a ação, além de conterem cabeçalhos (Headers) com metadados.</p>
+
+        <div>Respostas (Responses)</div>
+        <p>Retornam um <strong>Status Code</strong> (como 200 OK ou 404 Not Found) e o corpo (BODY), que contém o recurso solicitado.</p>
+
+        <h2>Web Services REST</h2>
+        <p>O <strong>REST (Representational State Transfer)</strong> é um estilo arquitetural para sistemas distribuídos. APIs que seguem este modelo utilizam URIs para recursos e verbos HTTP para operações.</p>
+
+[Image of REST API architecture diagram]
+
+        <h3>Formatos de Dados</h3>
+        <p>Embora suporte múltiplos formatos, o <strong>JSON</strong> é o mais utilizado em APIs modernas por sua leveza e suporte nativo em JavaScript.</p>
+
+        <h2>Restrições Fundamentais (Arquitetura RESTful)</h2>
+        <p>Para que um serviço seja considerado <strong>RESTful</strong>, ele deve aderir a um conjunto de restrições arquiteturais:</p>
+
+        <div>Client-Server e Stateless</div>
+        <p>Separação clara entre as responsabilidades do cliente e do servidor, sem armazenamento de estado do cliente no servidor para garantir escalabilidade.</p>
+
+        <div>Cache e Layered System</div>
+        <p>Uso de cache para performance e arquitetura em camadas (como Load Balancers) para desacoplamento e segurança.</p>
+
+        <div>Uniform Interface</div>
+        <p>Uso de URIs coesas, mensagens autodescritivas e <strong>Hypermedia (HATEOAS)</strong>, fornecendo links para recursos relacionados.</p>
+
+        <h2>Mapeamento CRUD e Maturidade</h2>
+        <p>Os verbos HTTP são mapeados diretamente para as operações de persistência de dados (CRUD).</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Verbo HTTP</th>
+                    <th>Operação CRUD</th>
+                    <th>Idempotente?</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>GET</strong></td>
+                    <td>Ler (Read)</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td><strong>POST</strong></td>
+                    <td>Criar (Create)</td>
+                    <td>Não</td>
+                </tr>
+                <tr>
+                    <td><strong>PUT</strong></td>
+                    <td>Substituir (Update)</td>
+                    <td>Sim</td>
+                </tr>
+                <tr>
+                    <td><strong>PATCH</strong></td>
+                    <td>Modificar (Update)</td>
+                    <td>Não</td>
+                </tr>
+                <tr>
+                    <td><strong>DELETE</strong></td>
+                    <td>Excluir (Delete)</td>
+                    <td>Sim</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>Níveis de Maturidade e Segurança</h3>
+        
+        <div>Modelo de Maturidade de Richardson</div>
+        <p>Classifica a aderência ao REST, sendo o Nível 3 o ápice da maturidade ao utilizar controles de hipermídia.</p>
+
+        <div>Segurança em APIs</div>
+        <p>Devido à natureza Stateless, a autenticação evita sessões no servidor e utiliza métodos como <strong>OAuth2</strong> ou <strong>JWT (JSON Web Tokens)</strong>.</p>
+    </div>
+</body>
+</html>

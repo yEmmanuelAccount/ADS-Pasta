@@ -3,16 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
     <title>Aula 04: Programação Backend com NodeJS</title>
 </head>
 <body class="pw1-page">
     <header>
         <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_3-Introdução_APIs_e_RESTful.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_4.1-Programacao_Bakend_com _NodeJS _Middleware.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
     </header>
+    
+    <div class="conteudo">
+        <h1>Programação Backend com NodeJS</h1>
 
-    <h1 class="pw1">Programação Backend com NodeJS</h1>
+        <h2>Node.js e Backend</h2>
+        <p>O <strong>Node.js</strong> é um ambiente de execução JavaScript no lado do servidor. Sendo uma plataforma <em>open-source</em>, permite que desenvolvedores utilizem a mesma linguagem do front-end para construir regras de negócio, conexões com bancos de dados e autenticação.</p>
 
-    <h1 class="pw1">NodeJS</h1>
-    <p>É um ambiente em tempo de execução <strong>open-source</strong> e <strong>multiplataforma</strong>, usado para criar todo tipo de aplicativos e ferramentas do lado do servidor (backend).</p>
+        
+
+        <h3>Arquitetura e Performance</h3>
+        <p>A grande eficiência do Node.js vem da sua <strong>Arquitetura Event-loop</strong>, que opera de forma <em>single-thread</em> mas suporta <strong>I/O Non-blocking</strong> através da biblioteca <code>libuv</code>.</p>
+        
+        <div>Responsabilidades do Backend</div>
+        <ul>
+            <li>Gerenciamento de rotas e integrações.</li>
+            <li>Aplicação de regras de negócio.</li>
+            <li>Segurança e persistência de dados.</li>
+        </ul>
+
+        <h2>Gerenciamento de Pacotes (NPM)</h2>
+        <p>O <strong>NPM (Node Package Manager)</strong> é a ferramenta padrão para instalar bibliotecas de terceiros, permitindo a expansão das funcionalidades do projeto de forma modular.</p>
+
+        <div>Comandos Fundamentais</div>
+        <ul>
+            <li><code>npm init -y</code>: Cria o arquivo <code>package.json</code> inicial.</li>
+            <li><code>npm install</code>: Instala dependências (use <code>-D</code> para ferramentas de desenvolvimento).</li>
+            <li><code>npm remove</code>: Remove um pacote do projeto.</li>
+        </ul>
+
+        <h2>Desenvolvimento de API REST</h2>
+        <p>O backend funciona como um centralizador que processa requisições de múltiplos clientes e devolve respostas padronizadas.</p>
+
+        
+
+        <h3>Parâmetros de Requisição</h3>
+        <p>Existem três formas principais de enviar informações para o servidor através das rotas:</p>
+        
+        <div>Route Params</div>
+        <p>Parâmetros obrigatórios na URL, geralmente usados para identificar recursos únicos (Ex: <code>/users/:id</code>).</p>
+
+        <div>Query Params</div>
+        <p>Parâmetros opcionais usados para filtros ou paginação (Ex: <code>/users?name=fabio</code>).</p>
+
+        <div>Body Params</div>
+        <p>Dados enviados no corpo da requisição (geralmente em <strong>JSON</strong>), ideais para criação e edição (POST/PUT), evitando expor dados sensíveis na URL.</p>
+
+        <h3>O Framework Express</h3>
+        <p>O <strong>Express</strong> é o framework mais popular do ecossistema Node.js. Ele é "sem opinião" (<em>unopinionated</em>), oferecendo flexibilidade total para gerenciar rotas e configurações de porta do servidor.</p>
+
+        <h2>Configuração e Ferramentas</h2>
+        <p>Para iniciar um ambiente profissional de desenvolvimento, é necessário configurar o suporte ao TypeScript.</p>
+
+        <div>Setup com TypeScript</div>
+        <ol>
+            <li>Iniciar o projeto: <code>npm init -y</code></li>
+            <li>Instalar dependências: <code>typescript</code>, <code>@types/node</code> e <code>tsx</code>.</li>
+            <li>Inicializar configuração: <code>npx tsc --init</code>.</li>
+        </ol>
+
+        
+
+        <div>Ferramentas Auxiliares</div>
+        <p>Para testar os endpoints da API, recomenda-se o uso do <strong>Insomnia</strong> ou <strong>Postman</strong>. Para a visualização de bancos de dados, o <strong>Beekeeper Studio</strong> ou o <strong>Prisma Studio</strong> são excelentes opções.</p>
+    </div>
 </body>
 </html>

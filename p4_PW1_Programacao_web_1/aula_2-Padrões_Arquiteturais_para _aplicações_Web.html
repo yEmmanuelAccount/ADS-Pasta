@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 02: Padrões de Arquitetura para Aplicações Web</title>
+</head>
+<body class="pw1-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_1.1-INTRODUCAO.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_3-Introdução_APIs_e_RESTful.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
+    </header>
+    
+    <div class="conteudo">
+        <h1>Padrões de Arquitetura <br> para Aplicações Web</h1>
+
+        <h2>Arquitetura de Sistemas de Software</h2>
+        <p>A arquitetura de sistemas é o <strong>modelo de mais alto nível</strong> das partes que compõem um software. Ela define a estrutura dos subsistemas, componentes e as propriedades visíveis de relacionamento entre eles.</p>
+
+        <div>Propósito da Arquitetura</div>
+        <ul>
+            <li><strong>Comunicação:</strong> Facilita o diálogo entre stakeholders (usuários e desenvolvedores).</li>
+            <li><strong>Análise de Requisitos:</strong> Permite avaliar critérios críticos como desempenho e confiabilidade.</li>
+            <li><strong>Reuso:</strong> Promove o aproveitamento de software em larga escala.</li>
+        </ul>
+
+        <h2>Visões Arquiteturais (Modelo 4 + 1)</h2>
+        <p>Proposta por P. Krutchen, a documentação de um projeto deve ser representada graficamente através de diferentes perspectivas, tendo a <strong>Visão de Casos de Uso</strong> como o centro de tudo.</p>
+
+        <h3>As 4 Visões Técnicas</h3>
+        
+        <div>Visão Lógica</div>
+        <p>Descreve a decomposição do sistema em abstrações e comportamentos, comumente representada por diagramas de classes e de sequência.</p>
+
+        <div>Visão de Processos</div>
+        <p>Foca na comunicação entre os processos do sistema, essencial para tratar concorrência.</p>
+
+        <div>Visão de Implementação</div>
+        <p>Descreve a organização dos módulos do sistema e seus componentes físicos.</p>
+
+        <div>Visão de Implantação (Física)</div>
+        <p>Define como a aplicação é instalada na rede, permitindo avaliar requisitos não-funcionais como disponibilidade.</p>
+
+        <h2>Padrões de Arquitetura</h2>
+        <p>Um padrão arquitetural é uma solução consolidada para problemas recorrentes no desenvolvimento de software.</p>
+
+        <h3>Arquitetura em Camadas</h3>
+        <p>Prática de dividir problemas complexos em partes menores e auto-contidas, diminuindo a dependência entre os módulos.</p>
+        
+        <div>Camadas em Sistemas Corporativos</div>
+        <ol>
+            <li><strong>Apresentação (Front-end):</strong> Interação com o usuário e tratamento de requisições HTTP.</li>
+            <li><strong>Domínio (Lógica de Negócio):</strong> Validações e regras que regem os dados.</li>
+            <li><strong>Fontes de Dados:</strong> Comunicação com bancos de dados e APIs externas.</li>
+        </ol>
+
+        <h3>Padrão MVC (Model-View-Controller)</h3>
+        <p>O MVC divide a interface do usuário em três componentes distintos para facilitar a manutenção e os testes.</p>
+
+        <div>Componentes do MVC</div>
+        <ul>
+            <li><strong>Modelo (Model):</strong> Gerencia os dados e as regras de negócio. É independente da interface.</li>
+            <li><strong>Visão (View):</strong> A camada de exibição (ex: páginas HTML).</li>
+            <li><strong>Controlador (Controller):</strong> O intermediário que interpreta as entradas do usuário e atualiza o Modelo ou a Visão.</li>
+        </ul>
+
+        <div>Boas Práticas: Separação de Preocupações</div>
+        <p>A separação entre a Visão e o Modelo é uma das práticas mais importantes da engenharia de software, permitindo que a lógica de negócio evolua sem depender de como ela é apresentada ao usuário.</p>
+    </div>
+</body>
+</html>

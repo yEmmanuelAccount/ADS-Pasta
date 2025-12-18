@@ -183,6 +183,10 @@ li::marker {
     font-weight: bolder;
 }
 
+* {
+    box-sizing: border-box; /* Garante que padding/border não alterem o tamanho total */
+}
+
 .btn-voltar {
     padding: 10px 20px;
     background-color: #dab360;
@@ -195,21 +199,58 @@ li::marker {
 
 .btn-voltar:hover {
     background-color: #a3880f;
+    height: 38px
+}
+
+/* Base estrutural dos botões */
+.btn-nav {
+    padding: 0 20px;
+    height: 38px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+/* Container das setas */
+.nav-direita {
+    display: flex;
+    gap: 8px;
+}
+
+/* Ajuste estrutural das setas para serem quadradas */
+.btn-seta {
+    padding: 0; 
+    width: 38px; /* Mesma medida do height para ser quadrado */
+    font-size: 1.2rem;
+}
+
+/* Estilo padrão de cor (Fallback caso a página não tenha classe) */
+.btn-nav {
+    background-color: #dab360;
+    color: black;
+}
+
+.btn-nav:hover {
+    background-color: #a3880f;
 }
 
 header {
     width: 100%;
-    /* O cabeçalho vai ocupar toda a largura da tela */
     background-color: transparent;
-    color: white;
-    padding: 10px 20px;
+    padding: 0 20px; /* Padding lateral apenas, altura controlada pelo height */
     display: flex;
     justify-content: space-between;
-    /* Coloca o botão de volta à esquerda e o conteúdo à direita */
     align-items: center;
     position: sticky;
     top: 0;
     z-index: 1000;
+    height: 60px; /* Altura fixa garantida em todas as páginas */
 }
 
 .conteudo {

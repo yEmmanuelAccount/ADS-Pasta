@@ -35,7 +35,7 @@
 
 /* 2. ESTILOS BASE DE LAYOUT (Descendentes de .pw1-page) */
 
-.pw1-page div {
+div.conteudo {
     text-align: left;
     font-size: 18px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -53,7 +53,7 @@
 /* Títulos (Conteúdo Gerado e Contagem CORRIGIDOS) */
 .pw1-page h1::before,
 .pw1-page h1::after {
-    content: "🧪 ";
+    content: "☕ ";
     color: var(--cor-destaque);
 }
 
@@ -167,6 +167,11 @@
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .pw1-page .btn-voltar:hover {
@@ -175,4 +180,28 @@
 
 pre:not(:has(code)) {
     padding-top: 30px;
+}
+
+.pw1-page div:not(.conteudo):not([class]) {
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
+    margin-bottom: 10px;
+    margin-top: 20px; /* Um pouco mais de margem superior para separar seções */
+    padding: 0.25rem 0.5rem;
+    align-items: center;
+    display: flex;
+    border-radius: 0.5rem;
+    font-weight: bold; /* Para dar peso de título */
+    font-size: 14px;
+    box-shadow: none !important; /* Remove a sombra padrão definida no seu bloco 2 */
+}
+
+.pw1-page .btn-nav {
+    background-color: var(--cor-secundaria);
+    color: black; /* Ou a cor definida no seu tema */
+}
+
+.pw1-page .btn-nav:hover {
+    background-color: var(--cor-destaque);
 }

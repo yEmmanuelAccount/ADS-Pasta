@@ -11,8 +11,11 @@
     --cor-cinza-escuro: #ffffff;
     --cor-cafe-na-folha: #e6dbbd;
     --cor-azul-escuro-suave: #2c3e50;
-    --cor-preto: black;
     --cor-verde-escuro-2: #075c34;
+
+    --cor-titulo: black;
+    --cor-destaque: #00ff44;
+    --cor-secundaria: #83ffbf;
 
     /* Aplicação */
     --plano-de-fundo: var(--cor-verde-escuro-1);
@@ -89,9 +92,9 @@
     border-left: none !important;
     margin-bottom: 1.5rem;
 
-    color: var(--cor-ldr-titulo); /* Define a cor do texto do título */
-    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%); /* GRADIENTE */
-    border-left: 4px solid var(--cor-ldr-destaque) !important; /* BORDA LATERAL */
+    color: var(--cor-titulo); /* Define a cor do texto do título */
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%); /* GRADIENTE */
+    border-left: 4px solid var(--cor-destaque) !important; /* BORDA LATERAL */
     margin-top: 10px;
     padding: 0.25rem; /* Padding do bloco */
     align-items: center;
@@ -100,9 +103,9 @@
 .ldr-page h2,
 .ldr-page h3 {
     /* Resgatando o estilo de bloco de destaque */
-    color: var(--cor-ldr-titulo);
-    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%);
-    border-left: 4px solid var(--cor-ldr-destaque) !important;
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0.25rem;
@@ -114,7 +117,7 @@
 
 /* Blockquote (Descendente de .ldr-page) */
 .ldr-page blockquote {
-    border-left: 4px solid var(--cor-ldr-destaque) !important;
+    border-left: 4px solid var(--cor-destaque) !important;
 }
 
 /* Bloco de Destaque (SUBSTITUIÇÃO para o antigo .ldr) 
@@ -123,9 +126,9 @@
 .ldr-page p.ldr-bloco-destaque,
 .ldr-page div.ldr-bloco-destaque,
 .ldr-page section.ldr-bloco-destaque {
-    color: var(--cor-ldr-titulo);
-    background: linear-gradient(90deg, var(--cor-ldr-secundaria) 30%, transparent 90%);
-    border-left: 4px solid var(--cor-ldr-destaque) !important;
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque) !important;
     margin-bottom: 10px;
     margin-top: 10px;
     padding: 0.25rem;
@@ -152,7 +155,7 @@ tabs {
     display: flex;
     flex-direction: row;
     gap: 1rem;
-    background: hsla(from var(--cor-ldr-secundaria) h s l / 0.25);
+    background: hsla(from var(--cor-secundaria) h s l / 0.25);
     padding: 0.5rem 0.75rem;
     padding-bottom: 0;
     border-radius: 0.25rem;
@@ -160,7 +163,7 @@ tabs {
 }
 
 tab {
-    --bg-color: hsla(from var(--cor-ldr-secundaria) h calc(s - 50) calc(l - 50) / 0.85);
+    --bg-color: hsla(from var(--cor-secundaria) h calc(s - 50) calc(l - 50) / 0.85);
     background: var(--bg-color);
     height: 100%;
     padding-bottom: 0.5rem;
@@ -348,12 +351,12 @@ vmHomeXen button:hover {
 }
 
 .browsertabs tab.selected {
-    --bg-color: var(--cor-ldr-secundaria);
+    --bg-color: var(--cor-secundaria);
     color: black;
 }
 
 .terminaltabs {
-    background: var(--cor-ldr-secundaria);
+    background: var(--cor-secundaria);
     border-radius: 0;
 }
 
@@ -371,49 +374,91 @@ vmHomeXen button:hover {
     background-color: #b8f1ba;
 }
 
-.form-container {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    justify-content: center;
-    align-items: center;
+.btn-open-form {
+    padding: 10px 20px;
+    background-color: var(--cor-code-secundaria);
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-.ip-form {
-    background-color: white;
+.btn-open-form {
+    background-color: #b8f1ba;
+}
+
+/* Estilo do Fundo (Para Fundo Escuro do Modal) */
+.ldr-page .form-container {
+    justify-content: center;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.75);
+}
+
+/* Estilo do Título (Opcional, se você adicionou o <h2>) */
+.ldr-page .form-title {
+    color: var(--cor-titulo);
+    background-color: var(--cor-secundaria);
+    padding: 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+    text-align: center;
+}
+
+/* Estilo do Bloco do Formulário */
+.ldr-page .ip-form {
+    background-color: var(--cor-ghost-white);
+    color: var(--cor-titulo);
     padding: 20px;
     border-radius: 5px;
+    border: 1px solid var(--cor-destaque); 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 300px;
     display: flex;
     flex-direction: column;
     gap: 10px;
+    justify-content: center;
+    align-items: center;
 }
 
-.ip-form label {
+/* Estilo dos Rótulos (Label) */
+.ldr-page .ip-form label {
     font-size: 14px;
+    font-weight: bold;
+    color: var(--cor-titulo); /* Cor do título (azul escuro) */
 }
 
-.ip-form input {
+/* Estilo dos Campos de Entrada (Input) */
+.ldr-page .ip-form input {
     padding: 8px;
     font-size: 14px;
-    border: 1px solid #ccc;
+    border: 1px solid var(--cor-azul-escuro-suave); /* Borda sólida */
     border-radius: 5px;
 }
 
-.ip-form button {
-    background-color: var(--cor-code-secundaria, #4CAF50);
-    color: white;
+/* Foco nos Campos de Entrada */
+.ldr-page .ip-form input:focus {
+    border-color: var(--cor-destaque); /* Borda destacada ao focar */
+    outline: 2px solid var(--cor-secundaria); /* Outline suave de destaque */
+}
+
+/* Estilo do Botão "Salvar" */
+.ldr-page .ip-form button.btn-save {
+    /* Usa a cor de destaque principal (verde/ciano vibrante) */
+    background-color: var(--cor-destaque);
+    color: var(--cor-titulo); /* Texto do botão deve contrastar (preto/azul escuro) */
     padding: 10px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
 
-.ip-form button:hover {
-    background-color: #45a049;
+/* Hover do Botão */
+.ldr-page .ip-form button.btn-save:hover {
+    /* Cor de hover mais escura/saturada */
+    filter: brightness(0.9); 
 }

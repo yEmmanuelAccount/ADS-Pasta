@@ -15,7 +15,7 @@ h2.padrao::before {
 }
 
 h3.padrao::before {
-    content: "🌍 " counter(h1counter) "." counter(h2counter) "." counter(h3counter) " . » ";
+    content: "🌍 " counter(h1counter) "." counter(h2counter) "." counter(h3counter) ". » ";
     padding-right: 7px;
 }
 

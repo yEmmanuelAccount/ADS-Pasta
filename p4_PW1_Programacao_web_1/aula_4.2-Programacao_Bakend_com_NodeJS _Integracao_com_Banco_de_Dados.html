@@ -4,15 +4,76 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/00-home.css">
-    <title>Prisma</title>
+    <title>Aula 4.2: Programação Bakend com NodeJS (com Banco de Dados)</title>
 </head>
 <body class="pw1-page">
     <header>
         <a href="./" class="btn-voltar">Voltar</a>
+        <div class="nav-direita">
+            <a href="aula_4.1-Programacao_Bakend_com _NodeJS _Middleware.html" class="btn-nav" title="Anterior">&lt;</a>
+            <a href="aula_4.3-Programacao_Bakend_com_NodeJS_Autenticacao_e_Middlewares.html" class="btn-nav" title="Próximo">&gt;</a>
+        </div>
     </header>
     
     <div class="conteudo">
+        <h1>Programação Backend com NodeJS <br> (Integração com Banco de Dados)</h1>
 
+        <h2>Iniciando Projeto Backend (TypeScript)</h2>
+        <p>A configuração de um ambiente robusto com TypeScript garante segurança de tipos e melhor experiência de desenvolvimento no Node.js.</p>
+
+        <div>Fluxo de Configuração</div>
+        <ol>
+            <li><strong>Inicialização:</strong> <code>npm init -y</code> para criar o package.json.</li>
+            <li><strong>Dependências:</strong> Instalação de <code>typescript</code> e <code>@types/node</code>.</li>
+            <li><strong>tsconfig:</strong> Geração do arquivo de regras com <code>npx tsc --init</code>.</li>
+            <li><strong>Execução:</strong> Uso do <code>tsx</code> para rodar arquivos TS diretamente no ambiente de desenvolvimento.</li>
+        </ol>
+
+        <h2>Comunicação com Banco de Dados</h2>
+        <p>Existem diferentes níveis de abstração para que uma aplicação Node.js interaja com um banco de dados (BD).</p>
+
+        <h3>Métodos de Integração</h3>
+        
+        <div>Driver Próprio</div>
+        <p>Comunicação direta usando SQL puro. Oferece alta performance, mas exige conhecimento profundo da sintaxe específica de cada banco.</p>
+
+        <div>Query Builders</div>
+        <p>Nível intermediário de abstração (ex: <strong>Knex</strong>). Permite escrever queries usando funções JavaScript, facilitando a portabilidade entre bancos.</p>
+
+        <div>ORM (Object-Relational Mapping)</div>
+        <p>O nível mais alto de abstração. Resolve a <strong>incompatibilidade de impedância</strong>, mapeando tabelas do banco diretamente para objetos na linguagem de programação.</p>
+
+        <h2>Ferramenta Prisma (ORM)</h2>
+        <p>O <strong>Prisma</strong> é um ORM moderno e type-safe que acelera o desenvolvimento através de três componentes principais:</p>
+
+        <div>Prisma Client, Migrate e Studio</div>
+        <ul>
+            <li><strong>Client:</strong> Construtor de queries gerado automaticamente para o código.</li>
+            <li><strong>Migrate:</strong> CLI para gerenciar e versionar o esquema do banco de dados.</li>
+            <li><strong>Studio:</strong> Interface visual para manipulação direta de dados.</li>
+        </ul>
+
+        <h3>O Prisma Schema</h3>
+        <p>É o coração do projeto Prisma, onde são definidos a conexão (DataSource), o gerador do cliente e os modelos de dados (Data Model).</p>
+
+        <div>Modelagem e Relações</div>
+        <p>Os modelos usam <code>PascalCase</code> e atributos como <code>@id</code> e <code>@unique</code>. As relações (one-to-one, one-to-many) são definidas no nível do Prisma e refletidas via chaves estrangeiras no BD.</p>
+
+        <h2>Introdução ao Docker</h2>
+        <p>O <strong>Docker</strong> permite empacotar aplicações em <strong>contêineres</strong>, garantindo que o software funcione da mesma forma em qualquer ambiente.</p>
+
+        <h3>Vantagens e Arquitetura</h3>
+        <p>Diferente das Máquinas Virtuais, os contêineres compartilham o kernel do sistema operacional host, sendo muito mais leves e rápidos.</p>
+
+        <div>Comandos Básicos</div>
+        <ul>
+            <li><code>docker run</code>: Cria e inicia um contêiner.</li>
+            <li><code>docker ps</code>: Lista contêineres ativos.</li>
+            <li><code>docker images</code>: Lista imagens baixadas localmente.</li>
+        </ul>
+
+        <div>Docker Compose</div>
+        <p>Ferramenta para gerenciar múltiplos contêineres simultaneamente (ex: App + Banco de Dados) através de um arquivo <code>docker-compose.yml</code>.</p>
     </div>
 </body>
 </html>
