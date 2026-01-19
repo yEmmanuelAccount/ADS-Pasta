@@ -1,43 +1,213 @@
-@import url("01-root.css");
+@import url("./00-home.css");
 
-h1.les::before, h1.les::after {
-    content: "⚙️";
+/* ========================================================================= */
+/* 1. VARIÁVEIS CSS E ESCOPO GLOBAL (.les-page) */
+/* Este seletor deve ser aplicado no BODY: <body class="les-page"> */
+.les-page {
+    --cor-fundo-principal: #5f747f;
+    --cor-cinza-claro: #eef2f4;
+    --cor-titulo: #2c3a41;
+    --cor-destaque: #6dbee4;
+    --cor-secundaria: #3f8fbf;
+
+    /* Aplicação (Antigos nomes de variáveis TDS) */
+    --plano-de-fundo: var(--cor-fundo-principal);
+    --cor-bordas-titulos: var(--cor-cinza-claro);
+    --cor-destaque-negrito: var(--cor-destaque);
+    --cor-fundo-bloco-codigo: #252830;
+
+    --cor-fundo-recuado: #4a5f6a;
+
+    --cor-code-destaque: var(--cor-destaque);
+    --cor-code-secundaria: var(--cor-secundaria);
+
+    /* Contadores de títulos */
+    counter-reset: h1counter;
+
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-titulo);
 }
 
-h2.les::before {
-    content: "⚙️ " counter(h1counter) "." counter(h2counter) ". » ";
-    padding-right: 7px;
+/* ========================================================================= */
+/* 2. ESTILOS BASE DE LAYOUT */
+
+div.conteudo {
+    text-align: left;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: var(--plano-de-fundo);
 }
 
-h3.les::before {
-    content: "⚙️ " counter(h1counter) "." counter(h2counter) "." counter(h3counter) " . » ";
-    padding-right: 7px;
+.les-page p {
+    margin-block: 0.5rem;
+    text-indent: 2rem;
 }
 
-div.les::before {
-    content: "⚙️ » ";
-    padding-right: 7px;
+/* ========================================================================= */
+/* 3. TÍTULOS E CONTEÚDO */
+
+.les-page h1::before,
+.les-page h1::after {
+    content: "⚙️ ";
+    color: var(--cor-destaque);
 }
 
-h1.les {
+.les-page h2::before {
+    content: counter(h1counter) "." counter(h2counter) ". » ";
+    color: var(--cor-destaque);
+}
+
+.les-page h3::before {
+    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
+    color: var(--cor-destaque);
+}
+
+/* Contadores */
+.les-page h1 {
+    counter-increment: h1counter;
+    counter-reset: h2counter;
+}
+
+.les-page h2 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+}
+
+.les-page h3 {
+    counter-increment: h3counter;
+}
+
+/* Estilo dos títulos */
+.les-page h1 {
+    display: flex;
     justify-content: space-between;
-    text-align: center;
-    display: flex;
-    padding-top: 5px;
-}
-
-blockquote.les {
-    border-left: 4px solid var(--cor-les-destaque) !important;
-}
-
-.les {
-    color: var(--cor-les-titulo);
-    background-color: var(--cor-les-secundaria);
-    border-left: 4px solid var(--cor-les-destaque) !important;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
     align-items: center;
+    text-align: center;
+
+    margin: 10px 0 1.5rem;
+    padding: 0.5rem;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+}
+
+.les-page h2,
+.les-page h3 {
     display: flex;
+    align-items: center;
+
+    margin: 10px 0;
+    padding: 0.25rem;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+}
+
+/* ========================================================================= */
+/* 4. BLOCOS E DESTAQUES */
+
+.les-page blockquote {
+    border-left: 4px solid var(--cor-destaque);
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-titulo);
+}
+
+.les-page blockquote::before,
+.les-page blockquote::after {
+    color: var(--cor-destaque);
+}
+
+.les-page p.les-bloco-destaque,
+.les-page div.les-bloco-destaque,
+.les-page section.les-bloco-destaque {
+    display: flex;
+    align-items: center;
+
+    margin: 10px 0;
+    padding: 0.25rem;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+}
+
+/* ========================================================================= */
+/* 5. TEXTO E CÓDIGO */
+
+.les-page strong {
+    background-color: var(--cor-destaque-negrito);
+    color: #272626;
+    border-radius: 0.1rem;
+    border-color: rgb(100, 192, 245);
+    padding: 0 0.2rem;
+}
+
+.les-page code {
+    background-color: var(--cor-code-secundaria);
+    color: var(--cor-code-destaque);
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    border-radius: 0.2rem;
+    padding: 0.1rem 0.3rem;
+}
+
+/* ========================================================================= */
+/* 6. BOTÕES */
+
+.les-page .btn-voltar,
+.les-page .btn-nav {
+    padding: 10px 20px;
+    background-color: var(--cor-secundaria);
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.les-page .btn-voltar:hover,
+.les-page .btn-nav:hover {
+    background-color: var(--cor-destaque);
+}
+
+/* ========================================================================= */
+/* 7. AJUSTES GERAIS */
+
+pre:not(:has(code)) {
+    padding-top: 30px;
+}
+
+.les-page div:not(.conteudo):not([class]) {
+    display: flex;
+    align-items: center;
+
+    margin: 20px 0 10px;
+    padding: 0.25rem 0.5rem;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+}
+
+/* ========================================================================= */
+/* 8. LINKs */
+
+.les-page a,
+.les-page a:link,
+.les-page a:visited,
+.les-page a:hover,
+.les-page a:active {
+    color: var(--cor-titulo) !important;
+    text-decoration: underline !important;
+    text-decoration-color: #000 !important;
 }
