@@ -6,61 +6,67 @@
     <link rel="stylesheet" href="../styles/00-home.css">
     <title>06 - Diagrama de Objetos</title>
 </head>
-<body>
-    <h1 class="les">Diagrama de Objetos</h1>
+<body class="les-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+    
+    <div class="conteudo">
+        <h1 class="les">Diagrama de Objetos</h1>
 
-    <h2 class="les">Tópicos abordados</h2>
-    <ul>
-        <li>Definição</li>
-        <li>Objetos</li>
-        <li>Ligações</li>
-        <li>
-            <a href="https://medium.com/documenta%C3%A7ao-uml/introdu%C3%A7%C3%A3o-ao-diagrama-de-objetos-902795d485f8">Link</a> para site com a documentação.
-        </li>
-    </ul>
+        <h2 class="les">Tópicos abordados</h2>
+        <ul>
+            <li>Definição</li>
+            <li>Objetos</li>
+            <li>Ligações</li>
+            <li>
+                <a href="https://medium.com/documenta%C3%A7ao-uml/introdu%C3%A7%C3%A3o-ao-diagrama-de-objetos-902795d485f8">Link</a> para site com a documentação.
+            </li>
+        </ul>
 
-    <h2 class="les">O que é?</h2>
-    <p>
-        Um <strong>Diagrama de Objetos</strong> é um diagrama estrutural de UML que mostra as instâncias das classes, usando notação semelhante à usada nos diagramas de classe. Quando representado visualmente, você verá muitas semelhanças     ao diagrama de classes.
-    </p>
-    <p>Representa os <code>objetos</code> e as <code>ligações</code> entre eles, assim como o diagrama de classes representa as <code>classes</code> e as <code>associações</code> entre elas.</p>
-    <p>Assim como os diagramas de classes, os diagramas de objetos modelam a visão lógica.</p>
-    <p>São úteis quando se quer descrever como os objetos do sistema interagem em um cenário particular.</p>
+        <h2 class="les">O que é?</h2>
+        <p>
+            Um <strong>Diagrama de Objetos</strong> é um diagrama estrutural de UML que mostra as instâncias das classes, usando notação semelhante à usada nos diagramas de classe. Quando representado visualmente, você verá muitas semelhanças     ao diagrama de classes.
+        </p>
+        <p>Representa os <code>objetos</code> e as <code>ligações</code> entre eles, assim como o diagrama de classes representa as <code>classes</code> e as <code>associações</code> entre elas.</p>
+        <p>Assim como os diagramas de classes, os diagramas de objetos modelam a visão lógica.</p>
+        <p>São úteis quando se quer descrever como os objetos do sistema interagem em um cenário particular.</p>
 
-    <h2 class="les">Ideia</h2>
-    <ul>
-        <li><code>Retângulos</code> representam objetos.</li>
-        <li><code>Linhas</code> representam as ligações.</li>
-    </ul>
+        <h2 class="les">Ideia</h2>
+        <ul>
+            <li><code>Retângulos</code> representam objetos.</li>
+            <li><code>Linhas</code> representam as ligações.</li>
+        </ul>
 
-    <h2 class="les">Objetos</h2>
-    <p>A notação usada pelos <strong>Diagramas de Objetos</strong> deriva diretamente da notação dos <strong>Diagramas de Classes</strong>. A diferença é que apresenta os nomes dos elementos, que são as instâncias, sublinhados.</p>
+        <h2 class="les">Objetos</h2>
+        <p>A notação usada pelos <strong>Diagramas de Objetos</strong> deriva diretamente da notação dos <strong>Diagramas de Classes</strong>. A diferença é que apresenta os nomes dos elementos, que são as instâncias, sublinhados.</p>
 
-    <ul>
-        <li>
-            <code>Modelo completo</code>: <u>nome_do_objeto: Classe</u>
-        </li>
-        <li>
-            <code>Modelo incompleto</code>: <u>nome_do_objeto</u>
-        </li>
-        <li>
-            <code>Modelo anônimo</code>: <u>:Classe</u>
-        </li>
-    </ul>
+        <ul>
+            <li>
+                <code>Modelo completo</code>: <u>nome_do_objeto: Classe</u>
+            </li>
+            <li>
+                <code>Modelo incompleto</code>: <u>nome_do_objeto</u>
+            </li>
+            <li>
+                <code>Modelo anônimo</code>: <u>:Classe</u>
+            </li>
+        </ul>
 
-    <div class="les">Explicação</div>
-    <p>O <strong>Modelo Anônimo</strong> é usado para sabermos o nome da classe do objeto, mas o nome do objeto ainda não foi definido (ou não nos interessa).</p>
+        <div class="les">Explicação</div>
+        <p>O <strong>Modelo Anônimo</strong> é usado para sabermos o nome da classe do objeto, mas o nome do objeto ainda não foi definido (ou não nos interessa).</p>
 
-    <p>O <strong>Modelo Incompleto</strong> é usado quando sabemos o nome do objeto, mas não se sabe ao certo a classe à qual ele pertence.</p>
+        <p>O <strong>Modelo Incompleto</strong> é usado quando sabemos o nome do objeto, mas não se sabe ao certo a classe à qual ele pertence.</p>
 
-    <p>Os <strong>Retângulos</strong> que simbolizam os objetos podem comportar um segundo compartilhamento que contém o valor dos atributos.</p>
+        <p>Os <strong>Retângulos</strong> que simbolizam os objetos podem comportar um segundo compartilhamento que contém o valor dos atributos.</p>
 
-    <p>O <strong>tipo dos atributos</strong> não é necessário porque já foi definido no diagrama de classes que engloba o dos objetos.</p>
+        <p>O <strong>tipo dos atributos</strong> não é necessário porque já foi definido no diagrama de classes que engloba o dos objetos.</p>
 
-    <h2 class="les">Ligações</h2>
+        <h2 class="les">Ligações</h2>
 
-    <p>Uma ligação entre <strong>objetos</strong> mostra que eles podem se comunicar.</p>
-    <p>Para <strong>criar uma ligação</strong> entre dois objetos, deve existir uma associação entre as classes em questão.</p>
-    <p>Também é possível a adicão de <strong>rótulos</strong> à ligação para indicar seu propósito.</p>
+        <p>Uma ligação entre <strong>objetos</strong> mostra que eles podem se comunicar.</p>
+        <p>Para <strong>criar uma ligação</strong> entre dois objetos, deve existir uma associação entre as classes em questão.</p>
+        <p>Também é possível a adicão de <strong>rótulos</strong> à ligação para indicar seu propósito.</p>
+    </div>
 </body>
 </html>
