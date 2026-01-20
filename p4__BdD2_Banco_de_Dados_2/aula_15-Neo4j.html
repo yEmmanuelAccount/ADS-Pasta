@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Aula 15: Neo4j</title>
+</head>
+<body class="bdd2-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+    
+    <div class="conteudo">
+        <h1>Neo4j</h1>
+
+        <h2>Baixando</h2>
+
+            <p>Coloque o comando a seguir no terminal:</p>
+            <pre><code>
+                docker run -p 7474:7474 -p 7687:7687 --name neo4j neo4j
+            </code></pre>
+
+            <p>Entre na posta 7474 no navegador, usando LocalHost: <a href="http://localhost:7474">localhost:7474</a>.</p>
+
+            <p>O usuário padrão é <strong>neo4j</strong> assim como a senha. Ele irá solicitar uma senha mais forte, exemplo: <strong>neo4j123*</strong>.</p>
+
+        <h2>Nós e </h2>
+
+            <p>Para criar um Nó, temos que passar o seu rótulo e sua estrutura.</p>
+
+        <h2>Primeiros Passos na Linguagem</h2>
+
+            <p>É uma linguagem declarativa.</p>
+
+            <h3>CREATE</h3>
+
+                <pre><code>
+                    CREATE (p:Pessoa {nome: "João", idade: 20})
+                    return p
+                </code></pre>
+
+                <p>Depois de rodar o comando, procure a opção <strong>Graph</strong> para ver a representação gráfica.</p>
+                <p>Ao clicar nos elemento criado, é possível ver mais informações sobre ele do lado direito da interface gráfica</p>
+
+                <p>É possível ver o elemento criado de formas diferentes com as opções de: Table, Text, Code.</p>
+
+            <h3>Merge</h3>
+
+                <pre><code>
+                    MERGE (p:Pessoa{nome: "xxxx", idade:xx})
+                    RETURN p
+                </code></pre>
+
+                <p>Diferente do CREATE, o MERGE evita repetições.</p>
+                <p>Se o elemento não existir, ele cria. Caso já exista, nada acontece.</p>
+            
+            <h3>Busca</h3>
+
+                <p>Funciona através de percurso, ou seja, vai percorrendo os nós criados para realizar a tarefa.</p>
+                <pre><code>
+                    MATCH (p:Pessoa) 
+                    RETURN p
+                </code></pre>
+
+                <p>Para fazer uma busca mais complexa e precisa, podemos usar o <strong>WHERE</strong>.</p>
+                <pre><code>
+                    MATCH (p:Pessoa) WHERE p.nome = "Maria" RETURN p
+                </code></pre>
+
+                <pre><code>
+                    MATCH (p:Pessoa) WHERE p.idade <= 22 RETURN p
+                </code></pre>
+
+                <p><strong>WHERE</strong> é mais usado nesse segundo caso, com operadores lógicos e com possibilidade de retornar um resultado com mais de um elemento. Para fazer uma busca por um elemento específico, uma pessoa específica no nosso caso, usamos:</p>
+                <pre><code>
+                    MATCH (p:Pessoa) (falta coisa)
+                </code></pre>
+            
+            <h3>Criação de Relacionamentos</h3>
+
+                <p>Vamos criar um reacionamento de amizade entre duas pessoas:</p>
+                <pre><code>
+                    MATCH (j:Pessoa{nome: "João"})
+                    MATCH (m:Pessoa{nome: "Maria"})
+                    MERGE (j)-[:AMIGO{desde: date("2026-01-20")}] -> (m)
+                    RETURN j, m
+                </code></pre>
+
+                <p>É preferível usar a quebra de linha <code>(SHIFT + Enter)</code> do que usar uma busca combinada, para deixar a busca mais simples. Com a quebra de linha, ele fará varreduras independentes entre si.</p>
+
+                <pre><code>
+                    MATCH (j:Pessoa{nome: "José"})
+                    MATCH (m:Pessoa{nome: "Maria"})
+                    MERGE (m)-[:AMIGO{desde: date("2026-01-20")}] -> (j)
+                    MATCH (n) RETURN (n)
+                </code></pre>
+
+            <h3>Busca de Relacionamentos</h3>
+
+                <p>Quem são os amigos de João?</p>
+                <pre><code>
+                    MATCH (:Pessoa{nome:"João"})-[:AMIGO*1..2]-(p2:Pessoa)
+                    RETURN p2.nome
+                </code></pre>
+
+                <p>Quem são os amigos dos amigos de João?</p>
+                <pre><code>
+                    MATCH (:Pessoa{nome:"João"})-[:AMIGO]-(:Pessoa)-[:AMIGO]-(p3:Pessoa)
+                    RETURN p3.nome
+                </code></pre>
+
+            <h3>Delete e Update</h3>
+
+                <p>Todos dois são baseados no <code>MATCH</code>, buscando o elementos desejado, e depois modificando-o ou deletando-o.</p>
+
+                <p><strong>Update</strong> para adicionar data de nascimento:</p>
+                <pre><code>
+                    MATCH (j:Pessoa) WHERE j.nome = "João"
+                    SET j.nascimento = date("2006-01-20")
+                </code></pre>
+
+                <p><strong>Delete</strong> para retirar uma pessoa.</p>
+                <pre><code>
+                    MATCH (j:Pessoa) WHERE j.nome = "João"
+                    DELETE j <comment># ou DETACH DELETE para forçar o DELETE mesmo com o relacionamento</comment>
+                </code></pre>
+
+                <p><strong>Delete</strong> por ID:</p>
+                <pre><code>
+                    MATCH (n)
+                    WHERE elementId(n) = "4:8bf8596f-5185-4f05-ac99-aef0bca93e52:2"
+                    DETACH DELETE n
+                </code></pre>
+
+                <p><strong>DELETE</strong> os amigos de uma pessoa específica:</p>
+                <pre><code>
+                    MATCH (:Pessoa{nome:"Maria"})-[r]->(:Pessoa{nome:"José"})
+                    DELETE r
+                </code></pre>
+            
+        <h2>Limpando o Banco</h2>
+
+            <pre><code>
+                MATCH (n) DETACH DELETE n
+            </code></pre>
+
+        <h2>Explorando Bancos já Existentes</h2>
+
+            <p>Procure na barra lateral esquerda o ícone chamado <strong>Guides</strong>. Um DataSet já feito é o de filmes, no tópico <code>:guide movie-graph</code>.</p>
+
+            <p>Pode ir passando pelas abas sem medo. Ao clicar nos blocos de comando, eles são colocados automaticamente no seu terminal para que a criação seja feita de forma rápida.</p>
+
+        <h2>Index</h2>
+            
+            <p>Usando um index criado, podemos usar o comando <code>EXPLAIN</code> para que a busca feita possa ser explicada pelo próprio programa.</p>
+
+    </div>
+</body>
+</html>

@@ -1,3 +1,6 @@
+# código
+
+``` 
 @import url("./00-home.css");
 
 /* ========================================================================= */
@@ -177,3 +180,15 @@
 pre:not(:has(code)) {
     padding-top: 30px;
 }
+```
+
+# contexto
+
+esse é um código css para a classe .tds-page aplicada em uma página html
+
+# instruções
+
+* de acordo com a imagem enviada, adicione novas cores para as variáveis "--cor-fundo-principal", "--cor-texto", "--cor-titulo", "--cor-destaque" e "--cor-secundaria".
+* leve em consideração que o tema da página html deve ser "tema escuro".
+* se for necessário, modifique o código css para usar a variável "--cor-texto" onde ela deveria ser usada.
+* substitua toda a ocorrência de ".tds-page" para ".bdd2-page".

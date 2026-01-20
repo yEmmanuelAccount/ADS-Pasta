@@ -1,47 +1,201 @@
-@import url("01-root.css");
+@import url("./00-home.css");
 
-h1.bdd2::before, h1.bdd2::after {
-    content: "🗄️";
+/* ========================================================================= */
+/* 1. VARIÁVEIS CSS E ESCOPO GLOBAL (.bdd2-page) */
+/* Este seletor deve ser aplicado no BODY: <body class="bdd2-page"> */
+.bdd2-page {
+    /* Paleta – Tema Escuro (inspirado no banner verde) */
+    --cor-fundo-principal: #1f2d2b;
+    --cor-texto: #dfe6e4;
+    --cor-titulo: #ffffff;
+    --cor-destaque: #2ecc71;
+    --cor-secundaria: #145a52;
+
+    --cor-cinza-claro: #F5F5F5;
+    --cor-branca: #ffffff;
+
+    /* Aplicação (Antigos nomes de variáveis TDS) */
+    --plano-de-fundo: var(--cor-fundo-principal);
+    --cor-bordas-titulos: var(--cor-branca);
+    --cor-destaque-negrito: var(--cor-destaque);
+    --cor-fundo-bloco-codigo: #252830;
+
+    --cor-fundo-recuado: #273b38;
+
+    --cor-code-destaque: var(--cor-destaque);
+    --cor-code-secundaria: var(--cor-secundaria);
+
+    /* Contadores de títulos */
+    counter-reset: h1counter;
+
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-texto);
 }
 
-h1.bdd2::after {
-    content: "🗄️";
+/* ========================================================================= */
+/* 2. ESTILOS BASE DE LAYOUT */
+
+.bdd2-page div {
+    text-align: left;
+    font-size: 18px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    background-color: var(--plano-de-fundo);
+    color: var(--cor-texto);
 }
 
-h2.bdd2::before {
-    content: "🗄️ " counter(h1counter) "." counter(h2counter) ". » ";
-    padding-right: 7px;
+.bdd2-page p {
+    margin-block: 0.5rem;
+    text-indent: 2rem;
+    color: var(--cor-texto);
 }
 
-h3.bdd2::before {
-    content: "🗄️ " counter(h1counter) "." counter(h2counter) "." counter(h3counter) ". » ";
-    padding-right: 7px;
+/* ========================================================================= */
+/* 3. ELEMENTOS DE CONTEÚDO E DESTAQUE */
+
+/* Títulos */
+.bdd2-page h1::before,
+.bdd2-page h1::after {
+    content: "🧪 ";
+    color: var(--cor-destaque);
 }
 
-div.bdd2::before {
-    content: "🗄️ » ";
-    padding-right: 7px;
+.bdd2-page h2::before {
+    content: counter(h1counter) "." counter(h2counter) ". » ";
+    color: var(--cor-destaque);
 }
 
-h1.bdd2 {
+.bdd2-page h3::before {
+    content: counter(h1counter) "." counter(h2counter) "." counter(h3counter) " » ";
+    color: var(--cor-destaque);
+}
+
+/* Incrementos */
+.bdd2-page h1 {
+    counter-increment: h1counter;
+    counter-reset: h2counter;
+}
+
+.bdd2-page h2 {
+    counter-increment: h2counter;
+    counter-reset: h3counter;
+}
+
+.bdd2-page h3 {
+    counter-increment: h3counter;
+}
+
+/* Estilo dos títulos */
+.bdd2-page h1 {
     justify-content: space-between;
     text-align: center;
     display: flex;
-    padding-top: 5px;
-}
-
-blockquote.bdd2 {
-    border-left: 4px solid var(--cor-bdd2-destaque) !important;
-}
-
-.bdd2 {
-    color: var(--cor-bdd2-titulo);
-    background-color: var(--cor-bdd2-secundaria);
-    border-left: 4px solid var(--cor-bdd2-destaque) !important;
-    margin-bottom: 10px;
-    margin-top: 10px;
-    padding-left: 5px;
-    padding-right: 5px;
+    border-radius: 0.5rem;
+    box-shadow: none !important;
+    margin: 10px 0 1.5rem;
+    padding: 0.5rem;
     align-items: center;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+}
+
+.bdd2-page h2,
+.bdd2-page h3 {
     display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0.25rem;
+
+    color: var(--cor-titulo);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+    box-shadow: none;
+}
+
+/* ========================================================================= */
+/* Blocos */
+
+.bdd2-page blockquote {
+    border-left: 4px solid var(--cor-destaque);
+    background-color: var(--cor-fundo-recuado);
+    color: var(--cor-texto);
+}
+
+.bdd2-page blockquote::before,
+.bdd2-page blockquote::after {
+    color: var(--cor-destaque);
+}
+
+.bdd2-page p.bdd2-bloco-destaque,
+.bdd2-page div.bdd2-bloco-destaque,
+.bdd2-page section.bdd2-bloco-destaque {
+    display: flex;
+    align-items: center;
+    margin: 10px 0;
+    padding: 0.25rem;
+
+    color: var(--cor-texto);
+    background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%);
+    border-left: 4px solid var(--cor-destaque);
+    border-radius: 0.5rem;
+    box-shadow: none !important;
+}
+
+/* ========================================================================= */
+/* Código e Destaques */
+
+.bdd2-page strong {
+    background-color: var(--cor-destaque-negrito);
+    color: #000;
+    border-radius: 0.1rem;
+    border: 1px solid var(--cor-branca);
+    padding: 0 0.2rem;
+}
+
+.bdd2-page code {
+    background-color: var(--cor-code-secundaria);
+    color: var(--cor-code-destaque);
+    font-weight: bold;
+    font-family: 'Courier New', monospace;
+    border-radius: 0.2rem;
+    border: 1px solid #0001;
+    padding: 0.1rem 0.3rem;
+}
+
+/* ========================================================================= */
+/* Botão */
+
+.bdd2-page .btn-voltar {
+    padding: 10px 20px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-texto);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.bdd2-page .btn-voltar:hover {
+    background-color: var(--cor-destaque);
+    color: #000;
+}
+
+pre:not(:has(code)) {
+    padding-top: 30px;
+}
+
+/* ========================================================================= */
+/* 8. LINKs */
+
+.bdd2-page a,
+.bdd2-page a:link,
+.bdd2-page a:visited,
+.bdd2-page a:hover,
+.bdd2-page a:active {
+    color: var(--cor-texto) !important;
+    text-decoration: underline !important;
+    text-decoration-thickness: 2px;
+    text-decoration-color: var(--cor-texto) !important;
 }
