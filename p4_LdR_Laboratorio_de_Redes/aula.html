@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Analisando Dados para a Tomada de Decisão</title>
+</head>
+<body class="ldr-page">
+    <header>
+
+    </header>
+
+    <div class="conteudo">
+        <h1>Analisando Dados para a Tomada de Decisão</h1>
+
+        <h2>Comandos no RKward</h2>
+
+            <pre><code>
+                install.packages("Benchmarking")
+                library("Benchmarking") <comment># ou é para instalar complementos ou é para ver os packages instalados</comment>
+
+                install.packages("downloader")
+                install.packages("xlsx")
+                
+                apt update
+            </code></pre>
+
+        <h2>Na tabela</h2>
+
+            <p>Tendo os dados das DMUs organizados em uma tabela, com as colunas FractalDim, TCP_AVG e xxxxx, pegamos o maior valor de cada coluna e vamos tentar achar a combinação que mais se aproxima dos 3 ao mesmo tempo.</p>
+
+        <h2>De onde vamos extrair os resultados para a tabela</h2>
+
+            <p></p>
+            <pre><code>
+                cd nginx quic bbr 
+                ls
+                cd fractal 
+                ls
+                fractal_metrics_
+            </code></pre>
+
+        <h2>Observar a tabela</h2>
+
+            <pre><code>
+                SCR_I [["eff"]]
+            </code></pre>
+
+            <p>Temos que atribuir quem é a melhor e a menor, fazendo a uma "lista numérica" e a forma gráfica.</p>
+
+            <p>As medições devem ser feitas com 1GB e 4GB.</p>
+
+        <h2>Dica</h2>
+
+            <p>Entre no diretório "quicompare_ligtht_mono_20241218_oos5127.pcap" e apague ele. É referente a última medição feita no ano passado, antes das férias.</p>
+    </div>
+    
+</body>
+</html>
