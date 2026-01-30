@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Passo a passo da Atividade 01</title>
+</head>
+<body class="ldr-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+
+    <div class="conteudo">
+        <h1>Como fazer a Atividade 01</h1>
+
+        <h2>Video</h2>
+            <iframe 
+                width="560" height="315"
+                src="https://youtu.be/qCjXMhIiTUI" 
+                frameborder="0">
+            </iframe>
+
+            <ul>
+                <li>Tempo Assistido: 00:06:23</li>
+                <li>Tempo Total: 01:33:15</li>
+                <li>Porcentagem: 6,85%</li>
+            </ul>
+
+        <h2>Informações Importantes</h2>
+            <ol>
+                <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="http://177.12.113.61:9090">http://177.12.113.61:9090</a></li>
+                <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="http://177.12.113.61:9001">http://177.12.113.61:9001</a></li>
+            </ol>
+
+        <h2>Entrando no Servidor XEN</h2>
+            <p>Login</p>
+            <ul>
+                <li>Username: ads2</li>
+                <li>Password: @ds654123</li>
+            </ul>
+
+            <p>Ao entrar, primeiramente é mostrado as VMs que estão em <em>running</em>. Se o filtro for trocado para <strong>None</strong>, serão mostradas todas as VMs as quais esse usuário tem acesso.</p>
+
+            <p>As VMs que apresentagem o símbolo de <strong>círculo vermelho</strong> antes de seus nomes estão <strong>desligadas</strong>. Para ligá-las, basta clicar no círculo vermelho ou no botão de <em>Start</em> localizado do lado esquerdo do nome do sistema operacional da VM.</p>
+
+            <p>Depois que a VM estiver devidamente iniciada, clique em seu nome (exemplo: Docker_clone24) e procure a opção <strong>Console</strong>.</p>
+
+        <h2>Docker_clone24</h2>
+            <p>Login</p>
+            <ul>
+                <li><code>dut login</code>: djr</li>
+                <li><code>Password</code>: 654123</li>
+            </ul>
+
+            <p>Logo após o login, observe o IP da sua VM e anote. Outra forma de obtê-lo posteriormente é usando o comando <code>ifconfig</code>.</p>
+            <pre><code>
+                IP address for eth0: 192.168.1.61
+            </code></pre>
+
+            <p>Em seguida, vamos nos transformar em <strong>SuperUsuário</strong> e iniciar a interface gráfica.</p>
+            <pre><code>
+                djr@dut:~$ sudo su 
+                [sudo] password for djr: 654123
+                
+                startx
+            </code></pre>
+
+        <h2>Login no ESXi</h2>
+            <p>Login</p>
+            <ul>
+                <li>User name: ads24</li>
+                <li>Password: @ds654123</li>
+            </ul>
+
+            <p>Já logado, clique em <strong>Virtual Machines</strong> no menu esquerdo e pesquise o nome da VM ligada no tópico anterior (exemplo: clone24). É dito que a que deve ser aberta é a <strong>Ubuntu22s-clone24</strong> referente ao semestre de 2022, então a nossa deve ser <strong>Ubuntu26s</strong>, mas não tenho certeza disso.</p>
+
+            <p>Estando dentro da máquina certa, procure o botão <strong>Power on</strong> localizado no menu superior. Clique na imagem que antes era o Pinguim para abrir o terminal.</p>
+
+            <p>Login</p>
+            <ul>
+                <li>ubuntu22server login: ads</li>
+                <li>Password: 654123</li>
+            </ul>
+
+            <p>Após o login, é possível observar o IP que essa máquina possui:</p>
+            <pre><code>
+                IPv4 address for ens160: 192.168.1.94
+            </code></pre>
+
+        <h2>Docker-clone24</h2>
+            <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
+
+            <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para HOST_LOCAL. Faça o mesmo processo com as demais e as renomei para ESXI_HOST e ESXI DOCKER_HTTPS.</p>
+
+            <h3>Docker-clone24 > ESXI_HOST</h3>
+    </div>
+</body>
+</html>

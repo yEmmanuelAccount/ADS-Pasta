@@ -30,11 +30,14 @@ Para que uma API REST seja bem projetada, ela deve seguir restrições fundament
 ---
 
 ### **3. Questões sobre Banco de Dados e Docker**
-*   **d) (F)** Drivers nativos geralmente oferecem **melhor performance** por não terem a camada de abstração (mapeamento) dos ORMs, embora sejam mais complexos de codificar.
-*   **e) (F)** O **Docker Compose** serve para executar múltiplos contêineres simultaneamente, não apenas criar imagens.
-*   **f) (V)** O arquivo `docker-compose.yml` orquestra múltiplos serviços como banco de dados e aplicação.
-*   **g) (F)** Contêineres **compartilham o kernel** do sistema operacional host, ao contrário das VMs que possuem kernels independentes.
-*   **h) (F)** O Docker padroniza o ambiente, mas ainda requer o uso de **variáveis de ambiente** (`.env`) e configurações específicas para conectar os serviços.
+*   **a) (F)** Embora o driver nativo permita maior controle sobre as queries SQL, ele geralmente **exige mais código**, pois mistura comandos SQL puros com JavaScript, aumentando a responsabilidade do desenvolvedor na organização e segurança.
+*   **b) (F)** Query Builders oferecem uma abstração para gerar consultas através de funções JavaScript, mas não eliminam a necessidade de **conhecer SQL e bancos de dados** para construir a lógica das operações.
+*   **c) (F)** O uso de um ORM visa resolver a incompatibilidade de impedância de dados mapeando linhas para objetos, mas não impede o desenvolvedor de realizar consultas SQL personalizadas (*raw queries*) quando a biblioteca não atende a uma necessidade específica.
+*   **d) (F)** O driver nativo costuma ser a opção com **melhor performance**, pois não possui a sobrecarga da camada de abstração e o custo de transformação de dados que os ORMs e Query Builders impõem.
+*   **e) (F)** O Docker Compose não é usado exclusivamente para criar imagens; sua função principal é **criar e executar vários contêineres simultaneamente** que uma aplicação precisa.
+*   **f) (V)** O Docker Compose permite orquestrar múltiplos serviços (como banco de dados, aplicação e cache) de forma declarativa através de um único arquivo **`docker-compose.yml`**.
+*   **g) (F)** Diferente das máquinas virtuais (VM), os contêineres Docker **compartilham o mesmo kernel** do sistema operacional host, o que os torna mais leves e rápidos que uma VM completa.
+*   **h) (F)** O uso do Docker padroniza o ambiente, mas **não elimina a necessidade de configuração**; variáveis de ambiente (arquivo `.env`) e configurações específicas ainda são essenciais para conectar os serviços e gerenciar credenciais.
 
 ---
 

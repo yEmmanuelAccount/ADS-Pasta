@@ -148,3 +148,26 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+// Função para converter HH:MM:SS para segundos totais
+function converterParaSegundos(tempo) {
+    const partes = tempo.split(':');
+    const h = parseInt(partes[0]) * 3600;
+    const m = parseInt(partes[1]) * 60;
+    const s = parseInt(partes[2]);
+    return h + m + s;
+}
+
+// Seleciona o item da lista
+const item = document.querySelector('#progresso-lista li');
+const totalStr = item.getAttribute('data-total');
+const vistoStr = item.getAttribute('data-visto');
+
+// Realiza o cálculo
+const totalSegundos = converterParaSegundos(totalStr);
+const vistoSegundos = converterParaSegundos(vistoStr);
+
+const calculoPerc = (vistoSegundos / totalSegundos) * 100;
+
+// Exibe o resultado no HTML
+item.querySelector('.porcentagem').innerText = calculoPerc.toFixed(2) + "%";
