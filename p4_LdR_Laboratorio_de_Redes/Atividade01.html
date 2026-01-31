@@ -33,6 +33,8 @@
                 <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="http://177.12.113.61:9001">http://177.12.113.61:9001</a></li>
             </ol>
 
+        <h1>Montando Rede - Preparando Cenário</h1>
+
         <h2>Entrando no Servidor XEN</h2>
             <p>Login</p>
             <ul>
@@ -88,12 +90,152 @@
                 IPv4 address for ens160: 192.168.1.94
             </code></pre>
 
+            <p>Para ter certeza que é esse mesmo o IP, se transforme em SuperUsuário, siga os comandos a seguir e procure o IP referente a Interface <code>ens160</code>:</p>
+            <pre><code>
+                ads@ubuntu22server:$ sudo su 
+                [sudo] password for ads: 654123
+
+                ip a <comment># equivalente ao ifconfig</comment>
+            </code></pre>
+
+            <h3>Caso não existe IP</h3>
+                <pre><code>
+                    dhclient ens160
+
+                    ip a
+                </code></pre>
+
+                <p>Procure o IP referente a Interface <strong>ens160</strong>, em frente a <strong>inet</strong>. Exemplo: 192.168.1.78</p>
+
         <h2>Docker-clone24</h2>
             <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
 
-            <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para HOST_LOCAL. Faça o mesmo processo com as demais e as renomei para ESXI_HOST e ESXI DOCKER_HTTPS.</p>
+            <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para HOST_LOCAL. Faça o mesmo processo com as demais e as renomei para ESXI_HOST e ESXI_DOCKER_HTTPS.</p>
 
-            <h3>Docker-clone24 > ESXI_HOST</h3>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab class="selected">ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    ssh ads@192.168.1.78 <comment># IP da máquina da ESXI</comment>
+
+                    yes <comment># para confirmar a conexão</comment>
+
+                    ads@192.168.1.78's password: 654123
+                </code></pre>
+            </div>
+
+            <p>A função dessa tela é servir como espaço para que os algoritmos de controle de congestionamento sejam trocados.</p>
+
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab class="selected">ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    ads@ubuntu22server:~$ sudo su 
+                    [sudo] password for ads: 654123 
+                </code></pre>
+            </div>
+
+            <p>"Lembrando que o algoritmo de controle de congestionamento de TCP de todo mundo que inicializa o Linux é o cubic. Só para mostrar:</p>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab class="selected">ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control
+                </code></pre>
+            </div>
+
+            <p>O algoritmo de controle de congestionamento só será trocado no Servidor SXI</p>
+
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    root@dut:/home/djr# ssh ads@192.168.1.78
+                    ads@192.168.1.78's password: 654123
+                </code></pre>
+            </div>
+
+            <p>Uma forma de observar que está realmente conectada é ver o <strong>IPv4 address for ens160: 192.168.1.78</strong>.</p>
+
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    ads@ubuntu22server:~$ sudo su
+                    [sudo] password for ads: 654123
+
+                    <comment># inicializando container</comment>
+                    root@ubuntu22server:/home/ads# docker start 64
+                    root@ubuntu22server:/home/ads# docker attach 64
+
+                    root@ubuntu22server:/home/ads# service apache2 start
+                </code></pre>
+            </div>
+
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    root@dut:/home/djr# ping 172.17.0.2 <comment># ainda impossível de alcançar</comment>
+
+                    <comment># digite 'Ctrl + C' para parar o processo</comment>
+
+                    root@dut:/home/djr# route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.1.78 <comment># IP ao qual está conectado das outras 2 abas</comment>
+
+                    <comment># testando novamente o comando de ping</comment>
+                    root@dut:/home/djr# ping 172.17.0.2
+                </code></pre>
+            </div>
+
+            <p>Nesse ponto, a rede está montada. Agora podemos começar os experimentos.</p>
+
+        <h1>Iniciando Experimentos</h1>
+            <p>Criando diretórios:</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code> 
+                    root@dut:/home/djr/# mkdir atividade1
+                    root@dut:/home/djr/# cd atividade1/
+                    root@dut:/home/djr/atividade1# mkdir apache2 nginx
+                    root@dut:/home/djr/atividade1# cd apache2/ 
+                    root@dut:/home/djr/atividade1/apache2# mkdir cubic bic yeah westwood veno
+                    root@dut:/home/djr/atividade1/apache2# cd ..
+                    root@dut:/home/djr/atividade1/# cd nginx/
+                    root@dut:/home/djr/atividade1/nginx# mkdir cubic bic yeah westwood veno
+
+                    <comment># para verificar se os mesmos estão criados nos 2</comment>
+                    root@dut:/home/djr/atividade1/nginx# ls
+                    root@dut:/home/djr/atividade1/nginx# cd ../apache2/;ls
+
+                    <comment># primeira medição</comment>
+                    root@dut:/home/djr/atividade1/apache2# cd cubic/
+                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 200 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
+
+                    root@dut:/home/djr/atividade1/apache2/cubic# ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
+                </code></pre>
+            </div>
     </div>
 </body>
 </html>
