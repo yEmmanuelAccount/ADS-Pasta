@@ -208,7 +208,65 @@
             <p>Nesse ponto, a rede está montada. Agora podemos começar os experimentos.</p>
 
         <h1>Iniciando Experimentos</h1>
-            <p>Criando diretórios:</p>
+            <h2>Criando diretórios</h2>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code> 
+                        root@dut:/home/djr/# mkdir atividade1
+                        root@dut:/home/djr/# cd atividade1/
+                        root@dut:/home/djr/atividade1# mkdir apache2 nginx
+                        root@dut:/home/djr/atividade1# cd apache2/ 
+                        root@dut:/home/djr/atividade1/apache2# mkdir cubic bic yeah westwood veno
+                        root@dut:/home/djr/atividade1/apache2# cd ..
+                        root@dut:/home/djr/atividade1/# cd nginx/
+                        root@dut:/home/djr/atividade1/nginx# mkdir cubic bic yeah westwood veno
+
+                        <comment># para verificar se os mesmos estão criados nos 2</comment>
+                        root@dut:/home/djr/atividade1/nginx# ls
+                        root@dut:/home/djr/atividade1/nginx# cd ../apache2/;ls
+                    </code></pre>
+                </div>
+
+        <h2>Primeira Medição - Apache2_Cubic</h2>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/apache2# cd cubic/
+                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 200 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
+
+                    root@dut:/home/djr/atividade1/apache2/cubic# ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
+
+                    <comment># abrindo o arquivo</comment>
+                    root@dut:/home/djr/atividade1/apache2/cubic# cat apache2_cubic.txt
+                </code></pre>
+            </div>
+
+            <p>Com o arquivo <strong>apache2_cubic.txt</strong> aberto, procure as informações <strong>Requests per second</strong> e <strong>Transfer rate</strong>.</p>
+
+        <h2>Segunda Medição - Nginx_Cubic</h2>
+
+            <p>Parando o Apache2 e ligando o Nginx.</p>
+
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@64f6e6491fff:/# service apache2 stop; service nginx start
+                </code></pre>
+            </div>
+
+            <p>Fazendo a medição.</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">HOST_LOCAL</tab>
@@ -216,24 +274,75 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code> 
-                    root@dut:/home/djr/# mkdir atividade1
-                    root@dut:/home/djr/# cd atividade1/
-                    root@dut:/home/djr/atividade1# mkdir apache2 nginx
-                    root@dut:/home/djr/atividade1# cd apache2/ 
-                    root@dut:/home/djr/atividade1/apache2# mkdir cubic bic yeah westwood veno
-                    root@dut:/home/djr/atividade1/apache2# cd ..
-                    root@dut:/home/djr/atividade1/# cd nginx/
-                    root@dut:/home/djr/atividade1/nginx# mkdir cubic bic yeah westwood veno
+                    root@dut:/home/djr/atividade1/apache2/cubic# cd ../../nginx/cubic
+                    root@dut:/home/djr/atividade1/nginx/cubic# ab -n 2000 -c 200 -e nginx_cubic.csv https://172.17.0.2/ > nginx_cubic.txt
+                </code></pre>
+            </div>
 
-                    <comment># para verificar se os mesmos estão criados nos 2</comment>
-                    root@dut:/home/djr/atividade1/nginx# ls
-                    root@dut:/home/djr/atividade1/nginx# cd ../apache2/;ls
+        <h2>Terceira Medição - Nginx_Bic</h2>
 
-                    <comment># primeira medição</comment>
-                    root@dut:/home/djr/atividade1/apache2# cd cubic/
-                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 200 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
+            <p>Indo para o diretório certo.</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/nginx/cubic# cd ../bic/
+                </code></pre>
+            </div>
 
-                    root@dut:/home/djr/atividade1/apache2/cubic# ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
+            <p>Mudando o protocolo para BIC.</p>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab class="selected">ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@ubuntu22server:/home/ads# echo bic > /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "rol"</comment>
+
+                    <comment># verificando se realmente trocou</comment>
+                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "bic"</comment>
+                </code></pre>
+            </div>
+
+            <p>Fazendo a medição. (00:39:32)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/nginx/bic# ab -n 2000 -c 200 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
+                </code></pre>
+            </div>
+
+        <h2>Quarta Medição - </h2>
+
+            <p>Indo para o diretório certo. (00:39:49)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
+                </code></pre>
+            </div>
+            
+            <p>Indo para o diretório certo. (00:39:49)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
                 </code></pre>
             </div>
     </div>
