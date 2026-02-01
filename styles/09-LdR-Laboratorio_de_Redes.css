@@ -206,6 +206,19 @@ comment {
     user-select: none;
 }
 
+result {
+    display: inline;           
+    color: #D1D5DB;           
+    opacity: 0.9;              
+    filter: saturate(0.5);     
+    user-select: text;         
+    font-family: 'Courier New', monospace; 
+}
+
+.box t {
+    color: #194a32; /* Verde ainda mais denso para garantir a diferença visual */
+}
+
 .box {
     border: 1px solid #ccc;
     border-radius: 0.25rem;

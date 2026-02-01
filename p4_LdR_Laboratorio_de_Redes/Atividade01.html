@@ -14,19 +14,6 @@
     <div class="conteudo">
         <h1>Como fazer a Atividade 01</h1>
 
-        <h2>Video</h2>
-            <iframe 
-                width="560" height="315"
-                src="https://youtu.be/qCjXMhIiTUI" 
-                frameborder="0">
-            </iframe>
-
-            <ul>
-                <li>Tempo Assistido: 00:06:23</li>
-                <li>Tempo Total: 01:33:15</li>
-                <li>Porcentagem: 6,85%</li>
-            </ul>
-
         <h2>Informações Importantes</h2>
             <ol>
                 <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="http://177.12.113.61:9090">http://177.12.113.61:9090</a></li>
@@ -320,9 +307,9 @@
                 </code></pre>
             </div>
 
-        <h2>Quarta Medição - </h2>
+        <h2>Quarto Cenário - Bic</h2>
 
-            <p>Indo para o diretório certo. (00:39:49)</p>
+            <p>Indo para o diretório certo e preparando o comando. (00:39:49)</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">HOST_LOCAL</tab>
@@ -330,11 +317,27 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
+                    <comment># mudança de diretório</comment>
                     root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
+
+                    <comment># preparando o comando. NÃO APERTE Enter</comment>
+                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 200 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
             
-            <p>Indo para o diretório certo. (00:39:49)</p>
+            <p>Desligando o Nginx e ligando o Apache2. (00:40:30)</p>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@64f6e6491fff:/# service nginx stop; service apache2 start
+                </code></pre>
+            </div>
+
+            <p>Executando comando. Aperte Enter no comando antes digitado (00:41:00)</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">HOST_LOCAL</tab>
@@ -342,9 +345,134 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
+                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 200 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
+
+        <h2>Quinto Cenário - Westwood (00:41:22)</h2>
+            <p>Trocando de diretório.</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/apache2/bic# cd ../westwood
+                </code></pre>
+            </div>
+
+            <p>Trocando o algoritmo de Controle de Congestionamento da máquina. (00:41:45)</p>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab class="selected">ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@ubuntu22server:/home/ads# echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
+
+                    <comment># Para conferir a troca de algoritmo</comment>
+                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada: "westwood"</comment>
+                </code></pre>
+            </div>
+
+            <p>Realizando a medição. (00:42:26)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/apache2/westwood# ab -n 2000 -c 200 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
+                </code></pre>
+            </div>
+
+            <p>Trocando servidor Apache2 por Nginx. (00:43:20)</p>
+            <div class="box">
+                <tabs>
+                    <tab>HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@64f6e6491fff:/# service apache2 stop; service nginx start
+                </code></pre>
+            </div>
+            
+            <p>Trocando de diretório. (00:43:42)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/apache2/westwood# cd ../../nginx/westwood
+                </code></pre>
+            </div>
+
+            <p>Realizando medição. (00:44:15)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    root@dut:/home/djr/atividade1/nginx/westwood# ab -n 2000 -c 200 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
+                </code></pre>
+            </div>
+
+        <h2>Pegando arquivos - (00:45:20)</h2>
+
+            <p>Nesse ponto, todas as medições já foram realizadas e agora nos resta fazer o tratamento dos dados. Temos duas opções: fazer o tratamento logo na VM ou trazer os arquivos para o nosso computador e depois tratá-los.</p>
+            <p>Vamos fazer da segunda forma.</p>
+            
+            <h3>Classroom - (00:45:55)</h3>
+
+                <p>Entre no navegador da VM (terceiro ícone da barra de tarefas, da esquerda para a direita), faça login no Google Classroom e posteriormente na sala de aula correta.</p>
+                <p>Dentro da sala de aula de Laboratório de Redes, procure o tópico <strong>"Comparando servidores web variando algoritmos de controle de congestionamento do TCP"</strong>.</p>
+                <p>Baixe os arquivos <strong>"colect_stats_new.sh"</strong> e <strong>"trata_csv.sh"</strong> abrindo-os em novas janelas e assim conseguindo acesso a opção de realizar o download.</p>
+                <p>Depois disso, pode fechar todas as abas e o navegador.</p>
+
+            <h3>Gerenciador de Arquivos - (00:48:52)</h3>
+
+                <p>Abra o Gerenciador de Arquivos (segundo ícone da barra de tarefas, da esquerda para a direita), vá para <strong>Pasta Pessoal</strong> no menu lateral esquerdo, depois em <strong>Downloads</strong> e você encontrará os arquivos baixados anteriormente.</p>
+
+                <p>Em seguida, vá no menu superior da aba, em <strong>Arquivos</strong>, e abra uma nova aba. Na segunda aba, troque o caminho de arquivos para o que está abaixo. (00:49:21)</p>
+                <div class="box">
+                    <tabs>
+                        <tab>Downloads</tab>
+                        <tab class="selected">Downloads</tab>
+                    </tabs>
+                    <pre><code>
+                        /home/djr/atividade1 <comment># resultado esperado: duas pastas - "apache2" e "nginx" - nome da aba "atividade1"</comment>
+                    </code></pre>
+                </div>
+
+                <p>Agora, você irá copiar os dois arquivos baixados, que estão na primeira pasta "Downloads" e colar dentro de cada pasta "bic", "cubic" e "westwood" (00:50:08)</p>
+            
+            <h3>Terminal</h3>
+                <p>Ao voltar ao terminal, vamos conferir se os arquivos realmente estão nas pastas. Seus nomes vão estar com a cor branca, o que significa que não podem ser executados, por isso também vamos dar permissão para que eles sejam executados.</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <comment># conferindo se os arquivos estão na pasta</comment>
+                        root@dut:/home/djr/atividade1/nginx/westwood# ls
+
+                        <comment># saída esperada</comment>
+                        <result>colect_stats_new.sh nginx_westwood nginx_westwood.txt trata_csv.sh</result>
+
+                        <comment># dando permissão para serem executáveis</comment>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> chmod +x collect_stats_new.sh trata_csv.sh
+                    </code></pre>
+                </div>
     </div>
 </body>
 </html>
