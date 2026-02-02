@@ -434,7 +434,7 @@
 
                 <p>Entre no navegador da VM (terceiro ícone da barra de tarefas, da esquerda para a direita), faça login no Google Classroom e posteriormente na sala de aula correta.</p>
                 <p>Dentro da sala de aula de Laboratório de Redes, procure o tópico <strong>"Comparando servidores web variando algoritmos de controle de congestionamento do TCP"</strong>.</p>
-                <p>Baixe os arquivos <strong>"colect_stats_new.sh"</strong> e <strong>"trata_csv.sh"</strong> abrindo-os em novas janelas e assim conseguindo acesso a opção de realizar o download.</p>
+                <p>Baixe os arquivos <strong>"collect_stats_new.sh"</strong> e <strong>"trata_csv.sh"</strong> abrindo-os em novas janelas e assim conseguindo acesso a opção de realizar o download.</p>
                 <p>Depois disso, pode fechar todas as abas e o navegador.</p>
 
             <h3>Gerenciador de Arquivos - (00:48:52)</h3>
@@ -455,7 +455,7 @@
                 <p>Agora, você irá copiar os dois arquivos baixados, que estão na primeira pasta "Downloads" e colar dentro de cada pasta "bic", "cubic" e "westwood" (00:50:08)</p>
             
             <h3>Terminal</h3>
-                <p>Ao voltar ao terminal, vamos conferir se os arquivos realmente estão nas pastas. Seus nomes vão estar com a cor branca, o que significa que não podem ser executados, por isso também vamos dar permissão para que eles sejam executados.</p>
+                <p>Ao voltar ao terminal, vamos conferir se os arquivos realmente estão nas pastas. Seus nomes vão estar com a cor branca, o que significa que não podem ser executados, por isso também vamos dar permissão para que eles sejam executados. (00:51:18)</p>
                 <div class="box">
                     <tabs>
                         <tab class="selected">HOST_LOCAL</tab>
@@ -467,12 +467,362 @@
                         root@dut:/home/djr/atividade1/nginx/westwood# ls
 
                         <comment># saída esperada</comment>
-                        <result>colect_stats_new.sh nginx_westwood nginx_westwood.txt trata_csv.sh</result>
+                        <result>collect_stats_new.sh nginx_westwood.csv nginx_westwood.txt trata_csv.sh</result>
 
                         <comment># dando permissão para serem executáveis</comment>
                         <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> chmod +x collect_stats_new.sh trata_csv.sh
+
+                        <comment># confindo se a permissão de execução deu certo</comment>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ls
+
+                        <comment># resultado esperado (a cor de destaque deve ser verde)</comment>
+                        <result><d style="color: cyan">collect_stats_new.sh</d> nginx_westwood.csv nginx_westwood.txt <d style="color: cyan">trata_csv.sh</d></result>
                     </code></pre>
                 </div>
+
+                <p>Com os preparativos feitos, vamos executar os arquivos baixados. A ordem de execução é importante: <code>collect_stats_new</code> tem e deve ser executado primeiro. (00:52:38)</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ./collect_stats_new.sh nginx_westwood.txt
+
+                        <comment># verificando se deu certo</comment>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ls
+
+                        <comment># resultado esperado</comment>
+                        <result><d style="color: cyan">collect_stats_new.sh</d> nginx_westwood.csv nginx_westwood.txt <d style="color: cyan">trata_csv.sh</d> <d style="color: yellowgreen">status</d></result>
+                    </code></pre>
+                </div>
+
+                <p>Agora executamos o segundo arquivo. (00:53:55)</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> trata_csv.sh nginx_westwood.csv
+                    </code></pre>
+                </div>
+
+                <p>Verificando se deu certo. (00:54:10)</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> cd stats/ 
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood/stats#</t> ls
+                    </code></pre>
+                </div>
+
+                <p>Os arquivos mostrados representam:</p>
+                <ul>
+                    <li><code>nginx_westwood.csv_timeseries.txt</code> - série temporal</li>
+                    <li><code>req_per_sec_nginx_westwood.txt</code> - requisições por segundo</li>
+                    <li><code>transfer_rate_nginx_westwood.txt</code> - taxa de transferência do westwood</li>
+                </ul>
+
+            <h3>Planilha</h3>
+                
+                <p>Em uma planilha, dentro ou fora da VM, coloque os seguintes elementos: (00:54:32)</p>
+                <table class="tds-table">
+                    <thead>
+                        <tr>
+                            <th>DMU</th>
+                            <th>Req por Sec</th>
+                            <th>Taxa Transf</th>
+                            <th>Hurst</th>
+                            <th>Dimensão Fractal</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Apache-Bic</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Nginx-Bic</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Apache-Cubic</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Nginx-Cubic</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Apache-Westwood</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                        <tr>
+                            <td>Nginx-Westwood</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>-</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>Para preencher a informação de <strong>requisições por Segundo</strong> do <strong>Nginx-Westwood</strong>, devemos:</p>
+                <ol>
+                    <li>Abrir o Gerenciador de Arquivos no diretório correspondente (/home/djr/atividade1/nginx/westwood)</li>
+                    <li>Abrir a pasta <strong>stats</strong></li>
+                    <li>Abra, clicando duas vezes ou com o botão direito e em <code>Leafpad</code>, o arquivo correspondente (req_per_sec_nginx_westwood)</li>
+                    <li>Copie o valor dentro do arquivo, usando <code>Ctrl + C</code> ou selecionando o texto, clicando em <strong>Editar</strong> e depois em <strong>Copiar</strong></li>
+                    <li>Cole o valor na planilha (célula B7, no caso desse exemplo)</li>
+                </ol>
+
+                <p>Pegando dados sobre Apache-Westwood (01:01:56)</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <comment># trocando de diretório</comment>
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> cd ../../apache2/westwood/
+
+                        <comment># verificando permissões dos arquivos</comment>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ls
+
+                        <comment># resultado esperado: todos brancos</comment>
+                        <result>apache2_westwood.csv apache2_westwood.txt collect_stats_new.sh trata_csv.sh</result>
+
+                        <comment># trocando as permissões dos arquivos</comment>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> chmod +x collect_stats_new.sh trata_csv.sh
+
+                        <comment># verificando novas permissões</comment>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ls
+
+                        <comment># resultado esperado</comment>
+                        <result><d style="color: cyan">collect_stats_new.sh</d> apache2_westwood.csv apache2_westwood.txt <d style="color: cyan">trata_csv.sh</d></result>
+                    </code></pre>
+                </div>
+
+                <p>Realizando coleta de dados. (01:03:55)</p>
+                <div class="box">
+                    <tabs>
+                        <tab class="selected">HOST_LOCAL</tab>
+                        <tab>ESXI_HOST</tab>
+                        <tab>ESXI_DOCKER_HTTPS</tab>
+                    </tabs>
+                    <pre><code>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ./collect_stats_new.sh apache2_westwood.txt
+
+                        <comment># verificando se deu certo (criação do diretório "stats")</comment>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ls
+
+                        <comment># resultado esperado</comment>
+                        <result><d style="color: cyan">collect_stats_new.sh</d> apache2_westwood.csv apache2_westwood.txt <d style="color: cyan">trata_csv.sh</d> <d style="color: yellowgreen">stats</d></result>
+
+                        <comment># dando continuidade</comment>
+                        <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ./trata_csv.sh apache2_westwood.csv
+                    </code></pre>
+                </div>
+
+                <p>Agora podemos voltar para o Gerenciador de Arquivos, no caminho <code>/home/djr/atividade1/apache2/westwood</code>, no diretório <strong>stats</strong> e copiar as informações necessárias dos arquivos "req_per_sec_apache2_westwood" e "transfer_rate_apache2_westwood". (01:04:20)</p>
+
+                <p>Faça isso para todos os demais casos.</p>
+
+        <h2>RkWard (00:57:04)</h2>
+            <p>Para calcularmos a Dimensão Fractal, precisamos do Rkwads</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@dut:/home/djr/atividade1/nginx/westwood/stats#</t> apt install rkward -y 
+                </code></pre>
+            </div>
+
+            <p>Após a instalação ser concluída, vá no menu <strong>Iniciar</strong>, depois em <strong>Executar</strong>, digite "rkward" e clique em "OK". Selecione a opção "Start with an empty workspace".</p>
+
+            <p>Com o rkward aberto, vá no menu inferior, clique na opção <code>R Console</code> e instale os pacotes necessários. (01:06:52)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">R Console</tab>
+                </tabs>
+                <pre><code>
+                    <t>></t> isntall.packages("pracma"); install.packages("fractaldim") <comment># Enter e selecione a opção "0-Cloud [https]"</comment>
+
+                    <comment># para testar a instalação</comment>
+                    <t>></t> install.packages('pracma');
+                </code></pre>
+            </div>
+
+            <p>Caso a mensagem final foi algo parecido com <code>"package 'pracma' is not avaliable (for R version 3.0.2)", copie esse erro e pesquise no Google.</code></p>
+
+            <p>Depois de conseguir instalar os pacotes, pegue o diretório que deseja analizar e use o comando a seguir. (01:11:52)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">R Console</tab>
+                </tabs>
+                <pre><code>
+                    <t>></t> A=scam('/home/djr/atividade1/apache2/westwood/stats/apache2_westwood.csv_timeseries.txt')
+
+                    <comment># resposta esperada</comment>
+                    <result>Read 100 items</result>
+
+                    <t>></t> A 
+
+                    <t>></t> library(pracma); library(fractaldim);
+
+                    <t>></t> hurstexp(A) <comment># selecione o primeiro desses valores usando o método R/S</comment>
+
+                    <t>></t> B=fd.estimate(A, methods="madogram") <comment>"rodogram" será usado no projeto</comment>
+                </code></pre>
+            </div>
+
+        <h2>Escolhendo a rede com melhor desempenho</h2>
+
+            <p>Após a planilha está devidamente preenchida, teremos que escolher qual das redes teve o melhor desempenho. Para isso, vamos pegar os valores de Cubic para colocar na planilha e ter com o que comparar. Se o teclado parecer que não está funcionando como deveria, recarregue a página da VM.(01:15:09)</p>
+
+            <h3>Processamento do Apache-Cubic e do Nginx-Cubic</h3>
+            <p>Dando permissão para os arquivos baixados. (01:15:45)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <comment># verificando se é o Apache que está rodando</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> service apache2 status
+
+                    <comment># resposta esperada</comment>
+                    <result>* apache2 is not running</result>
+
+                    <comment># entrando no diretório Cubic</comment>
+                    <t>root@dut:/home/djr/atividade1/nginx/westwood/stats#</t> cd ../../cubic/
+
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> ls
+
+                    <comment># resposta esperada</comment>
+                    <result>collect_stats_new.sh nginx_cubic.csv nginx_cubic.txt trata_csv.sh</result>
+
+                    <comment># mudando as permissões dos arquivos</comment>
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> chmod +x trata_csv.sh collect_stats_new.sh
+
+                    <comment># resultado esperado</comment>
+                    <result><d style="color: cyan">collect_stats_new.sh</d> nginx_cubic.csv nginx_cubic.txt <d style="color: cyan">trata_csv.sh</d></result>
+                </code></pre>
+            </div>
+
+            <p>Processando os dados com os arquivos baixados. (01:18:20)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> ./collect_stats_new.sh nginx_cubic.txt
+
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> ./trata_csv.sh nginx_cubic.csv
+                </code></pre>
+            </div>
+
+            <p>Trocando para o Apache e dando permissão para os arquivos. (01:18:38)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <comment># trocando o diretório</comment>
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> cd ../../apache2/cubic/
+
+                    <comment># dando as permissões para os arquivos</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> chmod +x *.sh
+
+                    <comment># verificando se deu certo</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ls
+
+                    <comment># resultado esperado</comment>
+                    <result>apache2_cubic.csv apache2_cubic.txt <d style="color: cyan">collect_stats_new.sh trata_csv.sh</d></result>
+                </code></pre>
+            </div>
+
+            <p>Processando os dados. (01:19:03)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ./collect_stats_new.sh apache2_cubic.txt
+
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ./trata_csv.sh apache2_cubic.csv
+                </code></pre>
+            </div>
+
+            <h3>Processamento de Apache-Bic e Nginx-Bic</h3>
+            <p>(01:19:19)</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">HOST_LOCAL</tab>
+                    <tab>ESXI_HOST</tab>
+                    <tab>ESXI_DOCKER_HTTPS</tab>
+                </tabs>
+                <pre><code>
+                    <comment># trocando o diretório</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> cd ../bic/
+
+                    <comment># dando permissão aos arquivos</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> chmod +x *.sh
+
+                    <comment># processamento</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> ./collect_stats_new.sh apache2_bic.txt
+
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> ./trata_csv.sh apache2_bic.csv
+
+                    <comemnt># trocando diretório</comemnt>
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> cd ../../nginx/bic/
+
+                    <comment># dando permissões aos arquivos</comment>
+                    <t>root@dut:/home/djr/atividade1/nginx/bic#</t> chmod +x *.sh
+
+                    <comment># processamento</comment>
+                    <t>root@dut:/home/djr/atividade1/nginx/bic#</t> ./collect_stats_new.sh nginx_bic.txt
+
+                    <t>root@dut:/home/djr/atividade1/nginx/bic#</t> ./trata_csv.sh nginx_bic.csv
+                </code></pre>
+            </div>
+        
+        <h2>Qual a melhor?</h2>
+            
+            <p>Depois da tabela devidamente preenchida, para descobrir qual a melhor em cada quesito, descubra o maior valor das 3 primeiras colunas ("requisições por Segundo", "Taxa de Transferência" e "Hurst") e o menor valor próximo de 1 da última coluna ("Dimensão Fractal")</p>
     </div>
 </body>
 </html>
