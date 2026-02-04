@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../styles/00-home.css">
+    <title>Testes de Software</title>
+</head>
+<body>
+    <h1>Testes de Software</h1>
+
+    <h2>Tópicos Abordados</h2>
+        <ul>
+            <li>Testes de Sistema</li>
+            <li>Teste de Aceitação</li>
+            <li>Teste de Usabilidade</li>
+            <li>Testes Não Funcionais</li>
+        </ul>
+
+    <h2>Sequência de Criação de Software</h2>
+        <ol>
+            <li>Modelagem de Requisitos</li>
+            <li>Projeto de Arquitetura</li>
+            <li>Projeto dos Componentes</li>
+            <li>Geração de Código</li>
+            <li><strong>Software Executável</strong></li>
+            <li>Teste de Unidade (relacionado a Geração de Código e Projeto de Componentes)</li>
+            <li>Teste de Integração (relacionado a Projeto de Componentes e Projeto de Arquitetura)</li>
+            <li>Teste de Sistema (relacionado a Projeto de Arquitetura e Modelagem de Requisitos)</li>
+            <li>Teste de Aceitação (relacionado a Modelagem de Requisitos)</li>
+        </ol>
+
+    <h2 id="h2-teste_de_sistema">Teste de Sistema</h2>
+
+        <p>Verifica se o produto atende aos requisitos especificados e se o comportamento do programa está correto.</p>
+        <p>Ocorre após o Teste de Integração.</p>
+        <p>Valida se o sistema completo atende aos requisitos funcionais e não-funcionais e quão bem ele faz isso.</p>
+
+        <p>É chamdo também de <strong>Teste de Caixa Preta</strong>, já que é testado com tudo que é integrado e vai usar quando estiver em pleno funcionamento.</p>
+        <p>Deve ser desempenhado por profissional altamente qualificado do time de teste, em um ambiente fechado ao negócio.</p>
+
+
+        <p>A base de Teste de Sistema inclui todos os documentos todos os documentos ou informações descrevendo o objeto de teste no nível de sistema:</p>
+        <ul>
+            <li>Requisitos de Sistema</li>
+            <li>Especificações</li>
+            <li>Análise de Risco, se presente</li>
+            <li>Manuais do Usuário; etc.</li>
+        </ul>
+
+        <p>O Teste de Sistema testa o sistema como um todo o mais próximo possível do ambiente de produção.</p>
+        <p>Utilizamos os produtos de hardware e software necessários para o funcionamento do sistema como um todo.</p>
+        <p>Os testes de sistema não não devem usar drivers de teste nem stubs.</p>
+
+        <h3>Por que testar após o Teste de Unidade e o de Integração dos Componentes?</h3>
+
+            <p>Nos testes de nível menor, foi realizado o teste para verificar se as especificações técnicas, usando perspectiva do desenvolvedor do software.</p>
+            <p>O teste de sistema, por outro lado, olha o sistema sob a perspectiva do <strong>cliente</strong> e do futuro <strong>usuário</strong>.</p>
+
+            <p>Os testadores validam se os requisitos são completamente e apropriadamente implementados.</p>
+            <p>Muitas funções e características do sistema resultam da interação de todos os componentes do sistema que só podem ser acessados quando o sistema inteiro está implementado, podendo ser observado e testado.</p>
+</body>
+</html>
