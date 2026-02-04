@@ -16,9 +16,27 @@
 
         <h2>Informações Importantes</h2>
             <ol>
-                <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="http://177.12.113.61:9090">http://177.12.113.61:9090</a></li>
-                <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="http://177.12.113.61:9001">http://177.12.113.61:9001</a></li>
+                <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="https://200.129.71.165/">https://200.129.71.165/</a></li>
+                <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
             </ol>
+
+        <h1>Habilitando VPN</h1>
+        
+            <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo. Vou seguir as instruções para Windowns.</p>
+
+            <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante.</p>
+
+            <p>Após a extração e instalação completa, procure na barra de tarefas do computador um símbolo de <strong>computador com cadeado</strong>. Clique com botão direito, depois em "Import" e importe o arquivo .ovpn que veio junto com o .zip.</p>
+
+            <p>Para conectar, clique novamente no ícone de <strong>computador com cadeado</strong> e depois em "Conectar". Irá aparecer uma tela de login.</p>
+
+            <p>Login</p>
+            <ul>
+                <li>RedesTeam1</li>
+                <li>R3d3sT1</li>
+            </ul>
+
+            <p>Após isso, dirija-se ao terminal que estão os arquivos extraidos do .zip baixado.</p>
 
         <h1>Montando Rede - Preparando Cenário</h1>
 
@@ -68,7 +86,7 @@
 
             <p>Login</p>
             <ul>
-                <li>ubuntu22server login: ads</li>
+                <li>ubuntu22server login: djr</li> <comemnt>unbuntu24s-GRUPO1</comemnt>
                 <li>Password: 654123</li>
             </ul>
 
@@ -106,7 +124,7 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code> 
-                    ssh ads@192.168.1.78 <comment># IP da máquina da ESXI</comment>
+                    ssh djr@192.168.0.124 <comment># IP da máquina da ESXI</comment>
 
                     yes <comment># para confirmar a conexão</comment>
 
@@ -149,8 +167,8 @@
                     <tab class="selected">ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code> 
-                    root@dut:/home/djr# ssh ads@192.168.1.78
-                    ads@192.168.1.78's password: 654123
+                    root@dut:/home/djr# ssh ads@127.0.0.1 <comment># lo</comment>
+                    djr@djr-quic:$ password: 654123
                 </code></pre>
             </div>
 
@@ -163,14 +181,14 @@
                     <tab class="selected">ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code> 
-                    ads@ubuntu22server:~$ sudo su
+                    djr@djr-quic:$ sudo su
                     [sudo] password for ads: 654123
 
                     <comment># inicializando container</comment>
-                    root@ubuntu22server:/home/ads# docker start 64
-                    root@ubuntu22server:/home/ads# docker attach 64
+                    root@djr-quic:/home/djr# docker start 64
+                    root@djr-quic:/home/djr# docker attach 64
 
-                    root@ubuntu22server:/home/ads# service apache2 start
+                    root@djr-quic:/home/djr# service apache2 start
                 </code></pre>
             </div>
 
