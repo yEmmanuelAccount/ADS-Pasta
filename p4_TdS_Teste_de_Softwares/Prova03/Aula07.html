@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../../styles/00-home.css">
-    <title>Testes de Software</title>
+    <title>Prova 03 - Resumo em Tópicos</title>
 </head>
 <body class="tds-page">
     <header>
@@ -12,58 +12,37 @@
     </header>
 
     <div class="conteudo">
-        <h1>Testes de Software</h1>
+        <h1>Fundamentos e Metodologias de Testes de Software e Usabilidade</h1> 
+        
+        <p>Com base nas fontes fornecidas, segue um resumo estruturado dos principais tópicos abordados na Aula 7:</p> 
 
-    <h2>Tópicos Abordados</h2>
+        <h2>1. Teste de Sistema</h2> 
+        <p>O teste de sistema foca na validação do produto completo para garantir que ele atende aos requisitos especificados [1].</p> 
         <ul>
-            <li>Testes de Sistema</li>
-            <li>Teste de Aceitação</li>
-            <li>Teste de Usabilidade</li>
-            <li>Testes Não Funcionais</li>
+            <li><strong>Momento e Objetivo:</strong> Ocorre após o teste de integração e serve para validar se o sistema completo atende aos requisitos funcionais e não funcionais [1].</li> 
+            <li><strong>Abordagem:</strong> É considerado um teste de caixa-preta, pois as unidades são testadas em conjunto (banco de dados, serviços web, etc.) sob a perspectiva do cliente e do futuro usuário [1, 2].</li> 
+            <li><strong>Ambiente:</strong> Deve ser realizado por profissionais qualificados em um ambiente o mais próximo possível do de produção, utilizando o hardware e software reais, sem o uso de drivers ou stubs [2, 3].</li> 
+            <li><strong>Riscos de Ambiente:</strong> Um erro comum é testar no ambiente operacional do cliente, o que pode causar perda de dados, danos ao sistema em produção e falta de controle sobre a configuração [4].</li> 
+            <li><strong>Base de Teste:</strong> Inclui requisitos do sistema, especificações, manuais do usuário e análise de risco [5].</li> 
+            <li><strong>Desafio dos Requisitos:</strong> Requisitos incompletos ou não documentados dificultam a detecção de defeitos e podem levar ao colapso do projeto devido ao custo e tempo de coleta tardia de informações [6, 7].</li> 
         </ul>
 
-    <h2>Sequência de Criação de Software</h2>
-        <ol>
-            <li>Modelagem de Requisitos</li>
-            <li>Projeto de Arquitetura</li>
-            <li>Projeto dos Componentes</li>
-            <li>Geração de Código</li>
-            <li><strong>Software Executável</strong></li>
-            <li>Teste de Unidade (relacionado a Geração de Código e Projeto de Componentes)</li>
-            <li>Teste de Integração (relacionado a Projeto de Componentes e Projeto de Arquitetura)</li>
-            <li>Teste de Sistema (relacionado a Projeto de Arquitetura e Modelagem de Requisitos)</li>
-            <li>Teste de Aceitação (relacionado a Modelagem de Requisitos)</li>
-        </ol>
-
-    <h2 id="h2-teste_de_sistema">Teste de Sistema</h2>
-
-        <p>Verifica se o produto atende aos requisitos especificados e se o comportamento do programa está correto.</p>
-        <p>Ocorre após o Teste de Integração.</p>
-        <p>Valida se o sistema completo atende aos requisitos funcionais e não-funcionais e quão bem ele faz isso.</p>
-
-        <p>É chamdo também de <strong>Teste de Caixa Preta</strong>, já que é testado com tudo que é integrado e vai usar quando estiver em pleno funcionamento.</p>
-        <p>Deve ser desempenhado por profissional altamente qualificado do time de teste, em um ambiente fechado ao negócio.</p>
-
-
-        <p>A base de Teste de Sistema inclui todos os documentos todos os documentos ou informações descrevendo o objeto de teste no nível de sistema:</p>
+        <h2>2. Teste de Aceitação</h2> 
+        <p>O objetivo principal é verificar se o software está pronto para ser utilizado pelos usuários finais para as tarefas planejadas [7].</p> 
         <ul>
-            <li>Requisitos de Sistema</li>
-            <li>Especificações</li>
-            <li>Análise de Risco, se presente</li>
-            <li>Manuais do Usuário; etc.</li>
+            <li><strong>Perspectiva:</strong> O foco total é no cliente/usuário; o cliente se envolve plenamente e é quem determina se o sistema será aceito ou rejeitado [8].</li> 
+            <li><strong>Tipos de Teste de Aceitação:</strong>
+                <ul>
+                    <li><strong>Teste Alfa:</strong> Realizado no ambiente de desenvolvimento (qualidade externa) [9].</li> 
+                    <li><strong>Teste Beta:</strong> Realizado no ambiente do cliente (qualidade de uso), sendo mais eficaz para revelar defeitos subjetivos [9, 10].</li> 
+                    <li><strong>Teste em Paralelo:</strong> Utilizado em sistemas críticos (bancos, aviação) onde o sistema novo funciona junto ao antigo para comparação [10].</li> 
+                    <li><strong>Teste de Aceitação Operacional:</strong> Focado em administradores do sistema, cobrindo backups, recuperação de desastres e segurança [11, 12].</li> 
+                    <li><strong>Dogfood:</strong> Teste de campo interno onde os próprios funcionários da empresa que desenvolveu o software o utilizam [13].</li> 
+                </ul>
+            </li>
+            <li><strong>Aceitação de Usuário:</strong> Essencial quando cliente e usuário são pessoas diferentes, pois grupos distintos possuem expectativas variadas e podem rejeitar um sistema funcional por ser complicado de usar...</li> 
         </ul>
-
-        <p>O Teste de Sistema testa o sistema como um todo o mais próximo possível do ambiente de produção.</p>
-        <p>Utilizamos os produtos de hardware e software necessários para o funcionamento do sistema como um todo.</p>
-        <p>Os testes de sistema não não devem usar drivers de teste nem stubs.</p>
-
-        <h3>Por que testar após o Teste de Unidade e o de Integração dos Componentes?</h3>
-
-            <p>Nos testes de nível menor, foi realizado o teste para verificar se as especificações técnicas, usando perspectiva do desenvolvedor do software.</p>
-            <p>O teste de sistema, por outro lado, olha o sistema sob a perspectiva do <strong>cliente</strong> e do futuro <strong>usuário</strong>.</p>
-
-            <p>Os testadores validam se os requisitos são completamente e apropriadamente implementados.</p>
-            <p>Muitas funções e características do sistema resultam da interação de todos os componentes do sistema que só podem ser acessados quando o sistema inteiro está implementado, podendo ser observado e testado.</p>
     </div>
+
 </body>
 </html>
