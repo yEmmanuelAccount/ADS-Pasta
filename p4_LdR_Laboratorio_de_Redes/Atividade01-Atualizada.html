@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/00-home.css">
-    <title>Passo a passo da Atividade 01</title>
+    <title>Atividade 01 - Guia</title>
 </head>
 <body class="ldr-page">
     <header>
@@ -68,6 +68,106 @@
             </ul>
 
         <h1>Montando Ambiente</h1>
+
+        <h2>Entrando no XEN (Servidor)</h2>
+
+            <p>Login</p>
+            <div class="box">
+                <pre><code>
+                    <t>dut login:</t> djr
+                    <t>Password:</t> 654123
+                </code></pre>
+            </div>
+
+        <h2>Entrando no ProxMox (Cliente)</h2>
+
+            <p>Login</p>
+            <div class="box">
+                <pre><code>
+                    <t>Username:</t> grupo1
+                    <t>Password:</t> @ds654123
+                </code></pre>
+            </div>
+
+        <h2>Start nas VMs</h2>
+            
+            <p>Como ligar cada VM.</p>
+
+        <h2>ProxMox</h2>
+
+            <p>Login:</p>
+            <div class="box">
+                <pre><code>
+                    <t>djr login:</t> djr
+                    <t>Password:</t> 654123
+                </code></pre>
+            </div>
+
+            <p>Pegando o IP:</p>
+            <div class="box">
+                <pre><code>
+                    <t>djr@djr:$~</t> ifconfig
+                    <comment># procure o IP referente ao "ens18". Ex: 192.168.0.124</comment>
+                </code></pre>
+            </div>
+
+        <h2>XEN_Orchestra</h2>
+
+            <p>Abra mais 2 abas e troque seus nomes para: "cliente", "servidor", "docker".</p>
+
+            <p>Pegando o IP do Cliente:</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>djr@djr-quic:~S</t> ifconfig
+                </code></pre>
+            </div>
+
+            <p>Conectando o ProxMox com as outras abas.</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>djr@djr-quic:~S</t> ssh@192.168.0.124
+                </code></pre>
+            </div>
+
+            <p>Transformando sem SuperUsuário</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>djr@djr-quic:~S</t> sudo su 
+                    <t>[sudo] password for djr: </t> 654123
+                </code></pre>
+            </div>
+
+            <p>Tentativa de troca de senha:</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t></t>
+                </code></pre>
+            </div>
+
+        <h2>Comandos</h2>
+
+            <p>sysctl net.ipv4.tcp_available_congestion_control = listar algoritmos de controle de congestionamento</p>
+            <p>sudo sysclt -w net.ipv4.tcp_congestion_control=[protocolo, ex: bbr] = trocar para o protocolo escolhido</p>
     </div>
 </body>
 </html>
