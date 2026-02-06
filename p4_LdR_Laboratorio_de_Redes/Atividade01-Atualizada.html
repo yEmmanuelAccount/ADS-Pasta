@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/00-home.css">
+    <title>Passo a passo da Atividade 01</title>
+</head>
+<body class="ldr-page">
+    <header>
+        <a href="./" class="btn-voltar">Voltar</a>
+    </header>
+
+    <div class="conteudo">
+        <h1>Como fazer a Atividade 01</h1>
+
+        <h2>Informações Importantes</h2>
+            <ol>
+                <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="https://200.129.71.165/">https://200.129.71.165/</a></li>
+                <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
+            </ol>
+
+        <h1>Habilitando VPN</h1>
+        
+            <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo. Vou seguir as instruções para Windowns.</p>
+
+            <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante.</p>
+
+            <p>Após a extração e instalação, será possível perceber a presença de 3 instaladores diferentes. Escolha a que apresenta <code>install-2.6.7</code>.</p>
+            <p>Com essa versão instalada, procure na barra de tarefas do computador um símbolo de <strong>computador com cadeado</strong> (símbolo da VPN). Clique com botão direito, depois em "Import" e importe o arquivo .ovpn que veio junto com o .zip.</p>
+
+            <p>Depois, clique novamente no símbolo da VPN na barra de tarefas e vá em <strong>"Configurações"</strong>, depois procure no menu superior a opção <strong>"Avançado"</strong>. Copie o caminho apresentado para a "Pasta", no tópico <strong>"Arquivos de Configuração".</strong></p>
+
+            <p>Abra uma nova aba no Explorador de Arquivos e cole o caminho copiado anteriormente. O resultado deve ser duas pastas com nomes quase identicos, mas com a segunda terminando com "-config".</p>
+
+            <p>Como fica o Explorador de Arquivos até esse ponto:</p>
+            <div class="box">
+                <tabs>
+                    <tab>RedesT1</tab>
+                    <tab class="selected">config</tab>
+                </tabs>
+                <pre><code>
+                    pfSence-UDP4-1194-RedesTeam1
+                    pfSence-UDP4-1194-RedesTeam1-config
+                </code></pre>
+            </div>
+
+            <p>Na aba <strong>RedesT1</strong>, abra a pasta com o nome <code>pfSence-UDP4-1194-RedesTeam1-config</code> e procure os arquivos a seguir:</p>
+
+            <div class="box">
+                <tabs>
+                    <tab class="selected">RedesT1</tab>
+                    <tab>config</tab>
+                </tabs>
+                <pre><code>
+                    pfSence-UDP4-1194-RedesTeam1.p12 
+                    pfSence-UDP4-1194-RedesTeam1-tls.key
+                </code></pre>
+            </div>
+
+            <p>Copie esses arquivos e cole dentro de cada pasta da aba <strong>"config"</strong>.</p>
+
+            <p>Após isso, será possível ligar a VPN, clicando novamente no ícone da barra de tarefas com o botão direito, colocando o mouse por cima da opção <strong>"pfSence-UDP4-1194-RedesTeam1-config"</strong> e depois em <strong>"Conectar"</strong>. Irá aparecer uma tela de login.</p>
+
+            <p>Login:</p>
+            <ul>
+                <li>RedesTeam1</li>
+                <li>R3d3sT1</li>
+            </ul>
+
+        <h1>Montando Ambiente</h1>
+    </div>
+</body>
+</html>
