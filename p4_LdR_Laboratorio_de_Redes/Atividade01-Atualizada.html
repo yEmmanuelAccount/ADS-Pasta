@@ -139,7 +139,7 @@
                 </code></pre>
             </div>
 
-            <p>Transformando sem SuperUsuário</p>
+            <p>Transformando em SuperUsuário</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
@@ -152,7 +152,7 @@
                 </code></pre>
             </div>
 
-            <p>Tentativa de troca de senha:</p>
+            <p>6. Tentativa de troca de senha:</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
@@ -160,14 +160,28 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    <t></t>
+                    <t>root@djr:.../djr#</t> passwd <comment># use a senha "654123" e repita para confirmar a senha</comment>
                 </code></pre>
             </div>
 
+            <p>7. Edite o arquivo de configuração do servidor SSH</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@djr:.../djr#</t> /etc/ssh/sshd_config
+                </code></pre>
+            </div>
+
+            <p>Busque a linha <code></code></p>
+
         <h2>Comandos</h2>
 
-            <p>sysctl net.ipv4.tcp_available_congestion_control = listar algoritmos de controle de congestionamento</p>
-            <p>sudo sysclt -w net.ipv4.tcp_congestion_control=[protocolo, ex: bbr] = trocar para o protocolo escolhido</p>
+            <p><code>sysctl net.ipv4.tcp_available_congestion_control</code> = listar algoritmos de controle de congestionamento</p>
+            <p><code>sudo sysctl -w net.ipv4.tcp_congestion_control=bbr</code> = trocar para o protocolo escolhido</p>
     </div>
 </body>
 </html>
