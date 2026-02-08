@@ -134,12 +134,14 @@
                 startx
             </code></pre>
 
-        <h2>Login no ESXi</h2>
-            <p>Login</p>
-            <ul>
-                <li>User name: ads24</li>
-                <li>Password: @ds654123</li>
-            </ul>
+        <h2>Login no ESXI e no XEN</h2>
+            <p>Tela de login:</p>
+            <div class="box">
+                <pre><code>
+                    <t>Usuário:</t> grupo1 
+                    <t>Senha:</t> @ds654123
+                </code></pre>
+            </div>
 
             <p>Já logado, clique em <strong>Virtual Machines</strong> no menu esquerdo e pesquise o nome da VM ligada no tópico anterior (exemplo: clone24). É dito que a que deve ser aberta é a <strong>Ubuntu22s-clone24</strong> referente ao semestre de 2022, então a nossa deve ser <strong>Ubuntu26s</strong>, mas não tenho certeza disso.</p>
 
@@ -158,8 +160,8 @@
 
             <p>Para ter certeza que é esse mesmo o IP, se transforme em SuperUsuário, siga os comandos a seguir e procure o IP referente a Interface <code>ens160</code>:</p>
             <pre><code>
-                ads@ubuntu22server:$ sudo su 
-                [sudo] password for ads: 654123
+                <t>ads@ubuntu22server:$</t> sudo su 
+                <t>[sudo] password for ads:</t> 654123
 
                 ip a <comment># equivalente ao ifconfig</comment>
             </code></pre>
@@ -173,19 +175,20 @@
 
                 <p>Procure o IP referente a Interface <strong>ens160</strong>, em frente a <strong>inet</strong>. Exemplo: 192.168.1.110</p>
 
-        <h2>Docker-clone24</h2>
+        <h2>Docker</h2>
             <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
 
             <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para Cliente. Faça o mesmo processo com as demais e as renomei para Servidor e Docker.</p>
 
+            <p>Nas abas de <code>Servidor</code> e <code>Docker</code>, digite o comando a seguir:</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
                     <tab class="selected">Servidor</tab>
-                    <tab>Docker</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code> 
-                    ssh djr@192.168.0.124 <comment># IP da máquina da ESXI</comment>
+                    <t>root@dut:/home/djr#</t> ssh djr@192.168.0.110 <comment># IP da máquina da ESXI</comment>
 
                     yes <comment># para confirmar a conexão</comment>
 
@@ -319,7 +322,7 @@
 
                         <comment># para verificar se os mesmos estão criados nos 2</comment>
                         <t>root@dut:/home/djr/atividade1/nginx#</t> ls
-                        <t>root@dut:/home/djr/atividade1/nginx#</t> cd ../apache2/;ls
+                        <t>root@dut:/home/djr/atividade1/nginx#</t> cd ../apache2/; ls
                     </code></pre>
                 </div>
 
@@ -354,7 +357,7 @@
                     <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@64f6e6491fff:/# service apache2 stop; service nginx start
+                    <t>root@64f6e6491fff:/#</t> service apache2 stop; service nginx start
                 </code></pre>
             </div>
 
@@ -366,8 +369,8 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
-                    root@dut:/home/djr/atividade1/apache2/cubic# cd ../../nginx/cubic
-                    root@dut:/home/djr/atividade1/nginx/cubic# ab -n 2000 -c 100 -e nginx_cubic.csv https://172.17.0.2/ > nginx_cubic.txt
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> cd ../../nginx/cubic
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> ab -n 2000 -c 100 -e nginx_cubic.csv https://172.17.0.2/ > nginx_cubic.txt
                 </code></pre>
             </div>
 
@@ -381,7 +384,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/cubic# cd ../bic/
+                    <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> cd ../bic/
                 </code></pre>
             </div>
 
@@ -393,10 +396,10 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@ubuntu22server:/home/ads# echo bic > /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "rol"</comment>
+                    <t>root@ubuntu22server:/home/ads#</t> echo bic > /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "rol"</comment>
 
                     <comment># verificando se realmente trocou</comment>
-                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "bic"</comment>
+                    <t>root@ubuntu22server:/home/ads#</t> cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "bic"</comment>
                 </code></pre>
             </div>
 
@@ -408,7 +411,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/bic# ab -n 2000 -c 100 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
+                    <t>root@dut:/home/djr/atividade1/nginx/bic#</t> ab -n 2000 -c 100 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
                 </code></pre>
             </div>
 
@@ -423,10 +426,10 @@
                 </tabs>
                 <pre><code>
                     <comment># mudança de diretório</comment>
-                    root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
+                    <t>root@dut:/home/djr/atividade1/nginx/bic#</t> cd ../../apache2/bic
 
                     <comment># preparando o comando. NÃO APERTE Enter</comment>
-                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
             
@@ -438,7 +441,7 @@
                     <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@64f6e6491fff:/# service nginx stop; service apache2 start
+                    <t>root@64f6e6491fff:/#</t> service nginx stop; service apache2 start
                 </code></pre>
             </div>
 
@@ -450,7 +453,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
 
@@ -463,7 +466,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/bic# cd ../westwood
+                    <t>root@dut:/home/djr/atividade1/apache2/bic#</t> cd ../westwood
                 </code></pre>
             </div>
 
@@ -475,10 +478,10 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@ubuntu22server:/home/ads# echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
+                    <t>root@ubuntu22server:/home/ads#</t> echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
 
                     <comment># Para conferir a troca de algoritmo</comment>
-                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada: "westwood"</comment>
+                    <t>root@ubuntu22server:/home/ads#</t> cat /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada: "westwood"</comment>
                 </code></pre>
             </div>
 
@@ -490,7 +493,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/westwood# ab -n 2000 -c 100 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
+                    <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ab -n 2000 -c 100 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
                 </code></pre>
             </div>
 
@@ -502,7 +505,7 @@
                     <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@64f6e6491fff:/# service apache2 stop; service nginx start
+                    <t>root@64f6e6491fff:/#</t> service apache2 stop; service nginx start
                 </code></pre>
             </div>
             
@@ -515,7 +518,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/westwood# cd ../../nginx/westwood
+                    <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> cd ../../nginx/westwood
                 </code></pre>
             </div>
 
@@ -527,7 +530,7 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/westwood# ab -n 2000 -c 100 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
+                    <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ab -n 2000 -c 100 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
                 </code></pre>
             </div>
 
@@ -570,7 +573,7 @@
                     </tabs>
                     <pre><code>
                         <comment># conferindo se os arquivos estão na pasta</comment>
-                        root@dut:/home/djr/atividade1/nginx/westwood# ls
+                        <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ls
 
                         <comment># saída esperada</comment>
                         <result>collect_stats_new.sh nginx_westwood.csv nginx_westwood.txt trata_csv.sh</result>
@@ -600,7 +603,7 @@
                         <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ls
 
                         <comment># resultado esperado</comment>
-                        <result><d style="color: cyan">collect_stats_new.sh</d> nginx_westwood.csv nginx_westwood.txt <d style="color: cyan">trata_csv.sh</d> <d style="color: yellowgreen">status</d></result>
+                        <result><d style="color: cyan">collect_stats_new.sh</d> nginx_westwood.csv nginx_westwood.txt <d style="color: cyan">trata_csv.sh</d> <d style="color: yellowgreen">stats</d></result>
                     </code></pre>
                 </div>
 
@@ -822,7 +825,7 @@
                 </tabs>
                 <pre><code>
                     <comment># verificando se é o Apache que está rodando</comment>
-                    <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> service apache2 status
+                    <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> service apache2 stats
 
                     <comment># resposta esperada</comment>
                     <result>* apache2 is not running</result>
