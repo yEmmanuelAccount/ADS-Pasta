@@ -788,7 +788,13 @@
                 </code></pre>
             </div>
 
-            <p>Caso a mensagem final foi algo parecido com <code>"package 'pracma' is not avaliable (for R version 3.0.2)", copie esse erro e pesquise no Google.</code></p>
+            <p>Caso a mensagem final foi algo parecido com <code>"package 'pracma' is not avaliable (for R version 3.0.2)"</code>, pesquise no navehador da própria VM as versões compatíveis.</p>
+
+            <ul>
+                <li>fractaldim_0.8-1.tar.gz</li>
+                <li>abind_1.4-0.tar.gz</li>
+                <li>pracma_1.7.0.tar.gz</li>
+            </ul>
 
             <p>Depois de conseguir instalar os pacotes, pegue o diretório que deseja analizar e use o comando a seguir. (01:11:52)</p>
             <div class="box">
@@ -796,18 +802,18 @@
                     <tab class="selected">R Console</tab>
                 </tabs>
                 <pre><code>
-                    <t>></t> A=scam('/home/djr/atividade1/apache2/westwood/stats/apache2_westwood.csv_timeseries.txt')
+                    <t>></t> A=scan('/home/djr/atividade1/apache2/westwood/stats/apache2_westwood.csv_timeseries.txt')
 
                     <comment># resposta esperada</comment>
                     <result>Read 100 items</result>
 
-                    <t>></t> A 
+                    <t>></t> A <comment># retorna uma lista de 100 valores</comment>
 
                     <t>></t> library(pracma); library(fractaldim);
 
-                    <t>></t> hurstexp(A) <comment># selecione o primeiro desses valores usando o método R/S</comment>
+                    <t>></t> hurstexp(A) <comment># para calcular o parâmetro de Hurst de acordo com a série temporal "A". Selecione o primeiro desses valores usando o método R/S</comment>
 
-                    <t>></t> B=fd.estimate(A, methods="madogram") <comment>"rodogram" será usado no projeto</comment>
+                    <t>></t> B=fd.estimate(A, methods="madogram") <comment># "rodogram" será usado no projeto</comment>
                 </code></pre>
             </div>
 
