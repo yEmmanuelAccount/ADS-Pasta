@@ -20,9 +20,9 @@
                 <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
             </ol>
 
-        <h1>Habilitando VPN</h1>
+        <h1>Habilitando VPN - Windows</h1>
         
-            <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo. Vou seguir as instruções para Windowns.</p>
+            <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo.</p>
 
             <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante.</p>
 
@@ -68,14 +68,37 @@
                 <li>R3d3sT1</li>
             </ul>
 
+        <h2>Configurando VPN - Linux</h2>
+
+            <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo. Vou seguir as instruções para Windowns.</p>
+
+            <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante. Extraia também o outro .zip interno.</p>
+
+            <p>Dentro do .zip mais interno, você encotrará 3 arquivos. Entre nesse diretório por meio do terminal e execute o comando a seguir:</p>
+
+            <div class="box">
+                <pre><code>
+                    <t></t> sudo openvpn --config "pfSense-UDP4-1194-RedesTeam1.ovpn"
+                </code></pre>
+            </div>
+
+            <p>Senha da VPN (lembrando que o número muda de acordo com o grupo):</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>Usuário:</t> RedesTeam1
+                    <t>Senha:</t> R3d3sT1
+                </code></pre>
+            </div>
+
         <h1>Montando Rede - Preparando Cenário</h1>
 
-        <h2>Entrando no Servidor XEN</h2>
-            <p>Login</p>
-            <ul>
-                <li>Username: ads2</li>
-                <li>Password: @ds654123</li>
-            </ul>
+        <h2>Ligando VM do XEN</h2>
+            
 
             <p>Ao entrar, primeiramente é mostrado as VMs que estão em <em>running</em>. Se o filtro for trocado para <strong>None</strong>, serão mostradas todas as VMs as quais esse usuário tem acesso.</p>
 
@@ -83,12 +106,20 @@
 
             <p>Depois que a VM estiver devidamente iniciada, clique em seu nome (exemplo: Docker_clone24) e procure a opção <strong>Console</strong>.</p>
 
-        <h2>Docker_clone24</h2>
-            <p>Login</p>
-            <ul>
-                <li><code>dut login</code>: djr</li>
-                <li><code>Password</code>: 654123</li>
-            </ul>
+        <h2>XEN_Orchestra</h2>
+            <p></p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">Aba</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <comment># login</comment>
+                    <t>dut login: </t> djr
+                    <t>Password: </t> 654123
+                </code></pre>
+            </div>
 
             <p>Logo após o login, observe o IP da sua VM e anote. Outra forma de obtê-lo posteriormente é usando o comando <code>ifconfig</code>.</p>
             <pre><code>
@@ -188,7 +219,7 @@
                 </code></pre>
             </div>
 
-            <p>O algoritmo de controle de congestionamento só será trocado no Servidor SXI</p>
+            <p>O algoritmo de controle de congestionamento só será trocado no Servidor ESXI</p>
 
             <div class="box">
                 <tabs>
@@ -215,8 +246,8 @@
                     [sudo] password for ads: 654123
 
                     <comment># inicializando container</comment>
-                    root@djr-quic:/home/djr# docker start 64
-                    root@djr-quic:/home/djr# docker attach 64
+                    root@djr-quic:/home/djr# docker start 29
+                    root@djr-quic:/home/djr# docker attach 29
 
                     root@djr-quic:/home/djr# service apache2 start
                 </code></pre>
@@ -236,7 +267,7 @@
                     root@dut:/home/djr# route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.1.78 <comment># IP ao qual está conectado das outras 2 abas</comment>
 
                     <comment># testando novamente o comando de ping</comment>
-                    root@dut:/home/djr# ping 172.17.0.2
+                    root@dut:/home/djr# ping 172.17.0.1
                 </code></pre>
             </div>
 
@@ -255,10 +286,10 @@
                         root@dut:/home/djr/# cd atividade1/
                         root@dut:/home/djr/atividade1# mkdir apache2 nginx
                         root@dut:/home/djr/atividade1# cd apache2/ 
-                        root@dut:/home/djr/atividade1/apache2# mkdir cubic bic yeah westwood veno
+                        root@dut:/home/djr/atividade1/apache2# mkdir cubic bic westwood hybla
                         root@dut:/home/djr/atividade1/apache2# cd ..
                         root@dut:/home/djr/atividade1/# cd nginx/
-                        root@dut:/home/djr/atividade1/nginx# mkdir cubic bic yeah westwood veno
+                        root@dut:/home/djr/atividade1/nginx# mkdir cubic bic westwood hybla
 
                         <comment># para verificar se os mesmos estão criados nos 2</comment>
                         root@dut:/home/djr/atividade1/nginx# ls
@@ -275,7 +306,7 @@
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/apache2# cd cubic/
-                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 200 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
+                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 100 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
 
                     root@dut:/home/djr/atividade1/apache2/cubic# ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
 
@@ -310,7 +341,7 @@
                 </tabs>
                 <pre><code> 
                     root@dut:/home/djr/atividade1/apache2/cubic# cd ../../nginx/cubic
-                    root@dut:/home/djr/atividade1/nginx/cubic# ab -n 2000 -c 200 -e nginx_cubic.csv https://172.17.0.2/ > nginx_cubic.txt
+                    root@dut:/home/djr/atividade1/nginx/cubic# ab -n 2000 -c 100 -e nginx_cubic.csv https://172.17.0.2/ > nginx_cubic.txt
                 </code></pre>
             </div>
 
@@ -351,7 +382,7 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/bic# ab -n 2000 -c 200 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
+                    root@dut:/home/djr/atividade1/nginx/bic# ab -n 2000 -c 100 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
                 </code></pre>
             </div>
 
@@ -369,7 +400,7 @@
                     root@dut:/home/djr/atividade1/nginx/bic# cd ../../apache2/bic
 
                     <comment># preparando o comando. NÃO APERTE Enter</comment>
-                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 200 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
+                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
             
@@ -393,7 +424,7 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 200 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
+                    root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
                 </code></pre>
             </div>
 
@@ -433,7 +464,7 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2/westwood# ab -n 2000 -c 200 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
+                    root@dut:/home/djr/atividade1/apache2/westwood# ab -n 2000 -c 100 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
                 </code></pre>
             </div>
 
@@ -469,7 +500,7 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/nginx/westwood# ab -n 2000 -c 200 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
+                    root@dut:/home/djr/atividade1/nginx/westwood# ab -n 2000 -c 100 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
                 </code></pre>
             </div>
 

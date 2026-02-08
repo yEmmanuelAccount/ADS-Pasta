@@ -69,17 +69,7 @@
 
         <h1>Montando Ambiente</h1>
 
-        <h2>Entrando no XEN (Servidor)</h2>
-
-            <p>Login</p>
-            <div class="box">
-                <pre><code>
-                    <t>dut login:</t> djr
-                    <t>Password:</t> 654123
-                </code></pre>
-            </div>
-
-        <h2>Entrando no ProxMox (Cliente)</h2>
+        <h2>Entrando no XEN (Servidor) e no ProxMox (Cliente)</h2>
 
             <p>Login</p>
             <div class="box">
@@ -90,6 +80,10 @@
             </div>
 
         <h2>Start nas VMs</h2>
+
+            <h3>XEN_Orchestra</h3>
+
+                <p>No menu superior, na barra de pesquisa, troque o filtro para <strong>None</strong>. Ligue o Docker que aparecer.</p>
             
             <p>Como ligar cada VM.</p>
 
@@ -107,15 +101,27 @@
             <div class="box">
                 <pre><code>
                     <t>djr@djr:$~</t> ifconfig
-                    <comment># procure o IP referente ao "ens18". Ex: 192.168.0.124</comment>
+                    <comment># procure o IP referente ao "ens18". Ex: 192.168.0.110</comment>
                 </code></pre>
             </div>
 
         <h2>XEN_Orchestra</h2>
 
-            <p>Abra mais 2 abas e troque seus nomes para: "cliente", "servidor", "docker".</p>
+            <p>Login</p>
+            <div class="box">
+                <pre><code>
+                    <t>dut login:</t> djr 
+                    <t>Password:</t> 654123
 
-            <p>Pegando o IP do Cliente:</p>
+                    <t>djr@dut:~S</t> startx
+                </code></pre>
+            </div>
+
+            <p>Com a interface gráfica iniciada, vá no menu Iniciar, depois em Acessórios e depois no LXTerminal.</p>
+
+            <p>Crie mais 2 abas e nomei as 3 na seguinte ordem: Cliente, Servidor, Docker.</p>
+
+            <p>Obterndo IP do Cliente.</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Cliente</tab>
@@ -123,65 +129,56 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    <t>djr@djr-quic:~S</t> ifconfig
+                    <t>djr@dut:~$</t> ifconfig
+                    <comment> eth0: 192.168.0.107</comment>
                 </code></pre>
             </div>
 
-            <p>Conectando o ProxMox com as outras abas.</p>
+            <p>Conectando o Servidor nas duas últimas abas</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
                     <tab class="selected">Servidor</tab>
-                    <tab>Docker</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
-                    <t>djr@djr-quic:~S</t> ssh@192.168.0.124
+                    <t>djr@dut:~S</t> ssh@192.168.0.110
                 </code></pre>
             </div>
 
-            <p>Transformando em SuperUsuário</p>
+            <p>Ligando os Docker.</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
-                    <tab class="selected">Servidor</tab>
-                    <tab>Docker</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
-                    <t>djr@djr-quic:~S</t> sudo su 
-                    <t>[sudo] password for djr: </t> 654123
+                    <t>djr@djr:~S</t> sudo su 
+                    <t>[sudo] password for djr:</t> 654123
+
+                    <t>root@djr:.../djr#</t> docker start 29; docker attach 29
                 </code></pre>
             </div>
 
-            <p>6. Tentativa de troca de senha:</p>
+            <p>Adicionando a rota ao Cliente.</p>
             <div class="box">
                 <tabs>
-                    <tab>Cliente</tab>
-                    <tab class="selected">Servidor</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code>
-                    <t>root@djr:.../djr#</t> passwd <comment># use a senha "654123" e repita para confirmar a senha</comment>
+                    <t>djr@dut:~S</t> sudo su 
+                    <t>[sudo] password for djr:</t> 654123
+
+                    <t>root@dut:/home/djr#</t> route add -net 172.17.. netmask 255.255.0.0 gw 192.168.0.110
+
+                    <comment># para confirmar</comment>
+                    <t>root@dut:/home/djr#</t> ping 172.17.0.1
+
                 </code></pre>
             </div>
-
-            <p>7. Edite o arquivo de configuração do servidor SSH</p>
-            <div class="box">
-                <tabs>
-                    <tab>Cliente</tab>
-                    <tab class="selected">Servidor</tab>
-                    <tab>Docker</tab>
-                </tabs>
-                <pre><code>
-                    <t>root@djr:.../djr#</t> /etc/ssh/sshd_config
-                </code></pre>
-            </div>
-
-            <p>Busque a linha <code></code></p>
-
-        <h2>Comandos</h2>
-
-            <p><code>sysctl net.ipv4.tcp_available_congestion_control</code> = listar algoritmos de controle de congestionamento</p>
-            <p><code>sudo sysctl -w net.ipv4.tcp_congestion_control=bbr</code> = trocar para o protocolo escolhido</p>
     </div>
 </body>
 </html>
