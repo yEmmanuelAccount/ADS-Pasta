@@ -171,7 +171,7 @@
                     ip a
                 </code></pre>
 
-                <p>Procure o IP referente a Interface <strong>ens160</strong>, em frente a <strong>inet</strong>. Exemplo: 192.168.1.78</p>
+                <p>Procure o IP referente a Interface <strong>ens160</strong>, em frente a <strong>inet</strong>. Exemplo: 192.168.1.110</p>
 
         <h2>Docker-clone24</h2>
             <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
@@ -189,7 +189,7 @@
 
                     yes <comment># para confirmar a conexão</comment>
 
-                    ads@192.168.1.78's password: 654123
+                    ads@192.168.1.110's password: 654123
                 </code></pre>
             </div>
 
@@ -233,7 +233,7 @@
                 </code></pre>
             </div>
 
-            <p>Uma forma de observar que está realmente conectada é ver o <strong>IPv4 address for ens160: 192.168.1.78</strong>.</p>
+            <p>Uma forma de observar que está realmente conectada é ver o <strong>IPv4 address for ens160: 192.168.1.110</strong>.</p>
 
             <div class="box">
                 <tabs>
@@ -260,14 +260,40 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code> 
-                    root@dut:/home/djr# ping 172.17.0.2 <comment># ainda impossível de alcançar</comment>
+                    <t>root@dut:/home/djr#</t> ping 172.17.0.2 <comment># ainda impossível de alcançar</comment>
 
                     <comment># digite 'Ctrl + C' para parar o processo</comment>
+                </code></pre>
+            </div>
 
-                    root@dut:/home/djr# route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.1.78 <comment># IP ao qual está conectado das outras 2 abas</comment>
+            <p>Mudando as configurações de Firewall</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@djr:.../djr#</t> nft flush rules
+                    <t>root@djr:.../djr#</t> iptables -F 
+                    <t>root@djr:.../djr#</t> nfw disable
+                    <comment># vai dar uma mensagem de erro, mas é normal, pode ignorar ela e seguir para o próximo passo.</comment>
+                    
+                </code></pre>
+            </div>
+
+            <p>Testando a conexão novamente.</p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>root@dut:/home/djr#</t> route add -net 172.17.0.0 netmask 255.255.0.0 gw 192.168.1.110 <comment># IP ao qual está conectado das outras 2 abas</comment>
 
                     <comment># testando novamente o comando de ping</comment>
-                    root@dut:/home/djr# ping 172.17.0.1
+                    <t>root@dut:/home/djr#</t> ping 172.17.0.2
                 </code></pre>
             </div>
 
@@ -282,18 +308,18 @@
                         <tab>ESXI_DOCKER_HTTPS</tab>
                     </tabs>
                     <pre><code> 
-                        root@dut:/home/djr/# mkdir atividade1
-                        root@dut:/home/djr/# cd atividade1/
-                        root@dut:/home/djr/atividade1# mkdir apache2 nginx
-                        root@dut:/home/djr/atividade1# cd apache2/ 
-                        root@dut:/home/djr/atividade1/apache2# mkdir cubic bic westwood hybla
-                        root@dut:/home/djr/atividade1/apache2# cd ..
-                        root@dut:/home/djr/atividade1/# cd nginx/
-                        root@dut:/home/djr/atividade1/nginx# mkdir cubic bic westwood hybla
+                        <t>root@dut:/home/djr/#</t> mkdir atividade1
+                        <t>root@dut:/home/djr/#</t> cd atividade1/
+                        <t>root@dut:/home/djr/atividade1#</t> mkdir apache2 nginx
+                        <t>root@dut:/home/djr/atividade1#</t> cd apache2/ 
+                        <t>root@dut:/home/djr/atividade1/apache2#</t> mkdir cubic bic westwood hybla
+                        <t>root@dut:/home/djr/atividade1/apache2#</t> cd ..
+                        <t>root@dut:/home/djr/atividade1/#</t> cd nginx/
+                        <t>root@dut:/home/djr/atividade1/nginx#</t> mkdir cubic bic westwood hybla
 
                         <comment># para verificar se os mesmos estão criados nos 2</comment>
-                        root@dut:/home/djr/atividade1/nginx# ls
-                        root@dut:/home/djr/atividade1/nginx# cd ../apache2/;ls
+                        <t>root@dut:/home/djr/atividade1/nginx#</t> ls
+                        <t>root@dut:/home/djr/atividade1/nginx#</t> cd ../apache2/;ls
                     </code></pre>
                 </div>
 
@@ -305,13 +331,13 @@
                     <tab>ESXI_DOCKER_HTTPS</tab>
                 </tabs>
                 <pre><code>
-                    root@dut:/home/djr/atividade1/apache2# cd cubic/
-                    root@dut:/home/djr/atividade1/apache2/cubic# ab -n 2000 -c 100 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
+                    <t>root@dut:/home/djr/atividade1/apache2#</t> cd cubic/
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ab -n 2000 -c 100 -e apache2_cubic.csv https://172.17.0.2/ > apache2_cubic.txt
 
-                    root@dut:/home/djr/atividade1/apache2/cubic# ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ls <comment># para verificar a existência dos arquivos .csv e .txt</comment>
 
                     <comment># abrindo o arquivo</comment>
-                    root@dut:/home/djr/atividade1/apache2/cubic# cat apache2_cubic.txt
+                    <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> cat apache2_cubic.txt
                 </code></pre>
             </div>
 
@@ -386,7 +412,7 @@
                 </code></pre>
             </div>
 
-        <h2>Quarto Cenário - Bic</h2>
+        <h2>Quarta Medição - Apache2_Bic</h2>
 
             <p>Indo para o diretório certo e preparando o comando. (00:39:49)</p>
             <div class="box">
@@ -428,7 +454,7 @@
                 </code></pre>
             </div>
 
-        <h2>Quinto Cenário - Westwood (00:41:22)</h2>
+        <h2>Quinta Medição - Apache2_Westwood (00:41:22)</h2>
             <p>Trocando de diretório.</p>
             <div class="box">
                 <tabs>
@@ -480,6 +506,7 @@
                 </code></pre>
             </div>
             
+        <h2>Sexta Medição - Nginx_Westwood - (00:43:42)</h2>
             <p>Trocando de diretório. (00:43:42)</p>
             <div class="box">
                 <tabs>
