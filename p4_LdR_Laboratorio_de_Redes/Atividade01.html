@@ -176,13 +176,13 @@
         <h2>Docker-clone24</h2>
             <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
 
-            <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para HOST_LOCAL. Faça o mesmo processo com as demais e as renomei para ESXI_HOST e ESXI_DOCKER_HTTPS.</p>
+            <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para Cliente. Faça o mesmo processo com as demais e as renomei para Servidor e Docker.</p>
 
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab class="selected">ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     ssh djr@192.168.0.124 <comment># IP da máquina da ESXI</comment>
@@ -197,9 +197,9 @@
 
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab class="selected">ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     ads@ubuntu22server:~$ sudo su 
@@ -210,9 +210,9 @@
             <p>"Lembrando que o algoritmo de controle de congestionamento de TCP de todo mundo que inicializa o Linux é o cubic. Só para mostrar:</p>
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab class="selected">ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control
@@ -223,9 +223,9 @@
 
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code> 
                     root@dut:/home/djr# ssh ads@127.0.0.1 <comment># lo</comment>
@@ -237,9 +237,9 @@
 
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code> 
                     djr@djr-quic:$ sudo su
@@ -255,9 +255,9 @@
 
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     <t>root@dut:/home/djr#</t> ping 172.17.0.2 <comment># ainda impossível de alcançar</comment>
@@ -303,9 +303,9 @@
             <h2>Criando diretórios</h2>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code> 
                         <t>root@dut:/home/djr/#</t> mkdir atividade1
@@ -326,9 +326,9 @@
         <h2>Primeira Medição - Apache2_Cubic</h2>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <t>root@dut:/home/djr/atividade1/apache2#</t> cd cubic/
@@ -349,9 +349,9 @@
 
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
                     root@64f6e6491fff:/# service apache2 stop; service nginx start
@@ -361,9 +361,9 @@
             <p>Fazendo a medição.</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     root@dut:/home/djr/atividade1/apache2/cubic# cd ../../nginx/cubic
@@ -376,9 +376,9 @@
             <p>Indo para o diretório certo.</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/nginx/cubic# cd ../bic/
@@ -388,9 +388,9 @@
             <p>Mudando o protocolo para BIC.</p>
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab class="selected">ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@ubuntu22server:/home/ads# echo bic > /proc/sys/net/ipv4/tcp_congestion_control <comment># resposta esperada "rol"</comment>
@@ -403,9 +403,9 @@
             <p>Fazendo a medição. (00:39:32)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/nginx/bic# ab -n 2000 -c 100 -e nginx_bic.csv https://172.17.0.2/ > nginx_bic.txt
@@ -417,9 +417,9 @@
             <p>Indo para o diretório certo e preparando o comando. (00:39:49)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <comment># mudança de diretório</comment>
@@ -433,9 +433,9 @@
             <p>Desligando o Nginx e ligando o Apache2. (00:40:30)</p>
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
                     root@64f6e6491fff:/# service nginx stop; service apache2 start
@@ -445,9 +445,9 @@
             <p>Executando comando. Aperte Enter no comando antes digitado (00:41:00)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/apache2/bic# ab -n 2000 -c 100 -e apache2_bic.csv https://172.17.0.2/ > apache2_bic.txt
@@ -458,9 +458,9 @@
             <p>Trocando de diretório.</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/apache2/bic# cd ../westwood
@@ -470,9 +470,9 @@
             <p>Trocando o algoritmo de Controle de Congestionamento da máquina. (00:41:45)</p>
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab class="selected">ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@ubuntu22server:/home/ads# echo westwood > /proc/sys/net/ipv4/tcp_congestion_control
@@ -485,9 +485,9 @@
             <p>Realizando a medição. (00:42:26)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/apache2/westwood# ab -n 2000 -c 100 -e apache2_westwood.csv https://172.17.0.2/ > apache2_westwood.txt
@@ -497,9 +497,9 @@
             <p>Trocando servidor Apache2 por Nginx. (00:43:20)</p>
             <div class="box">
                 <tabs>
-                    <tab>HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab class="selected">ESXI_DOCKER_HTTPS</tab>
+                    <tab>Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code>
                     root@64f6e6491fff:/# service apache2 stop; service nginx start
@@ -510,9 +510,9 @@
             <p>Trocando de diretório. (00:43:42)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/apache2/westwood# cd ../../nginx/westwood
@@ -522,9 +522,9 @@
             <p>Realizando medição. (00:44:15)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     root@dut:/home/djr/atividade1/nginx/westwood# ab -n 2000 -c 100 -e nginx_westwood.csv https://172.17.0.2/ > nginx_westwood.txt
@@ -564,9 +564,9 @@
                 <p>Ao voltar ao terminal, vamos conferir se os arquivos realmente estão nas pastas. Seus nomes vão estar com a cor branca, o que significa que não podem ser executados, por isso também vamos dar permissão para que eles sejam executados. (00:51:18)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <comment># conferindo se os arquivos estão na pasta</comment>
@@ -589,9 +589,9 @@
                 <p>Com os preparativos feitos, vamos executar os arquivos baixados. A ordem de execução é importante: <code>collect_stats_new</code> tem e deve ser executado primeiro. (00:52:38)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> ./collect_stats_new.sh nginx_westwood.txt
@@ -607,9 +607,9 @@
                 <p>Agora executamos o segundo arquivo. (00:53:55)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> trata_csv.sh nginx_westwood.csv
@@ -619,9 +619,9 @@
                 <p>Verificando se deu certo. (00:54:10)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <t>root@dut:/home/djr/atividade1/nginx/westwood#</t> cd stats/ 
@@ -707,9 +707,9 @@
                 <p>Pegando dados sobre Apache-Westwood (01:01:56)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <comment># trocando de diretório</comment>
@@ -735,9 +735,9 @@
                 <p>Realizando coleta de dados. (01:03:55)</p>
                 <div class="box">
                     <tabs>
-                        <tab class="selected">HOST_LOCAL</tab>
-                        <tab>ESXI_HOST</tab>
-                        <tab>ESXI_DOCKER_HTTPS</tab>
+                        <tab class="selected">Cliente</tab>
+                        <tab>Servidor</tab>
+                        <tab>Docker</tab>
                     </tabs>
                     <pre><code>
                         <t>root@dut:/home/djr/atividade1/apache2/westwood#</t> ./collect_stats_new.sh apache2_westwood.txt
@@ -761,9 +761,9 @@
             <p>Para calcularmos a Dimensão Fractal, precisamos do Rkwads</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <t>root@dut:/home/djr/atividade1/nginx/westwood/stats#</t> apt install rkward -y 
@@ -816,9 +816,9 @@
             <p>Dando permissão para os arquivos baixados. (01:15:45)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <comment># verificando se é o Apache que está rodando</comment>
@@ -846,9 +846,9 @@
             <p>Processando os dados com os arquivos baixados. (01:18:20)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <t>root@dut:/home/djr/atividade1/nginx/cubic#</t> ./collect_stats_new.sh nginx_cubic.txt
@@ -860,9 +860,9 @@
             <p>Trocando para o Apache e dando permissão para os arquivos. (01:18:38)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <comment># trocando o diretório</comment>
@@ -882,9 +882,9 @@
             <p>Processando os dados. (01:19:03)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <t>root@dut:/home/djr/atividade1/apache2/cubic#</t> ./collect_stats_new.sh apache2_cubic.txt
@@ -897,9 +897,9 @@
             <p>(01:19:19)</p>
             <div class="box">
                 <tabs>
-                    <tab class="selected">HOST_LOCAL</tab>
-                    <tab>ESXI_HOST</tab>
-                    <tab>ESXI_DOCKER_HTTPS</tab>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code>
                     <comment># trocando o diretório</comment>
