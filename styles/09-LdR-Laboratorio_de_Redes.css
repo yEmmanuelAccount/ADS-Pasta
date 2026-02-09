@@ -1,6 +1,6 @@
 @import url("01-root.css");
 
-/* ========================================================================= */
+/* ========================================================================================================= */
 /* 1. VARIÁVEIS CSS E ESCOPO GLOBAL (.ldr-page) */
 /* Este seletor deve ser aplicado no BODY: <body class="ldr-page"> */
 .ldr-page {
@@ -12,6 +12,7 @@
     --cor-cafe-na-folha: #e6dbbd;
     --cor-azul-escuro-suave: #2c3e50;
     --cor-verde-escuro-2: #075c34;
+    --cor-verde-escuro-3: #49a862;
 
     --cor-titulo: black;
     --cor-destaque: #00ff44;
@@ -34,6 +35,7 @@
 }
 
 ---
+/* ========================================================================================================= */
 /* 2. ESTILOS BASE DE LAYOUT (Descendentes de .ldr-page) */
 
 /* Estilos comuns para DIV e P */
@@ -49,6 +51,18 @@
     text-indent: 2rem;
 }
 
+/* Estilo para links usando "<a>" */
+a {
+    text-decoration: underline;
+    color: black;
+    transition: 0.2s;
+}
+
+a:hover {
+    color: var(--cor-verde-escuro-3);
+}
+
+/* ========================================================================================================= */
 /* 3. ELEMENTOS DE CONTEÚDO E DESTAQUE */
 
 /* Títulos (A numeração depende de h1/h2/h3 estarem dentro de .ldr-page) */
@@ -79,6 +93,62 @@
 .ldr-page h3 {
     counter-increment: h3counter;
 }
+
+/* Sumário (A numeração depende de h1/h2/h3 estarem dentro de .sumario-ldr */
+    /* Container do Sumário */
+    .sumario-ldr p {
+        font-size: 15px;
+    }
+
+    .sumario-ldr ul {
+        list-style: none;
+        counter-reset: sumario-h2 1; /* Reset para o nível H2 começando a contagem em 1*/
+        padding-left: 0;
+    }
+
+    /* Configuração para o Nível H2 (Principal) */
+    .sumario-ldr > ul > li {
+        counter-increment: sumario-h2;
+        counter-reset: sumario-h3; /* Reset para o nível H3 toda vez que um H2 aparece */
+        margin-top: 5px;
+        font-size: 20px;
+    }
+
+    .sumario-ldr > ul > li > a::before {
+        content: counter(h1counter) "." counter(sumario-h2) ". » ";
+        font-weight: bold;
+        color: var(--cor-code-secundaria);
+    }
+
+    /* Configuração para o Nível H3 (Recuado) */
+    .sumario-ldr ul ul {
+        counter-reset: sumario-h3; 
+        margin-left: 1rem;
+        margin-top: 5px;
+    }
+
+    .sumario-ldr ul ul li {
+        counter-increment: sumario-h3;
+    }
+
+    .sumario-ldr ul ul li a::before {
+        /* Formato: 1.1.1 » */
+        content: counter(h1counter) "." counter(sumario-h2) "." counter(sumario-h3) " » ";
+        font-size: 0.9em;
+        opacity: 0.8;
+        color: var(--cor-code-secundaria);
+    }
+
+    /* Estilo geral dos links no sumário */
+    .sumario-ldr a {
+        text-decoration: none;
+        color: black;
+        transition: 0.2s;
+    }
+
+    .sumario-ldr a:hover {
+        color: var(--cor-destaque);
+    }
 
 /* Estilo para Títulos */
 
@@ -148,7 +218,7 @@ strong {
     padding: 3px;
 }
 
-/* ========================================================================= */
+/* ========================================================================================================= */
 /* 4. RESTANTE DOS ESTILOS (Mantidos e/ou ajustados) */
 
 tabs {
@@ -216,7 +286,7 @@ result {
 }
 
 .box t {
-    color: #194a32; /* Verde ainda mais denso para garantir a diferença visual */
+    color: #194a32;
 }
 
 .box {
