@@ -94,61 +94,20 @@ a:hover {
     counter-increment: h3counter;
 }
 
-/* Sumário (A numeração depende de h1/h2/h3 estarem dentro de .sumario-ldr */
-    /* Container do Sumário */
-    .sumario-ldr p {
-        font-size: 15px;
-    }
+/* --- TEMA ESPECÍFICO PARA LDR-PAGE --- */
+body.ldr-page .sumario {
+    /* Mapeia as variáveis globais da página para o componente */
+    --cor-num-sumario: var(--cor-code-secundaria);
+}
 
-    .sumario-ldr ul {
-        list-style: none;
-        counter-reset: sumario-h2 1; /* Reset para o nível H2 começando a contagem em 1*/
-        padding-left: 0;
-    }
+/* Se quiser que o parágrafo no LDR também use uma cor específica */
+body.ldr-page .sumario p {
+    color: white;
+}
 
-    /* Configuração para o Nível H2 (Principal) */
-    .sumario-ldr > ul > li {
-        counter-increment: sumario-h2;
-        counter-reset: sumario-h3; /* Reset para o nível H3 toda vez que um H2 aparece */
-        margin-top: 5px;
-        font-size: 20px;
-    }
-
-    .sumario-ldr > ul > li > a::before {
-        content: counter(h1counter) "." counter(sumario-h2) ". » ";
-        font-weight: bold;
-        color: var(--cor-code-secundaria);
-    }
-
-    /* Configuração para o Nível H3 (Recuado) */
-    .sumario-ldr ul ul {
-        counter-reset: sumario-h3; 
-        margin-left: 1rem;
-        margin-top: 5px;
-    }
-
-    .sumario-ldr ul ul li {
-        counter-increment: sumario-h3;
-    }
-
-    .sumario-ldr ul ul li a::before {
-        /* Formato: 1.1.1 » */
-        content: counter(h1counter) "." counter(sumario-h2) "." counter(sumario-h3) " » ";
-        font-size: 0.9em;
-        opacity: 0.8;
-        color: var(--cor-code-secundaria);
-    }
-
-    /* Estilo geral dos links no sumário */
-    .sumario-ldr a {
-        text-decoration: none;
-        color: black;
-        transition: 0.2s;
-    }
-
-    .sumario-ldr a:hover {
-        color: var(--cor-destaque);
-    }
+.t {
+    text-decoration: none;
+}
 
 /* Estilo para Títulos */
 
@@ -161,6 +120,7 @@ a:hover {
     border: 0;
     border-left: none !important;
     margin-bottom: 1.5rem;
+    scroll-margin-top: 50px;
 
     color: var(--cor-titulo); /* Define a cor do texto do título */
     background: linear-gradient(90deg, var(--cor-secundaria) 30%, transparent 90%); /* GRADIENTE */
@@ -183,6 +143,7 @@ a:hover {
     display: flex; /* ESSENCIAL para o alinhamento do texto e pseudo-elementos */
     border-radius: 0.5rem;
     box-shadow: none;
+    scroll-margin-top: 50px;
 }
 
 /* Blockquote (Descendente de .ldr-page) */

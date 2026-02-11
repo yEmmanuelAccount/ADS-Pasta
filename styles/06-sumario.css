@@ -1,0 +1,61 @@
+/* --- ESTRUTURA GLOBAL DO SUMÁRIO --- */
+.sumario ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.sumario > ul {
+    counter-reset: sumario-h1; 
+}
+
+/* Estilo dos números (Pseudo-elementos) */
+.sumario a::before {
+    display: inline-block;
+    text-decoration: none; 
+    margin-right: 8px;
+    font-size: 20px;
+    /* A cor será definida pelas variáveis de contexto abaixo */
+    color: var(--cor-num-sumario) !important; 
+}
+
+/* --- HIERARQUIA E CONTADORES --- */
+.sumario > ul > li {
+    counter-increment: sumario-h1;
+    counter-reset: sumario-h2;
+    margin-top: 15px;
+    font-size: 20px;
+}
+
+.sumario > ul > li > a::before {
+    content: counter(sumario-h1) ". » ";
+    font-weight: bold;
+}
+
+.sumario li ul li {
+    counter-increment: sumario-h2;
+    counter-reset: sumario-h3;
+    margin-left: 1.5rem;
+    font-size: 20px;
+}
+
+.sumario li ul li > a::before {
+    content: counter(sumario-h1) "." counter(sumario-h2) ". » ";
+    font-weight: bold;
+}
+
+.sumario li ul li ul li {
+    counter-increment: sumario-h3;
+    margin-left: 1.5rem;
+    font-size: 20px;
+}
+
+.sumario li ul li ul li a::before {
+    content: counter(sumario-h1) "." counter(sumario-h2) "." counter(sumario-h3) ". » ";
+    opacity: 0.8;
+}
+
+.sumario p {
+    font-size: 15px;
+    /* Adicionei um recuo para alinhar com o texto do link acima */
+    margin-left: 2.5rem; 
+}

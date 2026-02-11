@@ -71,25 +71,76 @@
     "description": "Gera estrutura LDR com Header, Sumário e Variáveis espelhadas."
   },
 
-  "Elemento do Sumário": {
-	"prefix": "elementoSumario",
-	"body": [
-		"<li>",
-    	"    <a href=\"#${0:id_titulo}\">${1:Informações Importantes}</a>",
-      	"    <p>${2:Explicação breve sobre o tópico.}</p>",
-      	"</li>",
-	],
-	"description": "Gera um elemento específico para o sumário."
-  },
+  "Elemento H1 do Sumário": {
+  "prefix": "itemSumario_h1",
+  "body": [
+    "<li>",
+    "    <a href=\"#${1:id_titulo}\">${2:Título do H1}</a>",
+    "    <p>${3:Descrição curta.}</p>",
+    "</li>"
+  ],
+  "description": "Adiciona um item de nível H1 ao sumário."
+},
+
+  "Item H2 do Sumário": {
+  "prefix": "itemSumario_h2",
+  "body": [
+    "<ul>",
+    "    <li>",
+    "        <a href=\"#${1:id_titulo}\">${2:Título do H2}</a>",
+    "        <p>${3:Explicação breve sobre o tópico.}</p>",
+    "        $0",
+    "    </li>",
+    "</ul>"
+  ],
+  "description": "Cria uma sub-lista H2 correta dentro de um LI de H1."
+},
+
+"Item H3 do Sumário": {
+  "prefix": "itemSumario_h3",
+  "body": [
+    "<ul>",
+    "    <li>",
+    "        <a href=\"#${1:id_titulo}\">${2:Título do H3}</a>",
+    "        <p>${3:Explicação breve sobre o tópico.}</p>",
+    "    </li>",
+    "</ul>"
+  ],
+  "description": "Cria uma sub-lista H3 correta dentro de um LI de H2."
+},
 
   "Elemento de Disciplina": {
 	"prefix": "adicionarArquivo",
 	"body": [
 		"<h2>",
-        "    <a href=\"./arquivo.html\">Arquivo-01</a>",
-        "    Nome do Arquivo",
-        "</h2>"
+      "    <a href=\"./arquivo.html\">Arquivo-01</a>",
+      "    Nome do Arquivo",
+    "</h2>"
 	],
 	"description": "Gera a estrutura para a adição de um arquivo ao index de uma disciplina."
+  },
+
+  "Sumário": {
+    "prefix": "sumario",
+    "body": [
+      "<h2>Sumário</h2>",
+      "    <nav class=\"sumario-ldr\">",
+      "        <ul>",
+      "            <li>",
+      "                <a href=\"#${3:id_titulo}\">${4:Título do Tópico}</a>",
+      "                    <p>${5:Explicação breve sobre o tópico.}</p>",
+      "            </li>",
+      "        </ul>",
+      "    </nav>",
+    ],
+    "description": "Gera a estrutura inicial do Sumário."
+  },
+
+  "Elemento A usando Link": {
+    "prefix": "aLink",
+    "body": [
+      "<a class=\"t\" href=\"#sumario\">${0:texto}</a>"
+    ],
+    "description": "Gera um elemento A personalizado."
   }
 }
