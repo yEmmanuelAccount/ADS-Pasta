@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../styles/00-home.css">
-    <title>Tutorial para o Script da Atividade1</title>
+    <title>Tutorial para o Script do Projeto</title>
 </head>
 <body class="ldr-page">
     <header>
@@ -12,23 +12,31 @@
     </header>
 
     <div class="conteudo">
-        <h1>Script da Atividade1</h1>
+        <h1>Script do Projeto</h1>
 
         <h2 id="sumario">Sumário</h2>
             <nav class="sumario">
                 <ul>
-                    <li><a href="#informacoes_importantes">Informações Importantes</a></li>
+                    <li>
+                        <a href="#informacoes_importantes">Informações Importantes</a>
                         <p>Tópicos importantes para o andamento do documento.</p>
-                    <li><a href="#ip_proxmox">IP do Proxmox</a></li>
+                    </li>
+                    <li>
+                        <a href="#ip_proxmox">IP do Proxmox</a>
                         <p>Mostra como obter o IP do Proxmox.</p>
-                    <li><a href="#configuracoes">Configurações Necessárias</a></li>
-                        <p>Entra no arquivo de <strong>sshd_config</strong> e troca a permissão de login na root para verdadeira.</p>
-                    <li><a href="#script">Script</a></li>
+                    </li>
+                    <li>
+                        <a href="#configuracoes">Configurações Necessárias</a>
+                        <p>Informa o que é necessário para que o script funcione corretamente.</p>
+                    </li>
+                    <li>
+                        <a href="#script">Script</a>
                         <p>Como rodar o script propriamente dito.</p>
-                    <li><a href="#tirando_arquivos">Tirando Arquivos da VM</a></li>
+                    </li>
+                    <li>
+                        <a href="#tirando_arquivos">Tirando Arquivos da VM</a>
                         <p>Solução para tirar os arquivos resultantes do script de dentro da VM para sua máquina.</p>
-                    <li><a href="#enviando_arquivos">Como Enviar os Arquivos da Atividade</a></li>
-                        <p>Forma de enviar os arquivos sem quebrá-los ou tirar sua formatação.</p>
+                    </li>                        
                 </ul>
             </nav>
 
@@ -38,6 +46,7 @@
                 <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
             </ol>
         <p>Garanta que as duas VMs estão ligadas (XEN e Proxmox).</p>
+        <p>Esse script faz as medições e os cálculos posteriores, <code>não é responsável por trocar a quantidade de vRAM usada nas medições</code>. É necessário que você execute o script duas vezes para a realização de todas as medições e que a quantidade de vRAM seja modificada manualmente no Proxmox.</p>
 
         <h2 id="ip_proxmox"><a class="t" href="#sumario">Obtendo IP do Proxmox</a></h2>
 
@@ -58,7 +67,7 @@
  
         <h2 id="configuracoes"><a class="t" href="#sumario">Configurações</a></h2>
 
-            <p>Precisamos verificar se a VM está com conexão com a internet, então tentamos dar ping no google.</p>
+            <p>Precisamos verificar se a VM está com conexão com a internet, então tentamos dar ping no Google.</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Xen</tab>
@@ -115,11 +124,11 @@
                     <t>></t> cd medidas/build
 
                     <comment># executando o script</comment>
-                    <t>></t> sudo nano constants.js
+                    <t>></t> sudo nano constants.js <comment># descrição abaixo</comment>
                 </code></pre>
             </div>
 
-            <p>Irá abrir um arquivo para você mudar os IPs necessários, no caso o IP do Proxmox. Depois, <strong>Ctrl + O</strong> e Enter para salvar e <strong>Ctrl + X</strong> para sair do arquivo.</p>
+            <p>Irá abrir um arquivo para você mudar o <code>IP do servidor Proxmox</code> e a <code>quantidade de vRAM que vai usar na medição</code>. Depois, <strong>Ctrl + O</strong> e Enter para salvar e <strong>Ctrl + X</strong> para sair do arquivo.</p>
 
             <p>Continue com os comandos a seguir:</p>
             <div class="box">
@@ -155,32 +164,19 @@
             </div>
 
             <p>Agora, espere até aparecer a mensagem de "Medições Finalizadas >:Dc"</p>
+            <p>Considerando que cada medição é feita em cerca de 2 minutos, serão necessárias cerca de <strong>2 horas e 15 minutos</strong> a cada 45 medições somadas a 5 minutos de processamento por parte do R e totalizando <strong>4 horas e 30 minutos</strong> ao total.</p>
 
         <h2 id="tirando_arquivos"><a class="t" href="#sumario">Tirando os Arquivos da VM</a></h2>
 
-            <p>Depois do script terminar de rodar, entre no Gerenciador de Arquivos e siga o caminho <strong>/home/djr/medidas/build/atividade1</strong>. Você deve encontrar 3 pastas (apache2, nginx e nginx_quic) e um arquivo "results.csv".</p>
+            <p>Depois do script terminar de rodar, entre no Gerenciador de Arquivos e siga o caminho <strong>/home/djr/medidas/build/</strong>. Você deve encontrar 2 pastas, que representam as quantidades de vRAM usadas.</p>
 
-            <p>Selecione as 3 pastas, clique com o botão direito, depois em <strong>"Comprimir"</strong> e, na parte inferior da nova janela, escolha a opção <code>.tar.gz</code>.</p>
+            <p>Selecione as 2 pastas, clique com o botão direito, depois em <strong>"Comprimir"</strong> e, na parte inferior da nova janela, escolha a opção <code>.tar.gz</code>.</p>
 
             <p>Abra o navegador da VM e entre no endereço <a href="https://talesgardem.com.br/chat.html">https://talesgardem.com.br/chat.html</a>, faça seu login temporário e envie seus arquivos (pasta compactada, de preferência com seu nome, e o arquivo .csv).</p>
 
-            <p>Como práticas de boa convivência, apague a pasta <strong>medidas</strong>.</p>
-            <div class="box">
-                <tabs>
-                    <tab class="selected">Xen</tab>
-                </tabs>
-                <pre><code>
-                    <t>djr@djr:~$</t> rm -rf ./medidas
-                </code></pre>
-            </div>
-
-        <h2 id="enviando_arquivos"><a class="t" href="#sumario">Baixando e Enviando Arquivos</a></h2>
+        <h2 id="enviando_arquivos"><a class="t" href="#sumario">Baixando Arquivos</a></h2>
 
             <p>Entrando no navegador da sua máquina, entre no mesmo endereço do <a href="https://talesgardem.com.br/chat.html">Talesgardem</a> e baixe os arquivos que você enviou.</p>
-
-            <p>Como é pedido o envio de uma planilha eletrônica, abra uma Planilha Google e siga os passos a seguir.</p>
-
-            <p>Cria uma planilha nova, totalmente em braco. Vá em <strong>"Arquivo"</strong>, no menu superior e em <strong>"Importar"</strong>. Escolha a opção de <strong>"Fazer upload"</strong> e escolha o arquivo "results.csv". Por último, troque o <strong>Tipo de Separador</strong> por "Vírgula" e desmarque a caixa de seleção para a conversão automática de texto em números, datas e fórmulas.</p>
     </div>
 </body>
 </html>
