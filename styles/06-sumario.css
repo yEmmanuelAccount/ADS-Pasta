@@ -1,3 +1,9 @@
+/* Variáveis */
+.sumario {
+    --tamanho-titulo-sumario: 25px;
+    --tamanho-descricao-sumario: 20px;
+}
+
 /* --- ESTRUTURA GLOBAL DO SUMÁRIO --- */
 .sumario ul {
     list-style: none;
@@ -23,11 +29,12 @@
     counter-increment: sumario-h1;
     counter-reset: sumario-h2;
     margin-top: 15px;
-    font-size: 20px;
+    font-size: var(--tamanho-titulo-sumario);
 }
 
 .sumario > ul > li > a::before {
     content: counter(sumario-h1) ". » ";
+    font-size: var(--tamanho-titulo-sumario);
     font-weight: bold;
 }
 
@@ -35,27 +42,28 @@
     counter-increment: sumario-h2;
     counter-reset: sumario-h3;
     margin-left: 1.5rem;
-    font-size: 20px;
+    font-size: var(--tamanho-titulo-sumario);
 }
 
 .sumario li ul li > a::before {
     content: counter(sumario-h1) "." counter(sumario-h2) ". » ";
+    font-size: var(--tamanho-titulo-sumario);
     font-weight: bold;
 }
 
 .sumario li ul li ul li {
     counter-increment: sumario-h3;
     margin-left: 1.5rem;
-    font-size: 20px;
+    font-size: var(--tamanho-titulo-sumario);
 }
 
 .sumario li ul li ul li a::before {
     content: counter(sumario-h1) "." counter(sumario-h2) "." counter(sumario-h3) ". » ";
+    font-size: var(--tamanho-titulo-sumario);
     opacity: 0.8;
 }
 
 .sumario p {
-    font-size: 15px;
-    /* Adicionei um recuo para alinhar com o texto do link acima */
-    margin-left: 2.5rem; 
+    font-size: var(--tamanho-descricao-sumario);
+    margin-left: 2%; 
 }
