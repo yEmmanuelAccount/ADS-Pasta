@@ -1,0 +1,6 @@
+Para instalar o ptsuite
+1) primeiramente instale o pacte devtools no R com o comando: install.packages("devtools") e em seguide carregue-o com o comando:library(devtools)
+2) Baixe o arquivo do pacote através da URL: https://cran.r-project.org/src/contrib/Archive/ptsuite/ptsuite_1.0.0.tar.gz
+3) Copie todo o endereço arquivo baixado 
+4) De posse do local do arquivo digite o comando no R: install.packages("C:/Users/dalad/Documents/IFPB/DS/Lab Redes/Híbrido/Apoio/ptsuite_1.0.0.tar.gz",repos = NULL, type = "source") 
+5) library(ptsuite)

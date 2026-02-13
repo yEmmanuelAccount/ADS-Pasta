@@ -74,39 +74,38 @@
   "Elemento H1 do Sumário": {
   "prefix": "itemSumario_h1",
   "body": [
-    "<li>",
-    "    <a href=\"#${1:id_titulo}\">${2:Título do H1}</a>",
-    "    <p>${3:Descrição curta.}</p>",
-    "</li>"
+    "                    <li>",
+    "                        <a href=\"#${1:id_titulo}\">${2:Título do H1}</a>",
+    "                        <p>${3:Descrição curta.}</p>",
+    "                    </li>"
   ],
-  "description": "Adiciona um item de nível H1 ao sumário."
+  "description": "Adiciona um item de nível H1 ao sumário. Deve ser usado na coluna 1 da linha."
 },
 
   "Item H2 do Sumário": {
   "prefix": "itemSumario_h2",
   "body": [
-    "<ul>",
-    "    <li>",
-    "        <a href=\"#${1:id_titulo}\">${2:Título do H2}</a>",
-    "        <p>${3:Explicação breve sobre o tópico.}</p>",
-    "        $0",
-    "    </li>",
-    "</ul>"
+    "                        <ul>",
+    "                            <li>",
+    "                                <a href=\"#${0:id_titulo}\">${1:Título do H2}</a>",
+    "                                <p>${2:Explicação breve sobre o tópico.}</p>",
+    "                            </li>",
+    "                        </ul>"
   ],
-  "description": "Cria uma sub-lista H2 correta dentro de um LI de H1."
+  "description": "Cria uma sub-lista H2 correta dentro de um LI de H1. Deve ser usado na coluna 1 da linha."
 },
 
 "Item H3 do Sumário": {
   "prefix": "itemSumario_h3",
   "body": [
-    "<ul>",
-    "    <li>",
-    "        <a href=\"#${1:id_titulo}\">${2:Título do H3}</a>",
-    "        <p>${3:Explicação breve sobre o tópico.}</p>",
-    "    </li>",
-    "</ul>"
+    "                            <ul>",
+    "                                <li>",
+    "                                    <a href=\"#${0:id_titulo}\">${1:Título do H3}</a>",
+    "                                    <p>${2:Explicação breve sobre o tópico.}</p>",
+    "                                </li>",
+    "                            </ul>"
   ],
-  "description": "Cria uma sub-lista H3 correta dentro de um LI de H2."
+  "description": "Cria uma sub-lista H3 correta dentro de um LI de H2. Deve ser usado na coluna 1 da linha."
 },
 
   "Elemento de Disciplina": {
@@ -124,11 +123,11 @@
     "prefix": "sumario",
     "body": [
       "<h2>Sumário</h2>",
-      "    <nav class=\"sumario-ldr\">",
+      "    <nav class=\"sumario\">",
       "        <ul>",
       "            <li>",
-      "                <a href=\"#${3:id_titulo}\">${4:Título do Tópico}</a>",
-      "                    <p>${5:Explicação breve sobre o tópico.}</p>",
+      "                <a href=\"#${2:id_titulo}\">${1:Título do Tópico}</a>",
+      "                    <p>${3:Explicação breve sobre o tópico.}</p>",
       "            </li>",
       "        </ul>",
       "    </nav>",
@@ -142,5 +141,13 @@
       "<a class=\"t\" href=\"#sumario\">${0:texto}</a>"
     ],
     "description": "Gera um elemento A personalizado."
+  },
+
+  "Itálico": {
+    "prefix": "italico",
+    "body": [
+      "<em>${0:texto}</em>"
+    ],
+    "description": "Gera aequivalência para itálico."
   }
 }

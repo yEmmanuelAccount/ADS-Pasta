@@ -1,0 +1,38 @@
+library(pracma);library(fractaldim);library(openxlsx)
+base <- "/home/daniel/Área de Trabalho/TrabalhoLabRedes/4vcpu"
+
+level1 <- c("docker", "lxc")
+level2 <- c("1gbvram", "2gbvram")
+level3 <- c("pcnetfast3", "pcnetpci2", "pro1000mtdesktop", "pro1000tserver")
+level4 <- c("htcp_c.txt", "vegas_c.txt", "westwood_c.txt", "yeah_c.txt")
+
+casos <- c()
+medias <- c()
+hursts <- c()
+fractaldins <- c()
+
+for(iterator1 in level1) {
+    for(iterator2 in level2) {
+        for(iterator3 in level3) {
+            for(iterator4 in level4) {
+                pasta <- paste(base, iterator1, iterator2, iterator3, iterator4, sep="/")
+                
+                print(pasta)
+                arquivo <- scan(file=pasta)
+                
+                caso <- paste(iterator1, iterator2, iterator3, iterator4)
+                media <- mean(arquivo)
+                hurst <- hurstexp(arquivo)[1]
+                dim <- fd.estimate(arquivo, method="madogram")[2]
+                
+                casos <- c(casos, caso)
+                medias <- c(medias, media)
+                hursts <- c(hursts, hurst[["Hs"]])
+                fractaldins <- c(fractaldins, dim[["fd"]])
+            }
+        }
+    }
+}
+
+tabela = data.frame(caso = c(casos), media = c(medias), hurst = c(hursts), fractaldim = c(fractaldins))
+write.xlsx(tabela, base)

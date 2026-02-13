@@ -12,16 +12,80 @@
     </header>
 
     <div class="conteudo">
-        <h1>Como fazer a Atividade 01</h1>
+        <h1 id="titulo_principal">Como fazer a Atividade 01</h1>
 
-        <h2>Informações Importantes</h2>
+        <h2>Sumário</h2>
+            <nav class="sumario">
+                <ul>
+                    <li><a href="#titulo_principal">Início - Atividade 01</a></li>
+                    <li><a href="#informacoes_importantes">Informações Importantes</a></li>
+                    <li>
+                        <a href="#vpn">Instalando VPN</a>
+                        <ul>
+                            <li><a href="#vpn_windows">Windows</a></li>
+                            <li><a href="#vpn_linux">Linux</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#cenario">Montando Rede - Preparando Cenário</a>
+                        <ul>
+                            <li><a href="#ligando_vms">Ligando VMs</a></li>
+                            <li><a href="#vm_docker">Docker_GUI-grupo1</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#medicoes">Iniciando Experimentos</a>
+                        <ul>
+                            <li><a href="#criando_diretorios">Criando diretórios</a></li>
+                            <li><a href="#medicao_1">Primeira Medição - Apache2_Cubic</a></li>
+                            <li><a href="#medicao_2">Segunda Medição - Nginx_Cubic</a></li>
+                            <li><a href="#medicao_3">Terceira Medição - Nginx_Bic</a></li>
+                            <li><a href="#medicao_4">Quarta Medição - Apache2_Bic</a></li>
+                            <li><a href="#medicao_5">Quinta Medição - Apache2_Westwood</a></li>
+                            <li><a href="#medicao_6">Sexta Medição - Nginx_Westwood</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#pegando_arquivos">Pegando arquivos</a>
+                        <ul>
+                            <li>
+                                <a href="#classroom">Classroom</a>
+                            </li>
+                            <li>
+                                <a href="#gerenciador_arquivos">Gerenciador de Arquivos</a>
+                                <ul>
+                                    <li><a href="#terminal_execucao">Terminal</a></li>
+                                </ul>
+                        <ul>
+                            <li>
+                                <a href="#id_titulo">Título do H3</a>
+                                <p>Explicação breve sobre o tópico.</p>
+                            </li>
+                        </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li><a href="#rkwards">RkWard</a></li>
+                    <li>
+                        <a href="#melhor_desempenho">Escolhendo a rede com melhor desempenho</a>
+                        <ul>
+                            <li><a href="#proc_cubic_nginx">Processamento Apache/Nginx Cubic</a></li>
+                            <li><a href="#proc_bic">Processamento Apache/Nginx Bic</a></li>
+                            <li><a href="#qual_a_melhor">Qual a melhor?</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+
+        <h2 id="informacoes_importantes"><a class="t" href="#sumario">Informações Importantes</a></h2>
             <ol>
                 <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="https://200.129.71.165/">https://200.129.71.165/</a></li>
                 <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
             </ol>
 
-        <h1>Habilitando VPN - Windows</h1>
-        
+        <h1 id="vpn"><a class="t" href="#sumario">Instalando VPN</a></h1>
+
+            <h2 id="vpn_windows"><a class="t" href="#sumario">Windows</a></h2>
             <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo.</p>
 
             <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante e p .zip que estiver dentro.</p>
@@ -68,8 +132,7 @@
                 <li>R3d3sT1</li>
             </ul>
 
-        <h2>Configurando VPN - Linux</h2>
-
+            <h2 id="vpn_linux"><a class="t" href="#sumario">VPN - Linux</a></h2>
             <p>Acesse o arquivo <a href="https://drive.google.com/file/d/15kwcAGOxUnqnkJNHfup7loFNz_H_26ud/view">Criando Túneis VPN</a> para baixar o que for necessário e conseguir habilitar a VPN do seu grupo.</p>
 
             <p>Baixe a OpenVPN referente ao seu grupo (exemplo: RedesT1) e extraia o .zip resultante. Extraia também o outro .zip interno.</p>
@@ -84,98 +147,34 @@
 
             <p>Senha da VPN (lembrando que o número muda de acordo com o grupo):</p>
             <div class="box">
-                <tabs>
-                    <tab class="selected">Cliente</tab>
-                    <tab>Servidor</tab>
-                    <tab>Docker</tab>
-                </tabs>
                 <pre><code>
                     <t>Usuário:</t> RedesTeam1
                     <t>Senha:</t> R3d3sT1
                 </code></pre>
             </div>
 
-        <h1>Montando Rede - Preparando Cenário</h1>
+        <h1 id="cenario"><a class="t" href="#sumario">Montando Rede - Preparando Cenário</a></h1>
 
-        <h2>Ligando VM do XEN</h2>
+        <h2 id="ligando_vms"><a class="t" href="#sumario">Ligando VMs</a></h2>
+            <p>Tela de login do Xen e do Proxmox:</p>
+                <div class="box">
+                    <pre><code>
+                        <t>Usuário:</t> grupo1 
+                        <t>Senha:</t> @ds654123
+                    </code></pre>
+                </div>
             
-
-            <p>Ao entrar, primeiramente é mostrado as VMs que estão em <em>running</em>. Se o filtro for trocado para <strong>None</strong>, serão mostradas todas as VMs as quais esse usuário tem acesso.</p>
+            <p>Ao entrar no XEN, primeiramente é mostrado as VMs que estão em <em>running</em>. Troque o filtro de busca para <strong>None</strong>, para que todas sejam mostradas.</p>
 
             <p>As VMs que apresentarem o símbolo de <strong>círculo vermelho</strong> antes de seus nomes estão <strong>desligadas</strong>. Para ligá-las, basta clicar no círculo vermelho ou no botão de <em>Start</em> localizado do lado esquerdo do nome do sistema operacional da VM.</p>
 
-            <p>Depois que a VM estiver devidamente iniciada, clique em seu nome (exemplo: Docker_clone24) e procure a opção <strong>Console</strong>.</p>
+            <p>Depois que a VM estiver devidamente iniciada, clique em seu nome (exemplo: Docker_GUI-grupo1) e procure a opção <strong>Console</strong>.</p>
 
-        <h2>XEN_Orchestra</h2>
-            <p></p>
-            <div class="box">
-                <tabs>
-                    <tab class="selected">Aba</tab>
-                    <tab>Servidor</tab>
-                    <tab>Docker</tab>
-                </tabs>
-                <pre><code>
-                    <comment># login</comment>
-                    <t>dut login: </t> djr
-                    <t>Password: </t> 654123
-                </code></pre>
-            </div>
+            <p>No Proxmox, depois do login é mostrado diretamente a lista de VMs disponíveis, então basta clicar com o botão direito na VM desejada (Unbuntu24s-GRUPO1) e depois em <em>Start</em>.</p>
 
-            <p>Logo após o login, observe o IP da sua VM e anote. Outra forma de obtê-lo posteriormente é usando o comando <code>ifconfig</code>.</p>
-            <pre><code>
-                IP address for eth0: 192.168.1.61
-            </code></pre>
+            <p>Aproveite para pegar o IP do Servidor Proxmox através do comando <code>ifconfig</code>. Exemplo: 192.168.0.110</p>
 
-            <p>Em seguida, vamos nos transformar em <strong>SuperUsuário</strong> e iniciar a interface gráfica.</p>
-            <pre><code>
-                djr@dut:~$ sudo su 
-                [sudo] password for djr: 654123
-                
-                startx
-            </code></pre>
-
-        <h2>Login no ESXI e no XEN</h2>
-            <p>Tela de login:</p>
-            <div class="box">
-                <pre><code>
-                    <t>Usuário:</t> grupo1 
-                    <t>Senha:</t> @ds654123
-                </code></pre>
-            </div>
-
-            <p>Já logado, clique em <strong>Virtual Machines</strong> no menu esquerdo e pesquise o nome da VM ligada no tópico anterior (exemplo: clone24). É dito que a que deve ser aberta é a <strong>Ubuntu22s-clone24</strong> referente ao semestre de 2022, então a nossa deve ser <strong>Ubuntu26s</strong>, mas não tenho certeza disso.</p>
-
-            <p>Estando dentro da máquina certa, procure o botão <strong>Power on</strong> localizado no menu superior. Clique na imagem que antes era o Pinguim para abrir o terminal.</p>
-
-            <p>Login</p>
-            <ul>
-                <li>ubuntu22server login: djr</li> <comemnt>unbuntu24s-GRUPO1</comemnt>
-                <li>Password: 654123</li>
-            </ul>
-
-            <p>Após o login, é possível observar o IP que essa máquina possui:</p>
-            <pre><code>
-                IPv4 address for ens160: 192.168.1.94
-            </code></pre>
-
-            <p>Para ter certeza que é esse mesmo o IP, se transforme em SuperUsuário, siga os comandos a seguir e procure o IP referente a Interface <code>ens160</code>:</p>
-            <pre><code>
-                <t>ads@ubuntu22server:$</t> sudo su 
-                <t>[sudo] password for ads:</t> 654123
-
-                ip a <comment># equivalente ao ifconfig</comment>
-            </code></pre>
-
-            <h3>Caso não existe IP</h3>
-                <pre><code>
-                    dhclient ens160
-
-                    ip a
-                </code></pre>
-
-                <p>Procure o IP referente a Interface <strong>ens160</strong>, em frente a <strong>inet</strong>. Exemplo: 192.168.1.110</p>
-
-        <h2>Docker</h2>
+        <h2 id="vm_docker"><a class="t" href="#sumario">Docker_GUI-grupo1</a></h2>
             <p>Aperte no botão <strong>Iniciar</strong>, o primeiro do lado esquerdo da barra de tarefas, depois em <strong>Acessórios</strong> e por último em <strong>LXTerminal</strong> para abrir o terminal da Docker-clone24.</p>
 
             <p>Dentro do terminal, aperte <code>Ctrl + Shift + T</code> duas vezes, para abrir mais duas abas. Estando na primeira, clique em <strong>Aba</strong> e depois em <strong>Nome da aba</strong> e a renomei para Cliente. Faça o mesmo processo com as demais e as renomei para Servidor e Docker.</p>
@@ -185,14 +184,14 @@
                 <tabs>
                     <tab>Cliente</tab>
                     <tab class="selected">Servidor</tab>
-                    <tab class="selected">Docker</tab>
+                    <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
                     <t>root@dut:/home/djr#</t> ssh djr@192.168.0.110 <comment># IP da máquina da ESXI</comment>
 
                     yes <comment># para confirmar a conexão</comment>
 
-                    ads@192.168.1.110's password: 654123
+                    <t>ads@192.168.1.110's</t> password: 654123
                 </code></pre>
             </div>
 
@@ -205,12 +204,12 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
-                    ads@ubuntu22server:~$ sudo su 
-                    [sudo] password for ads: 654123 
+                    <t>ads@ubuntu22server:~$</t> sudo su 
+                    <t>[sudo] password for ads:</t> 654123 
                 </code></pre>
             </div>
 
-            <p>"Lembrando que o algoritmo de controle de congestionamento de TCP de todo mundo que inicializa o Linux é o cubic. Só para mostrar:</p>
+            <p>"Lembrando que o algoritmo de controle de congestionamento de TCP de todo mundo que inicializa o Linux é o cubic." Só para mostrar:</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
@@ -218,11 +217,11 @@
                     <tab>Docker</tab>
                 </tabs>
                 <pre><code> 
-                    root@ubuntu22server:/home/ads# cat /proc/sys/net/ipv4/tcp_congestion_control
+                    <t>root@ubuntu22server:/home/ads#</t> cat /proc/sys/net/ipv4/tcp_congestion_control
                 </code></pre>
             </div>
 
-            <p>O algoritmo de controle de congestionamento só será trocado no Servidor ESXI</p>
+            <p>O algoritmo de controle de congestionamento só será trocado no Servidor ESXI.</p>
 
             <div class="box">
                 <tabs>
@@ -231,12 +230,10 @@
                     <tab class="selected">Docker</tab>
                 </tabs>
                 <pre><code> 
-                    root@dut:/home/djr# ssh ads@127.0.0.1 <comment># lo</comment>
-                    djr@djr-quic:$ password: 654123
+                    <t>root@dut:/home/djr#</t> ssh djr@192.168.0.110
+                    <t>djr@djr-quic:$</t> password: 654123
                 </code></pre>
             </div>
-
-            <p>Uma forma de observar que está realmente conectada é ver o <strong>IPv4 address for ens160: 192.168.1.110</strong>.</p>
 
             <div class="box">
                 <tabs>
@@ -256,6 +253,8 @@
                 </code></pre>
             </div>
 
+            <p>Uma forma de observar que está realmente conectada é ver o <strong>IPv4 address for ens160: 192.168.1.110</strong>.</p>
+
             <div class="box">
                 <tabs>
                     <tab class="selected">Cliente</tab>
@@ -269,7 +268,7 @@
                 </code></pre>
             </div>
 
-            <p>Mudando as configurações de Firewall</p>
+            <p>Mudando as configurações de Firewall.</p>
             <div class="box">
                 <tabs>
                     <tab>Cliente</tab>
@@ -302,7 +301,7 @@
 
             <p>Nesse ponto, a rede está montada. Agora podemos começar os experimentos.</p>
 
-        <h1>Iniciando Experimentos</h1>
+        <h1 id="medicoes"><a class="t" href="#sumario">Iniciando Experimentos</a></h1>
             <h2>Criando diretórios</h2>
                 <div class="box">
                     <tabs>
@@ -326,7 +325,7 @@
                     </code></pre>
                 </div>
 
-        <h2>Primeira Medição - Apache2_Cubic</h2>
+        <h2 id="medicao_1"><a class="t" href="#sumario">Primeira Medição - Apache2_Cubic</a></h2>
             <div class="box">
                 <tabs>
                     <tab class="selected">Cliente</tab>
@@ -346,7 +345,7 @@
 
             <p>Com o arquivo <strong>apache2_cubic.txt</strong> aberto, procure as informações <strong>Requests per second</strong> e <strong>Transfer rate</strong>.</p>
 
-        <h2>Segunda Medição - Nginx_Cubic</h2>
+        <h2 id="medicao_2"><a class="t" href="#sumario">Segunda Medição - Nginx_Cubic</a></h2>
 
             <p>Parando o Apache2 e ligando o Nginx.</p>
 
@@ -374,7 +373,7 @@
                 </code></pre>
             </div>
 
-        <h2>Terceira Medição - Nginx_Bic</h2>
+        <h2 id="medicao_3"><a class="t" href="#sumario">Terceira Medição - Nginx_Bic</a></h2>
 
             <p>Indo para o diretório certo.</p>
             <div class="box">
@@ -415,7 +414,7 @@
                 </code></pre>
             </div>
 
-        <h2>Quarta Medição - Apache2_Bic</h2>
+        <h2 id="medicao_4"><a class="t" href="#sumario">Quarta Medição - Apache2_Bic</a></h2>
 
             <p>Indo para o diretório certo e preparando o comando. (00:39:49)</p>
             <div class="box">
@@ -457,8 +456,8 @@
                 </code></pre>
             </div>
 
-        <h2>Quinta Medição - Apache2_Westwood (00:41:22)</h2>
-            <p>Trocando de diretório.</p>
+        <h2 id="medicao_5"><a class="t" href="#sumario">Quinta Medição - Apache2_Westwood</a></h2>
+            <p>Trocando de diretório. (00:41:22)</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Cliente</tab>
@@ -509,7 +508,7 @@
                 </code></pre>
             </div>
             
-        <h2>Sexta Medição - Nginx_Westwood - (00:43:42)</h2>
+        <h2 id="medicao_6"><a class="t" href="#sumario">Sexta Medição - Nginx_Westwood</a></h2>
             <p>Trocando de diretório. (00:43:42)</p>
             <div class="box">
                 <tabs>
@@ -534,19 +533,19 @@
                 </code></pre>
             </div>
 
-        <h2>Pegando arquivos - (00:45:20)</h2>
+        <h1 id="pegando_arquivos"><a class="t" href="#sumario">Pegando arquivos</a></h1>
 
             <p>Nesse ponto, todas as medições já foram realizadas e agora nos resta fazer o tratamento dos dados. Temos duas opções: fazer o tratamento logo na VM ou trazer os arquivos para o nosso computador e depois tratá-los.</p>
-            <p>Vamos fazer da segunda forma.</p>
+            <p>Vamos fazer da segunda forma. (00:45:20)</p>
             
-            <h3>Classroom - (00:45:55)</h3>
+            <h2>Classroom - (00:45:55)</h2>
 
                 <p>Entre no navegador da VM (terceiro ícone da barra de tarefas, da esquerda para a direita), faça login no Google Classroom e posteriormente na sala de aula correta.</p>
                 <p>Dentro da sala de aula de Laboratório de Redes, procure o tópico <strong>"Comparando servidores web variando algoritmos de controle de congestionamento do TCP"</strong>.</p>
                 <p>Baixe os arquivos <strong>"collect_stats_new.sh"</strong> e <strong>"trata_csv.sh"</strong> abrindo-os em novas janelas e assim conseguindo acesso a opção de realizar o download.</p>
                 <p>Depois disso, pode fechar todas as abas e o navegador.</p>
 
-            <h3>Gerenciador de Arquivos - (00:48:52)</h3>
+            <h2>Gerenciador de Arquivos - (00:48:52)</h2>
 
                 <p>Abra o Gerenciador de Arquivos (segundo ícone da barra de tarefas, da esquerda para a direita), vá para <strong>Pasta Pessoal</strong> no menu lateral esquerdo, depois em <strong>Downloads</strong> e você encontrará os arquivos baixados anteriormente.</p>
 
@@ -639,7 +638,7 @@
                     <li><code>transfer_rate_nginx_westwood.txt</code> - taxa de transferência do westwood</li>
                 </ul>
 
-            <h3>Planilha</h3>
+            <h3 id="planilha">Planilha</h3>
                 
                 <p>Em uma planilha, dentro ou fora da VM, coloque os seguintes elementos: (00:54:32)</p>
                 <table class="tds-table">
@@ -760,8 +759,8 @@
 
                 <p>Faça isso para todos os demais casos.</p>
 
-        <h2>RkWard (00:57:04)</h2>
-            <p>Para calcularmos a Dimensão Fractal, precisamos do Rkwads</p>
+        <h1 id="rkwards"><a class="t" href="#sumario">RkWard</a></h1>
+            <p>Para calcularmos a Dimensão Fractal, precisamos do Rkwads. (00:57:04)</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Cliente</tab>
@@ -817,11 +816,11 @@
                 </code></pre>
             </div>
 
-        <h2>Escolhendo a rede com melhor desempenho</h2>
+        <h1 id="melhor_desempenho">Escolhendo a rede com melhor desempenho</h1>
 
             <p>Após a planilha está devidamente preenchida, teremos que escolher qual das redes teve o melhor desempenho. Para isso, vamos pegar os valores de Cubic para colocar na planilha e ter com o que comparar. Se o teclado parecer que não está funcionando como deveria, recarregue a página da VM.(01:15:09)</p>
 
-            <h3>Processamento do Apache-Cubic e do Nginx-Cubic</h3>
+            <h2>Processamento do Apache-Cubic e do Nginx-Cubic</h2>
             <p>Dando permissão para os arquivos baixados. (01:15:45)</p>
             <div class="box">
                 <tabs>
@@ -902,7 +901,7 @@
                 </code></pre>
             </div>
 
-            <h3>Processamento de Apache-Bic e Nginx-Bic</h3>
+            <h2>Processamento de Apache-Bic e Nginx-Bic</h2>
             <p>(01:19:19)</p>
             <div class="box">
                 <tabs>

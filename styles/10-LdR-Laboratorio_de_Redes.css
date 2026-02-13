@@ -58,6 +58,10 @@ a {
     transition: 0.2s;
 }
 
+.sumario a {
+    text-decoration: none;
+}
+
 a:hover {
     color: var(--cor-verde-escuro-3);
 }
