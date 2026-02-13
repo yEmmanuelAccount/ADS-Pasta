@@ -28,6 +28,18 @@
                     <li>
                         <a href="#configuracoes">Configurações Necessárias</a>
                         <p>Informa o que é necessário para que o script funcione corretamente.</p>
+                            <ul>
+                                <li>
+                                    <a href="#ping">Ping</a>
+                                    <p></p>
+                                </li>
+                            </ul>
+                            <ul>
+                                <li>
+                                    <a href="#ssh_manual">SSH e Docker</a>
+                                    <p></p>
+                                </li>
+                            </ul>
                     </li>
                     <li>
                         <a href="#script">Script</a>
@@ -67,6 +79,8 @@
  
         <h2 id="configuracoes"><a class="t" href="#sumario">Configurações</a></h2>
 
+
+            <h3 id="ping">Ping</h3>
             <p>Precisamos verificar se a VM está com conexão com a internet, então tentamos dar ping no Google.</p>
             <div class="box">
                 <tabs>
@@ -84,6 +98,33 @@
                 </tabs>
                 <pre><code>
                     <t>></t> sudo dhcpcd
+                </code></pre>
+            </div>
+
+            <h3 id="ssh_manual">SHH</h3>
+            <p>conexão com o servidor.</p>
+            <div class="box">
+                <tabs>
+                    <tab>Cliente</tab>
+                    <tab class="selected">Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>></t> djr@[IP_Proxmox]
+                </code></pre>
+            </div>
+
+            <p></p>
+            <div class="box">
+                <tabs>
+                    <tab class="selected">Cliente</tab>
+                    <tab>Servidor</tab>
+                    <tab>Docker</tab>
+                </tabs>
+                <pre><code>
+                    <t>></t> djr@[IP_Proxmox]
+
+                    <t>></t> sudo docker start 29; sudo docker attach 29
                 </code></pre>
             </div>
 
