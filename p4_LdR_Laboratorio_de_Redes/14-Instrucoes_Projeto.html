@@ -21,7 +21,7 @@
                         <p>Tópicos importantes para o andamento do documento.</p>
                     <li><a href="#ip_proxmox">IP do Proxmox</a></li>
                         <p>Mostra como obter o IP do Proxmox.</p>
-                    <li><a href="#permissoes">Modificando Permissões</a></li>
+                    <li><a href="#configuracoes">Configurações Necessárias</a></li>
                         <p>Entra no arquivo de <strong>sshd_config</strong> e troca a permissão de login na root para verdadeira.</p>
                     <li><a href="#script">Script</a></li>
                         <p>Como rodar o script propriamente dito.</p>
@@ -32,14 +32,14 @@
                 </ul>
             </nav>
 
-        <h2 id="informacoes_importantes">Informações Importantes</h2>
+        <h2 id="informacoes_importantes"><a class="t" href="#sumario">Informações Importantes</a></h2>
             <ol>
                 <li>VMs Docker (CLIENTE) - Servidor XEN: <a href="https://200.129.71.165/">https://200.129.71.165/</a></li>
                 <li>Ubuntu22s (SERVIDOR) - ESXi: <a href="https://200.129.71.165:8006">https://200.129.71.165:8006</a></li>
             </ol>
         <p>Garanta que as duas VMs estão ligadas (XEN e Proxmox).</p>
 
-        <h2 id="ip_proxmox">Obtendo IP do Proxmox</h2>
+        <h2 id="ip_proxmox"><a class="t" href="#sumario">Obtendo IP do Proxmox</a></h2>
 
             <p>Faça o login no Proxmox e use ifconfig para obter o IP (ens18).</p>
             <div class="box">
@@ -56,56 +56,29 @@
                 </code></pre>
             </div>
  
-        <h2 id="permissoes">Permissões</h2>
+        <h2 id="configuracoes"><a class="t" href="#sumario">Configurações</a></h2>
 
-            <p>No terminal da VM Xen, rode o comando a seguir:</p>
-            <div class="box">
-                <tabs>
-                    <tab class="selected">XEN</tab>
-                </tabs>
-                <pre><code>
-                    <comment># estabelecendo conexão</comment>
-                    <t>></t> ssh djr@192.168.0.[IP_Proxmox]
-
-                    <comment># abrindo o arquivo de configuração</comment>
-                    <t>></t> sudo nano /etc/ssh/sshd_config
-                </code></pre>
-            </div>
-
-            <p>Procure a linha <code>#PermitRootLogin prohibit-password</code> e substitua por <code>PermitRootLogin yes</code>.</p>
-
-            <p><strong>Ctrl + O</strong> e Enter para salvar, e <strong>Ctrl + X</strong> para sair do arquivo.</p>
-
-            <p>Agora, troque a senha:</p>
+            <p>Precisamos verificar se a VM está com conexão com a internet, então tentamos dar ping no google.</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Xen</tab>
                 </tabs>
                 <pre><code>
-                    <comment># se transformando em SuperUsuário</comment>
-                    <t>Usuário:</t> sudo su 
-                    <t>Senha:</t> 654123
-
-                    <comment># trocando a senha</comment>
-                    <t>></t> passwd
-                    <t>></t> 654123 <comment># digite a senha</comment>
-                    <t>></t> 654123 <comment># repita a senha</comment>
+                    <t>></t> ping google.com
                 </code></pre>
             </div>
 
-            <p>Saindo do SSH:</p>
-            <p></p>
+            <p>Caso o ping com o Google não funcione, use o comando a seguir e teste novamente o ping.</p>
             <div class="box">
                 <tabs>
                     <tab class="selected">Xen</tab>
                 </tabs>
                 <pre><code>
-                    <t>></t> exit <comment># vai sair do sudo su</comment>
-                    <t>></t> exit <comment># saindo do SSH</comment>
+                    <t>></t> sudo dhcpcd
                 </code></pre>
             </div>
 
-        <h2 id="script">Script</h2>
+        <h2 id="script"><a class="t" href="#sumario">Script</a></h2>
 
             <p>Verifique a existencia da pasta "medidas". Ela deve estar no "~", então digite <code>ls</code> e caso ela exista, rode <code>UM DOS COMANDOS ABAIXO</code>:</p>
             <div class="box">
@@ -156,8 +129,6 @@
                 <pre><code>
                     <comment># instalando o nvm14</comment>
                     <t>></t> nvm install 14 
-
-                    <comment># caso dê errado, siga o passo a seguir</comment>
                 </code></pre>
             </div>
 
@@ -185,7 +156,7 @@
 
             <p>Agora, espere até aparecer a mensagem de "Medições Finalizadas >:Dc"</p>
 
-        <h2 id="tirando_arquivos">Tirando os Arquivos da VM</h2>
+        <h2 id="tirando_arquivos"><a class="t" href="#sumario">Tirando os Arquivos da VM</a></h2>
 
             <p>Depois do script terminar de rodar, entre no Gerenciador de Arquivos e siga o caminho <strong>/home/djr/medidas/build/atividade1</strong>. Você deve encontrar 3 pastas (apache2, nginx e nginx_quic) e um arquivo "results.csv".</p>
 
@@ -203,7 +174,7 @@
                 </code></pre>
             </div>
 
-        <h2 id="enviando_arquivos">Baixando e Enviando Arquivos</h2>
+        <h2 id="enviando_arquivos"><a class="t" href="#sumario">Baixando e Enviando Arquivos</a></h2>
 
             <p>Entrando no navegador da sua máquina, entre no mesmo endereço do <a href="https://talesgardem.com.br/chat.html">Talesgardem</a> e baixe os arquivos que você enviou.</p>
 
